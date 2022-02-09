@@ -19,4 +19,5 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Analytics'
 pod ‘Firebase/AnalyticsWithoutAdIdSupport’
+pod 'SwiftOverlays', '~> 5.0.1'
 end

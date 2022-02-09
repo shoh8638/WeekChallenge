@@ -20,8 +20,7 @@
 		E6584F8027B33E7C00B58FCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6584F7F27B33E7C00B58FCB /* GoogleService-Info.plist */; };
 		E6584F8B27B341A400B58FCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8A27B341A400B58FCB /* LoginViewController.swift */; };
 		E6584F8F27B3434F00B58FCB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8E27B3434F00B58FCB /* SignInViewController.swift */; };
-		E6584F9427B3758B00B58FCB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F9327B3758B00B58FCB /* File.swift */; };
-		E6584F9627B375FD00B58FCB /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F9527B375FD00B58FCB /* ServiceViewController.swift */; };
+		E661441227B386C50000CEA7 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E661441127B386C50000CEA7 /* AuthModel.swift */; };
 		EE355B8C15BDE0BC84AB3B75 /* Pods_WeekChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,8 +65,7 @@
 		E6584F7F27B33E7C00B58FCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6584F8A27B341A400B58FCB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E6584F8E27B3434F00B58FCB /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		E6584F9327B3758B00B58FCB /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		E6584F9527B375FD00B58FCB /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		E661441127B386C50000CEA7 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		F59B675783D8C837E3BDD0D3 /* Pods_WeekChallenge_WeekChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge_WeekChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -195,8 +193,7 @@
 		E6584F8C27B341A800B58FCB /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E6584F9327B3758B00B58FCB /* File.swift */,
-				E6584F9527B375FD00B58FCB /* ServiceViewController.swift */,
+				E661441127B386C50000CEA7 /* AuthModel.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -451,10 +448,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6584F9427B3758B00B58FCB /* File.swift in Sources */,
 				E6584F8F27B3434F00B58FCB /* SignInViewController.swift in Sources */,
-				E6584F9627B375FD00B58FCB /* ServiceViewController.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginViewController.swift in Sources */,
+				E661441227B386C50000CEA7 /* AuthModel.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,
 			);

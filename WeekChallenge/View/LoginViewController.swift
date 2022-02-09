@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -20,8 +21,8 @@ class LoginViewController: UIViewController {
 //MARK: Button
 extension LoginViewController {
     @IBAction func loginBtn(_ sender: Any) {
-        let email = emailText.text!
-        let pwd = pwdText.text!
+       let auth = AuthModel()
+        auth.login(email: emailText.text!, pwd: pwdText.text!, vc: self)
     }
     
     @IBAction func signInBtn(_ sender: Any) {
