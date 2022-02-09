@@ -16,6 +16,8 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailText.delegate = self
+        pwdText.delegate = self
         self.saveBtn(isOn: false)
     }
     
@@ -43,4 +45,20 @@ extension SignInViewController {
             signInBtn.backgroundColor = .lightGray
         }
     }
+}
+
+//MARK: TextFieldDelegate
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailText {
+            pwdText.becomeFirstResponder()
+        } else {
+            pwdText.resignFirstResponder()
+        }
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+   }
 }

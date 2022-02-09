@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailText.delegate = self
+        pwdText.delegate = self
     }
 }
 
@@ -32,3 +34,20 @@ extension LoginViewController {
         self.present(vc!, animated: true, completion: nil)
     }
 }
+
+//MARK: TextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailText {
+            pwdText.becomeFirstResponder()
+        } else {
+            pwdText.resignFirstResponder()
+        }
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+   }
+}
+
