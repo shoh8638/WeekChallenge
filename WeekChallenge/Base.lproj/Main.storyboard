@@ -126,7 +126,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wQP-4d-lZn" secondAttribute="trailing" constant="150" id="wrk-HB-Llf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="o1P-Eu-gV7"/>
                     <connections>
                         <outlet property="emailText" destination="ao3-NO-aIA" id="GVJ-u7-aU0"/>
                         <outlet property="loginBtn" destination="XB6-Ly-5Sd" id="ia3-Ui-3DT"/>
@@ -140,7 +139,7 @@
         <!--Main View Controller-->
         <scene sceneID="m5e-9m-De4">
             <objects>
-                <viewController id="G6q-cm-gMJ" customClass="MainViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainView" id="G6q-cm-gMJ" customClass="MainViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4op-T7-gjK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
