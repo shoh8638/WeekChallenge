@@ -18,4 +18,5 @@ target 'WeekChallenge' do
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'SwiftOverlays', '~> 5.0.1'
+pod 'Tabman'
 end
