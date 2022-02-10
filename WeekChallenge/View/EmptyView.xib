@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyView" customModule="WeekChallenge" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dnO-qE-9ed">
+                    <rect key="frame" x="90" y="324" width="99" height="258"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRy-MJ-8zc">
+                            <rect key="frame" x="16" y="0.0" width="67" height="150"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="JRo-yy-XbR"/>
+                                <constraint firstAttribute="width" constant="200" id="qUI-YJ-ehw"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <connections>
+                                <action selector="newButton:" destination="-1" eventType="touchUpInside" id="yck-IY-xaf"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="텅~비었습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7z-W9-LNP">
+                            <rect key="frame" x="0.0" y="150" width="99" height="108"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="dnO-qE-9ed" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="280" id="3Wk-G4-Sc2"/>
+                <constraint firstItem="dnO-qE-9ed" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="90" id="5NQ-L8-v9c"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dnO-qE-9ed" secondAttribute="trailing" constant="130" id="XiS-eC-uaF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="dnO-qE-9ed" secondAttribute="bottom" constant="280" id="ww0-Tb-x2a"/>
+            </constraints>
+            <point key="canvasLocation" x="133" y="12"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
