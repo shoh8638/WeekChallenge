@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var pwdText: UITextField!
     
@@ -23,11 +23,13 @@ class LoginViewController: UIViewController {
 //MARK: Button
 extension LoginViewController {
     @IBAction func loginBtn(_ sender: Any) {
-       let auth = AuthModel()
+        print("LoginView_LoginBtn")
+        let auth = AuthModel()
         auth.login(email: emailText.text!, pwd: pwdText.text!, vc: self)
     }
     
     @IBAction func signInBtn(_ sender: Any) {
+        print("LoginView_SignInBtn")
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignInView")
         vc?.modalPresentationStyle = .fullScreen
         vc?.modalTransitionStyle = .crossDissolve
@@ -47,7 +49,7 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-         self.view.endEditing(true)
-   }
+        self.view.endEditing(true)
+    }
 }
 
