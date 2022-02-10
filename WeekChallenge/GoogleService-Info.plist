@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>889789619217-oge3vs4bojsu8t8789rdle7vcaqrn5fk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.889789619217-oge3vs4bojsu8t8789rdle7vcaqrn5fk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA-nI_3FjcJuL7PCqXcenIYl302Px8prc4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>889789619217</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>shoh-gmail.com.WeekChallenge</string>
+	<key>PROJECT_ID</key>
+	<string>week-challenge-67756</string>
+	<key>STORAGE_BUCKET</key>
+	<string>week-challenge-67756.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:889789619217:ios:48f9f01443436aed9965b0</string>
+</dict>
+</plist>
