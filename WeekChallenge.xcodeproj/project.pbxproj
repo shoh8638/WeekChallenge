@@ -19,7 +19,7 @@
 		E6584F7327B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F7227B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift */; };
 		E6584F8B27B341A400B58FCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8A27B341A400B58FCB /* LoginViewController.swift */; };
 		E6584F8F27B3434F00B58FCB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8E27B3434F00B58FCB /* SignInViewController.swift */; };
-		E661441227B386C50000CEA7 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E661441127B386C50000CEA7 /* AuthModel.swift */; };
+		E661441227B386C50000CEA7 /* AutoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E661441127B386C50000CEA7 /* AutoService.swift */; };
 		E6853F9D27B49B2A0091B4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */; };
 		E6853F9F27B4A26E0091B4A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853F9E27B4A26E0091B4A7 /* MainViewController.swift */; };
 		EE355B8C15BDE0BC84AB3B75 /* Pods_WeekChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */; };
@@ -83,7 +83,7 @@
 		E6584F7227B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E6584F8A27B341A400B58FCB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E6584F8E27B3434F00B58FCB /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		E661441127B386C50000CEA7 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		E661441127B386C50000CEA7 /* AutoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoService.swift; sourceTree = "<group>"; };
 		E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6853F9E27B4A26E0091B4A7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F59B675783D8C837E3BDD0D3 /* Pods_WeekChallenge_WeekChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge_WeekChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,7 +214,7 @@
 		E6584F8C27B341A800B58FCB /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E661441127B386C50000CEA7 /* AuthModel.swift */,
+				E661441127B386C50000CEA7 /* AutoService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -505,7 +505,7 @@
 			files = (
 				E6584F8F27B3434F00B58FCB /* SignInViewController.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginViewController.swift in Sources */,
-				E661441227B386C50000CEA7 /* AuthModel.swift in Sources */,
+				E661441227B386C50000CEA7 /* AutoService.swift in Sources */,
 				E6853F9F27B4A26E0091B4A7 /* MainViewController.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,

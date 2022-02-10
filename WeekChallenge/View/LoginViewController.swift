@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     @IBAction func loginBtn(_ sender: Any) {
         print("Login_signInBtn")
-        let auth = AuthModel()
+        let auth = AutoService()
         auth.login(email: emailText.text!, pwd: pwdText.text!, vc: self)
     }
     

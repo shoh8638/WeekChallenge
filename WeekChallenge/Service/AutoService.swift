@@ -1,5 +1,5 @@
 //
-//  AuthModel.swift
+//  AutoService.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/02/09.
@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 import SwiftOverlays
 
-class AuthModel {
+class AutoService {
     func login(email: String, pwd: String, vc: UIViewController) {
         vc.showTextOverlay("please Wait....")
         Auth.auth().signIn(withEmail: email, password: pwd) { authResult, error in
