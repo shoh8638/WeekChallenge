@@ -14,6 +14,7 @@ class AuthModel {
         vc.showTextOverlay("please Wait....")
         Auth.auth().signIn(withEmail: email, password: pwd) { authResult, error in
             if authResult != nil {
+                print("LoginView Success")
                 let alert = UIAlertController(title: "알림", message: "로그인 성공", preferredStyle: .alert)
                 let action = UIAlertAction(title: "확인", style: .default, handler: nil)
                 alert.addAction(action)
@@ -21,6 +22,7 @@ class AuthModel {
                     vc.removeAllOverlays()
                 }
             } else {
+                print("LoginView Failure")
                 let alert = UIAlertController(title: "알림", message: "로그인 실패", preferredStyle: .alert)
                 let action = UIAlertAction(title: "확인", style: .default, handler: nil)
                 alert.addAction(action)
