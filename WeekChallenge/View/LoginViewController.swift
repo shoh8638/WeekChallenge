@@ -12,18 +12,21 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var pwdText: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailText.delegate = self
         pwdText.delegate = self
+        loginBtn.isEnabled = false
+        loginBtn.backgroundColor = .lightGray
     }
 }
 
 //MARK: Button
 extension LoginViewController {
     @IBAction func loginBtn(_ sender: Any) {
-        print("LoginView_LoginBtn")
+        print("Login_signInBtn")
         let auth = AuthModel()
         auth.login(email: emailText.text!, pwd: pwdText.text!, vc: self)
     }
@@ -50,6 +53,17 @@ extension LoginViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if emailText.text!.count > 5 && pwdText.text!.count > 5 {
+            loginBtn.isEnabled = true
+            loginBtn.backgroundColor = UIColor(red: 1.0, green: 22.0/255.0, blue: 84.0/255.0, alpha: 1.0)
+        } else {
+            loginBtn.isEnabled = false
+            loginBtn.backgroundColor = .lightGray
+        }
+        return true
     }
 }
 

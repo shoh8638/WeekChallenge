@@ -18,32 +18,16 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         emailText.delegate = self
         pwdText.delegate = self
-        self.saveBtn(isOn: false)
+        signInBtn.isEnabled = false
+        signInBtn.backgroundColor = .lightGray
     }
-    
 }
 
 //MARK: Button
 extension SignInViewController {
-    @IBAction func changeBtnColor(_ sender: UITextField) {
-        if sender.text?.isEmpty == true {
-            self.saveBtn(isOn: false)
-        } else {
-            self.saveBtn(isOn: true)
-            let signIn = AuthModel()
-            signIn.signIn(email: emailText.text!, pwd: pwdText.text!, vc: self)
-        }
-        
-    }
-    func saveBtn(isOn: Bool) {
-        switch isOn {
-        case true :
-            signInBtn.isEnabled = true
-            signInBtn.backgroundColor = UIColor(red: 255.0, green: 22.0, blue: 84.0, alpha: 0)
-        case false :
-            signInBtn.isEnabled = false
-            signInBtn.backgroundColor = .lightGray
-        }
+    @IBAction func signInBtn(_ sender: Any) {
+        let auth = AuthModel()
+        auth.signIn(email: emailText.text!, pwd: pwdText.text!, vc: self)
     }
 }
 
@@ -61,4 +45,15 @@ extension SignInViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
          self.view.endEditing(true)
    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if emailText.text!.count > 5 && pwdText.text!.count > 5 {
+            signInBtn.isEnabled = true
+            signInBtn.backgroundColor = UIColor(red: 1.0, green: 22.0/255.0, blue: 84.0/255.0, alpha: 1.0)
+        } else {
+            signInBtn.isEnabled = false
+            signInBtn.backgroundColor = .lightGray
+        }
+        return true
+    }
 }
