@@ -6,32 +6,43 @@
 //
 
 import UIKit
-
-protocol ButtonAction {
-    func touchUpEvent()
-}
+import SnapKit
 
 class EmptyView: UIView {
-        
-    var delegate: ButtonAction?
+    
+    lazy var mainButton: UIButton = {
+        let b = UIButton(type: .custom)
+        b.backgroundColor = .lightGray
+        b.setTitle("조회중", for: .normal)
+        b.setTitleColor(.white, for: .normal)
+        b.layer.cornerRadius = 10
+        return b
+    }()
+    
+    lazy var mainView: UIView = {
+        let v = UIView()
+        v.addSubview(mainButton)
+        mainButton.snp.remakeConstraints { maker in
+            maker.center.equalToSuperview()
+        }
+        return v
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        emptyView()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        emptyView()
+        setupView()
     }
     
-    func emptyView() {
-        let view = Bundle.main.loadNibNamed("EmptyView", owner: self, options: nil)?.first as! UIView
-        view.frame = self.bounds
-        self.addSubview(view)
-    }
-    
-    @IBAction func newButton(_ sender: UIButton) {
-        delegate?.touchUpEvent()
+    func setupView() {
+        backgroundColor = .white
+        addSubview(mainView)
+        mainView.snp.remakeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
     }
 }

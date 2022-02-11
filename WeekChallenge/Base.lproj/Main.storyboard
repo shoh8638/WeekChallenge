@@ -231,7 +231,6 @@
                     </view>
                     <connections>
                         <outlet property="homeView" destination="f8b-rd-zO0" id="0lh-z6-9DC"/>
-                        <outlet property="scrollView" destination="2yd-oq-oSh" id="ZUq-a8-hok"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41Y-Np-3qV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

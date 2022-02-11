@@ -11,32 +11,30 @@ import SnapKit
 class HomeViewController: UIViewController {
     let arr: Array<String> = []
     
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var homeView: UIView!
     
-    let emptyView = EmptyView()
+    lazy var emptyView : EmptyView = {
+        let view = EmptyView()
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
+        setupView()
     }
     
-    func setUpView() {
-        emptyView.delegate = self
-        emptyView.snp.remakeConstraints { maker in
-            maker.width.equalTo(UIScreen.main.bounds.width)
-            maker.height.equalTo(UIScreen.main.bounds.height)
-        }
+    func setupView() {
         if arr.count == 0 {
             self.homeView.addSubview(emptyView)
+            emptyView.snp.remakeConstraints { maker in
+                maker.edges.equalToSuperview()
+            }
+            self.emptyView.mainButton.addTarget(self, action: #selector(Click), for: .touchUpInside)
         } else {
             
         }
     }
-}
-
-extension HomeViewController: ButtonAction {
-    func touchUpEvent() {
-        print("tap")
+    @objc func Click(sender: UIButton? = nil) {
+        print("Tap")
     }
 }
