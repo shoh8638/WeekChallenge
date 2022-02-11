@@ -26,7 +26,7 @@ class SignInViewController: UIViewController {
 //MARK: Button
 extension SignInViewController {
     @IBAction func signInBtn(_ sender: Any) {
-        let auth = AutoService()
+        let auth = AuthService()
         auth.signIn(email: emailText.text!, pwd: pwdText.text!, vc: self)
     }
 }
