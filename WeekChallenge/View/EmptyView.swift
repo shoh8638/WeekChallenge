@@ -19,10 +19,30 @@ class EmptyView: UIView {
         return b
     }()
     
+    lazy var subText: UILabel = {
+        let t = UILabel()
+        t.text = "조회중"
+        t.textColor = .black
+        t.backgroundColor = .lightGray
+        
+        return t
+    }()
+    
     lazy var mainView: UIView = {
         let v = UIView()
         v.addSubview(mainButton)
         mainButton.snp.remakeConstraints { maker in
+            maker.edges.equalTo(UIEdgeInsets(top: 200, left: 100, bottom: 200, right: 100))
+            maker.height.equalTo(100)
+            maker.width.equalTo(100)
+        }
+        return v
+    }()
+    
+    lazy var subView: UIView = {
+        let v = UIView()
+        v.addSubview(subText)
+        subText.snp.remakeConstraints { maker in
             maker.center.equalToSuperview()
         }
         return v
@@ -39,9 +59,12 @@ class EmptyView: UIView {
     }
     
     func setupView() {
+        let vStack = UIStackView(arrangedSubviews: [mainView,subView])
+        vStack.axis = .vertical
+        vStack.spacing = 3
         backgroundColor = .white
-        addSubview(mainView)
-        mainView.snp.remakeConstraints { maker in
+        addSubview(vStack)
+        vStack.snp.remakeConstraints { maker in
             maker.edges.equalToSuperview()
         }
     }
