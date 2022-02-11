@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SwiftOverlays
 
 class HomeViewController: UIViewController {
     let arr: Array<String> = []
@@ -24,14 +25,16 @@ class HomeViewController: UIViewController {
     }
     
     func setupView() {
+        self.showTextOverlay("Please Wait...")
         if arr.count == 0 {
+            self.removeAllOverlays()
             self.homeView.addSubview(emptyView)
             emptyView.snp.remakeConstraints { maker in
                 maker.edges.equalToSuperview()
             }
             self.emptyView.mainButton.addTarget(self, action: #selector(Click), for: .touchUpInside)
         } else {
-            
+            self.removeAllOverlays()
         }
     }
     @objc func Click(sender: UIButton? = nil) {
