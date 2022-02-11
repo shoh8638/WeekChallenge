@@ -11,9 +11,8 @@ protocol ButtonAction {
     func touchUpEvent()
 }
 
-@IBDesignable
 class EmptyView: UIView {
-    
+        
     var delegate: ButtonAction?
     
     override init(frame: CGRect) {
@@ -32,7 +31,7 @@ class EmptyView: UIView {
         self.addSubview(view)
     }
     
-    @IBAction func newButton(_ sender: Any) {
-        self.delegate!.touchUpEvent()
+    @IBAction func newButton(_ sender: UIButton) {
+        delegate?.touchUpEvent()
     }
 }

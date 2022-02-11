@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SnapKit
 
 class HomeViewController: UIViewController {
     let arr: Array<String> = []
@@ -14,20 +14,23 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var homeView: UIView!
     
-    lazy var emptyView: EmptyView = {
-        let view = EmptyView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    let emptyView = EmptyView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.emptyView.delegate = self
-        
+        setUpView()
+    }
+    
+    func setUpView() {
+        emptyView.delegate = self
+        emptyView.snp.remakeConstraints { maker in
+            maker.width.equalTo(UIScreen.main.bounds.width)
+            maker.height.equalTo(UIScreen.main.bounds.height)
+        }
         if arr.count == 0 {
-            homeView.addSubview(emptyView)
+            self.homeView.addSubview(emptyView)
         } else {
+            
         }
     }
 }

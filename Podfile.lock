@@ -431,6 +431,7 @@ PODS:
   - nanopb/encode (2.30908.0)
   - Pageboy (3.6.2)
   - PromisesObjC (2.0.0)
+  - SnapKit (5.0.1)
   - SwiftOverlays (5.0.1)
   - Tabman (2.11.1):
     - Pageboy (~> 3.6.0)
@@ -438,6 +439,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
+  - SnapKit (~> 5.0.0)
   - SwiftOverlays (~> 5.0.1)
   - Tabman
 
@@ -459,6 +461,7 @@ SPEC REPOS:
     - nanopb
     - Pageboy
     - PromisesObjC
+    - SnapKit
     - SwiftOverlays
     - Tabman
 
@@ -479,9 +482,10 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
 
-PODFILE CHECKSUM: 5c88616a305d626c98d5f1a2ddb54d765e9e7eb4
+PODFILE CHECKSUM: 1fadd7d208b738f030eba4cbe10ea11e07ac5935
 
 COCOAPODS: 1.11.2
