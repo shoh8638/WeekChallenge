@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -192,7 +191,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홈화면에 대해 설명 및 사용 밥법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hP-SB-cnW">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홈화면에 대해 설명 및 사용 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hP-SB-cnW">
                                                         <rect key="frame" x="0.0" y="35.5" width="354" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -218,7 +217,7 @@
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                                 <connections>
-                                                                    <action selector="expandBtn:" destination="vpH-ON-pb4" eventType="touchUpInside" id="utw-5w-TYi"/>
+                                                                    <action selector="planChoice:" destination="vpH-ON-pb4" eventType="touchUpInside" id="8fA-ZM-F8C"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hId-RD-SPB" userLabel="maker.edges.equalToSuperview()">
@@ -249,47 +248,6 @@
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NGB-WJ-Iro">
                                                 <rect key="frame" x="30" y="239" width="354" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EDW-Zp-27Y">
-                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="128"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0f3-Qs-NNC">
-                                                            <size key="itemSize" width="128" height="128"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="6CN-uq-SKH" customClass="Cell" customModule="WeekChallenge" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.5" width="127.5" height="127.5"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wcv-Zt-cgh">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEK-Ro-qWr">
-                                                                            <rect key="frame" x="43" y="54" width="41.5" height="20.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstItem="mEK-Ro-qWr" firstAttribute="leading" secondItem="wcv-Zt-cgh" secondAttribute="leading" constant="43" id="RFX-58-azT"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="mEK-Ro-qWr" secondAttribute="trailing" constant="43" id="Yma-Df-2Dq"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="mEK-Ro-qWr" secondAttribute="bottom" constant="53" id="ocB-I4-tFC"/>
-                                                                        <constraint firstItem="mEK-Ro-qWr" firstAttribute="top" secondItem="wcv-Zt-cgh" secondAttribute="top" constant="54" id="pDv-J7-ezJ"/>
-                                                                    </constraints>
-                                                                </collectionViewCellContentView>
-                                                            </collectionViewCell>
-                                                        </cells>
-                                                        <connections>
-                                                            <outlet property="dataSource" destination="vpH-ON-pb4" id="M85-em-dMc"/>
-                                                            <outlet property="delegate" destination="vpH-ON-pb4" id="nAT-hh-kKX"/>
-                                                        </connections>
-                                                    </collectionView>
-                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                             </view>
                                         </subviews>
@@ -326,8 +284,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="EDW-Zp-27Y" id="mTg-Dh-3GU"/>
-                        <outlet property="hiddenView" destination="NGB-WJ-Iro" id="aX2-qS-Klu"/>
+                        <outlet property="contributionView" destination="NGB-WJ-Iro" id="DHB-vF-qqr"/>
                         <outlet property="homeView" destination="f8b-rd-zO0" id="0lh-z6-9DC"/>
                     </connections>
                 </viewController>
@@ -335,16 +292,35 @@
             </objects>
             <point key="canvasLocation" x="2811.594202898551" y="97.767857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Plan View Controller-->
         <scene sceneID="oms-jS-0hb">
             <objects>
-                <viewController storyboardIdentifier="AppWrite" id="eMA-0m-qWs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppPlan" id="eMA-0m-qWs" customClass="PlanViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FMo-gB-M9y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4ko-Nb-FfJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="eMA-0m-qWs" id="Kk6-OW-L09"/>
+                                    <outlet property="delegate" destination="FMo-gB-M9y" id="zpf-Tv-Njp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VbS-EV-Tr4"/>
                         <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <constraints>
+                            <constraint firstItem="4ko-Nb-FfJ" firstAttribute="top" secondItem="VbS-EV-Tr4" secondAttribute="top" id="6Hg-Bu-2Zk"/>
+                            <constraint firstItem="4ko-Nb-FfJ" firstAttribute="leading" secondItem="VbS-EV-Tr4" secondAttribute="leading" id="BZv-ln-uQa"/>
+                            <constraint firstItem="VbS-EV-Tr4" firstAttribute="bottom" secondItem="4ko-Nb-FfJ" secondAttribute="bottom" id="Z0h-vX-paG"/>
+                            <constraint firstItem="VbS-EV-Tr4" firstAttribute="trailing" secondItem="4ko-Nb-FfJ" secondAttribute="trailing" id="ZlH-QF-ors"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="homeView" destination="FMo-gB-M9y" id="lmB-qn-S7y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deE-x9-yad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

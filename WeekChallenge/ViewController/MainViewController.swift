@@ -24,7 +24,7 @@ class MainViewController: TabmanViewController {
     
     func VCAppend() {
         let vc1 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppMain") as! HomeViewController
-        let vc2 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppWrite")
+        let vc2 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppPlan")
         let vc3 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppBoard")
         let vc4 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppETC")
         viewControllers.append(vc1)
@@ -53,7 +53,7 @@ extension MainViewController: PageboyViewControllerDataSource, TMBarDataSource {
         case 0:
             return TMBarItem(title: "Home")
         case 1:
-            return TMBarItem(title: "Write")
+            return TMBarItem(title: "Plan")
         case 2:
             return TMBarItem(title: "Board")
         case 3:
