@@ -21,6 +21,10 @@
 		E6584F8F27B3434F00B58FCB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8E27B3434F00B58FCB /* SignInViewController.swift */; };
 		E661441227B386C50000CEA7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E661441127B386C50000CEA7 /* AuthService.swift */; };
 		E667FCB427B9E5F2009AEFE0 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB327B9E5F2009AEFE0 /* PlanViewController.swift */; };
+		E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB527B9EF6C009AEFE0 /* Database.swift */; };
+		E667FCB827BA1841009AEFE0 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB727BA1841009AEFE0 /* CustomAlert.swift */; };
+		E667FCBB27BA4483009AEFE0 /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCBA27BA4483009AEFE0 /* PlanTableViewCell.swift */; };
+		E667FCBD27BA4B11009AEFE0 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCBC27BA4B11009AEFE0 /* CustomView.swift */; };
 		E6853F9D27B49B2A0091B4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */; };
 		E6853F9F27B4A26E0091B4A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853F9E27B4A26E0091B4A7 /* MainViewController.swift */; };
 		E6853FA627B4F20B0091B4A7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853FA527B4F20B0091B4A7 /* HomeViewController.swift */; };
@@ -88,6 +92,10 @@
 		E6584F8E27B3434F00B58FCB /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E661441127B386C50000CEA7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E667FCB327B9E5F2009AEFE0 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		E667FCB527B9EF6C009AEFE0 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		E667FCB727BA1841009AEFE0 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		E667FCBA27BA4483009AEFE0 /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
+		E667FCBC27BA4B11009AEFE0 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6853F9E27B4A26E0091B4A7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E6853FA527B4F20B0091B4A7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +173,7 @@
 				E6584F8C27B341A800B58FCB /* Service */,
 				E6584F8927B3419400B58FCB /* Model */,
 				E6584F8827B3418F00B58FCB /* ViewModel */,
-				E6853FA027B4F0DF0091B4A7 /* ViewController */,
+				E6853FA027B4F0DF0091B4A7 /* Cell */,
 				E6584F8727B3418A00B58FCB /* View */,
 				E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */,
 				E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */,
@@ -197,7 +205,12 @@
 		E6584F8727B3418A00B58FCB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E6853FA727B4F2E90091B4A7 /* EmptyView.swift */,
+				E667FCB927BA445E009AEFE0 /* CustomView */,
+				E6584F8A27B341A400B58FCB /* LoginViewController.swift */,
+				E6584F8E27B3434F00B58FCB /* SignInViewController.swift */,
+				E6853F9E27B4A26E0091B4A7 /* MainViewController.swift */,
+				E6853FA527B4F20B0091B4A7 /* HomeViewController.swift */,
+				E667FCB327B9E5F2009AEFE0 /* PlanViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				E661441127B386C50000CEA7 /* AuthService.swift */,
+				E667FCB527B9EF6C009AEFE0 /* Database.swift */,
+				E667FCB727BA1841009AEFE0 /* CustomAlert.swift */,
+				E667FCBC27BA4B11009AEFE0 /* CustomView.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -258,16 +274,20 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		E6853FA027B4F0DF0091B4A7 /* ViewController */ = {
+		E667FCB927BA445E009AEFE0 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				E6584F8A27B341A400B58FCB /* LoginViewController.swift */,
-				E6584F8E27B3434F00B58FCB /* SignInViewController.swift */,
-				E6853F9E27B4A26E0091B4A7 /* MainViewController.swift */,
-				E6853FA527B4F20B0091B4A7 /* HomeViewController.swift */,
-				E667FCB327B9E5F2009AEFE0 /* PlanViewController.swift */,
+				E6853FA727B4F2E90091B4A7 /* EmptyView.swift */,
 			);
-			path = ViewController;
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		E6853FA027B4F0DF0091B4A7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E667FCBA27BA4483009AEFE0 /* PlanTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		FC38C3071DF2CEFD7850E1DD /* Frameworks */ = {
@@ -524,11 +544,15 @@
 				E6584F8F27B3434F00B58FCB /* SignInViewController.swift in Sources */,
 				E6853FA827B4F2E90091B4A7 /* EmptyView.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginViewController.swift in Sources */,
+				E667FCBB27BA4483009AEFE0 /* PlanTableViewCell.swift in Sources */,
 				E661441227B386C50000CEA7 /* AuthService.swift in Sources */,
+				E667FCBD27BA4B11009AEFE0 /* CustomView.swift in Sources */,
 				E6853FA627B4F20B0091B4A7 /* HomeViewController.swift in Sources */,
 				E6853F9F27B4A26E0091B4A7 /* MainViewController.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,
+				E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */,
+				E667FCB827BA1841009AEFE0 /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

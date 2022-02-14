@@ -8,31 +8,18 @@
 import UIKit
 
 class PlanViewController: UIViewController {
-    let arr: Array<String> = []
+    let arr: Array<String> = ["1"]
+    
     @IBOutlet weak var homeView: UIView!
+    @IBOutlet weak var homeTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
-    lazy var emptyView : EmptyView = {
-        let view = EmptyView()
-        return view
-    }()
-    
     func setupView() {
-        if arr.count == 0 {
-            self.homeView.addSubview(emptyView)
-            emptyView.snp.remakeConstraints { maker in
-                maker.edges.equalToSuperview()
-            }
-            self.emptyView.mainButton.addTarget(self, action: #selector(Click), for: .touchUpInside)
-        }
-    }
-    
-    @objc func Click(sender: UIButton? = nil) {
-        print("Tap")
+        Database().checkDB(userID: "",v: homeView)
     }
 }
 
@@ -42,6 +29,8 @@ extension PlanViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
+        cell.detailBtn.setTitle("Btn", for: .normal)
+        return cell
     }
 }

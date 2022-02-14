@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class SignInViewController: UIViewController {
-
+    
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var pwdText: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
@@ -43,8 +43,8 @@ extension SignInViewController: UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-         self.view.endEditing(true)
-   }
+        self.view.endEditing(true)
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if emailText.text!.count > 5 && pwdText.text!.count > 5 {

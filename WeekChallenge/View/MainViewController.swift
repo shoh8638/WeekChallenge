@@ -14,6 +14,7 @@ class MainViewController: TabmanViewController {
     
     private var viewControllers: Array<UIViewController> = []
     @IBOutlet weak var tabBar: UIView!
+    var userID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,15 +66,12 @@ extension MainViewController: PageboyViewControllerDataSource, TMBarDataSource {
     
     func settingBar() {
         let bar = TMBar.TabBar()
-//        bar.contentMode = .scaleToFill
         bar.layout.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 18, right: 20)
         bar.buttons.customize { btn in
             btn.tintColor = .lightGray
             btn.selectedTintColor  = .black
             btn.backgroundColor = .clear
         }
-        
-//        addBar(bar, dataSource: self, at: .bottom)
         addBar(bar, dataSource: self, at: .custom(view: tabBar, layout: nil))
     }
 }

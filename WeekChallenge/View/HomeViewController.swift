@@ -13,13 +13,21 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var contributionView: UIView!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         LSHView()
-    }   
+        print(MainViewController().userID)
+    }
     
     @IBAction func planChoice(_ sender: Any) {
+        /*
+         5,10,15일차 할 수 있는 선택지가 나오고
+         5일 선택 시,
+         1) 5일 챌린지 이름 작성
+         2) 현재 날짜와 5일뒤 날짜 자동 기입
+         3)
+         */
     }
     
     func LSHView() {
