@@ -24,7 +24,6 @@ class EmptyView: UIView {
         t.text = "조회중"
         t.textColor = .black
         t.backgroundColor = .lightGray
-        
         return t
     }()
     
@@ -32,7 +31,7 @@ class EmptyView: UIView {
         let v = UIView()
         v.addSubview(mainButton)
         mainButton.snp.remakeConstraints { maker in
-            maker.edges.equalTo(UIEdgeInsets(top: 200, left: 100, bottom: 200, right: 100))
+            maker.edges.equalTo(UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100))
             maker.height.equalTo(100)
             maker.width.equalTo(100)
         }

@@ -23,8 +23,8 @@ class Database {
         }
     }
     
-    func createDB(folderName: String, week: Array<Int>, title: Array<String>, date: Array<Int> ) {
-        db.collection("aaa@aaa.com").document(folderName).setData(["DateArray": week, "Title": title, "Date": date]) { err in
+    func createDB(folderName: String, title: String, date: Array<String> ) {
+        db.collection("aaa@aaa.com").document(folderName).setData(["Title": title, "Date": date]) { err in
             guard err == nil else {
                 return print("createDB err: \(err!)")
             }

@@ -18,10 +18,10 @@ class CustomView {
         emptyView.snp.remakeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-        emptyView.mainButton.addTarget(self, action: #selector(Click), for: .touchUpInside)
+        emptyView.mainButton.addTarget(self, action: #selector(emptyClick), for: .touchUpInside)
     }
     
-    @objc func Click(sender: UIButton? = nil) {
+    @objc func emptyClick(sender: UIButton? = nil) {
         print("Tap")
     }
 }
