@@ -22,7 +22,7 @@ class ETCViewController: UIViewController {
     
     func setup() {
         if let userID = Auth.auth().currentUser?.email {
-            self.userIDText.text = userID
+//            self.userIDText.text = userID
         }
     }
     
