@@ -13,8 +13,8 @@ import Pageboy
 class MainViewController: TabmanViewController {
     
     private var viewControllers: Array<UIViewController> = []
+    
     @IBOutlet weak var tabBar: UIView!
-    var userID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class MainViewController: TabmanViewController {
         self.dataSource = self
         settingBar()
     }
-    
+
     func VCAppend() {
         let vc1 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppMain") as! HomeViewController
         let vc2 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppPlan")

@@ -8,12 +8,15 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import Firebase
+
+typealias completionHandler = (Any)->()
 
 class Database {
     let db = Firestore.firestore()
-    var userID = AuthService().userID
     var folder: Array<String> = [""]
     
+
     func signInDB(id: String, email: String, pwd: String, nickname: String) {
         db.collection(id).document("UserData").setData(["Email":email,"password": pwd, "Nickname": nickname]) { err in
             guard err == nil else {
@@ -34,16 +37,16 @@ class Database {
         }
     }
     
-    func updateDB(userFolder: String) {
-        let path = db.collection(self.userID).document(userFolder)
+    func updateDB(userID: String, userFolder: String) {
+        let path = db.collection(userID).document(userFolder)
         //array
         path.updateData(["": FieldValue.arrayUnion(["",""])])
         //dict
         path.updateData(["": ["": ""]])
     }
     
-    func removeDB(userFolder: String) {
-        let path = db.collection(self.userID).document(userFolder)
+    func removeDB(userID: String, userFolder: String) {
+        let path = db.collection(userID).document(userFolder)
         path.updateData(["": FieldValue.arrayRemove(["",""])])
     }
     
@@ -51,14 +54,12 @@ class Database {
         
     }
     
-    func checkDB(userID: String, v: UIView) {
-        db.collection("aaa@aaa.com").getDocuments() { (querySnapshot, err) in
+    func checkDB(userID: String, completionHandler: @escaping completionHandler ) {
+        db.collection(userID).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                if querySnapshot?.count == 1 {
-                    CustomView().addView(v: v)
-                }
+                completionHandler(querySnapshot!.count)
             }
         }
     }

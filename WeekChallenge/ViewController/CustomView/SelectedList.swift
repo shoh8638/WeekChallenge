@@ -96,20 +96,25 @@ class SelectedList: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initialized()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        initialized()
     }
     
     func initialized() {
         let vStack = UIStackView(arrangedSubviews: [firstTap,firstTapLine,secondTap,secondTapLine,thirdTap,thirdTapLine])
         vStack.axis = .vertical
         vStack.alignment = .center
+        vStack.spacing = 10
         vStack.distribution = .fillEqually
+        vStack.backgroundColor = .white
         self.addSubview(vStack)
         vStack.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(UIEdgeInsets(top: 300, left: 50, bottom: 300, right: 50))
+            make.center.equalToSuperview()
         }
     }
 }

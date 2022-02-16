@@ -25,7 +25,6 @@ class CustomAlert {
         let mainVC = vc.storyboard?.instantiateViewController(withIdentifier: "MainView") as! MainViewController
         mainVC.modalTransitionStyle = .crossDissolve
         mainVC.modalPresentationStyle = .fullScreen
-        mainVC.userID = email
         
         let alert = UIAlertController(title: "알림" , message: message , preferredStyle: .alert)
         let action = UIAlertAction(title: "확인", style: .default) { _ in

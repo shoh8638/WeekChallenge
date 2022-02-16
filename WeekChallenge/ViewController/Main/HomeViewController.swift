@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LSHView()
-        print(MainViewController().userID)
     }
     
     @IBAction func planChoice(_ sender: Any) {
