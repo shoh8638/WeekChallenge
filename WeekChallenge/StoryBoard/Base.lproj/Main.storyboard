@@ -16,10 +16,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Login View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginView" id="BYZ-38-t0r" customClass="LoginViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="BYZ-38-t0r" customClass="LoginVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="97.767857142857139"/>
         </scene>
-        <!--Main View Controller-->
+        <!--MainVC-->
         <scene sceneID="m5e-9m-De4">
             <objects>
-                <viewController storyboardIdentifier="MainView" id="G6q-cm-gMJ" customClass="MainViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainView" id="G6q-cm-gMJ" customClass="MainVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4op-T7-gjK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="1902.8985507246377" y="97.767857142857139"/>
         </scene>
-        <!--Home View Controller-->
+        <!--HomeVC-->
         <scene sceneID="xKn-ga-OOr">
             <objects>
-                <viewController storyboardIdentifier="AppMain" id="vpH-ON-pb4" customClass="HomeViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppMain" id="vpH-ON-pb4" customClass="HomeVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rtx-KC-2vL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,10 +292,10 @@
             </objects>
             <point key="canvasLocation" x="2811.594202898551" y="97.767857142857139"/>
         </scene>
-        <!--Plan View Controller-->
+        <!--PlanVC-->
         <scene sceneID="oms-jS-0hb">
             <objects>
-                <viewController storyboardIdentifier="AppPlan" id="eMA-0m-qWs" customClass="PlanViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppPlan" id="eMA-0m-qWs" customClass="PlanVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FMo-gB-M9y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -380,10 +380,10 @@
             </objects>
             <point key="canvasLocation" x="2812" y="1568"/>
         </scene>
-        <!--View Controller-->
+        <!--EtcVC-->
         <scene sceneID="wFa-Tn-tai">
             <objects>
-                <viewController storyboardIdentifier="AppETC" id="wb1-wT-sld" customClass="ETCViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppETC" id="wb1-wT-sld" customClass="EtcVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z8u-MB-kWL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -395,10 +395,10 @@
             </objects>
             <point key="canvasLocation" x="2812" y="2314"/>
         </scene>
-        <!--Sign In View Controller-->
+        <!--Sign InVC-->
         <scene sceneID="WuL-bG-UAl">
             <objects>
-                <viewController storyboardIdentifier="SignInView" id="Ib5-h3-mjO" customClass="SignInViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInView" id="Ib5-h3-mjO" customClass="SignInVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3mS-do-rfr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

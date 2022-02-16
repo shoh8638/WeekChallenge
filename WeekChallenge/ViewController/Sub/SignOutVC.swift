@@ -1,5 +1,5 @@
 //
-//  SignOutViewController.swift
+//  SignOutVC.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/02/16.
@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 import SwiftOverlays
 
-class SignOutViewController: UIViewController {
+class SignOutVC: UIViewController {
     
     @IBOutlet weak var userIDText: UILabel!
     @IBOutlet weak var changePWD: UITextField!

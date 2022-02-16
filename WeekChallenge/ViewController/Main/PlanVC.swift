@@ -1,5 +1,5 @@
 //
-//  PlanViewController.swift
+//  PlanVC.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/02/14.
@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class PlanViewController: UIViewController {
+class PlanVC: UIViewController {
     let arr: Array<String> = ["1"]
     var countList: Int = 0
     
@@ -48,7 +48,7 @@ class PlanViewController: UIViewController {
     }
 }
 
-extension PlanViewController: UITableViewDataSource {
+extension PlanVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countList > 1 ? countList : 0
     }

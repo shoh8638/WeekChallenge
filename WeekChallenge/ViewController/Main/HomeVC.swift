@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  HomeVC.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/02/10.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import LSHContributionView
 
-class HomeViewController: UIViewController {
+class HomeVC: UIViewController {
     
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var contributionView: UIView!

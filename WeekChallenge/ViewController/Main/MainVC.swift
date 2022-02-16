@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  MainVC.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/02/10.
@@ -10,7 +10,7 @@ import FirebaseFirestore
 import Tabman
 import Pageboy
 
-class MainViewController: TabmanViewController {
+class MainVC: TabmanViewController {
     
     private var viewControllers: Array<UIViewController> = []
     
@@ -24,7 +24,7 @@ class MainViewController: TabmanViewController {
     }
 
     func VCAppend() {
-        let vc1 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppMain") as! HomeViewController
+        let vc1 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppMain") as! HomeVC
         let vc2 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppPlan")
         let vc3 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppBoard")
         let vc4 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppETC")
@@ -36,7 +36,7 @@ class MainViewController: TabmanViewController {
     
 }
 //MARK: TabMan & Pageboy
-extension MainViewController: PageboyViewControllerDataSource, TMBarDataSource {
+extension MainVC: PageboyViewControllerDataSource, TMBarDataSource {
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }

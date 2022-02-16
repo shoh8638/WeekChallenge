@@ -1,5 +1,5 @@
 //
-//  ETCViewController.swift
+//  EtcVC.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/02/16.
@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 
 //MARK: 로그아웃, 비밀번호 변경등 기타 화면
-class ETCViewController: UIViewController {
+class EtcVC: UIViewController {
     
     @IBOutlet weak var userIDText: UILabel!
     @IBOutlet weak var userNickname: UILabel!

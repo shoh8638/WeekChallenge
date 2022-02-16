@@ -17,19 +17,20 @@
 		E6584F6727B33E0000B58FCB /* WeekChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F6627B33E0000B58FCB /* WeekChallengeTests.swift */; };
 		E6584F7127B33E0000B58FCB /* WeekChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F7027B33E0000B58FCB /* WeekChallengeUITests.swift */; };
 		E6584F7327B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F7227B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift */; };
-		E6584F8B27B341A400B58FCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8A27B341A400B58FCB /* LoginViewController.swift */; };
-		E6584F8F27B3434F00B58FCB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8E27B3434F00B58FCB /* SignInViewController.swift */; };
+		E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8A27B341A400B58FCB /* LoginVC.swift */; };
+		E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8E27B3434F00B58FCB /* SignInVC.swift */; };
 		E661441227B386C50000CEA7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E661441127B386C50000CEA7 /* AuthService.swift */; };
-		E664959E27BC8ABC000110C9 /* ETCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664959D27BC8ABC000110C9 /* ETCViewController.swift */; };
-		E66495A427BC97B8000110C9 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A327BC97B8000110C9 /* SignOutViewController.swift */; };
-		E667FCB427B9E5F2009AEFE0 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB327B9E5F2009AEFE0 /* PlanViewController.swift */; };
+		E664959E27BC8ABC000110C9 /* EtcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664959D27BC8ABC000110C9 /* EtcVC.swift */; };
+		E66495A427BC97B8000110C9 /* SignOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A327BC97B8000110C9 /* SignOutVC.swift */; };
+		E66495A627BCB021000110C9 /* CreatePlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A527BCB021000110C9 /* CreatePlanVC.swift */; };
+		E667FCB427B9E5F2009AEFE0 /* PlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB327B9E5F2009AEFE0 /* PlanVC.swift */; };
 		E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB527B9EF6C009AEFE0 /* Database.swift */; };
 		E667FCB827BA1841009AEFE0 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB727BA1841009AEFE0 /* CustomAlert.swift */; };
 		E667FCBB27BA4483009AEFE0 /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCBA27BA4483009AEFE0 /* PlanTableViewCell.swift */; };
 		E667FCBF27BB2820009AEFE0 /* SelectedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCBE27BB2820009AEFE0 /* SelectedList.swift */; };
 		E6853F9D27B49B2A0091B4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */; };
-		E6853F9F27B4A26E0091B4A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853F9E27B4A26E0091B4A7 /* MainViewController.swift */; };
-		E6853FA627B4F20B0091B4A7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853FA527B4F20B0091B4A7 /* HomeViewController.swift */; };
+		E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853F9E27B4A26E0091B4A7 /* MainVC.swift */; };
+		E6853FA627B4F20B0091B4A7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853FA527B4F20B0091B4A7 /* HomeVC.swift */; };
 		E6853FA827B4F2E90091B4A7 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853FA727B4F2E90091B4A7 /* EmptyView.swift */; };
 		EE355B8C15BDE0BC84AB3B75 /* Pods_WeekChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */; };
 /* End PBXBuildFile section */
@@ -90,19 +91,20 @@
 		E6584F6C27B33E0000B58FCB /* WeekChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeekChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6584F7027B33E0000B58FCB /* WeekChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekChallengeUITests.swift; sourceTree = "<group>"; };
 		E6584F7227B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E6584F8A27B341A400B58FCB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		E6584F8E27B3434F00B58FCB /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E6584F8A27B341A400B58FCB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E6584F8E27B3434F00B58FCB /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		E661441127B386C50000CEA7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		E664959D27BC8ABC000110C9 /* ETCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETCViewController.swift; sourceTree = "<group>"; };
-		E66495A327BC97B8000110C9 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
-		E667FCB327B9E5F2009AEFE0 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		E664959D27BC8ABC000110C9 /* EtcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtcVC.swift; sourceTree = "<group>"; };
+		E66495A327BC97B8000110C9 /* SignOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutVC.swift; sourceTree = "<group>"; };
+		E66495A527BCB021000110C9 /* CreatePlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanVC.swift; sourceTree = "<group>"; };
+		E667FCB327B9E5F2009AEFE0 /* PlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanVC.swift; sourceTree = "<group>"; };
 		E667FCB527B9EF6C009AEFE0 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		E667FCB727BA1841009AEFE0 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		E667FCBA27BA4483009AEFE0 /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
 		E667FCBE27BB2820009AEFE0 /* SelectedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedList.swift; sourceTree = "<group>"; };
 		E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E6853F9E27B4A26E0091B4A7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		E6853FA527B4F20B0091B4A7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E6853F9E27B4A26E0091B4A7 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		E6853FA527B4F20B0091B4A7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E6853FA727B4F2E90091B4A7 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		F59B675783D8C837E3BDD0D3 /* Pods_WeekChallenge_WeekChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge_WeekChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -286,10 +288,10 @@
 		E66495A027BC8AEA000110C9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E6853F9E27B4A26E0091B4A7 /* MainViewController.swift */,
-				E6853FA527B4F20B0091B4A7 /* HomeViewController.swift */,
-				E667FCB327B9E5F2009AEFE0 /* PlanViewController.swift */,
-				E664959D27BC8ABC000110C9 /* ETCViewController.swift */,
+				E6853F9E27B4A26E0091B4A7 /* MainVC.swift */,
+				E6853FA527B4F20B0091B4A7 /* HomeVC.swift */,
+				E667FCB327B9E5F2009AEFE0 /* PlanVC.swift */,
+				E664959D27BC8ABC000110C9 /* EtcVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -297,8 +299,8 @@
 		E66495A127BC8AF7000110C9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				E6584F8A27B341A400B58FCB /* LoginViewController.swift */,
-				E6584F8E27B3434F00B58FCB /* SignInViewController.swift */,
+				E6584F8A27B341A400B58FCB /* LoginVC.swift */,
+				E6584F8E27B3434F00B58FCB /* SignInVC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -306,7 +308,8 @@
 		E66495A227BC979E000110C9 /* Sub */ = {
 			isa = PBXGroup;
 			children = (
-				E66495A327BC97B8000110C9 /* SignOutViewController.swift */,
+				E66495A327BC97B8000110C9 /* SignOutVC.swift */,
+				E66495A527BCB021000110C9 /* CreatePlanVC.swift */,
 			);
 			path = Sub;
 			sourceTree = "<group>";
@@ -578,20 +581,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E667FCB427B9E5F2009AEFE0 /* PlanViewController.swift in Sources */,
-				E6584F8F27B3434F00B58FCB /* SignInViewController.swift in Sources */,
+				E667FCB427B9E5F2009AEFE0 /* PlanVC.swift in Sources */,
+				E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */,
 				E6853FA827B4F2E90091B4A7 /* EmptyView.swift in Sources */,
-				E6584F8B27B341A400B58FCB /* LoginViewController.swift in Sources */,
+				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
 				E667FCBB27BA4483009AEFE0 /* PlanTableViewCell.swift in Sources */,
 				E661441227B386C50000CEA7 /* AuthService.swift in Sources */,
-				E6853FA627B4F20B0091B4A7 /* HomeViewController.swift in Sources */,
-				E6853F9F27B4A26E0091B4A7 /* MainViewController.swift in Sources */,
+				E6853FA627B4F20B0091B4A7 /* HomeVC.swift in Sources */,
+				E66495A627BCB021000110C9 /* CreatePlanVC.swift in Sources */,
+				E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,
 				E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */,
 				E667FCBF27BB2820009AEFE0 /* SelectedList.swift in Sources */,
-				E664959E27BC8ABC000110C9 /* ETCViewController.swift in Sources */,
-				E66495A427BC97B8000110C9 /* SignOutViewController.swift in Sources */,
+				E664959E27BC8ABC000110C9 /* EtcVC.swift in Sources */,
+				E66495A427BC97B8000110C9 /* SignOutVC.swift in Sources */,
 				E667FCB827BA1841009AEFE0 /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
