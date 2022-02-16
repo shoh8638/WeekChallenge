@@ -8,14 +8,11 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
-import Firebase
 
 typealias completionHandler = (Any)->()
 
 class Database {
     let db = Firestore.firestore()
-    var folder: Array<String> = [""]
-    
 
     func signInDB(id: String, email: String, pwd: String, nickname: String) {
         db.collection(id).document("UserData").setData(["Email":email,"password": pwd, "Nickname": nickname]) { err in
@@ -32,8 +29,6 @@ class Database {
                 return print("createDB err: \(err!)")
             }
             print("createDB Success")
-            
-            self.folder.append(folderName)
         }
     }
     

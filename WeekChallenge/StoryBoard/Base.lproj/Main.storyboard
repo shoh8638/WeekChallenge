@@ -383,7 +383,7 @@
         <!--View Controller-->
         <scene sceneID="wFa-Tn-tai">
             <objects>
-                <viewController storyboardIdentifier="AppETC" id="wb1-wT-sld" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppETC" id="wb1-wT-sld" customClass="ETCViewController" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z8u-MB-kWL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

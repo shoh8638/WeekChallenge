@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftOverlays
 
 class CustomAlert {
     func loginAlert(message: String, vc: UIViewController) {
@@ -40,6 +41,16 @@ class CustomAlert {
         alert.addAction(action)
         vc.present(alert, animated: true) {
             vc.removeAllOverlays()
+        }
+    }
+    
+    func checkAlert(message: String, vc: UIViewController) {
+        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(action)
+        vc.present(alert, animated: true) {
+            vc.removeAllOverlays()
+            vc.dismiss(animated: true, completion: nil)
         }
     }
 }
