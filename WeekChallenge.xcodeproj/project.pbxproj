@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		51B20CBFD7AA20B6D8518597 /* Pods_WeekChallenge_WeekChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59B675783D8C837E3BDD0D3 /* Pods_WeekChallenge_WeekChallengeUITests.framework */; };
 		BC272F67B33BC0A411DA9079 /* Pods_WeekChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078F2084C898E852ACD84817 /* Pods_WeekChallengeTests.framework */; };
+		E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FDC5627BCD8030013372F /* PlanDate.swift */; };
 		E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */; };
 		E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */; };
 		E6584F5727B33DFD00B58FCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6584F5527B33DFD00B58FCB /* Main.storyboard */; };
@@ -79,6 +80,7 @@
 		845E681427B3E89300EC0EBF /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC1139D3E189C2F9B204B04B /* Pods-WeekChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeekChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-WeekChallengeTests/Pods-WeekChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		E64FDC5627BCD8030013372F /* PlanDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDate.swift; sourceTree = "<group>"; };
 		E6584F4C27B33DFD00B58FCB /* WeekChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				E661441127B386C50000CEA7 /* AuthService.swift */,
 				E667FCB527B9EF6C009AEFE0 /* Database.swift */,
 				E667FCB727BA1841009AEFE0 /* CustomAlert.swift */,
+				E64FDC5627BCD8030013372F /* PlanDate.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
 				E667FCBB27BA4483009AEFE0 /* PlanTableViewCell.swift in Sources */,
 				E661441227B386C50000CEA7 /* AuthService.swift in Sources */,
+				E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */,
 				E6853FA627B4F20B0091B4A7 /* HomeVC.swift in Sources */,
 				E66495A627BCB021000110C9 /* CreatePlanVC.swift in Sources */,
 				E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */,

@@ -13,7 +13,7 @@ typealias completionHandler = (Any)->()
 
 class Database {
     let db = Firestore.firestore()
-
+    
     func signInDB(id: String, email: String, pwd: String, nickname: String) {
         db.collection(id).document("UserData").setData(["Email":email,"password": pwd, "Nickname": nickname]) { err in
             guard err == nil else {
@@ -23,8 +23,8 @@ class Database {
         }
     }
     
-    func createDB(folderName: String, title: String, date: Array<String> ) {
-        db.collection("aaa@aaa.com").document(folderName).setData(["Title": title, "Date": date]) { err in
+    func createDB(userID:String, folderName: String, date: Array<String> ) {
+        db.collection(userID).document(folderName).setData(["Date": date, "plan": [date.count]]) { err in
             guard err == nil else {
                 return print("createDB err: \(err!)")
             }
