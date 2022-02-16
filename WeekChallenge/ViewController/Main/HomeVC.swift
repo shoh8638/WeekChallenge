@@ -27,6 +27,7 @@ class HomeVC: UIViewController {
          2) 현재 날짜와 5일뒤 날짜 자동 기입
          3)
          */
+        CustomAlert().createPlan(vc: self, day: "5", date: PlanDate().fiveDate())
     }
     
     func LSHView() {

@@ -23,12 +23,14 @@ class Database {
         }
     }
     
-    func createDB(userID:String, folderName: String, date: Array<String> ) {
-        db.collection(userID).document(folderName).setData(["Date": date, "plan": [date.count]]) { err in
-            guard err == nil else {
-                return print("createDB err: \(err!)")
+    func createDB(folderName: String, date: Dictionary<String, Any> ) {
+        if let userID = Auth.auth().currentUser?.email {
+            db.collection(userID).document(folderName).setData(["Title": folderName,"Date": date]) { err in
+                guard err == nil else {
+                    return print("createDB err: \(err!)")
+                }
+                print("createDB Success")
             }
-            print("createDB Success")
         }
     }
     

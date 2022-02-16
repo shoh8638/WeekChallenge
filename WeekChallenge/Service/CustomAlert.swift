@@ -59,16 +59,17 @@ class CustomAlert {
         vc.present(alert, animated: true)
     }
     
-    func createPlan(vc: UIViewController, day: String, foldername: String, date: String) {
-        let planVC = vc.storyboard?.instantiateViewController(withIdentifier: "AppPlan") as! PlanVC
-        planVC.modalPresentationStyle = .fullScreen
-        planVC.modalTransitionStyle = .crossDissolve
-        
+    func createPlan(vc: UIViewController, day: String, date: [String:  Any]) {
         let alert = UIAlertController(title: "알림" , message: "\(day)플랜이 생성되었습니다!" , preferredStyle: .alert)
+        
+        alert.addTextField { text in
+            text.placeholder = "제목을 정해주세요!"
+        }
+        
         let action = UIAlertAction(title: "확인", style: .default) { _ in
-            
             vc.dismiss(animated: true) {
-                vc.present(planVC, animated: true, completion: nil)
+                let titleText = (alert.textFields?[0].text)!
+                Database().createDB(folderName: titleText, date: date)
             }
         }
         alert.addAction(action)

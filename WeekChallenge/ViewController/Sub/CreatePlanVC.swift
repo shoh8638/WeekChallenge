@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SwiftOverlays
 
 class CreatePlanVC: UIViewController {
 
@@ -18,20 +19,11 @@ class CreatePlanVC: UIViewController {
 //MARK: Button
 extension CreatePlanVC {
     @IBAction func fiveDayPlan(_ sender: Any) {
-        if let userID = Auth.auth().currentUser?.email {
-            Database().createDB(userID: userID, folderName: "", date: [""])
-        }
     }
     
     @IBAction func tenDayPlan(_ sender: Any) {
-        if let userID = Auth.auth().currentUser?.email {
-            Database().createDB(userID: userID, folderName: "", date: [""])
-        }
     }
     
     @IBAction func fifteenDayPlan(_ sender: Any) {
-        if let userID = Auth.auth().currentUser?.email {
-            Database().createDB(userID: userID, folderName: "", date: [""])
-        }
     }
 }
