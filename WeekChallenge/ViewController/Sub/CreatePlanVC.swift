@@ -12,7 +12,6 @@ import LSHContributionView
 
 class CreatePlanVC: UIViewController {
     
-    
     @IBOutlet weak var fiveView: UIView!
     @IBOutlet weak var tenView: UIView!
     @IBOutlet weak var fifteenView: UIView!

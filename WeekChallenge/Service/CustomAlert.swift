@@ -8,6 +8,7 @@
 import UIKit
 import SwiftOverlays
 import Firebase
+import Pageboy
 
 class CustomAlert {
     func loginAlert(message: String, vc: UIViewController) {
@@ -51,12 +52,19 @@ class CustomAlert {
         loginVC.modalPresentationStyle = .fullScreen
         loginVC.modalTransitionStyle = .crossDissolve
         
-        let alert = UIAlertController(title: "알림" , message: message , preferredStyle: .alert)
-        let action = UIAlertAction(title: "확인", style: .default) { _ in
-            vc.present(loginVC, animated: true, completion: nil)
+        if message == "비밀번호 변경 성공" {
+            let alert = UIAlertController(title: "알림" , message: message , preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default) { _ in
+                vc.present(loginVC, animated: true, completion: nil)
+            }
+            alert.addAction(action)
+            vc.present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: "알림" , message: message , preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(action)
+            vc.present(alert, animated: true)
         }
-        alert.addAction(action)
-        vc.present(alert, animated: true)
     }
     
     func createPlan(vc: UIViewController, day: String, date: [String:  Any]) {
