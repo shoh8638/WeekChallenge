@@ -13,7 +13,6 @@ import FirebaseFirestore
 class EtcVC: UIViewController {
     
     @IBOutlet weak var userIDText: UILabel!
-    @IBOutlet weak var userNickname: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +21,17 @@ class EtcVC: UIViewController {
     
     func setup() {
         if let userID = Auth.auth().currentUser?.email {
-//            self.userIDText.text = userID
+            self.userIDText.text = userID
         }
     }
     
     @IBAction func signOutBtn(_ sender: Any) {
         try? Auth.auth().signOut()
+        print("LoginView_SignInBtn")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginView")
+        vc?.modalPresentationStyle = .fullScreen
+        vc?.modalTransitionStyle = .crossDissolve
+        self.present(vc!, animated: true, completion: nil)
     }
     
     @IBAction func changePwdBtn(_ sender: Any) {

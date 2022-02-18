@@ -15,11 +15,11 @@ class PlanVC: UIViewController {
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var homeTable: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
+    
     lazy var emptyView : EmptyView = {
         let view = EmptyView()
         return view
@@ -42,6 +42,7 @@ class PlanVC: UIViewController {
             }
         }
     }
+    
     @objc func emptyClick(sender: UIButton? = nil) {
         print("emptyButton Clcik")
         //5,10,15일 추가화면으로 전환 위로 뜨기
