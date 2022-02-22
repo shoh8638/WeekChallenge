@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class PlanVC: UIViewController {
     let arr: Array<String> = ["1"]
@@ -18,6 +19,7 @@ class PlanVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        initRefresh()
     }
     
     lazy var emptyView : EmptyView = {
@@ -30,36 +32,17 @@ class PlanVC: UIViewController {
             print(userID)
             Database().checkDB(userID: userID) { count in
                 self.countList = count as! Int
-                if self.countList == 1 {
-                    self.homeView.addSubview(self.emptyView)
-                    self.homeView.backgroundColor = .white
-                    self.emptyView.snp.remakeConstraints { maker in
-                        maker.edges.equalTo(UIEdgeInsets(top: 200, left: 50, bottom: 200, right: 50))
-                    }
-                    self.emptyView.mainButton.addTarget(self, action: #selector(self.emptyClick), for: .touchUpInside)
-                    self.homeTable.reloadData()
-                }
+                self.homeTable.reloadData()
             }
         }
     }
     
     @objc func emptyClick(sender: UIButton? = nil) {
-        print("emptyButton Clcik")
-        //5,10,15일 추가화면으로 전환 위로 뜨기
-    }
-}
-
-extension PlanVC: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countList > 1 ? countList : 0
+        print("PlanView: emptyButton Clcik")
+        //createDB부분 추가
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
-        cell.detailBtn.setTitle("Btn", for: .normal)
-        return cell
-    }
-    
+    //MARK: 새로고침
     func initRefresh() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
@@ -73,7 +56,23 @@ extension PlanVC: UITableViewDataSource {
     }
     
     @objc func updateUI(refresh: UIRefreshControl) {
+        setupView()
         refresh.endRefreshing()
-        self.homeTable.reloadData()
+    }
+}
+
+extension PlanVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return countList > 1 ? countList : 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
+        cell.detailBtn.setTitle("Btn", for: .normal)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 260
     }
 }

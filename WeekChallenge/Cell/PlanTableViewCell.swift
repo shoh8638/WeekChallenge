@@ -11,6 +11,7 @@ class PlanTableViewCell: UITableViewCell {
     
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var detailBtn: UIButton!
+    @IBOutlet weak var planView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
