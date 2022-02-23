@@ -22,3 +22,8 @@ class PlanTableViewCell: UITableViewCell {
     }
     
 }
+/*
+ view크기를 고정값을 지정
+ 버튼 라운딩 및 색처리
+ ICon 이미지 선정 및 크기 지정
+ */

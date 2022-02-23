@@ -18,28 +18,25 @@ class PlanVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        checkDBList()
         initRefresh()
     }
     
-    lazy var emptyView : EmptyView = {
-        let view = EmptyView()
-        return view
-    }()
+//    lazy var emptyView : EmptyView = {
+//        let view = EmptyView()
+//        return view
+//    }()
+//    @objc func emptyClick(sender: UIButton? = nil) {
+//        print("PlanView: emptyButton Clcik")
+//    }
     
-    func setupView() {
+    func checkDBList() {
         if let userID = Auth.auth().currentUser?.email {
-            print(userID)
             Database().checkDB(userID: userID) { count in
                 self.countList = count as! Int
                 self.homeTable.reloadData()
             }
         }
-    }
-    
-    @objc func emptyClick(sender: UIButton? = nil) {
-        print("PlanView: emptyButton Clcik")
-        //createDB부분 추가
     }
     
     //MARK: 새로고침
@@ -56,23 +53,35 @@ class PlanVC: UIViewController {
     }
     
     @objc func updateUI(refresh: UIRefreshControl) {
-        setupView()
+        checkDBList()
         refresh.endRefreshing()
     }
 }
 
+//MARK: Table DataSource, Delegate
 extension PlanVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countList > 1 ? countList : 0
+        return countList == 1 ? 1 : countList-1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
-        cell.detailBtn.setTitle("Btn", for: .normal)
-        return cell
+        if countList == 1 {
+            let cell = homeTable.dequeueReusableCell(withIdentifier: "emptyView", for: indexPath) as! EnptyTableViewCell
+            cell.vc = self
+            return cell
+        } else {
+            let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
+            cell.detailBtn.setTitle("Btn", for: .normal)
+            return cell
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 260
+        if countList == 1 {
+            return homeTable.bounds.height
+        } else {
+            return UIScreen.main.bounds.height / 4 - 10
+        }
     }
 }
