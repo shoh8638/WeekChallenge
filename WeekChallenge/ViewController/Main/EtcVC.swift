@@ -12,6 +12,8 @@ import FirebaseFirestore
 //MARK: 로그아웃, 비밀번호 변경등 기타 화면
 class EtcVC: UIViewController {
     
+    let db = Firestore.firestore()
+    
     @IBOutlet weak var userIDText: UILabel!
     
     override func viewDidLoad() {
@@ -21,7 +23,17 @@ class EtcVC: UIViewController {
     
     func setup() {
         if let userID = Auth.auth().currentUser?.email {
-            self.userIDText.text = userID
+            let docRef = db.collection(userID).document("UserData")
+            docRef.getDocument { document, err in
+                if err == nil {
+                    print("ETCVC Success")
+                    let data = document!.data()!
+                    let username = data["UserName"] as! String
+                    self.userIDText.text = username
+                } else {
+                    print("ETCVC err")
+                }
+            }
         }
     }
     

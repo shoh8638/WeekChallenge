@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class SignInVC: UIViewController {
     
+    @IBOutlet weak var UserNameText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var pwdText: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
@@ -27,14 +28,16 @@ class SignInVC: UIViewController {
 extension SignInVC {
     @IBAction func signInBtn(_ sender: Any) {
         let auth = AuthService()
-        auth.signIn(email: emailText.text!, pwd: pwdText.text!, vc: self)
+        auth.signIn(email: emailText.text!, pwd: pwdText.text!,username: UserNameText.text!, vc: self)
     }
 }
 
 //MARK: TextFieldDelegate
 extension SignInVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailText {
+        if textField == UserNameText {
+            emailText.becomeFirstResponder()
+        } else if textField == emailText {
             pwdText.becomeFirstResponder()
         } else {
             pwdText.resignFirstResponder()

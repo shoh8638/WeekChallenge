@@ -14,8 +14,8 @@ typealias completionHandler = (Any)->()
 class Database {
     let db = Firestore.firestore()
     
-    func signInDB(id: String, email: String, pwd: String, nickname: String) {
-        db.collection(id).document("UserData").setData(["Email":email,"password": pwd, "Nickname": nickname]) { err in
+    func signInDB(id: String, email: String, pwd: String, username: String) {
+        db.collection(id).document("UserData").setData(["Email":email,"password": pwd, "UserName": username]) { err in
             guard err == nil else {
                 return print("SignInDB err: \(err!)")
             }
