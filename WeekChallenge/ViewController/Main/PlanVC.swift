@@ -74,7 +74,6 @@ extension PlanVC: UITableViewDataSource, UITableViewDelegate {
             cell.detailBtn.setTitle("Btn", for: .normal)
             return cell
         }
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

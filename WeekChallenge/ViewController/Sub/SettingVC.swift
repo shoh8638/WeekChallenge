@@ -1,5 +1,5 @@
 //
-//  EtcVC.swift
+//  SettingVC.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/02/16.
@@ -10,10 +10,12 @@ import Firebase
 import FirebaseFirestore
 
 //MARK: 로그아웃, 비밀번호 변경등 기타 화면
-class EtcVC: UIViewController {
+class SettingVC: UIViewController {
     
     let db = Firestore.firestore()
+    let count = 2
     
+    @IBOutlet weak var settingTable: UITableView!
     @IBOutlet weak var userIDText: UILabel!
     
     override func viewDidLoad() {
@@ -27,8 +29,8 @@ class EtcVC: UIViewController {
             docRef.getDocument { document, err in
                 if err == nil {
                     print("ETCVC Success")
-                    let data = document!.data()!
-                    let username = data["UserName"] as! String
+                    let data = document!.data()
+                    let username = data!["UserName"] as! String
                     self.userIDText.text = username
                 } else {
                     print("ETCVC err")
@@ -47,10 +49,19 @@ class EtcVC: UIViewController {
     }
     
     @IBAction func changePwdBtn(_ sender: Any) {
-        /*
-         다른 화면으로 넘어가서 현재 아이디는 id: currentUser?.email 정하고
-         pwd: UITextField
-         텍스트 필드.텍스트를 넣어서 비밀 번호 변경 하고 로그아웃 되는 화면
-         */
+    }
+}
+
+//MARK: TableView Setting
+extension SettingVC: UITableViewDataSource, UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = settingTable.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! SettingTableViewCell
+        cell.tapBtn.setTitle("안녕", for: .normal)
+        return cell
     }
 }
