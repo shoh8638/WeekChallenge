@@ -29,4 +29,10 @@ class HomeVC: UIViewController {
         contributeView.colorScheme = "Halloween"
         contributionView.addSubview(contributeView)
     }
+    
+    @IBAction func settingButton(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSetting") as! SettingVC
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
 }

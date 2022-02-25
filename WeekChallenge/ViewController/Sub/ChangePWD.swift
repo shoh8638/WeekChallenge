@@ -13,6 +13,7 @@ import SwiftOverlays
 class ChangePWD: UIViewController {
     
     @IBOutlet weak var changeText: UITextField!
+    @IBOutlet weak var change: UITextField!
     @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {

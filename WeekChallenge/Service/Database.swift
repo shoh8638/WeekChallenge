@@ -25,21 +25,23 @@ class Database {
     
     func createDB(folderName: String, date: Dictionary<String, Any> ) {
         if let userID = Auth.auth().currentUser?.email {
-            db.collection(userID).document(folderName).setData(["Title": folderName,"Date": date]) { err in
+            db.collection(userID).document().setData(["Title": folderName]) { err in
                 guard err == nil else {
                     return print("createDB err: \(err!)")
+                }
+                let path = self.db.collection(userID).document(folderName)
+                for i in date {
+                    let key = i.key
+                    path.updateData([key : ["Title": "", "Image": "", "Text": ""]])
                 }
                 print("createDB Success")
             }
         }
     }
     
-    func updateDB(userID: String, userFolder: String) {
+    func updateDB(userID: String, userFolder: String, current: String, title: String, image: String, text: String) {
         let path = db.collection(userID).document(userFolder)
-        //array
-        path.updateData(["": FieldValue.arrayUnion(["",""])])
-        //dict
-        path.updateData(["": ["": ""]])
+        path.updateData([current: ["Title": title, "Image": image, "Text": text]])
     }
     
     func removeDB(userID: String, userFolder: String) {

@@ -7,12 +7,14 @@
 
 import UIKit
 import Firebase
+import SwiftOverlays
 
 class WriteVC: UIViewController {
     
     var documentID: String?
     let picker = UIImagePickerController()
     
+    @IBOutlet weak var mainTitle: UILabel!
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var mainText: UITextField!
     @IBOutlet weak var imageMainView: UIView!
@@ -20,22 +22,23 @@ class WriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUp()
         imageMainView.isHidden = true
         picker.delegate = self
     }
     
+    func setUp() {
+        let fomatter = DateFormatter()
+        fomatter.dateFormat = "yyyyMMdd"
+        let current = String(fomatter.string(from: Date()))
+        self.mainTitle.text = documentID!
+        self.currentDate.text = current
+    }
+    
     @IBAction func sendDB(_ sender: Any) {
+        self.showTextOverlay("please Wait....")
         //텍스트 필드 + 이미지뷰 충족 되면 해당DB 업데이트
-        if mainText != nil && imageView != nil {
-            //현재 userID에 DocumnetID안에 currentDate과 Data안에 날짜와 비교해서 맞는곳에 값이 들어가게
-            if let userID = Auth.auth().currentUser?.email {
-                
-            }
-        } else if mainText == nil {
-            //메인텍스트 채워달라는 알림
-        } else if imageView == nil {
-            //이미지 한개 넣어달라는 알림
-        }
+        //해당 날짜에 DB안에 데이터가 isEmpty! 이면 알림창나오게
     }
 }
 

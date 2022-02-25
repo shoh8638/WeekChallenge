@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-import FirebaseFirestore
+import LSHContributionView
 
 class PlanVC: UIViewController {
     var countList: Int = 0
@@ -19,11 +19,11 @@ class PlanVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkDBList()
+        loadData()
         initRefresh()
     }
     
-    func checkDBList() {
+    func loadData() {
         if let userID = Auth.auth().currentUser?.email {
             Database().checkDB(userID: userID) { count in
                 self.countList = count as! Int
@@ -31,9 +31,10 @@ class PlanVC: UIViewController {
                     if err == nil {
                         for document in querySnapshot!.documents {
                             if document.documentID != "UserData"{
-                                self.dbList.append(document.documentID)
+                                let dbTitle = document.data()["Title"] as! String
+                                self.dbList.append(dbTitle)
                                 let list = Set(self.dbList)
-                                self.dbList = Array(list)
+                                self.dbList = Array(list).sorted(by: >)
                             }
                             self.homeTable.reloadData()
                         }
@@ -57,8 +58,14 @@ class PlanVC: UIViewController {
     }
     
     @objc func updateUI(refresh: UIRefreshControl) {
-        checkDBList()
+        loadData()
         refresh.endRefreshing()
+    }
+    
+    @IBAction func settingButton(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSetting") as! SettingVC
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -75,7 +82,8 @@ extension PlanVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else {
             let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
-            cell.detailBtn.setTitle("Btn", for: .normal)
+            cell.detailBtn.setTitle(dbList[indexPath.row], for: .normal)
+            LSHView(view: cell.planView)
             return cell
         }
     }
@@ -84,7 +92,15 @@ extension PlanVC: UITableViewDataSource, UITableViewDelegate {
         if countList == 1 {
             return homeTable.bounds.height
         } else {
-            return UIScreen.main.bounds.height / 4 - 10
+            return UIScreen.main.bounds.height / 5
         }
+    }
+    
+    func LSHView(view: UIView) {
+        let dataSquare = [[0,1,2,3,4]]
+        let contributeView = LSHContributionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: view.bounds.height))
+        contributeView.data = dataSquare
+        contributeView.colorScheme = "Halloween"
+        view.addSubview(contributeView)
     }
 }
