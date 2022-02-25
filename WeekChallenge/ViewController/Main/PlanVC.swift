@@ -10,8 +10,9 @@ import Firebase
 import FirebaseFirestore
 
 class PlanVC: UIViewController {
-    let arr: Array<String> = ["1"]
     var countList: Int = 0
+    let db = Firestore.firestore()
+    var dbList: Array<String> = []
     
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var homeTable: UITableView!
@@ -22,19 +23,22 @@ class PlanVC: UIViewController {
         initRefresh()
     }
     
-//    lazy var emptyView : EmptyView = {
-//        let view = EmptyView()
-//        return view
-//    }()
-//    @objc func emptyClick(sender: UIButton? = nil) {
-//        print("PlanView: emptyButton Clcik")
-//    }
-    
     func checkDBList() {
         if let userID = Auth.auth().currentUser?.email {
             Database().checkDB(userID: userID) { count in
                 self.countList = count as! Int
-                self.homeTable.reloadData()
+                self.db.collection(userID).getDocuments { (querySnapshot, err) in
+                    if err == nil {
+                        for document in querySnapshot!.documents {
+                            if document.documentID != "UserData"{
+                                self.dbList.append(document.documentID)
+                                let list = Set(self.dbList)
+                                self.dbList = Array(list)
+                            }
+                            self.homeTable.reloadData()
+                        }
+                    }
+                }
             }
         }
     }
@@ -61,7 +65,7 @@ class PlanVC: UIViewController {
 //MARK: Table DataSource, Delegate
 extension PlanVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countList == 1 ? 1 : countList-1
+        return countList == 1 ? 1 : dbList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -13,9 +13,7 @@ import FirebaseFirestore
 class SettingVC: UIViewController {
     
     let db = Firestore.firestore()
-    let count = 2
-    
-    @IBOutlet weak var settingTable: UITableView!
+
     @IBOutlet weak var userIDText: UILabel!
     
     override func viewDidLoad() {
@@ -38,6 +36,19 @@ class SettingVC: UIViewController {
             }
         }
     }
+
+}
+
+//MARK: Button Setting
+extension SettingVC {    
+    @IBAction func changeUserName(_ sender: Any) {
+    }
+    
+    @IBAction func removeAuth(_ sender: Any) {
+    }
+    
+    @IBAction func changePwdBtn(_ sender: Any) {
+    }
     
     @IBAction func signOutBtn(_ sender: Any) {
         try? Auth.auth().signOut()
@@ -47,21 +58,5 @@ class SettingVC: UIViewController {
         vc?.modalTransitionStyle = .crossDissolve
         self.present(vc!, animated: true, completion: nil)
     }
-    
-    @IBAction func changePwdBtn(_ sender: Any) {
-    }
-}
 
-//MARK: TableView Setting
-extension SettingVC: UITableViewDataSource, UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = settingTable.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! SettingTableViewCell
-        cell.tapBtn.setTitle("안녕", for: .normal)
-        return cell
-    }
 }
