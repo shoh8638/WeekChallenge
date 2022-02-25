@@ -24,6 +24,11 @@ class PlanVC: UIViewController {
         initRefresh()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("PlanVC_reloadData")
+        loadData()
+    }
+    
     func loadData() {
         if let userID = Auth.auth().currentUser?.email {
             Database().checkDB(userID: userID) { count in
@@ -36,6 +41,7 @@ class PlanVC: UIViewController {
                                 self.dbTitles.append(dbTitle)
                                 let list = Set(self.dbTitles)
                                 self.dbTitles = Array(list).sorted(by: >)
+                                //Todo: date == "" ? Array<Int>.append(0) : Array<Int>.append(1) -> LSHView dataSource 채우기
                             }
                             self.homeTable.reloadData()
                         }

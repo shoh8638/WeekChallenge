@@ -6,20 +6,44 @@
 //
 
 import UIKit
-import SnapKit
+import Firebase
 import LSHContributionView
+
 
 class HomeVC: UIViewController {
     
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var contributionView: UIView!
+    @IBOutlet weak var wecolmeText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkUser()
         LSHView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("HomeVC_reloadData")
+        checkUser()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkUser()
+    }
     @IBAction func planChoice(_ sender: Any) {
+    }
+    
+    func checkUser() {
+        if let userID = Auth.auth().currentUser?.email {
+            Database().checkDB(userID: userID) { count in
+                let num = count as! Int
+                if num > 1 {
+                    self.wecolmeText.text = "현재 \(num-1)개 플랜이 실행중입니다!"
+                } else {
+                    self.wecolmeText.text = "버튼을 눌러 플랜을 생성해주세요!"
+                }
+            }
+        }
     }
     
     func LSHView() {

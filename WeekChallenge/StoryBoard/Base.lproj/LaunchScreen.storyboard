@@ -26,7 +26,7 @@
                                             <constraint firstAttribute="height" constant="156" id="Zqo-BU-E4x"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qic-6h-qq1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5일플래너" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qic-6h-qq1">
                                         <rect key="frame" x="19.5" y="156" width="110" height="159"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="oOU-ai-p0j"/>
