@@ -34,6 +34,7 @@ class Database {
                 for i in date {
                     let key = i.key
                     path.updateData([key : ["Title": "", "Image": "", "Text": ""]])
+                    path.updateData(["Dates" : FieldValue.arrayUnion([key])])
                 }
                 print("createDB Success")
             }

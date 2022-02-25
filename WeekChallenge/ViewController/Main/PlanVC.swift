@@ -13,7 +13,7 @@ class PlanVC: UIViewController {
     var countList: Int = 0
     let db = Firestore.firestore()
     var dbTitles: Array<String> = []
-    var dbA: Array<String> = []
+    var dbDate: Array<Array<Int>> =  []
     
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var homeTable: UITableView!
@@ -24,12 +24,8 @@ class PlanVC: UIViewController {
         initRefresh()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("PlanVC_reloadData")
-        loadData()
-    }
-    
     func loadData() {
+        var dbDate: Array<Int> = []
         if let userID = Auth.auth().currentUser?.email {
             Database().checkDB(userID: userID) { count in
                 self.countList = count as! Int
@@ -41,7 +37,23 @@ class PlanVC: UIViewController {
                                 self.dbTitles.append(dbTitle)
                                 let list = Set(self.dbTitles)
                                 self.dbTitles = Array(list).sorted(by: >)
-                                //Todo: date == "" ? Array<Int>.append(0) : Array<Int>.append(1) -> LSHView dataSource 채우기
+                                //Todo: 5칸으로 한정해서 하기
+                                self.db.collection(userID).document(document.documentID).getDocument { (document, err) in
+                                    if let document = document, document.exists {
+                                        let dates = document["Dates"] as? [String]
+                                        for i in 0...dates!.count-1 {
+                                            let date = document["\(i)"] as? String
+                                            if date == nil {
+                                                dbDate.append(0)
+                                            } else {
+                                                dbDate.append(1)
+                                            }
+                                        }
+                                        self.dbDate.append(dbDate)
+                                        print("\(document.documentID) = \(self.dbDate)")
+                                    }
+                                }
+                                
                             }
                             self.homeTable.reloadData()
                         }
@@ -79,7 +91,7 @@ class PlanVC: UIViewController {
 //MARK: Table DataSource, Delegate
 extension PlanVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countList == 1 ? 1 : dbTitles.count
+        return countList == 1 && dbDate != [] ? 1 : dbTitles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,7 +102,7 @@ extension PlanVC: UITableViewDataSource, UITableViewDelegate {
         } else {
             let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
             cell.detailBtn.setTitle(dbTitles[indexPath.row], for: .normal)
-            LSHView(view: cell.planView)
+            LSHView(view: cell.planView, count: self.dbDate)
             return cell
         }
     }
@@ -103,11 +115,13 @@ extension PlanVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func LSHView(view: UIView) {
-        let dataSquare = [[0,1,2,3,4]]
-        let contributeView = LSHContributionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: view.bounds.height))
-        contributeView.data = dataSquare
-        contributeView.colorScheme = "Halloween"
-        view.addSubview(contributeView)
+    func LSHView(view: UIView, count: Array<Array<Int>>) {
+        if count != [] {
+            let dataSquare = count
+            let contributeView = LSHContributionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: view.bounds.height))
+            contributeView.data = dataSquare
+            contributeView.colorScheme = "Halloween"
+            view.addSubview(contributeView)
+        }
     }
 }
