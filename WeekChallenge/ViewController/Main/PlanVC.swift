@@ -12,7 +12,8 @@ import LSHContributionView
 class PlanVC: UIViewController {
     var countList: Int = 0
     let db = Firestore.firestore()
-    var dbList: Array<String> = []
+    var dbTitles: Array<String> = []
+    var dbA: Array<String> = []
     
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var homeTable: UITableView!
@@ -32,9 +33,9 @@ class PlanVC: UIViewController {
                         for document in querySnapshot!.documents {
                             if document.documentID != "UserData"{
                                 let dbTitle = document.data()["Title"] as! String
-                                self.dbList.append(dbTitle)
-                                let list = Set(self.dbList)
-                                self.dbList = Array(list).sorted(by: >)
+                                self.dbTitles.append(dbTitle)
+                                let list = Set(self.dbTitles)
+                                self.dbTitles = Array(list).sorted(by: >)
                             }
                             self.homeTable.reloadData()
                         }
@@ -72,7 +73,7 @@ class PlanVC: UIViewController {
 //MARK: Table DataSource, Delegate
 extension PlanVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countList == 1 ? 1 : dbList.count
+        return countList == 1 ? 1 : dbTitles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,7 +83,7 @@ extension PlanVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else {
             let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
-            cell.detailBtn.setTitle(dbList[indexPath.row], for: .normal)
+            cell.detailBtn.setTitle(dbTitles[indexPath.row], for: .normal)
             LSHView(view: cell.planView)
             return cell
         }

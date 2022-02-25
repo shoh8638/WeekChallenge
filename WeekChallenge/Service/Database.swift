@@ -25,7 +25,7 @@ class Database {
     
     func createDB(folderName: String, date: Dictionary<String, Any> ) {
         if let userID = Auth.auth().currentUser?.email {
-            db.collection(userID).document().setData(["Title": folderName]) { err in
+            db.collection(userID).document().setData(["Title": folderName,"Date": date]) { err in
                 guard err == nil else {
                     return print("createDB err: \(err!)")
                 }
