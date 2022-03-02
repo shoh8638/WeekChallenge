@@ -35,4 +35,22 @@ import Foundation
 
      }
  }
+ 
+ 
+ 
+ 
+ 
+ if indexPath.section == 0 {
+     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "search", for: indexPath) as! searchCell
+     cell.name.text = self.dbTitles[indexPath.row]
+     return cell
+ } else if indexPath.section == 1 {
+     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "img", for: indexPath) as! imgCell
+     return cell
+ } else {
+     let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "text", for: indexPath) as! textCell
+     cell.title.text = self.userTitles[indexPath.row]
+     cell.text.text = self.userText[indexPath.row]
+     return cell
+ }
  */

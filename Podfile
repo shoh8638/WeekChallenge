@@ -22,4 +22,5 @@ pod 'SwiftOverlays', '~> 5.0.1'
 pod 'Tabman'
  pod 'SnapKit', '~> 5.0.0'
 pod 'LSHContributionView'
+pod 'IGListKit', '~> 4.0.0'
 end

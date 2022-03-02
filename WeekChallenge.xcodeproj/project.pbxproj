@@ -21,6 +21,7 @@
 		E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8A27B341A400B58FCB /* LoginVC.swift */; };
 		E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8E27B3434F00B58FCB /* SignInVC.swift */; };
 		E65D5B8E27CC6399009E16EE /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5B8D27CC6399009E16EE /* dummy.swift */; };
+		E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5B9027CF4E35009E16EE /* EnptyCollectionViewCell.swift */; };
 		E661441227B386C50000CEA7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E661441127B386C50000CEA7 /* AuthService.swift */; };
 		E664959E27BC8ABC000110C9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664959D27BC8ABC000110C9 /* SettingVC.swift */; };
 		E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A327BC97B8000110C9 /* ChangePWD.swift */; };
@@ -101,6 +102,7 @@
 		E6584F8A27B341A400B58FCB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E6584F8E27B3434F00B58FCB /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		E65D5B8D27CC6399009E16EE /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
+		E65D5B9027CF4E35009E16EE /* EnptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		E661441127B386C50000CEA7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E664959D27BC8ABC000110C9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		E66495A327BC97B8000110C9 /* ChangePWD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePWD.swift; sourceTree = "<group>"; };
@@ -255,6 +257,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		E65D5B8F27CF4E20009E16EE /* EnptyCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6A0086227C6090C00AB8D2D /* EnptyTableViewCell.swift */,
+				E65D5B9027CF4E35009E16EE /* EnptyCollectionViewCell.swift */,
+			);
+			path = EnptyCell;
+			sourceTree = "<group>";
+		};
 		E661443027B3A4590000CEA7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,8 +353,8 @@
 		E6853FA027B4F0DF0091B4A7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E65D5B8F27CF4E20009E16EE /* EnptyCell */,
 				E667FCBA27BA4483009AEFE0 /* PlanTableViewCell.swift */,
-				E6A0086227C6090C00AB8D2D /* EnptyTableViewCell.swift */,
 				E6A0086627C74A5300AB8D2D /* SettingTableViewCell.swift */,
 			);
 			path = Cell;
@@ -604,6 +615,7 @@
 				E65D5B8E27CC6399009E16EE /* dummy.swift in Sources */,
 				E6853FA827B4F2E90091B4A7 /* EmptyView.swift in Sources */,
 				E6A0086527C60CB600AB8D2D /* WriteVC.swift in Sources */,
+				E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
 				E6A0086927C8925000AB8D2D /* DashBoardVC.swift in Sources */,
 				E667FCBB27BA4483009AEFE0 /* PlanTableViewCell.swift in Sources */,

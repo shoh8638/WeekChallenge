@@ -10,11 +10,12 @@ import Firebase
 import LSHContributionView
 
 class PlanVC: UIViewController {
-    var countList: Int = 0
+    
     let db = Firestore.firestore()
-    var dbTitles: Array<String> = []
-    var dbDate: Array<Array<Int>> =  []
+    var countList: Int = 0
     var dbID = [String]()
+    var dbTitles = [String]()
+    var dbDate = [[Int]]()
     
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var homeTable: UITableView!
