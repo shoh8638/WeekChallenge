@@ -65,35 +65,5 @@ class Database {
             }
         }
     }
-    
-    func setCompletion(handler: @escaping dateHandler, date: [[Int]]) {
-        var complete = [Int]()
-        var dates = date
-        guard let userID = Auth.auth().currentUser?.email else { return }
-        db.collection(userID).getDocuments { (querySnapshot, err) in
-            if err == nil {
-                for document in querySnapshot!.documents {
-                    if document.documentID != "UserData" {
-                        self.db.collection(userID).document(document.documentID).getDocument { (documentSnapshot, err) in
-                            if err == nil {
-                                let dates = (documentSnapshot!["Dates"] as! [String]).sorted(by: <)
-                                for number in 0...dates.count-1 {
-                                    let dateFields = documentSnapshot![dates[number]] as! [String: String]
-                                    let text = dateFields["Text"]!
-                                    if text == "" {
-                                        complete.append(0)
-                                    } else {
-                                        complete.append(1)
-                                    }
-                                }
-                            }
-                            dates.append(complete)
-                            handler(dates)
-                            complete.removeAll()
-                        }
-                    }
-                }
-            }
-        }
-    }
 }
+

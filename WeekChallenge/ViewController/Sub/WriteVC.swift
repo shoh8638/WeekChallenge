@@ -14,7 +14,7 @@ class WriteVC: UIViewController {
     
     let db = Firestore.firestore()
     let storage = Storage.storage()
-
+    
     var documentID: String?
     let picker = UIImagePickerController()
     var current: String?
@@ -29,9 +29,10 @@ class WriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setText()
-//        imageMainView.isHidden = true
+        //        setText()
+        //        imageMainView.isHidden = true
         picker.delegate = self
+        print(documentID!)
     }
     
     func setText() {
@@ -43,37 +44,41 @@ class WriteVC: UIViewController {
         let range = documentID!.firstIndex(of: "+") ?? documentID!.endIndex
         self.mainTitle.text = String(documentID![..<range])
         self.currentDate.text = current
+        print(self.documentID!)
     }
-
+    
     
     @IBAction func sendDB(_ sender: Any) {
         self.showTextOverlay("please Wait....")
-//        if self.mainText.text != nil && self.mainTitle.text != nil && self.imageView.image != nil {
-            if let userID = Auth.auth().currentUser?.email {
-                let path = self.db.collection(userID).document("10+152157")
-                var map = [String: String]()
-                map["Title"] = "테스트입니다"
-                map["Text"] =  "Test"
-                map["Image"] = "gs://week-challenge-67756.appspot.com/bbb@bbb.com/10+152157/2022-02-28"
-                path.updateData(["2022-02-28": map]) { err in
-                    if err == nil {
-                        print("성공")
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
+        //        if self.mainText.text != nil && self.mainTitle.text != nil && self.imageView.image != nil {
+        let fomatter = DateFormatter()
+        fomatter.dateFormat = "yyyy-MM-dd"
+        let current = String(fomatter.string(from: Date()))
+        
+        guard let userID = Auth.auth().currentUser?.email  else { return }
+        let path = self.db.collection(userID).document(self.documentID!)
+        var map = [String: String]()
+        map["Title"] = "테스트입니다"
+        map["Text"] =  "Test"
+        map["Image"] = "gs://week-challenge-67756.appspot.com/\(userID)/\(self.documentID!)/\(current)"
+        path.updateData([current: map]) { err in
+            if err == nil {
+                print("성공")
+                self.dismiss(animated: true, completion: nil)
             }
             self.removeAllOverlays()
-//        } else {
-//            //Alert 생성
-//        }
-        
+        }
     }
     
     func uploadImg(img: UIImage) {
+        let fomatter = DateFormatter()
+        fomatter.dateFormat = "yyyy-MM-dd"
+        let current = String(fomatter.string(from: Date()))
+        
         var data = Data()
         data = img.jpegData(compressionQuality: 0.8)!
         guard let userID = Auth.auth().currentUser?.email  else { return }
-        let filePath = "\(userID)/10+152157/2022-02-28"
+        let filePath = "\(userID)/\(self.documentID!)/\(current)"
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
         
@@ -86,7 +91,7 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     
     @IBAction func selectedImage(_ sender: Any) {
         print("WriteVC_selectedImageButton")
-//        self.imageMainView.isHidden = false
+        //        self.imageMainView.isHidden = false
         let addPhoto = UIAlertController(title: "알림", message: "둘 중 하나를 고르세요", preferredStyle: .actionSheet)
         
         let library = UIAlertAction(title: "갤러리", style: .default) { success in
