@@ -24,52 +24,59 @@ class WriteVC: UIViewController {
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var newTitle: UITextField!
     @IBOutlet weak var mainText: UITextField!
-    @IBOutlet weak var imageMainView: UIView!
+    @IBOutlet weak var imgView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        setText()
-        //        imageMainView.isHidden = true
+        setText()
+        self.imgView.isHidden = true
         picker.delegate = self
-        print(documentID!)
+        print("현재 DocumentID: \(documentID!)")
     }
     
     func setText() {
         let fomatter = DateFormatter()
-        fomatter.dateFormat = "yyyyMMdd"
-        let current = String(fomatter.string(from: Date()))
-        self.current! = current
-        
-        let range = documentID!.firstIndex(of: "+") ?? documentID!.endIndex
-        self.mainTitle.text = String(documentID![..<range])
-        self.currentDate.text = current
-        print(self.documentID!)
-    }
-    
-    
-    @IBAction func sendDB(_ sender: Any) {
-        self.showTextOverlay("please Wait....")
-        //        if self.mainText.text != nil && self.mainTitle.text != nil && self.imageView.image != nil {
-        let fomatter = DateFormatter()
         fomatter.dateFormat = "yyyy-MM-dd"
         let current = String(fomatter.string(from: Date()))
         
-        guard let userID = Auth.auth().currentUser?.email  else { return }
-        let path = self.db.collection(userID).document(self.documentID!)
-        var map = [String: String]()
-        map["Title"] = "테스트입니다"
-        map["Text"] =  "Test"
-        map["Image"] = "gs://week-challenge-67756.appspot.com/\(userID)/\(self.documentID!)/\(current)"
-        path.updateData([current: map]) { err in
-            if err == nil {
-                print("성공")
-                self.dismiss(animated: true, completion: nil)
+        let range = documentID!.firstIndex(of: "+") ?? documentID!.endIndex
+        
+        self.mainTitle.text = String(documentID![..<range])
+        self.currentDate.text = current
+    }
+    
+    
+    @IBAction func saveDB(_ sender: Any) {
+        self.showTextOverlay("please Wait....")
+        if self.newTitle.text != nil && self.mainText.text != nil && self.imageView.image != nil {
+            let fomatter = DateFormatter()
+            fomatter.dateFormat = "yyyy-MM-dd"
+            let current = String(fomatter.string(from: Date()))
+            
+            guard let userID = Auth.auth().currentUser?.email  else { return }
+            let path = self.db.collection(userID).document(self.documentID!)
+            var map = [String: String]()
+            map["Title"] = self.newTitle.text
+            map["Text"] = self.mainText.text
+            map["Image"] = "gs://week-challenge-67756.appspot.com/\(userID)/\(self.documentID!)/\(current)"
+            path.updateData([current: map]) { err in
+                if err == nil {
+                    print("성공")
+                    self.dismiss(animated: true, completion: nil)
+                }
+                self.removeAllOverlays()
             }
+        } else {
             self.removeAllOverlays()
+            print("save 실패")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
+    @IBAction func dismissBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     func uploadImg(img: UIImage) {
         let fomatter = DateFormatter()
         fomatter.dateFormat = "yyyy-MM-dd"
@@ -91,7 +98,6 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     
     @IBAction func selectedImage(_ sender: Any) {
         print("WriteVC_selectedImageButton")
-        //        self.imageMainView.isHidden = false
         let addPhoto = UIAlertController(title: "알림", message: "둘 중 하나를 고르세요", preferredStyle: .actionSheet)
         
         let library = UIAlertAction(title: "갤러리", style: .default) { success in
@@ -122,6 +128,7 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
             self.imageView.image = image
             print("사진 저장 완료")
             uploadImg(img: image)
+            self.imgView.isHidden = false
             self.dismiss(animated: true, completion: nil)
         } else {
             print("사진 가져오기 실패")
