@@ -14,6 +14,7 @@ class PlanVC: UIViewController {
     let db = Firestore.firestore()
     var dbTitles: Array<String> = []
     var dbDate: Array<Array<Int>> =  []
+    var dbID = [String]()
     
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var homeTable: UITableView!
@@ -22,47 +23,57 @@ class PlanVC: UIViewController {
         super.viewDidLoad()
         loadData()
         initRefresh()
+        setCompletion()
+        
     }
     
     func loadData() {
-        var dbDate: Array<Int> = []
-        if let userID = Auth.auth().currentUser?.email {
-            Database().checkDB(userID: userID) { count in
-                self.countList = count as! Int
-                self.db.collection(userID).getDocuments { (querySnapshot, err) in
-                    if err == nil {
-                        for document in querySnapshot!.documents {
-                            if document.documentID != "UserData"{
-                                let dbTitle = document.data()["Title"] as! String
-                                self.dbTitles.append(dbTitle)
-                                let list = Set(self.dbTitles)
-                                self.dbTitles = Array(list).sorted(by: >)
-                                //Todo: 5칸으로 한정해서 하기
-                                self.db.collection(userID).document(document.documentID).getDocument { (document, err) in
-                                    if let document = document, document.exists {
-                                        let dates = document["Dates"] as? [String]
-                                        for i in 0...dates!.count-1 {
-                                            let date = document["\(i)"] as? String
-                                            if date == nil {
-                                                dbDate.append(0)
-                                            } else {
-                                                dbDate.append(1)
-                                            }
-                                        }
-                                        self.dbDate.append(dbDate)
-                                        print("\(document.documentID) = \(self.dbDate)")
-                                    }
-                                }
-                                
-                            }
-                            self.homeTable.reloadData()
-                        }
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        Database().checkDB(userID: userID) { count in
+            self.countList = count as! Int
+        }
+        self.db.collection(userID).getDocuments { (querySnapshot, err) in
+            if err == nil {
+                for document in querySnapshot!.documents {
+                    if document.documentID != "UserData" {
+                        self.dbID.append(document.documentID)
+                        let range = document.documentID.firstIndex(of: "+") ?? document.documentID.endIndex
+                        self.dbTitles.append(String(document.documentID[..<range]))
                     }
                 }
+                self.completion()
+                self.homeTable.reloadData()
             }
         }
     }
     
+    func setCompletion() {
+        Database().setCompletion(handler: { dbDate in
+            self.dbDate = dbDate
+        }, date: self.dbDate)
+    }
+    
+    func completion() {
+        var complete = [Int]()
+        if !self.dbID.isEmpty {
+            guard let userID = Auth.auth().currentUser?.email else {return}
+            self.db.collection(userID).document(self.dbID[0]).getDocument { (document, err) in
+                let dates = (document!["Dates"] as! [String]).sorted(by: <)
+                for number in 0...dates.count-1 {
+                    let dateFields = document![dates[number]] as! [String: String]
+                    let text = dateFields["Text"]!
+                    if text == "" {
+                        complete.append(0)
+                    } else {
+                        complete.append(1)
+                    }
+                }
+                self.dbDate.append(complete)
+                complete.removeAll()
+                self.homeTable.reloadData()
+            }
+        }
+    }
     //MARK: 새로고침
     func initRefresh() {
         let refresh = UIRefreshControl()
@@ -77,7 +88,11 @@ class PlanVC: UIViewController {
     }
     
     @objc func updateUI(refresh: UIRefreshControl) {
+        self.dbID.removeAll()
+        self.dbTitles.removeAll()
+        self.dbDate.removeAll()
         loadData()
+        setCompletion()
         refresh.endRefreshing()
     }
     
@@ -91,7 +106,13 @@ class PlanVC: UIViewController {
 //MARK: Table DataSource, Delegate
 extension PlanVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countList == 1 && dbDate != [] ? 1 : dbTitles.count
+        if countList == 1 {
+            return 1
+        } else if !self.dbTitles.isEmpty && !self.dbDate.isEmpty {
+            return self.dbTitles.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,7 +123,7 @@ extension PlanVC: UITableViewDataSource, UITableViewDelegate {
         } else {
             let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
             cell.detailBtn.setTitle(dbTitles[indexPath.row], for: .normal)
-            LSHView(view: cell.planView, count: self.dbDate)
+            LSHView(view: cell.planView, count: self.dbDate[(self.dbDate.count-1) - indexPath.row])
             return cell
         }
     }
@@ -115,9 +136,9 @@ extension PlanVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func LSHView(view: UIView, count: Array<Array<Int>>) {
+    func LSHView(view: UIView, count: Array<Int>) {
         if count != [] {
-            let dataSquare = count
+            let dataSquare = [count]
             let contributeView = LSHContributionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: view.bounds.height))
             contributeView.data = dataSquare
             contributeView.colorScheme = "Halloween"

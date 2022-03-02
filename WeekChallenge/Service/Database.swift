@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 typealias completionHandler = (Any)->()
+typealias dateHandler = ([[Int]])->()
 
 class Database {
     let db = Firestore.firestore()
@@ -26,11 +27,11 @@ class Database {
     func createDB(folderName: String, date: Dictionary<String, Any> ) {
         if let userID = Auth.auth().currentUser?.email {
             let randomNum = arc4random_uniform(999999)
-            db.collection(userID).document("\(folderName)\(randomNum)").setData(["Title": folderName]) { err in
+            db.collection(userID).document("\(folderName)+\(randomNum)").setData(["Title": folderName]) { err in
                 guard err == nil else {
                     return print("createDB err: \(err!)")
                 }
-                let path = self.db.collection(userID).document("\(folderName)\(randomNum)")
+                let path = self.db.collection(userID).document("\(folderName)+\(randomNum)")
                 for i in date {
                     let key = i.key
                     path.updateData([key : ["Title": "", "Image": "", "Text": ""]])
@@ -61,6 +62,37 @@ class Database {
                 print("Error getting documents: \(err)")
             } else {
                 completionHandler(querySnapshot!.count)
+            }
+        }
+    }
+    
+    func setCompletion(handler: @escaping dateHandler, date: [[Int]]) {
+        var complete = [Int]()
+        var dates = date
+        guard let userID = Auth.auth().currentUser?.email else { return }
+        db.collection(userID).getDocuments { (querySnapshot, err) in
+            if err == nil {
+                for document in querySnapshot!.documents {
+                    if document.documentID != "UserData" {
+                        self.db.collection(userID).document(document.documentID).getDocument { (documentSnapshot, err) in
+                            if err == nil {
+                                let dates = (documentSnapshot!["Dates"] as! [String]).sorted(by: <)
+                                for number in 0...dates.count-1 {
+                                    let dateFields = documentSnapshot![dates[number]] as! [String: String]
+                                    let text = dateFields["Text"]!
+                                    if text == "" {
+                                        complete.append(0)
+                                    } else {
+                                        complete.append(1)
+                                    }
+                                }
+                            }
+                            dates.append(complete)
+                            handler(dates)
+                            complete.removeAll()
+                        }
+                    }
+                }
             }
         }
     }

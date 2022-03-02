@@ -379,6 +379,49 @@
             </objects>
             <point key="canvasLocation" x="4557" y="100"/>
         </scene>
+        <!--WriteVC-->
+        <scene sceneID="kCN-cC-YLL">
+            <objects>
+                <viewController id="x1J-au-At3" customClass="WriteVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KAI-aF-nNa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PW-aY-4ht">
+                                <rect key="frame" x="150" y="155" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="selectedImage:" destination="x1J-au-At3" eventType="touchUpInside" id="qzN-gC-6YC"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwr-Rt-oik">
+                                <rect key="frame" x="103" y="397" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUU-2v-aRS">
+                                <rect key="frame" x="222" y="254" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="sendDB:" destination="x1J-au-At3" eventType="touchUpInside" id="FGw-qz-9hQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3QY-St-P8u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SNb-Wp-u9b"/>
+                    <connections>
+                        <outlet property="imageView" destination="iwr-Rt-oik" id="0iV-yH-Wet"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P4F-6O-M0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5412" y="-662"/>
+        </scene>
         <!--Dash BoardVC-->
         <scene sceneID="N09-vD-fsr">
             <objects>
@@ -530,33 +573,36 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="planView" id="svS-ae-GYw" customClass="PlanTableViewCell" customModule="WeekChallenge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="414" height="213.5"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="215.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="svS-ae-GYw" id="ami-E0-Kow">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="213.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="215.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KfV-FD-oPD">
-                                                            <rect key="frame" x="10" y="5" width="394" height="203.5"/>
+                                                            <rect key="frame" x="10" y="5" width="394" height="205.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NI-Au-VNE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="95.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="97.5"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLx-8f-c6U">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="95.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="97.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="30" id="Usd-Mh-Dix"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbi-zZ-7Pf">
-                                                                            <rect key="frame" x="30" y="0.0" width="364" height="95.5"/>
+                                                                            <rect key="frame" x="30" y="0.0" width="364" height="97.5"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                                            <connections>
+                                                                                <segue destination="x1J-au-At3" kind="show" id="kA8-Ow-fnD"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPz-Xm-7Ya">
-                                                                    <rect key="frame" x="0.0" y="103.5" width="394" height="100"/>
+                                                                    <rect key="frame" x="0.0" y="105.5" width="394" height="100"/>
                                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="100" id="JW1-Kj-WWI"/>
@@ -579,7 +625,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyView" rowHeight="328" id="JOq-pT-dGg" customClass="EnptyTableViewCell" customModule="WeekChallenge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="258" width="414" height="328"/>
+                                                <rect key="frame" x="0.0" y="260" width="414" height="328"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JOq-pT-dGg" id="jqJ-nj-iQa">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
