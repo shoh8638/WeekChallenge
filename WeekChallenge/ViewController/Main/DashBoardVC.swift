@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import SDWebImage
 
 class DashBoardVC: UIViewController {
     
@@ -93,12 +94,14 @@ extension DashBoardVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if self.dbTitles.count == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "enptyCell", for: indexPath) as! EnptyCollectionViewCell 
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "enptyCell", for: indexPath) as! EnptyCollectionViewCell
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
             cell.name.text = self.dbTitles[indexPath.row]
-            //        cell.img.image = UIImage(named: "")
+            Storage.storage().reference(forURL: self.userImg[indexPath.row]).downloadURL { (url, error) in
+                cell.img.sd_setImage(with: url!, completed: nil)
+                    }
             cell.title.text = self.userTitles[indexPath.row]
             cell.text.text = self.userText[indexPath.row]
             return cell
@@ -112,7 +115,6 @@ extension DashBoardVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height/3)
         }
     }
-    
 }
 
 class totalCell: UICollectionViewCell {

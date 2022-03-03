@@ -438,7 +438,9 @@ PODS:
   - nanopb/encode (2.30908.0)
   - Pageboy (3.6.2)
   - PromisesObjC (2.0.0)
-  - SnapKit (5.0.1)
+  - SDWebImage (5.12.3):
+    - SDWebImage/Core (= 5.12.3)
+  - SDWebImage/Core (5.12.3)
   - SwiftOverlays (5.0.1)
   - Tabman (2.11.1):
     - Pageboy (~> 3.6.0)
@@ -449,7 +451,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - LSHContributionView
-  - SnapKit (~> 5.0.0)
+  - SDWebImage (~> 5.0)
   - SwiftOverlays (~> 5.0.1)
   - Tabman
   - VerticalCardSwiper
@@ -474,7 +476,7 @@ SPEC REPOS:
     - nanopb
     - Pageboy
     - PromisesObjC
-    - SnapKit
+    - SDWebImage
     - SwiftOverlays
     - Tabman
     - VerticalCardSwiper
@@ -498,11 +500,11 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
   SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
   VerticalCardSwiper: 68df635b354500f86934ea044ade37a264c044c6
 
-PODFILE CHECKSUM: 522885357fb1fff64dc8e7b0f66558aa79f40bf5
+PODFILE CHECKSUM: c9f92bf8afc4e7396b18dbe7e560be697e4979c4
 
 COCOAPODS: 1.11.2

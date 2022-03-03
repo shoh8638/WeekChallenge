@@ -20,7 +20,7 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'SwiftOverlays', '~> 5.0.1'
 pod 'Tabman'
- pod 'SnapKit', '~> 5.0.0'
+pod 'SDWebImage', '~> 5.0'
 pod 'LSHContributionView'
 pod 'VerticalCardSwiper'
 end
