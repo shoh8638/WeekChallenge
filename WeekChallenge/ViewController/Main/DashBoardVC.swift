@@ -85,16 +85,17 @@ class DashBoardVC: UIViewController {
 extension DashBoardVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.dbTitles.count == 0 {
+        if self.userTitles.count == 0 {
             return 1
         } else {
-            return self.dbTitles.count
+            return self.userTitles.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if self.dbTitles.count == 0 {
+        if self.userTitles.count == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "enptyCell", for: indexPath) as! EnptyCollectionViewCell
+            cell.vc = self
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell

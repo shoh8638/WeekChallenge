@@ -19,6 +19,7 @@ class SettingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        self.navigationItem.backBarButtonItem?.isEnabled = true
     }
     
     func setup() {
@@ -51,12 +52,17 @@ extension SettingVC {
     }
     
     @IBAction func signOutBtn(_ sender: Any) {
-        try? Auth.auth().signOut()
-        print("LoginView_SignInBtn")
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginView")
-        vc?.modalPresentationStyle = .fullScreen
-        vc?.modalTransitionStyle = .crossDissolve
-        self.present(vc!, animated: true, completion: nil)
+//        try? Auth.auth().signOut()
+//        print("LoginView_SignInBtn")
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginView")
+//        self.present(vc!, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "logout" {
+            try? Auth.auth().signOut()
+            print("LoginView_SignInBtn")
+        }
     }
 
 }

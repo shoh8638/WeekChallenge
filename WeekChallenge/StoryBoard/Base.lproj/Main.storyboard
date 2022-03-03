@@ -623,33 +623,33 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="planView" id="svS-ae-GYw" customClass="PlanTableViewCell" customModule="WeekChallenge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="414" height="236"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="241.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="svS-ae-GYw" id="ami-E0-Kow">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="236"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="241.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KfV-FD-oPD">
-                                                            <rect key="frame" x="10" y="5" width="394" height="226"/>
+                                                            <rect key="frame" x="10" y="5" width="394" height="231.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NI-Au-VNE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="118"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="123.5"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLx-8f-c6U">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="118"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="123.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="30" id="Usd-Mh-Dix"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbi-zZ-7Pf">
-                                                                            <rect key="frame" x="30" y="0.0" width="364" height="118"/>
+                                                                            <rect key="frame" x="30" y="0.0" width="364" height="123.5"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPz-Xm-7Ya">
-                                                                    <rect key="frame" x="0.0" y="126" width="394" height="100"/>
+                                                                    <rect key="frame" x="0.0" y="131.5" width="394" height="100"/>
                                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="100" id="JW1-Kj-WWI"/>
@@ -672,7 +672,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyView" rowHeight="328" id="JOq-pT-dGg" customClass="EnptyTableViewCell" customModule="WeekChallenge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="280.5" width="414" height="328"/>
+                                                <rect key="frame" x="0.0" y="286" width="414" height="328"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JOq-pT-dGg" id="jqJ-nj-iQa">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
@@ -1026,7 +1026,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rsK-VI-sBQ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="43"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="43"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Pf-l7-Qjn">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
@@ -1081,7 +1081,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="oBW-Yn-NlK">
-                                <rect key="frame" x="105" y="412.5" width="204" height="198"/>
+                                <rect key="frame" x="105" y="456.5" width="204" height="198"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyi-E3-5oH">
                                         <rect key="frame" x="0.0" y="0.0" width="204" height="198"/>
@@ -1166,6 +1166,7 @@
                                                                 <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
                                                                 <connections>
                                                                     <action selector="signOutBtn:" destination="wb1-wT-sld" eventType="touchUpInside" id="cmg-5f-MSi"/>
+                                                                    <segue destination="2gt-I2-vN4" kind="presentation" identifier="logout" modalPresentationStyle="fullScreen" id="tGg-Ar-S0f"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1208,18 +1209,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2M-hz-FK2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="L9c-AC-NJv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2876.811594202899" y="-631.47321428571422"/>
+            <point key="canvasLocation" x="3786.9565217391309" y="-631.47321428571422"/>
         </scene>
         <!--ChangePWD-->
         <scene sceneID="5d7-du-PVu">
             <objects>
                 <viewController id="OPS-tc-R0n" customClass="ChangePWD" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uWh-Rg-fOM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="dzK-Jc-5L2">
-                                <rect key="frame" x="30" y="200" width="354" height="408"/>
+                                <rect key="frame" x="30" y="288" width="354" height="374"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="nBW-3L-Fwa">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="140.5"/>
@@ -1240,7 +1241,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ohc-oj-k5g">
-                                        <rect key="frame" x="0.0" y="190.5" width="354" height="34"/>
+                                        <rect key="frame" x="0.0" y="179" width="354" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="변경할 @@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRb-xN-eLQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="79" height="34"/>
@@ -1256,7 +1257,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y2T-ue-uQi">
-                                        <rect key="frame" x="0.0" y="274" width="354" height="34"/>
+                                        <rect key="frame" x="0.0" y="251.5" width="354" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="변경할 비밀번호:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxa-oA-MKV">
                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="34"/>
@@ -1272,7 +1273,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAY-Np-7gt">
-                                        <rect key="frame" x="0.0" y="358" width="354" height="50"/>
+                                        <rect key="frame" x="0.0" y="324" width="354" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="1uz-Ee-IaY"/>
                                         </constraints>
@@ -1303,7 +1304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Sl-vc-EQ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3690" y="-631"/>
+            <point key="canvasLocation" x="4600" y="-631.47321428571422"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="WuL-bG-UAl">
@@ -1415,6 +1416,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2gt-I2-vN4" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="R6T-Zi-nsL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1mN-Fm-y2D">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1469,6 +1471,24 @@
                 </button>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="97.767857142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p1s-fZ-Ybg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Ha-BH-iRY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LZz-2U-X5g">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wb1-wT-sld" kind="relationship" relationship="rootViewController" id="REb-1R-mBQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OVx-Jz-acC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2876.811594202899" y="-631.47321428571422"/>
         </scene>
     </scenes>
     <resources>
