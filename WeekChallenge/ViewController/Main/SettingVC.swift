@@ -18,6 +18,7 @@ class SettingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Connectivity().Network(view: self)
         setup()
         self.navigationItem.backBarButtonItem?.isEnabled = true
     }

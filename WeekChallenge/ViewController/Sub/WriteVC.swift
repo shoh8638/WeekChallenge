@@ -29,10 +29,10 @@ class WriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Connectivity().Network(view: self)
         setText()
         self.imgView.isHidden = true
         picker.delegate = self
-        print("현재 DocumentID: \(documentID!)")
     }
     
     func setText() {

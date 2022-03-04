@@ -16,6 +16,7 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Connectivity().Network(view: self)
         emailText.delegate = self
         pwdText.delegate = self
         loginBtn.isEnabled = false

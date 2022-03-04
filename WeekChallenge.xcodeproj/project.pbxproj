@@ -12,6 +12,7 @@
 		E60DA3B627D05B13001DC914 /* PlanEnptyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3B427D05B13001DC914 /* PlanEnptyCardCell.swift */; };
 		E60DA3B727D05B13001DC914 /* PlanEnptyCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E60DA3B527D05B13001DC914 /* PlanEnptyCardCell.xib */; };
 		E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3B927D0B20D001DC914 /* SearchVC.swift */; };
+		E60DA3BC27D1FFAF001DC914 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3BB27D1FFAF001DC914 /* Connectivity.swift */; };
 		E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FDC5627BCD8030013372F /* PlanDate.swift */; };
 		E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */; };
 		E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */; };
@@ -91,6 +92,7 @@
 		E60DA3B427D05B13001DC914 /* PlanEnptyCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanEnptyCardCell.swift; sourceTree = "<group>"; };
 		E60DA3B527D05B13001DC914 /* PlanEnptyCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanEnptyCardCell.xib; sourceTree = "<group>"; };
 		E60DA3B927D0B20D001DC914 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		E60DA3BB27D1FFAF001DC914 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		E64FDC5627BCD8030013372F /* PlanDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDate.swift; sourceTree = "<group>"; };
 		E6584F4C27B33DFD00B58FCB /* WeekChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				E667FCB527B9EF6C009AEFE0 /* Database.swift */,
 				E667FCB727BA1841009AEFE0 /* CustomAlert.swift */,
 				E64FDC5627BCD8030013372F /* PlanDate.swift */,
+				E60DA3BB27D1FFAF001DC914 /* Connectivity.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				E60DA3B627D05B13001DC914 /* PlanEnptyCardCell.swift in Sources */,
 				E65D5B9427D03F73009E16EE /* PlanCardCell.swift in Sources */,
 				E664959E27BC8ABC000110C9 /* SettingVC.swift in Sources */,
+				E60DA3BC27D1FFAF001DC914 /* Connectivity.swift in Sources */,
 				E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */,
 				E6A0086327C6090C00AB8D2D /* EnptyTableViewCell.swift in Sources */,
 				E667FCB827BA1841009AEFE0 /* CustomAlert.swift in Sources */,

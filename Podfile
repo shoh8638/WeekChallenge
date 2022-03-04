@@ -24,4 +24,5 @@ pod 'SDWebImage', '~> 5.0'
 pod 'LSHContributionView'
 pod 'VerticalCardSwiper'
 pod 'IQKeyboardManagerSwift'
+pod 'Alamofire', '~> 5.5'
 end

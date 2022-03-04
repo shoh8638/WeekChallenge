@@ -18,6 +18,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Connectivity().Network(view: self)
         checkUser()
         LSHView()
     }
@@ -30,9 +31,10 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         checkUser()
     }
+    
     @IBAction func planChoice(_ sender: Any) {
     }
-    
+        
     func checkUser() {
         if let userID = Auth.auth().currentUser?.email {
             Database().checkDB(userID: userID) { count in

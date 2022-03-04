@@ -17,6 +17,7 @@ class ChangePWD: UIViewController {
     @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
+        Connectivity().Network(view: self)
         super.viewDidLoad()
     }
         

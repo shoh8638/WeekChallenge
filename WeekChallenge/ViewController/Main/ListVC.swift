@@ -21,8 +21,10 @@ class ListVC: UIViewController {
     var cardSwiper: VerticalCardSwiper!
     
     @IBOutlet weak var mainView: VerticalCardSwiperView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        Connectivity().Network(view: self)
         cardSetup()
         loadData()
         initRefresh()
