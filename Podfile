@@ -23,4 +23,5 @@ pod 'Tabman'
 pod 'SDWebImage', '~> 5.0'
 pod 'LSHContributionView'
 pod 'VerticalCardSwiper'
+pod 'IQKeyboardManagerSwift'
 end

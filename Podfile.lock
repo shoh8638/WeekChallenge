@@ -429,6 +429,7 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.7.0)
+  - IQKeyboardManagerSwift (6.5.9)
   - leveldb-library (1.22.1)
   - LSHContributionView (1.0.0)
   - nanopb (2.30908.0):
@@ -450,6 +451,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - Firebase/Storage
+  - IQKeyboardManagerSwift
   - LSHContributionView
   - SDWebImage (~> 5.0)
   - SwiftOverlays (~> 5.0.1)
@@ -471,6 +473,7 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - IQKeyboardManagerSwift
     - leveldb-library
     - LSHContributionView
     - nanopb
@@ -495,6 +498,7 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   LSHContributionView: 8b523e7e8c54159d1ba984fad99970ea3cb0f140
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -505,6 +509,6 @@ SPEC CHECKSUMS:
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
   VerticalCardSwiper: 68df635b354500f86934ea044ade37a264c044c6
 
-PODFILE CHECKSUM: c9f92bf8afc4e7396b18dbe7e560be697e4979c4
+PODFILE CHECKSUM: 3e2c7f7359acf1185891f46deb42fb5049e29e5f
 
 COCOAPODS: 1.11.2
