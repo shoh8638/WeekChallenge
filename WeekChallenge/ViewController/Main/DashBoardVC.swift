@@ -20,17 +20,39 @@ class DashBoardVC: UIViewController {
     var userText = [String]()
     
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var searchText: UITextField!
+    @IBOutlet weak var searchView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
         initRefresh()
+        searchView.isHidden = true
     }
-    
+
     @IBAction func settingButton(_ sender: Any) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSetting") as! SettingVC
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func searchBtn(_ sender: Any) {
+        if searchView.isHidden == true {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.searchView.isHidden = false
+                self.searchView.alpha = 1
+            })
+        } else if searchView.isHidden == false && searchText.text == "" {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.searchView.isHidden = true
+                self.searchView.alpha = 0
+            })
+        } else if searchView.isHidden == false && searchText.text != "" {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "searchVC") as! SearchVC
+            vc.searchText = self.searchText.text!
+            self.present(vc, animated: true, completion: nil)
+            self.searchText.text = ""
+        }
     }
     
     func loadData() {
