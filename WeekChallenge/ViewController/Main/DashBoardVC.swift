@@ -52,6 +52,10 @@ class DashBoardVC: UIViewController {
             vc.searchText = self.searchText.text!
             self.present(vc, animated: true, completion: nil)
             self.searchText.text = ""
+            UIView.animate(withDuration: 0.5, animations: {
+                self.searchView.isHidden = true
+                self.searchView.alpha = 0
+            })
         }
     }
     

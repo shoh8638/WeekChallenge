@@ -35,13 +35,11 @@
 		E667FCB427B9E5F2009AEFE0 /* PlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB327B9E5F2009AEFE0 /* PlanVC.swift */; };
 		E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB527B9EF6C009AEFE0 /* Database.swift */; };
 		E667FCB827BA1841009AEFE0 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB727BA1841009AEFE0 /* CustomAlert.swift */; };
-		E667FCBB27BA4483009AEFE0 /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCBA27BA4483009AEFE0 /* PlanTableViewCell.swift */; };
 		E6853F9D27B49B2A0091B4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */; };
 		E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853F9E27B4A26E0091B4A7 /* MainVC.swift */; };
 		E6853FA627B4F20B0091B4A7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853FA527B4F20B0091B4A7 /* HomeVC.swift */; };
 		E6A0086327C6090C00AB8D2D /* EnptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0086227C6090C00AB8D2D /* EnptyTableViewCell.swift */; };
 		E6A0086527C60CB600AB8D2D /* WriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0086427C60CB600AB8D2D /* WriteVC.swift */; };
-		E6A0086727C74A5300AB8D2D /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0086627C74A5300AB8D2D /* SettingTableViewCell.swift */; };
 		E6A0086927C8925000AB8D2D /* DashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0086827C8924F00AB8D2D /* DashBoardVC.swift */; };
 		EE355B8C15BDE0BC84AB3B75 /* Pods_WeekChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */; };
 /* End PBXBuildFile section */
@@ -120,13 +118,11 @@
 		E667FCB327B9E5F2009AEFE0 /* PlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanVC.swift; sourceTree = "<group>"; };
 		E667FCB527B9EF6C009AEFE0 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		E667FCB727BA1841009AEFE0 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
-		E667FCBA27BA4483009AEFE0 /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
 		E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6853F9E27B4A26E0091B4A7 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E6853FA527B4F20B0091B4A7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E6A0086227C6090C00AB8D2D /* EnptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnptyTableViewCell.swift; sourceTree = "<group>"; };
 		E6A0086427C60CB600AB8D2D /* WriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteVC.swift; sourceTree = "<group>"; };
-		E6A0086627C74A5300AB8D2D /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		E6A0086827C8924F00AB8D2D /* DashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardVC.swift; sourceTree = "<group>"; };
 		F59B675783D8C837E3BDD0D3 /* Pods_WeekChallenge_WeekChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge_WeekChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -366,8 +362,6 @@
 			isa = PBXGroup;
 			children = (
 				E65D5B8F27CF4E20009E16EE /* EnptyCell */,
-				E667FCBA27BA4483009AEFE0 /* PlanTableViewCell.swift */,
-				E6A0086627C74A5300AB8D2D /* SettingTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -632,8 +626,6 @@
 				E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
 				E6A0086927C8925000AB8D2D /* DashBoardVC.swift in Sources */,
-				E667FCBB27BA4483009AEFE0 /* PlanTableViewCell.swift in Sources */,
-				E6A0086727C74A5300AB8D2D /* SettingTableViewCell.swift in Sources */,
 				E661441227B386C50000CEA7 /* AuthService.swift in Sources */,
 				E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */,
 				E6853FA627B4F20B0091B4A7 /* HomeVC.swift in Sources */,

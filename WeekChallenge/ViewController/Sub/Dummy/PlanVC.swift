@@ -88,53 +88,53 @@ func initRefresh() {
 }
 }
 
-//MARK: Table DataSource, Delegate
-extension PlanVC: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if countList == 1 {
-            return 1
-        } else if !self.dbTitles.isEmpty {
-            return self.dbTitles.count
-        } else {
-            return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if countList == 1 {
-            let cell = homeTable.dequeueReusableCell(withIdentifier: "emptyView", for: indexPath) as! EnptyTableViewCell
-            cell.vc = self
-            return cell
-        } else {
-            let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
-            cell.detailBtn.setTitle(dbTitles[indexPath.row], for: .normal)
-            cell.detailBtn.tag = indexPath.row
-            LSHView(view: cell.planView, count: self.dbDate[indexPath.row])
-            return cell
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if countList == 1 {
-            return homeTable.bounds.height
-        } else {
-            return UIScreen.main.bounds.height / 5
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "write" {
-            guard let writeVC = segue.destination as? WriteVC else { return }
-            writeVC.documentID = self.dbID[(sender as? UIButton)!.tag]
-        }
-    }
-    func LSHView(view: UIView, count: Array<Int>) {
-        if count != [] {
-            let dataSquare = [count]
-            let contributeView = LSHContributionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: view.bounds.height))
-            contributeView.data = dataSquare
-            contributeView.colorScheme = "Halloween"
-            view.addSubview(contributeView)
-        }
-    }
-}
+////MARK: Table DataSource, Delegate
+//extension PlanVC: UITableViewDataSource, UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if countList == 1 {
+//            return 1
+//        } else if !self.dbTitles.isEmpty {
+//            return self.dbTitles.count
+//        } else {
+//            return 0
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if countList == 1 {
+//            let cell = homeTable.dequeueReusableCell(withIdentifier: "emptyView", for: indexPath) as! EnptyTableViewCell
+//            cell.vc = self
+//            return cell
+//        } else {
+//            let cell = homeTable.dequeueReusableCell(withIdentifier: "planView", for: indexPath) as! PlanTableViewCell
+//            cell.detailBtn.setTitle(dbTitles[indexPath.row], for: .normal)
+//            cell.detailBtn.tag = indexPath.row
+//            LSHView(view: cell.planView, count: self.dbDate[indexPath.row])
+//            return cell
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if countList == 1 {
+//            return homeTable.bounds.height
+//        } else {
+//            return UIScreen.main.bounds.height / 5
+//        }
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "write" {
+//            guard let writeVC = segue.destination as? WriteVC else { return }
+//            writeVC.documentID = self.dbID[(sender as? UIButton)!.tag]
+//        }
+//    }
+//    func LSHView(view: UIView, count: Array<Int>) {
+//        if count != [] {
+//            let dataSquare = [count]
+//            let contributeView = LSHContributionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: view.bounds.height))
+//            contributeView.data = dataSquare
+//            contributeView.colorScheme = "Halloween"
+//            view.addSubview(contributeView)
+//        }
+//    }
+//}
