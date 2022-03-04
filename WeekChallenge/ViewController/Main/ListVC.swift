@@ -113,6 +113,7 @@ extension ListVC: VerticalCardSwiperDatasource, VerticalCardSwiperDelegate{
     func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
         if self.countList == 1 {
             let cell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "PlanEnptyCardCell", for: index) as! PlanEnptyCardCell
+            cell.vc = self
             return cell
         } else {
             let cell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "PlanCardCell", for: index) as! PlanCardCell
@@ -139,12 +140,14 @@ extension ListVC: VerticalCardSwiperDatasource, VerticalCardSwiperDelegate{
     func LSHViewChange(view: UIView, count: Array<Int>, index: Int) {
         if count != [] {
             let dataSquare = [count]
-            let contributeView = LSHContributionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width-1, height: view.bounds.height))
+            let contributeView = LSHContributionView(frame: CGRect(x: -17, y: 0, width: view.bounds.width, height: view.bounds.height))
             if index % 2 == 0 {
                 contributeView.backgroundColor = UIColor(named: "cardColorOne")
             } else {
                 contributeView.backgroundColor = UIColor(named: "cardColorTwo")
             }
+            contributeView.gridMargin = 0
+            contributeView.gridSpacing = 4
             contributeView.data = dataSquare
             contributeView.colorScheme = "Halloween"
             view.addSubview(contributeView)

@@ -28,6 +28,9 @@
                                         <rect key="frame" x="79.5" y="0.0" width="117" height="331.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="계획을 세워보자!"/>
+                                        <connections>
+                                            <action selector="enptyButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="QTH-ui-dba"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="텅 비어있다~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vj2-m0-6uI">
                                         <rect key="frame" x="94" y="346.5" width="88.5" height="20.5"/>
