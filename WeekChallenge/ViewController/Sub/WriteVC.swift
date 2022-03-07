@@ -16,6 +16,7 @@ class WriteVC: UIViewController {
     let storage = Storage.storage()
     
     var documentID: String?
+    var titles: String?
     let picker = UIImagePickerController()
     var current: String?
     var imgUrl: String?
@@ -40,9 +41,7 @@ class WriteVC: UIViewController {
         fomatter.dateFormat = "yyyy-MM-dd"
         let current = String(fomatter.string(from: Date()))
         
-        let range = documentID!.firstIndex(of: "+") ?? documentID!.endIndex
-        
-        self.mainTitle.text = String(documentID![..<range])
+        self.mainTitle.text = titles!
         self.currentDate.text = current
     }
     

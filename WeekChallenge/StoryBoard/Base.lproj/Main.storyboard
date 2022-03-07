@@ -449,17 +449,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GK2-j2-WOR">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-1o-6lR">
-                                                <rect key="frame" x="363" y="5" width="51" height="23"/>
-                                                <color key="tintColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="settingsMenuItem">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="settingButton:" destination="GjI-Tt-BWS" eventType="touchUpInside" id="wYr-YZ-5zl"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UmW-kM-gto">
                                                 <rect key="frame" x="298" y="5" width="60" height="23"/>
                                                 <constraints>
@@ -469,6 +458,17 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="검색"/>
                                                 <connections>
                                                     <action selector="searchBtn:" destination="GjI-Tt-BWS" eventType="touchUpInside" id="UeX-vm-0rt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-1o-6lR">
+                                                <rect key="frame" x="363" y="5" width="51" height="23"/>
+                                                <color key="tintColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="settingsMenuItem">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="settingButton:" destination="GjI-Tt-BWS" eventType="touchUpInside" id="wYr-YZ-5zl"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -711,6 +711,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA0-eE-H1v">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQv-CV-2oQ">
+                                                <rect key="frame" x="315.5" y="5" width="42.5" height="23"/>
+                                                <color key="backgroundColor" name="white"/>
+                                                <color key="tintColor" name="black"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
+                                                <connections>
+                                                    <action selector="refresh:" destination="IDB-6v-Fcm" eventType="touchUpInside" id="SSt-A3-60b"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IZ-Di-TDN">
                                                 <rect key="frame" x="363" y="5" width="51" height="23"/>
                                                 <color key="tintColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
@@ -723,8 +733,11 @@
                                         <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="8IZ-Di-TDN" secondAttribute="trailing" id="72c-ZZ-KYW"/>
+                                            <constraint firstItem="8IZ-Di-TDN" firstAttribute="leading" secondItem="zQv-CV-2oQ" secondAttribute="trailing" constant="5" id="9fr-GG-2gl"/>
+                                            <constraint firstItem="zQv-CV-2oQ" firstAttribute="top" secondItem="aA0-eE-H1v" secondAttribute="top" constant="5" id="GcV-AH-bpG"/>
                                             <constraint firstItem="8IZ-Di-TDN" firstAttribute="top" secondItem="aA0-eE-H1v" secondAttribute="top" constant="5" id="XSh-S5-sJG"/>
                                             <constraint firstAttribute="height" constant="30" id="pla-78-091"/>
+                                            <constraint firstAttribute="bottom" secondItem="zQv-CV-2oQ" secondAttribute="bottom" constant="2" id="wVD-ee-0UU"/>
                                             <constraint firstAttribute="bottom" secondItem="8IZ-Di-TDN" secondAttribute="bottom" constant="2" id="zv1-Cu-xbF"/>
                                         </constraints>
                                     </view>
@@ -1666,6 +1679,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="arrow.uturn.right" catalog="system" width="128" height="112"/>
         <image name="arrowshape.zigzag.right.fill" catalog="system" width="128" height="93"/>
         <image name="house" catalog="system" width="128" height="106"/>

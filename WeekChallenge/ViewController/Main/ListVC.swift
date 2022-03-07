@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import LSHContributionView
 import VerticalCardSwiper
+import SwiftOverlays
 
 class ListVC: UIViewController {
     
@@ -52,8 +53,7 @@ class ListVC: UIViewController {
                 for document in querySnapshot!.documents {
                     if document.documentID != "UserData" {
                         self.dbID.append(document.documentID)
-                        let range = document.documentID.firstIndex(of: "+") ?? document.documentID.endIndex
-                        self.dbTitles.append(String(document.documentID[..<range]))
+                        self.dbTitles.append(document.data()["Title"] as! String)
                         
                         let dates = (document["Dates"] as! [String]).sorted(by: <)
                         for number in 0...dates.count-1 {
@@ -96,6 +96,15 @@ class ListVC: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func refresh(_ sender: Any) {
+        self.showTextOverlay("새로고침중..")
+        self.dbID.removeAll()
+        self.dbTitles.removeAll()
+        self.dbDate.removeAll()
+        loadData()
+        self.removeAllOverlays()
+    }
+    
 }
 
 extension ListVC: VerticalCardSwiperDatasource, VerticalCardSwiperDelegate{
@@ -130,6 +139,7 @@ extension ListVC: VerticalCardSwiperDatasource, VerticalCardSwiperDelegate{
             cell.titleBtn.tintColor = .black
             cell.titleBtn.tag = index
             cell.documentID = self.dbID[index]
+            cell.titles = self.dbTitles[index]
             cell.viewController = self
             cell.titleBtn.setTitle("\(self.dbTitles[index])", for: .normal)
             LSHViewChange(view: cell.LSHView, count: self.dbDate[index], index: index)
@@ -140,14 +150,12 @@ extension ListVC: VerticalCardSwiperDatasource, VerticalCardSwiperDelegate{
     func LSHViewChange(view: UIView, count: Array<Int>, index: Int) {
         if count != [] {
             let dataSquare = [count]
-            let contributeView = LSHContributionView(frame: CGRect(x: -17, y: 0, width: view.bounds.width, height: view.bounds.height))
+            let contributeView = LSHContributionView(frame: CGRect(x: -17, y: 0, width: mainView.bounds.width, height: mainView.bounds.height))
             if index % 2 == 0 {
                 contributeView.backgroundColor = UIColor(named: "cardColorOne")
             } else {
                 contributeView.backgroundColor = UIColor(named: "cardColorTwo")
             }
-            contributeView.gridMargin = 0
-            contributeView.gridSpacing = 4
             contributeView.data = dataSquare
             contributeView.colorScheme = "Halloween"
             view.addSubview(contributeView)

@@ -66,8 +66,7 @@ class DashBoardVC: UIViewController {
             for document in querySnapshot!.documents {
                 if document.documentID != "UserData" {
                     self.dbID.append(document.documentID)
-                    let range = document.documentID.firstIndex(of: "+") ?? document.documentID.endIndex
-                    self.dbTitles.append(String(document.documentID[..<range]))
+                    self.dbTitles.append(document.data()["Title"] as! String)
                     
                     let dates = (document["Dates"] as! [String]).sorted(by: <)
                     for i in 0...dates.count-1 {
@@ -126,11 +125,11 @@ extension DashBoardVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
-            cell.name.text = self.dbTitles[indexPath.row]
+            cell.name.text = self.userTitles[indexPath.row]
             Storage.storage().reference(forURL: self.userImg[indexPath.row]).downloadURL { (url, error) in
                 cell.img.sd_setImage(with: url!, completed: nil)
                     }
-            cell.title.text = self.userTitles[indexPath.row]
+            cell.title.text = "\(indexPath.row)"
             cell.text.text = self.userText[indexPath.row]
             return cell
         }

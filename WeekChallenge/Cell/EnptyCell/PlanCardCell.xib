@@ -31,6 +31,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="48.5" height="45"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="수정"/>
+                                                <connections>
+                                                    <action selector="modifyWrite:" destination="gTV-IL-0wX" eventType="touchUpInside" id="KaY-fI-i0X"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqU-8n-jJe">
                                                 <rect key="frame" x="58.5" y="0.0" width="48.5" height="45"/>

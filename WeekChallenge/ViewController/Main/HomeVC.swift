@@ -23,15 +23,6 @@ class HomeVC: UIViewController {
         LSHView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("HomeVC_reloadData")
-        checkUser()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        checkUser()
-    }
-    
     @IBAction func planChoice(_ sender: Any) {
     }
         
