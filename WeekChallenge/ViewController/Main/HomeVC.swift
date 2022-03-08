@@ -52,6 +52,7 @@ class HomeVC: UIViewController {
             self.firstDates.removeAll()
             self.lastDates.removeAll()
             self.eventDates.removeAll()
+            self.fsCalender.reloadData()
             if err == nil {
                 for document in querySnapshot!.documents {
                     if document.documentID != "UserData" {
