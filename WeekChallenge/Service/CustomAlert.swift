@@ -75,10 +75,11 @@ class CustomAlert {
         }
         
         let action = UIAlertAction(title: "확인", style: .default) { _ in
-            vc.dismiss(animated: true) {
-                let titleText = (alert.textFields?[0].text)!
-                Database().createDB(folderName: titleText, date: date)
-            }
+            vc.showTextOverlay("잠시만 기다려주세요!")
+            let titleText = (alert.textFields?[0].text)!
+            Database().createDB(folderName: titleText, date: date)
+            vc.removeAllOverlays()
+            vc.dismiss(animated: true, completion: nil)
         }
         alert.addAction(action)
         vc.present(alert, animated: true)

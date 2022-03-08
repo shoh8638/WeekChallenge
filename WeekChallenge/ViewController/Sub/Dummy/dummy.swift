@@ -7,6 +7,31 @@
 
 import Foundation
 /*
+ 
+ guard let userID = Auth.auth().currentUser?.email else { return }
+ let randomNum = arc4random_uniform(999999)
+ let data = ["Title": "", "Image": "", "Text": ""]
+ var dateArr = [String]()
+ for i in date {
+     dateArr.append(i.key)
+ }
+ 
+ db.collection(userID).document("\(folderName)+\(randomNum)").setData([
+     "Title": folderName,
+     "\(dateArr[0])": data,
+     "\(dateArr[1])": data,
+     "\(dateArr[2])": data,
+     "\(dateArr[3])": data,
+     "\(dateArr[4])": data,
+     "Dates": dateArr
+ ]) { err in
+     guard err == nil else {
+         return print("createDB err: \(err!)")
+     }
+     print("createDB Success")
+ }
+ 
+ 
  self.db.collection(userID).document(document.documentID).getDocument { (rowDocument, err) in
      if let rowDocument = rowDocument, document.exists {
          let dates = (rowDocument["Dates"] as! [String]).sorted(by: <)

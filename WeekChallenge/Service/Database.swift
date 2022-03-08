@@ -25,20 +25,44 @@ class Database {
     }
     
     func createDB(folderName: String, date: Dictionary<String, Any> ) {
-        if let userID = Auth.auth().currentUser?.email {
-            let randomNum = arc4random_uniform(999999)
-            db.collection(userID).document("\(folderName)+\(randomNum)").setData(["Title": folderName]) { err in
-                guard err == nil else {
-                    return print("createDB err: \(err!)")
-                }
-                let path = self.db.collection(userID).document("\(folderName)+\(randomNum)")
-                for i in date {
-                    let key = i.key
-                    path.updateData([key : ["Title": "", "Image": "", "Text": ""]])
-                    path.updateData(["Dates" : FieldValue.arrayUnion([key])])
-                }
-                print("createDB Success")
+//        if let userID = Auth.auth().currentUser?.email {
+//            let randomNum = arc4random_uniform(999999)
+//            db.collection(userID).document("\(folderName)+\(randomNum)").setData(["Title": folderName]) { err in
+//                guard err == nil else {
+//                    return print("createDB err: \(err!)")
+//                }
+//                let path = self.db.collection(userID).document("\(folderName)+\(randomNum)")
+//                for i in date {
+//                    let key = i.key
+//                    path.updateData([key : ["Title": "", "Image": "", "Text": ""]])
+//                    path.updateData(["Dates" : FieldValue.arrayUnion([key])])
+//                }
+//                print("createDB Success")
+//            }
+//            print("createDB Success")
+//        }
+        
+        guard let userID = Auth.auth().currentUser?.email else { return }
+        let randomNum = arc4random_uniform(999999)
+        let data = ["Title": "", "Image": "", "Text": ""]
+        var dateArr = [String]()
+        for i in date {
+            dateArr.append(i.key)
+        }
+        
+        db.collection(userID).document("\(folderName)+\(randomNum)").setData([
+            "Title": folderName,
+            "\(dateArr[0])": data,
+            "\(dateArr[1])": data,
+            "\(dateArr[2])": data,
+            "\(dateArr[3])": data,
+            "\(dateArr[4])": data,
+            "Dates": dateArr
+        ]) { err in
+            guard err == nil else {
+                return print("createDB err: \(err!)")
             }
+            print("createDB Success")
         }
     }
     
