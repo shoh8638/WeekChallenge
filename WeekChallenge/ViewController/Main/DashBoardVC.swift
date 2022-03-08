@@ -43,20 +43,19 @@ class DashBoardVC: UIViewController {
                 self.searchView.isHidden = false
                 self.searchView.alpha = 1
             })
-        } else if searchView.isHidden == false && searchText.text == "" {
+        } else if searchView.isHidden == false {
             UIView.animate(withDuration: 0.5, animations: {
                 self.searchView.isHidden = true
                 self.searchView.alpha = 0
             })
-        } else if searchView.isHidden == false && searchText.text != "" {
+        }
+    }
+    @IBAction func searchButton(_ sender: Any) {
+        if self.searchText.text != "" {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "searchVC") as! SearchVC
             vc.searchText = self.searchText.text!
             self.present(vc, animated: true, completion: nil)
             self.searchText.text = ""
-            UIView.animate(withDuration: 0.5, animations: {
-                self.searchView.isHidden = true
-                self.searchView.alpha = 0
-            })
         }
     }
     

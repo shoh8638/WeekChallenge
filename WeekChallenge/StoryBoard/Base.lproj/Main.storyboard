@@ -545,21 +545,34 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGI-8R-gig">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vIT-Uy-CAC">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                                                <color key="backgroundColor" name="white"/>
-                                                <color key="textColor" name="black"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="otc-E4-OPa">
+                                                <rect key="frame" x="10" y="0.0" width="354" height="30"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색어를 입력해주세요!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vIT-Uy-CAC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="295.5" height="30"/>
+                                                        <color key="backgroundColor" name="white"/>
+                                                        <color key="textColor" name="black"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obr-Yg-rbB">
+                                                        <rect key="frame" x="305.5" y="0.0" width="48.5" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="검색"/>
+                                                        <connections>
+                                                            <action selector="searchButton:" destination="GjI-Tt-BWS" eventType="touchUpInside" id="WUC-Ym-aqb"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" name="white"/>
                                         <constraints>
-                                            <constraint firstItem="vIT-Uy-CAC" firstAttribute="leading" secondItem="HGI-8R-gig" secondAttribute="leading" id="9tN-7N-oPc"/>
-                                            <constraint firstAttribute="bottom" secondItem="vIT-Uy-CAC" secondAttribute="bottom" id="KiP-B8-cPS"/>
-                                            <constraint firstAttribute="trailing" secondItem="vIT-Uy-CAC" secondAttribute="trailing" id="SnX-CT-Oo5"/>
+                                            <constraint firstItem="otc-E4-OPa" firstAttribute="leading" secondItem="HGI-8R-gig" secondAttribute="leading" constant="10" id="LGA-hg-jRB"/>
+                                            <constraint firstAttribute="trailing" secondItem="otc-E4-OPa" secondAttribute="trailing" constant="10" id="NHF-k6-jeI"/>
                                             <constraint firstAttribute="height" constant="30" id="kYo-TY-5pI"/>
-                                            <constraint firstItem="vIT-Uy-CAC" firstAttribute="top" secondItem="HGI-8R-gig" secondAttribute="top" id="wMG-pr-R2R"/>
+                                            <constraint firstItem="otc-E4-OPa" firstAttribute="top" secondItem="HGI-8R-gig" secondAttribute="top" id="lbE-ac-uGm"/>
+                                            <constraint firstAttribute="bottom" secondItem="otc-E4-OPa" secondAttribute="bottom" id="vUV-Cg-Wiv"/>
                                         </constraints>
                                     </view>
                                 </subviews>
