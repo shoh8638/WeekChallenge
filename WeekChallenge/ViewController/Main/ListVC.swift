@@ -32,7 +32,7 @@ class ListVC: UIViewController {
     }
     
     func cardSetup() {
-        cardSwiper = VerticalCardSwiper(frame:CGRect(x: 0, y: 0, width: mainView.bounds.width, height: mainView.bounds.height))
+        cardSwiper = VerticalCardSwiper(frame:self.mainView.bounds)
         mainView.addSubview(cardSwiper)
         cardSwiper.isSideSwipingEnabled = false
         
@@ -45,9 +45,6 @@ class ListVC: UIViewController {
     func loadData() {
         var complete = [Int]()
         guard let userID = Auth.auth().currentUser?.email else {return}
-        Database().checkDB(userID: userID) { count in
-            self.countList = count as! Int
-        }
         self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
             self.dbID.removeAll()
             self.dbTitles.removeAll()
@@ -112,7 +109,7 @@ class ListVC: UIViewController {
 extension ListVC: VerticalCardSwiperDatasource, VerticalCardSwiperDelegate{
     
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        if countList == 1 {
+        if self.dbID.count == 0 {
             return 1
         } else if !self.dbTitles.isEmpty {
             return self.dbTitles.count
@@ -122,7 +119,7 @@ extension ListVC: VerticalCardSwiperDatasource, VerticalCardSwiperDelegate{
     }
     
     func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
-        if self.countList == 1 {
+        if self.dbID.count == 0 {
             let cell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "PlanEnptyCardCell", for: index) as! PlanEnptyCardCell
             cell.vc = self
             return cell

@@ -397,10 +397,10 @@
                                 <rect key="frame" x="10" y="218" width="394" height="569"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3J-WQ-bo6" customClass="FSCalendar">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="175"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="300"/>
                                         <color key="backgroundColor" name="white"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="175" id="Wvz-st-rZ0"/>
+                                            <constraint firstAttribute="height" constant="300" id="Wvz-st-rZ0"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
@@ -422,10 +422,13 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="headerTitleTextSize">
                                                 <real key="value" value="18"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
+                                                <real key="value" value="200"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pd6-Rm-TPp">
-                                        <rect key="frame" x="0.0" y="175" width="394" height="394"/>
+                                        <rect key="frame" x="0.0" y="300" width="394" height="269"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeEmptyCell" rowHeight="121" id="l4e-ON-V6i" customClass="homeEmptyCell" customModule="WeekChallenge" customModuleProvider="target">

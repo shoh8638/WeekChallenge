@@ -16,6 +16,7 @@ class HomeVC: UIViewController {
     var dbTitles = [String]()
     var firstDates = [String]()
     var lastDates = [String]()
+    var eventDates = [[String]]()
     
     @IBOutlet weak var wecolmeText: UILabel!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
@@ -50,6 +51,7 @@ class HomeVC: UIViewController {
             self.dbTitles.removeAll()
             self.firstDates.removeAll()
             self.lastDates.removeAll()
+            self.eventDates.removeAll()
             if err == nil {
                 for document in querySnapshot!.documents {
                     if document.documentID != "UserData" {
@@ -57,8 +59,10 @@ class HomeVC: UIViewController {
                         
                         let first = (document["Dates"] as! [String]).sorted(by: <).first!
                         let last = (document["Dates"] as! [String]).sorted(by: <).last!
+                        let event = (document["Dates"] as! [String]).sorted(by: <)
                         self.firstDates.append(first)
                         self.lastDates.append(last)
+                        self.eventDates.append(event)
                     }
                 }
             }
@@ -77,6 +81,7 @@ class HomeVC: UIViewController {
         self.dbTitles.removeAll()
         self.firstDates.removeAll()
         self.lastDates.removeAll()
+        self.eventDates.removeAll()
         loadData()
         refresh.endRefreshing()
     }
@@ -94,6 +99,7 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
         self.fsCalender.dataSource = self
         self.fsCalender.delegate = self
         fsCalender.scope = .week
+        fsCalender.locale = Locale(identifier: "ko_KR")
     }
     
     func swipe() {
@@ -129,6 +135,24 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
                 self.view.layoutIfNeeded()
             }
         }
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let dateFomatter = DateFormatter()
+        dateFomatter.dateFormat = "yyyy-MM-dd"
+        let day = dateFomatter.string(from: date)
+        if self.firstDates.contains(day) {
+            return 1
+        } else if self.lastDates.contains(day) {
+            return 1
+        } else {
+            return 0
+        }
+    }
+    
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let eventScaleFactor: CGFloat = 2.0
+        cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
     }
 }
 
