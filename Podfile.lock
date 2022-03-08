@@ -386,6 +386,7 @@ PODS:
   - FirebaseStorage (8.12.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
+  - FSCalendar (2.8.2)
   - GoogleDataTransport (9.1.2):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
@@ -453,6 +454,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - Firebase/Storage
+  - FSCalendar
   - IQKeyboardManagerSwift
   - LSHContributionView
   - SDWebImage (~> 5.0)
@@ -471,6 +473,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
     - FirebaseStorage
+    - FSCalendar
     - GoogleDataTransport
     - GoogleUtilities
     - "gRPC-C++"
@@ -497,6 +500,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 3b40dfadef5b90433a60ae01f01e90fe87aa76aa
   FirebaseFirestore: dfeb58916ee3ae0ef2453d4849a683672705920c
   FirebaseStorage: 4b75458c35d8b728e4c1fc1371942997456ab299
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
@@ -513,6 +517,6 @@ SPEC CHECKSUMS:
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
   VerticalCardSwiper: 68df635b354500f86934ea044ade37a264c044c6
 
-PODFILE CHECKSUM: 99b458adc13b66fcd2ed9a2699c85d30a9ef72a0
+PODFILE CHECKSUM: c7ad1352a0e12fb49d2b5d0c818e250335e9e1c6
 
 COCOAPODS: 1.11.2

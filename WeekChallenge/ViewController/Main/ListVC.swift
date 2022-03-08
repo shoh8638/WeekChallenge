@@ -48,7 +48,7 @@ class ListVC: UIViewController {
         Database().checkDB(userID: userID) { count in
             self.countList = count as! Int
         }
-        self.db.collection(userID).getDocuments { (querySnapshot, err) in
+        self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
             if err == nil {
                 for document in querySnapshot!.documents {
                     if document.documentID != "UserData" {
@@ -71,8 +71,7 @@ class ListVC: UIViewController {
                 }
             }
             self.cardSwiper.reloadData()
-        }
-        
+        }        
     }
     
     func initRefresh() {

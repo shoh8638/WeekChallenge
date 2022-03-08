@@ -57,7 +57,7 @@ class Database {
     }
     
     func checkDB(userID: String, completionHandler: @escaping completionHandler ) {
-        db.collection(userID).getDocuments() { (querySnapshot, err) in
+        db.collection(userID).addSnapshotListener {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

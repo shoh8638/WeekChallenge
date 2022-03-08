@@ -62,7 +62,7 @@ class DashBoardVC: UIViewController {
     
     func loadData() {
         guard let userID = Auth.auth().currentUser?.email else {return}
-        self.db.collection(userID).getDocuments { (querySnapshot, err) in
+        self.db.collection(userID).addSnapshotListener{ (querySnapshot, err) in
             for document in querySnapshot!.documents {
                 if document.documentID != "UserData" {
                     self.dbID.append(document.documentID)

@@ -25,4 +25,5 @@ pod 'LSHContributionView'
 pod 'VerticalCardSwiper'
 pod 'IQKeyboardManagerSwift'
 pod 'Alamofire', '~> 5.5'
+pod 'FSCalendar'
 end
