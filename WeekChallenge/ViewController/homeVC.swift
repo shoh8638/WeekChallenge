@@ -79,6 +79,7 @@ class homeVC: UIViewController {
             self.runningCount = 0
             self.completeCount = 0
             self.calendar.reloadData()
+            
             if err == nil {
                 for document in querySnapshot!.documents {
                     if document.documentID == "UserData" {
@@ -109,11 +110,16 @@ class homeVC: UIViewController {
                             self.runningCount += 1
                         } else {
                             self.completeCount += 1
+                            let title = document.data()["Title"] as! String
+                            if let index = self.dbTitles.firstIndex(of: title) {
+                                self.dbTitles.remove(at: index)
+                            }
                         }
                         complete.removeAll()
                     }
                     self.runningBtn.setTitle("\(self.runningCount)", for: .normal)
                     self.completeBtn.setTitle("\(self.completeCount)", for: .normal)
+                    //completCount가 1이 되면 해당 document.data()["Title"] 찾고 self.dbTitles에서 해당 타이틀삭제
                 }
             }
             self.listTable.reloadData()
