@@ -274,7 +274,7 @@
                                             <outlet property="delegate" destination="n71-eE-wLv" id="vZb-bf-M7d"/>
                                         </connections>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mcr-wa-GBP">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mcr-wa-GBP">
                                         <rect key="frame" x="0.0" y="320" width="364" height="204"/>
                                         <color key="backgroundColor" red="0.87450980392156863" green="0.90588235294117647" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -385,6 +385,7 @@
                         <outlet property="currentDate" destination="FoT-JW-WbO" id="rHg-93-lTL"/>
                         <outlet property="listTable" destination="mcr-wa-GBP" id="Mb9-xM-b1e"/>
                         <outlet property="runningBtn" destination="qGN-Zw-QhR" id="OOV-Zl-zeT"/>
+                        <outlet property="userImg" destination="OrG-5H-NG5" id="HSa-wy-PfM"/>
                         <outlet property="userName" destination="cum-KZ-g78" id="SJY-b6-w8Q"/>
                         <outlet property="userView" destination="PBZ-f9-7s5" id="QL1-mm-O4s"/>
                     </connections>
@@ -968,6 +969,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55h-91-y39" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4599" y="98"/>
+        </scene>
+        <!--Select CalendarVC-->
+        <scene sceneID="b9V-AT-J2Y">
+            <objects>
+                <viewController storyboardIdentifier="AppSelect" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qs4-Oz-FgN" customClass="SelectCalendarVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5yM-GI-V4H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMI-Jz-2we">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.5" green="0.33412166295452006" blue="0.42353707602642676" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="dismissBtn:" destination="qs4-Oz-FgN" eventType="touchUpInside" id="bPq-lu-VF9"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyK-D2-ZJY">
+                                <rect key="frame" x="50" y="354" width="314" height="198"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="elN-6q-YPr"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iyK-D2-ZJY" firstAttribute="top" secondItem="elN-6q-YPr" secondAttribute="top" constant="310" id="C5R-Oj-bwQ"/>
+                            <constraint firstItem="elN-6q-YPr" firstAttribute="trailing" secondItem="iyK-D2-ZJY" secondAttribute="trailing" constant="50" id="KCq-ht-qRP"/>
+                            <constraint firstItem="elN-6q-YPr" firstAttribute="bottom" secondItem="iyK-D2-ZJY" secondAttribute="bottom" constant="310" id="Kxh-9n-uMA"/>
+                            <constraint firstItem="PMI-Jz-2we" firstAttribute="leading" secondItem="elN-6q-YPr" secondAttribute="leading" id="Ydl-be-TfX"/>
+                            <constraint firstItem="elN-6q-YPr" firstAttribute="trailing" secondItem="PMI-Jz-2we" secondAttribute="trailing" id="mo5-Eh-egb"/>
+                            <constraint firstItem="iyK-D2-ZJY" firstAttribute="leading" secondItem="elN-6q-YPr" secondAttribute="leading" constant="50" id="nim-D6-H6M"/>
+                            <constraint firstItem="PMI-Jz-2we" firstAttribute="top" secondItem="5yM-GI-V4H" secondAttribute="top" id="uog-RH-Oei"/>
+                            <constraint firstAttribute="bottom" secondItem="PMI-Jz-2we" secondAttribute="bottom" id="whT-Re-qbN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aIX-lF-56G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5434.7826086956529" y="97.767857142857139"/>
         </scene>
         <!--WriteVC-->
         <scene sceneID="kCN-cC-YLL">
@@ -1806,10 +1847,10 @@
         <image name="profileIcon" width="25" height="27"/>
         <image name="settingsMenuItem" width="27" height="28"/>
         <namedColor name="4A4A4A">
-            <color red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="0.23999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.28999999165534973" green="0.28999999165534973" blue="0.28999999165534973" alpha="0.23999999463558197" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="FF1654">
-            <color red="1" green="0.086274509803921567" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.086000002920627594" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

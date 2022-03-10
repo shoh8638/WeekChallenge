@@ -12,6 +12,7 @@ import FSCalendar
 class homeVC: UIViewController {
 
     let db = Firestore.firestore()
+    var dbID = [String]()
     var dbTitles = [String]()
     var firstDates = [String]()
     var lastDates = [String]()
@@ -23,6 +24,7 @@ class homeVC: UIViewController {
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var completeBtn: UIButton!
     @IBOutlet weak var runningBtn: UIButton!
@@ -55,10 +57,16 @@ class homeVC: UIViewController {
         self.completeBtn.layer.borderWidth = 1
         self.completeBtn.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
         
+        self.userImg.layer.cornerRadius = self.userImg.frame.height / 2
+        self.userImg.layer.masksToBounds = true
+        self.userImg.layer.borderWidth = 1
+        self.userImg.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
+        
         calendar.layer.cornerRadius = 20
         calendar.layer.masksToBounds = true
         calendar.locale = Locale(identifier: "ko_KR")
-        
+        calendar.scope = .week
+
         self.listTable.layer.cornerRadius = 20
         
         let formatter = DateFormatter()
@@ -86,12 +94,13 @@ class homeVC: UIViewController {
                         let userName = document.data()["UserName"] as! String
                         self.userName.text = "Hello, \(userName)님"
                     } else if document.documentID != "UserData" {
-                        
+                        self.dbID.append(document.documentID)
                         self.dbTitles.append(document.data()["Title"] as! String)
                         
                         let first = (document["Dates"] as! [String]).sorted(by: <).first!
                         let last = (document["Dates"] as! [String]).sorted(by: <).last!
                         let event = (document["Dates"] as! [String]).sorted(by: <)
+                        
                         self.firstDates.append(first)
                         self.lastDates.append(last)
                         self.eventDates.append(event)
@@ -119,7 +128,6 @@ class homeVC: UIViewController {
                     }
                     self.runningBtn.setTitle("\(self.runningCount)", for: .normal)
                     self.completeBtn.setTitle("\(self.completeCount)", for: .normal)
-                    //completCount가 1이 되면 해당 document.data()["Title"] 찾고 self.dbTitles에서 해당 타이틀삭제
                 }
             }
             self.listTable.reloadData()
@@ -192,7 +200,6 @@ extension homeVC: FSCalendarDelegate, FSCalendarDataSource {
     }
     
     @objc func swipeEvent(_ swipe: UISwipeGestureRecognizer) {
-        
         if swipe.direction == .up {
             calendar.scope = .week
         }
@@ -232,6 +239,18 @@ extension homeVC: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
         let eventScaleFactor: CGFloat = 2.0
         cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let dateFomatter = DateFormatter()
+        dateFomatter.dateFormat = "yyyy-MM-dd"
+        let selectDay = dateFomatter.string(from: date)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppSelect") as! SelectCalendarVC
+        vc.documentID = self.dbID
+        vc.date = selectDay
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
