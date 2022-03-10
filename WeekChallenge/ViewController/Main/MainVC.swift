@@ -24,12 +24,15 @@ class MainVC: TabmanViewController {
     }
 
     func VCAppend() {
-        let vc1 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppMain")
+        let vc1 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppHome")
         let vc2 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppList")
         let vc3 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppBoard")
+        let vc4 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSetting")
+        
         viewControllers.append(vc1)
         viewControllers.append(vc2)
         viewControllers.append(vc3)
+        viewControllers.append(vc4)
     }
     
 }
@@ -50,11 +53,13 @@ extension MainVC: PageboyViewControllerDataSource, TMBarDataSource {
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         switch index {
         case 0:
-            return TMBarItem(title: "추가", image: UIImage(named: "fourSquareGridIcon.png")!)
+            return TMBarItem(title: "홈", image: UIImage(named: "home2.png")!)
         case 1:
-            return TMBarItem(title: "리스트", image: UIImage(named: "fourSquareGridIcon.png")!)
+            return TMBarItem(title: "리스트", image: UIImage(named: "icons8Reserve150.png")!)
         case 2:
             return TMBarItem(title: "게시글", image: UIImage(named: "fourSquareGridIcon.png")!)
+        case 3:
+            return TMBarItem(title: "설정", image: UIImage(named: "settingsMenuItem.png")!)
         default:
             return TMBarItem(title: "")
         }

@@ -24,24 +24,7 @@ class Database {
         }
     }
     
-    func createDB(folderName: String, date: Dictionary<String, Any> ) {
-//        if let userID = Auth.auth().currentUser?.email {
-//            let randomNum = arc4random_uniform(999999)
-//            db.collection(userID).document("\(folderName)+\(randomNum)").setData(["Title": folderName]) { err in
-//                guard err == nil else {
-//                    return print("createDB err: \(err!)")
-//                }
-//                let path = self.db.collection(userID).document("\(folderName)+\(randomNum)")
-//                for i in date {
-//                    let key = i.key
-//                    path.updateData([key : ["Title": "", "Image": "", "Text": ""]])
-//                    path.updateData(["Dates" : FieldValue.arrayUnion([key])])
-//                }
-//                print("createDB Success")
-//            }
-//            print("createDB Success")
-//        }
-        
+    func createDB(folderName: String, date: Dictionary<String, Any> ) {        
         guard let userID = Auth.auth().currentUser?.email else { return }
         let randomNum = arc4random_uniform(999999)
         let data = ["Title": "", "Image": "", "Text": ""]
