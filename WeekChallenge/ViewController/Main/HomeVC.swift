@@ -157,6 +157,7 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
     }
 }
 
+//MARK: UITableView
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.dbTitles.count == 0 {
@@ -180,11 +181,11 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.dbTitles.count == 0 {
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+            return self.homeTable.frame.height
         } else {
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height/2)
+            return self.homeTable.frame.height/3
         }
     }
 }
