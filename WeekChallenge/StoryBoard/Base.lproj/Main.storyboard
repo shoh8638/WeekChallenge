@@ -1017,7 +1017,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="elN-6q-YPr"/>
-                        <color key="backgroundColor" red="0.50196078431372548" green="0.33333333333333331" blue="0.42352941176470588" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="iyK-D2-ZJY" firstAttribute="centerY" secondItem="elN-6q-YPr" secondAttribute="centerY" id="VjE-dX-32f"/>
                             <constraint firstItem="iyK-D2-ZJY" firstAttribute="centerX" secondItem="elN-6q-YPr" secondAttribute="centerX" id="j7z-WF-Mwq"/>
@@ -1140,7 +1140,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hWU-NH-tns"/>
-                        <color key="backgroundColor" red="0.50196078431372548" green="0.33333333333333331" blue="0.42352941176470588" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Qc8-Ys-HO1" firstAttribute="centerY" secondItem="hWU-NH-tns" secondAttribute="centerY" id="WqF-II-o26"/>
                             <constraint firstItem="Qc8-Ys-HO1" firstAttribute="centerX" secondItem="hWU-NH-tns" secondAttribute="centerX" id="eoA-KL-tAe"/>
@@ -1263,7 +1263,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S88-eD-9BZ"/>
-                        <color key="backgroundColor" red="0.50196078431372548" green="0.33333333333333331" blue="0.42352941176470588" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="STG-4J-pXq" firstAttribute="centerX" secondItem="S88-eD-9BZ" secondAttribute="centerX" id="fhO-L6-ejW"/>
                             <constraint firstItem="STG-4J-pXq" firstAttribute="centerY" secondItem="S88-eD-9BZ" secondAttribute="centerY" id="kG1-Fh-iVw"/>
@@ -1391,7 +1391,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sU3-SA-Zq2"/>
-                        <color key="backgroundColor" red="0.23654488398323811" green="0.43021400528724751" blue="0.42433200994473802" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="49f-5x-OSH" firstAttribute="centerX" secondItem="sU3-SA-Zq2" secondAttribute="centerX" id="J82-fS-1lI"/>
