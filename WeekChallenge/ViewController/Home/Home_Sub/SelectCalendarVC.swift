@@ -10,7 +10,6 @@ import Firebase
 
 class SelectCalendarVC: UIViewController {
 
-    var documentID: [String]?
     var date: String?
     let db = Firestore.firestore()
     var titles = [String]()
@@ -22,6 +21,7 @@ class SelectCalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Connectivity().Network(view: self)
         loadData()
         self.backView.layer.cornerRadius = 20
         self.backView.layer.masksToBounds = true

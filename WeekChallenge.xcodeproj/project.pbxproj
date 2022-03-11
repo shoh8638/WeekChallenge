@@ -26,7 +26,6 @@
 		E6584F7327B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F7227B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift */; };
 		E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8A27B341A400B58FCB /* LoginVC.swift */; };
 		E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8E27B3434F00B58FCB /* SignInVC.swift */; };
-		E65D5B8E27CC6399009E16EE /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5B8D27CC6399009E16EE /* dummy.swift */; };
 		E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5B9027CF4E35009E16EE /* EnptyCollectionViewCell.swift */; };
 		E65D5B9427D03F73009E16EE /* PlanCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5B9227D03F73009E16EE /* PlanCardCell.swift */; };
 		E65D5B9527D03F73009E16EE /* PlanCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65D5B9327D03F73009E16EE /* PlanCardCell.xib */; };
@@ -35,7 +34,6 @@
 		E664959E27BC8ABC000110C9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664959D27BC8ABC000110C9 /* SettingVC.swift */; };
 		E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A327BC97B8000110C9 /* ChangePWD.swift */; };
 		E66495A627BCB021000110C9 /* CreatePlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A527BCB021000110C9 /* CreatePlanVC.swift */; };
-		E667FCB427B9E5F2009AEFE0 /* PlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB327B9E5F2009AEFE0 /* PlanVC.swift */; };
 		E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB527B9EF6C009AEFE0 /* Database.swift */; };
 		E667FCB827BA1841009AEFE0 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB727BA1841009AEFE0 /* CustomAlert.swift */; };
 		E6853F9D27B49B2A0091B4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */; };
@@ -43,6 +41,9 @@
 		E6A0086327C6090C00AB8D2D /* EnptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0086227C6090C00AB8D2D /* EnptyTableViewCell.swift */; };
 		E6A0086527C60CB600AB8D2D /* WriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0086427C60CB600AB8D2D /* WriteVC.swift */; };
 		E6A0086927C8925000AB8D2D /* DashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0086827C8924F00AB8D2D /* DashBoardVC.swift */; };
+		E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */; };
+		E6C734F327DB046300A0CC4B /* RunningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734F227DB046300A0CC4B /* RunningVC.swift */; };
+		E6C734F527DB046F00A0CC4B /* CompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734F427DB046F00A0CC4B /* CompleteVC.swift */; };
 		EE355B8C15BDE0BC84AB3B75 /* Pods_WeekChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +95,7 @@
 		E60DA3B527D05B13001DC914 /* PlanEnptyCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanEnptyCardCell.xib; sourceTree = "<group>"; };
 		E60DA3B927D0B20D001DC914 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		E60DA3BB27D1FFAF001DC914 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
-		E60DA3BF27D988C2001DC914 /* homeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = homeVC.swift; path = ../homeVC.swift; sourceTree = "<group>"; };
+		E60DA3BF27D988C2001DC914 /* homeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeVC.swift; sourceTree = "<group>"; };
 		E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCalendarVC.swift; sourceTree = "<group>"; };
 		E64FDC5627BCD8030013372F /* PlanDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDate.swift; sourceTree = "<group>"; };
 		E6584F4C27B33DFD00B58FCB /* WeekChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +112,6 @@
 		E6584F7227B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E6584F8A27B341A400B58FCB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E6584F8E27B3434F00B58FCB /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
-		E65D5B8D27CC6399009E16EE /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
 		E65D5B9027CF4E35009E16EE /* EnptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		E65D5B9227D03F73009E16EE /* PlanCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCardCell.swift; sourceTree = "<group>"; };
 		E65D5B9327D03F73009E16EE /* PlanCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanCardCell.xib; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 		E664959D27BC8ABC000110C9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		E66495A327BC97B8000110C9 /* ChangePWD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePWD.swift; sourceTree = "<group>"; };
 		E66495A527BCB021000110C9 /* CreatePlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanVC.swift; sourceTree = "<group>"; };
-		E667FCB327B9E5F2009AEFE0 /* PlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanVC.swift; sourceTree = "<group>"; };
 		E667FCB527B9EF6C009AEFE0 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		E667FCB727BA1841009AEFE0 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -128,6 +127,9 @@
 		E6A0086227C6090C00AB8D2D /* EnptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnptyTableViewCell.swift; sourceTree = "<group>"; };
 		E6A0086427C60CB600AB8D2D /* WriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteVC.swift; sourceTree = "<group>"; };
 		E6A0086827C8924F00AB8D2D /* DashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardVC.swift; sourceTree = "<group>"; };
+		E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVC.swift; sourceTree = "<group>"; };
+		E6C734F227DB046300A0CC4B /* RunningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVC.swift; sourceTree = "<group>"; };
+		E6C734F427DB046F00A0CC4B /* CompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteVC.swift; sourceTree = "<group>"; };
 		F59B675783D8C837E3BDD0D3 /* Pods_WeekChallenge_WeekChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge_WeekChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,15 +172,6 @@
 				CC1139D3E189C2F9B204B04B /* Pods-WeekChallengeTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		E60DA3B827D082CF001DC914 /* Dummy */ = {
-			isa = PBXGroup;
-			children = (
-				E65D5B8D27CC6399009E16EE /* dummy.swift */,
-				E667FCB327B9E5F2009AEFE0 /* PlanVC.swift */,
-			);
-			path = Dummy;
 			sourceTree = "<group>";
 		};
 		E6584F4327B33DFD00B58FCB = {
@@ -242,8 +235,10 @@
 			isa = PBXGroup;
 			children = (
 				E66495A127BC8AF7000110C9 /* Login */,
-				E66495A027BC8AEA000110C9 /* Main */,
-				E66495A227BC979E000110C9 /* Sub */,
+				E6C734ED27DB03BA00A0CC4B /* Home */,
+				E6C734EE27DB03E200A0CC4B /* List */,
+				E6C734F027DB041F00A0CC4B /* DashBoard */,
+				E6C734EF27DB03FE00A0CC4B /* Setting */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -330,38 +325,14 @@
 			path = StoryBoard;
 			sourceTree = "<group>";
 		};
-		E66495A027BC8AEA000110C9 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				E6853F9E27B4A26E0091B4A7 /* MainVC.swift */,
-				E60DA3BF27D988C2001DC914 /* homeVC.swift */,
-				E65D5B9627D0455A009E16EE /* ListVC.swift */,
-				E6A0086827C8924F00AB8D2D /* DashBoardVC.swift */,
-				E664959D27BC8ABC000110C9 /* SettingVC.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		E66495A127BC8AF7000110C9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E6853F9E27B4A26E0091B4A7 /* MainVC.swift */,
 				E6584F8A27B341A400B58FCB /* LoginVC.swift */,
 				E6584F8E27B3434F00B58FCB /* SignInVC.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		E66495A227BC979E000110C9 /* Sub */ = {
-			isa = PBXGroup;
-			children = (
-				E60DA3B827D082CF001DC914 /* Dummy */,
-				E66495A327BC97B8000110C9 /* ChangePWD.swift */,
-				E66495A527BCB021000110C9 /* CreatePlanVC.swift */,
-				E6A0086427C60CB600AB8D2D /* WriteVC.swift */,
-				E60DA3B927D0B20D001DC914 /* SearchVC.swift */,
-				E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */,
-			);
-			path = Sub;
 			sourceTree = "<group>";
 		};
 		E6853FA027B4F0DF0091B4A7 /* Cell */ = {
@@ -370,6 +341,54 @@
 				E65D5B8F27CF4E20009E16EE /* EnptyCell */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E6C734ED27DB03BA00A0CC4B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E60DA3BF27D988C2001DC914 /* homeVC.swift */,
+				E6C734F127DB044B00A0CC4B /* Home_Sub */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E6C734EE27DB03E200A0CC4B /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E65D5B9627D0455A009E16EE /* ListVC.swift */,
+				E6A0086427C60CB600AB8D2D /* WriteVC.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		E6C734EF27DB03FE00A0CC4B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				E664959D27BC8ABC000110C9 /* SettingVC.swift */,
+				E66495A327BC97B8000110C9 /* ChangePWD.swift */,
+				E66495A527BCB021000110C9 /* CreatePlanVC.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		E6C734F027DB041F00A0CC4B /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				E6A0086827C8924F00AB8D2D /* DashBoardVC.swift */,
+				E60DA3B927D0B20D001DC914 /* SearchVC.swift */,
+			);
+			path = DashBoard;
+			sourceTree = "<group>";
+		};
+		E6C734F127DB044B00A0CC4B /* Home_Sub */ = {
+			isa = PBXGroup;
+			children = (
+				E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */,
+				E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */,
+				E6C734F227DB046300A0CC4B /* RunningVC.swift */,
+				E6C734F427DB046F00A0CC4B /* CompleteVC.swift */,
+			);
+			path = Home_Sub;
 			sourceTree = "<group>";
 		};
 		FC38C3071DF2CEFD7850E1DD /* Frameworks */ = {
@@ -624,21 +643,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E667FCB427B9E5F2009AEFE0 /* PlanVC.swift in Sources */,
 				E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */,
 				E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */,
-				E65D5B8E27CC6399009E16EE /* dummy.swift in Sources */,
 				E6A0086527C60CB600AB8D2D /* WriteVC.swift in Sources */,
 				E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
 				E6A0086927C8925000AB8D2D /* DashBoardVC.swift in Sources */,
 				E661441227B386C50000CEA7 /* AuthService.swift in Sources */,
+				E6C734F327DB046300A0CC4B /* RunningVC.swift in Sources */,
 				E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */,
+				E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */,
 				E66495A627BCB021000110C9 /* CreatePlanVC.swift in Sources */,
 				E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
 				E60DA3C027D988C2001DC914 /* homeVC.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,
+				E6C734F527DB046F00A0CC4B /* CompleteVC.swift in Sources */,
 				E65D5B9727D0455A009E16EE /* ListVC.swift in Sources */,
 				E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */,
 				E60DA3B627D05B13001DC914 /* PlanEnptyCardCell.swift in Sources */,

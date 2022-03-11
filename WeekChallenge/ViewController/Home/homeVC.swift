@@ -26,8 +26,8 @@ class homeVC: UIViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var addBtn: UIButton!
-    @IBOutlet weak var completeBtn: UIButton!
     @IBOutlet weak var runningBtn: UIButton!
+    @IBOutlet weak var completeBtn: UIButton!
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var listTable: UITableView!
@@ -149,6 +149,26 @@ class homeVC: UIViewController {
         loadData()
         refresh.endRefreshing()
     }
+    @IBAction func addBtn(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppCreate") as! CreateVC
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func runningBtn(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppRun") as! RunningVC
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func completeBtn(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppCom") as! CompleteVC
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 //MARK: UITableView
 extension homeVC: UITableViewDataSource, UITableViewDelegate {
@@ -246,7 +266,6 @@ extension homeVC: FSCalendarDelegate, FSCalendarDataSource {
         dateFomatter.dateFormat = "yyyy-MM-dd"
         let selectDay = dateFomatter.string(from: date)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppSelect") as! SelectCalendarVC
-        vc.documentID = self.dbID
         vc.date = selectDay
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
