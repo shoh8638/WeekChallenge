@@ -917,15 +917,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMI-Jz-2we">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" red="0.50196078431372548" green="0.33333333333333331" blue="0.42352941176470588" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="dismissBtn:" destination="qs4-Oz-FgN" eventType="touchUpInside" id="bPq-lu-VF9"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyK-D2-ZJY">
                                 <rect key="frame" x="50" y="354" width="314" height="198"/>
                                 <subviews>
@@ -1026,14 +1017,10 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="elN-6q-YPr"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.50196078431372548" green="0.33333333333333331" blue="0.42352941176470588" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iyK-D2-ZJY" firstAttribute="centerY" secondItem="elN-6q-YPr" secondAttribute="centerY" id="VjE-dX-32f"/>
-                            <constraint firstItem="PMI-Jz-2we" firstAttribute="leading" secondItem="elN-6q-YPr" secondAttribute="leading" id="Ydl-be-TfX"/>
                             <constraint firstItem="iyK-D2-ZJY" firstAttribute="centerX" secondItem="elN-6q-YPr" secondAttribute="centerX" id="j7z-WF-Mwq"/>
-                            <constraint firstItem="elN-6q-YPr" firstAttribute="trailing" secondItem="PMI-Jz-2we" secondAttribute="trailing" id="mo5-Eh-egb"/>
-                            <constraint firstItem="PMI-Jz-2we" firstAttribute="top" secondItem="5yM-GI-V4H" secondAttribute="top" id="uog-RH-Oei"/>
-                            <constraint firstAttribute="bottom" secondItem="PMI-Jz-2we" secondAttribute="bottom" id="whT-Re-qbN"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1053,14 +1040,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wue-qd-DtU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="dismissBtn:" destination="Sfd-FU-Zu2" eventType="touchUpInside" id="l1g-Jt-lbA"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qc8-Ys-HO1">
                                 <rect key="frame" x="50" y="354" width="314" height="198"/>
                                 <subviews>
@@ -1163,12 +1142,8 @@
                         <viewLayoutGuide key="safeArea" id="hWU-NH-tns"/>
                         <color key="backgroundColor" red="0.50196078431372548" green="0.33333333333333331" blue="0.42352941176470588" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wue-qd-DtU" firstAttribute="top" secondItem="f63-w2-UVB" secondAttribute="top" id="2Ab-lo-5em"/>
-                            <constraint firstAttribute="bottom" secondItem="wue-qd-DtU" secondAttribute="bottom" id="8Or-cZ-xFD"/>
-                            <constraint firstItem="hWU-NH-tns" firstAttribute="trailing" secondItem="wue-qd-DtU" secondAttribute="trailing" id="A3m-sT-DxD"/>
                             <constraint firstItem="Qc8-Ys-HO1" firstAttribute="centerY" secondItem="hWU-NH-tns" secondAttribute="centerY" id="WqF-II-o26"/>
                             <constraint firstItem="Qc8-Ys-HO1" firstAttribute="centerX" secondItem="hWU-NH-tns" secondAttribute="centerX" id="eoA-KL-tAe"/>
-                            <constraint firstItem="wue-qd-DtU" firstAttribute="leading" secondItem="hWU-NH-tns" secondAttribute="leading" id="iyD-wx-gP4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1188,14 +1163,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D71-3s-Mro">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="dismissBtn:" destination="tpc-f8-5M7" eventType="touchUpInside" id="VO1-ZQ-838"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STG-4J-pXq">
                                 <rect key="frame" x="50" y="354" width="314" height="198"/>
                                 <subviews>
@@ -1298,12 +1265,8 @@
                         <viewLayoutGuide key="safeArea" id="S88-eD-9BZ"/>
                         <color key="backgroundColor" red="0.50196078431372548" green="0.33333333333333331" blue="0.42352941176470588" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="D71-3s-Mro" firstAttribute="trailing" secondItem="S88-eD-9BZ" secondAttribute="trailing" id="5Hd-oX-UO8"/>
-                            <constraint firstItem="D71-3s-Mro" firstAttribute="bottom" secondItem="b4g-nc-lSH" secondAttribute="bottom" id="aoh-0k-Ppg"/>
-                            <constraint firstItem="D71-3s-Mro" firstAttribute="leading" secondItem="S88-eD-9BZ" secondAttribute="leading" id="bmE-1y-sIr"/>
                             <constraint firstItem="STG-4J-pXq" firstAttribute="centerX" secondItem="S88-eD-9BZ" secondAttribute="centerX" id="fhO-L6-ejW"/>
                             <constraint firstItem="STG-4J-pXq" firstAttribute="centerY" secondItem="S88-eD-9BZ" secondAttribute="centerY" id="kG1-Fh-iVw"/>
-                            <constraint firstItem="D71-3s-Mro" firstAttribute="top" secondItem="b4g-nc-lSH" secondAttribute="top" id="rzM-tN-iWp"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1440,7 +1403,6 @@
                         <outlet property="backView" destination="49f-5x-OSH" id="4D1-HC-fZD"/>
                         <outlet property="cancelBtn" destination="D2q-By-nuL" id="WY2-dd-Kyx"/>
                         <outlet property="firstView" destination="15E-aJ-Vib" id="u3w-ee-Wyv"/>
-                        <outlet property="mainView" destination="lwC-b1-Zl3" id="P5w-YX-nzV"/>
                         <outlet property="okBtn" destination="nud-RT-IuI" id="PSo-tZ-DNH"/>
                         <outlet property="periodText" destination="KFO-K9-btY" id="TZM-D1-idT"/>
                         <outlet property="titleText" destination="SVm-IX-9Pb" id="xi6-Gh-6Yk"/>
@@ -1465,7 +1427,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="17"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWj-cv-HJJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="48.5" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="87.5" height="17"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="닫기"/>
                                                 <connections>
@@ -1473,7 +1435,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4L-1t-niL">
-                                                <rect key="frame" x="48.5" y="0.0" width="268.5" height="17"/>
+                                                <rect key="frame" x="87.5" y="0.0" width="229.5" height="17"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7M-1p-2SB">

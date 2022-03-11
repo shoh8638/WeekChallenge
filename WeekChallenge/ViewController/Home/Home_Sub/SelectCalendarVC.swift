@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class SelectCalendarVC: UIViewController {
+class SelectCalendarVC: UIViewController, UIGestureRecognizerDelegate {
 
     var date: String?
     let db = Firestore.firestore()
@@ -22,9 +22,22 @@ class SelectCalendarVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Connectivity().Network(view: self)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
         loadData()
         self.backView.layer.cornerRadius = 20
         self.backView.layer.masksToBounds = true
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    @objc func backTap(sender: UITapGestureRecognizer) {
+        print("tap")
+        self.dismiss(animated: true, completion: nil)
     }
     
     func loadData() {

@@ -14,7 +14,6 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var backView: UIView!
     
-    @IBOutlet var mainView: UIView!
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var LSHView: UIView!
     
@@ -29,7 +28,7 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
         Connectivity().Network(view: self)
         let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
         tap.delegate = self
-        mainView.addGestureRecognizer(tap)
+        self.view.addGestureRecognizer(tap)
         setUp()
     }
     

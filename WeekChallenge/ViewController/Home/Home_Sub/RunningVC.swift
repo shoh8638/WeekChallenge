@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class RunningVC: UIViewController {
+class RunningVC: UIViewController, UIGestureRecognizerDelegate {
     
     let db = Firestore.firestore()
     var titles = [String]()
@@ -22,7 +22,19 @@ class RunningVC: UIViewController {
         super.viewDidLoad()
         backView.layer.cornerRadius = 20
         backView.layer.masksToBounds = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
         loadData()
+    }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    @objc func backTap(sender: UITapGestureRecognizer) {
+        print("tap")
+        self.dismiss(animated: true, completion: nil)
     }
     
     func loadData() {
