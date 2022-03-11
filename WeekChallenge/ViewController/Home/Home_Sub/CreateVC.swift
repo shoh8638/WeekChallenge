@@ -36,7 +36,12 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.endEditing(true)
         return true
     }
-
+    
+    @objc func backTap(sender: UITapGestureRecognizer) {
+        print("tap")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func setUp() {
 
         self.backView.layer.cornerRadius = 20
@@ -55,11 +60,6 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
         let lastDay = formatter.string(from: Calendar.current.date(byAdding: .day, value: 4, to: formatter.date(from: today)!)!)
         self.periodText.text = "\(today) ~ \(lastDay)"
         exampleView()
-    }
-    
-    @objc func backTap(sender: UITapGestureRecognizer) {
-        print("tap")
-        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func okBtn(_ sender: Any) {

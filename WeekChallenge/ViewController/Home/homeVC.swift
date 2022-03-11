@@ -8,8 +8,9 @@
 import UIKit
 import Firebase
 import FSCalendar
+import FirebaseStorage
 
-class homeVC: UIViewController {
+class homeVC: UIViewController, UIGestureRecognizerDelegate {
 
     let db = Firestore.firestore()
     var dbID = [String]()
@@ -37,6 +38,11 @@ class homeVC: UIViewController {
         setupView()
         loadData()
         initRefresh()
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     func setupView() {
@@ -72,9 +78,30 @@ class homeVC: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         self.currentDate.text = formatter.string(from: Date())
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTap(sender:)))
+        self.userImg.addGestureRecognizer(tap)
+        self.userImg.isUserInteractionEnabled = true
+        
+        setImg()
         swipe()
     }
     
+    func setImg() {
+        guard let userID = Auth.auth().currentUser?.email else { return }
+        self.db.collection(userID).document("UserData").getDocument { (document, err) in
+            if err == nil {
+                if document!["Profile"] as! String == "" {
+                    self.userImg.image = UIImage(named: "profileIcon")
+                } else {
+                    let img = document!["Profile"] as! String
+                    Storage.storage().reference(forURL: img).downloadURL { (url, error) in
+                        self.userImg.sd_setImage(with: url!, completed: nil)
+                    }
+                }
+            }
+        }
+    }
     func loadData() {
         var complete = [Int]()
         
@@ -149,6 +176,15 @@ class homeVC: UIViewController {
         loadData()
         refresh.endRefreshing()
     }
+    
+    
+    @objc func imgTap(sender: UIGestureRecognizer) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppProfile") as! HomeProfile
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func addBtn(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppCreate") as! CreateVC
         vc.modalTransitionStyle = .crossDissolve

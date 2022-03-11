@@ -15,8 +15,8 @@ typealias dateHandler = ([[Int]])->()
 class Database {
     let db = Firestore.firestore()
     
-    func signInDB(id: String, email: String, pwd: String, username: String) {
-        db.collection(id).document("UserData").setData(["Email":email,"password": pwd, "UserName": username]) { err in
+    func signInDB(id: String, email: String, pwd: String, username: String, img: String) {
+        db.collection(id).document("UserData").setData(["Email":email,"password": pwd, "UserName": username, "Profile": img]) { err in
             guard err == nil else {
                 return print("SignInDB err: \(err!)")
             }

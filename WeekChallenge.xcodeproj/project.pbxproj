@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		51B20CBFD7AA20B6D8518597 /* Pods_WeekChallenge_WeekChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59B675783D8C837E3BDD0D3 /* Pods_WeekChallenge_WeekChallengeUITests.framework */; };
 		BC272F67B33BC0A411DA9079 /* Pods_WeekChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078F2084C898E852ACD84817 /* Pods_WeekChallengeTests.framework */; };
+		E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE3C27DB208900BFF7BD /* HomeProfile.swift */; };
 		E60DA3B627D05B13001DC914 /* PlanEnptyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3B427D05B13001DC914 /* PlanEnptyCardCell.swift */; };
 		E60DA3B727D05B13001DC914 /* PlanEnptyCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E60DA3B527D05B13001DC914 /* PlanEnptyCardCell.xib */; };
 		E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3B927D0B20D001DC914 /* SearchVC.swift */; };
@@ -91,6 +92,7 @@
 		845E681427B3E89300EC0EBF /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC1139D3E189C2F9B204B04B /* Pods-WeekChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeekChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-WeekChallengeTests/Pods-WeekChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		E601BE3C27DB208900BFF7BD /* HomeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfile.swift; sourceTree = "<group>"; };
 		E60DA3B427D05B13001DC914 /* PlanEnptyCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanEnptyCardCell.swift; sourceTree = "<group>"; };
 		E60DA3B527D05B13001DC914 /* PlanEnptyCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanEnptyCardCell.xib; sourceTree = "<group>"; };
 		E60DA3B927D0B20D001DC914 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -383,10 +385,11 @@
 		E6C734F127DB044B00A0CC4B /* Home_Sub */ = {
 			isa = PBXGroup;
 			children = (
+				E601BE3C27DB208900BFF7BD /* HomeProfile.swift */,
 				E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */,
-				E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */,
 				E6C734F227DB046300A0CC4B /* RunningVC.swift */,
 				E6C734F427DB046F00A0CC4B /* CompleteVC.swift */,
+				E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */,
 			);
 			path = Home_Sub;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */,
 				E66495A627BCB021000110C9 /* CreatePlanVC.swift in Sources */,
 				E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */,
+				E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
 				E60DA3C027D988C2001DC914 /* homeVC.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,

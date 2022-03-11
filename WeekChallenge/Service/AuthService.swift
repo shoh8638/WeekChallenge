@@ -31,7 +31,7 @@ class AuthService {
         }
     }
     
-    func signIn(email: String, pwd: String, username: String, vc: UIViewController) {
+    func signIn(email: String, pwd: String, username: String, vc: UIViewController, img: String) {
         vc.showTextOverlay("please Wait....")
         Auth.auth().createUser(withEmail: email, password: pwd) { authResult, error in
             if authResult != nil {
@@ -39,7 +39,7 @@ class AuthService {
                 print("SignInView Success")
                 
                 let db = Database()
-                db.signInDB(id: email, email: email, pwd: pwd, username: username)
+                db.signInDB(id: email, email: email, pwd: pwd, username: username, img: img)
                 
                 let customAlert = CustomAlert()
                 customAlert.loginAlert(message: "회원가입 완료", vc: vc)

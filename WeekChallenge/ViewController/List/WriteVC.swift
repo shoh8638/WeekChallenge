@@ -76,6 +76,7 @@ class WriteVC: UIViewController {
     @IBAction func dismissBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     func uploadImg(img: UIImage) {
         let fomatter = DateFormatter()
         fomatter.dateFormat = "yyyy-MM-dd"

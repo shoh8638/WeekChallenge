@@ -175,7 +175,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="OrG-5H-NG5">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="OrG-5H-NG5">
                                         <rect key="frame" x="264" y="10" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="6Ms-B1-idX"/>
@@ -408,8 +408,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2Kj-0E-br9">
+                                <rect key="frame" x="87" y="191" width="240" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="OFK-x0-057"/>
+                                    <constraint firstAttribute="width" constant="240" id="XgW-ym-5KJ"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q52-RY-Gco">
-                                <rect key="frame" x="50" y="410" width="314" height="193"/>
+                                <rect key="frame" x="50" y="482" width="314" height="193"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="miS-Ie-hBS">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="59"/>
@@ -472,7 +479,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gf7-7T-rqz">
-                                <rect key="frame" x="30" y="643" width="354" height="46"/>
+                                <rect key="frame" x="30" y="715" width="354" height="46"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dy-Aj-4B5">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="46"/>
@@ -495,12 +502,15 @@
                         <viewLayoutGuide key="safeArea" id="wjN-N0-VZU"/>
                         <color key="backgroundColor" name="white"/>
                         <constraints>
+                            <constraint firstItem="2Kj-0E-br9" firstAttribute="top" secondItem="wjN-N0-VZU" secondAttribute="top" constant="103" id="3Xc-W5-gsA"/>
                             <constraint firstItem="gf7-7T-rqz" firstAttribute="top" secondItem="q52-RY-Gco" secondAttribute="bottom" constant="40" id="4ac-fP-cvS"/>
                             <constraint firstItem="q52-RY-Gco" firstAttribute="leading" secondItem="wjN-N0-VZU" secondAttribute="leading" constant="50" id="K8t-eX-2ET"/>
                             <constraint firstItem="wjN-N0-VZU" firstAttribute="trailing" secondItem="q52-RY-Gco" secondAttribute="trailing" constant="50" id="VVa-KC-qmK"/>
+                            <constraint firstItem="wjN-N0-VZU" firstAttribute="trailing" secondItem="2Kj-0E-br9" secondAttribute="trailing" constant="87" id="Zs2-Vz-mcc"/>
                             <constraint firstItem="gf7-7T-rqz" firstAttribute="leading" secondItem="wjN-N0-VZU" secondAttribute="leading" constant="30" id="alw-rj-gCO"/>
+                            <constraint firstItem="q52-RY-Gco" firstAttribute="top" secondItem="2Kj-0E-br9" secondAttribute="bottom" constant="91" id="dGa-Mu-c1y"/>
                             <constraint firstItem="wjN-N0-VZU" firstAttribute="trailing" secondItem="gf7-7T-rqz" secondAttribute="trailing" constant="30" id="dYY-0J-2uB"/>
-                            <constraint firstItem="q52-RY-Gco" firstAttribute="top" secondItem="wjN-N0-VZU" secondAttribute="top" constant="322" id="o5z-wl-7Im"/>
+                            <constraint firstItem="2Kj-0E-br9" firstAttribute="leading" secondItem="wjN-N0-VZU" secondAttribute="leading" constant="87" id="vkD-Eb-oWx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z9A-SD-cFb"/>
@@ -509,11 +519,12 @@
                         <outlet property="emailText" destination="uU9-4e-hc4" id="y9B-ul-RqD"/>
                         <outlet property="pwdText" destination="rR5-ua-MCQ" id="gnP-tY-w2J"/>
                         <outlet property="signInBtn" destination="0dy-Aj-4B5" id="gzH-7q-W3H"/>
+                        <outlet property="userImg" destination="2Kj-0E-br9" id="2Nt-69-WcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQy-av-Q8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="817"/>
+            <point key="canvasLocation" x="1837.68115942029" y="816.96428571428567"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="m5e-9m-De4">
@@ -1277,6 +1288,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COp-wH-Zgp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7094" y="98"/>
+        </scene>
+        <!--Home Profile-->
+        <scene sceneID="K1J-mm-I3Q">
+            <objects>
+                <viewController storyboardIdentifier="AppProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EAy-0M-Lx1" customClass="HomeProfile" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yvh-OW-wLI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMu-E1-CKR">
+                                <rect key="frame" x="57" y="303" width="300" height="300"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Bfx-FG-vtf">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Bfx-FG-vtf" secondAttribute="trailing" id="BLO-Cd-BMU"/>
+                                    <constraint firstItem="Bfx-FG-vtf" firstAttribute="top" secondItem="FMu-E1-CKR" secondAttribute="top" id="DD0-7e-kUv"/>
+                                    <constraint firstItem="Bfx-FG-vtf" firstAttribute="leading" secondItem="FMu-E1-CKR" secondAttribute="leading" id="U6a-wc-HIg"/>
+                                    <constraint firstAttribute="width" constant="300" id="dOX-Ru-sdk"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bfx-FG-vtf" secondAttribute="bottom" id="lvm-It-Q1f"/>
+                                    <constraint firstAttribute="height" constant="300" id="quc-e0-JQg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o8L-uh-wjb"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FMu-E1-CKR" firstAttribute="centerY" secondItem="o8L-uh-wjb" secondAttribute="centerY" id="DEe-qV-iQD"/>
+                            <constraint firstItem="FMu-E1-CKR" firstAttribute="centerX" secondItem="o8L-uh-wjb" secondAttribute="centerX" id="HOR-hF-39E"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backView" destination="FMu-E1-CKR" id="6ze-uJ-3SF"/>
+                        <outlet property="userImg" destination="Bfx-FG-vtf" id="phl-4X-VON"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NR2-cj-Wry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7928" y="98"/>
         </scene>
         <!--CreateVC-->
         <scene sceneID="rtE-7s-87u">
