@@ -28,11 +28,13 @@ class MainVC: TabmanViewController {
         let vc2 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppList")
         let vc3 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppBoard")
         let vc4 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSetting")
+        let vc5 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSet")
         
         viewControllers.append(vc1)
         viewControllers.append(vc2)
         viewControllers.append(vc3)
         viewControllers.append(vc4)
+        viewControllers.append(vc5)
     }
     
 }
@@ -59,6 +61,8 @@ extension MainVC: PageboyViewControllerDataSource, TMBarDataSource {
         case 2:
             return TMBarItem(title: "게시글", image: UIImage(named: "fourSquareGridIcon.png")!)
         case 3:
+            return TMBarItem(title: "설정", image: UIImage(named: "settingsMenuItem.png")!)
+        case 4:
             return TMBarItem(title: "설정", image: UIImage(named: "settingsMenuItem.png")!)
         default:
             return TMBarItem(title: "")
