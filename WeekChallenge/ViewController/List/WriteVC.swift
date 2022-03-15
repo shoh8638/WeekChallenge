@@ -10,6 +10,7 @@ import Firebase
 import SwiftOverlays
 import FirebaseStorage
 
+//ListVC에 CardView와 같은 형식으로 구성
 class WriteVC: UIViewController {
     
     let db = Firestore.firestore()
@@ -31,6 +32,7 @@ class WriteVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Connectivity().Network(view: self)
+        
         setText()
         self.imgView.isHidden = true
         picker.delegate = self

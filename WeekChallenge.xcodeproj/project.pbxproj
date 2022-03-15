@@ -11,11 +11,16 @@
 		BC272F67B33BC0A411DA9079 /* Pods_WeekChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078F2084C898E852ACD84817 /* Pods_WeekChallengeTests.framework */; };
 		E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE3C27DB208900BFF7BD /* HomeProfile.swift */; };
 		E601BE3F27DB40C400BFF7BD /* SetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE3E27DB40C400BFF7BD /* SetVC.swift */; };
+		E601BE4127E0100000BFF7BD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE4027E0100000BFF7BD /* ProfileVC.swift */; };
+		E601BE4327E0102000BFF7BD /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE4227E0102000BFF7BD /* AccountVC.swift */; };
+		E601BE4527E0103900BFF7BD /* LogOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE4427E0103900BFF7BD /* LogOutVC.swift */; };
+		E601BE4727E0104400BFF7BD /* RemoveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE4627E0104400BFF7BD /* RemoveVC.swift */; };
+		E601BE4A27E02A1C00BFF7BD /* ChangeUserNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE4927E02A1C00BFF7BD /* ChangeUserNameVC.swift */; };
 		E60DA3B627D05B13001DC914 /* PlanEnptyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3B427D05B13001DC914 /* PlanEnptyCardCell.swift */; };
 		E60DA3B727D05B13001DC914 /* PlanEnptyCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E60DA3B527D05B13001DC914 /* PlanEnptyCardCell.xib */; };
 		E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3B927D0B20D001DC914 /* SearchVC.swift */; };
 		E60DA3BC27D1FFAF001DC914 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3BB27D1FFAF001DC914 /* Connectivity.swift */; };
-		E60DA3C027D988C2001DC914 /* homeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3BF27D988C2001DC914 /* homeVC.swift */; };
+		E60DA3C027D988C2001DC914 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3BF27D988C2001DC914 /* HomeVC.swift */; };
 		E60DA3C227D9CA34001DC914 /* SelectCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */; };
 		E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FDC5627BCD8030013372F /* PlanDate.swift */; };
 		E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */; };
@@ -95,11 +100,16 @@
 		CC1139D3E189C2F9B204B04B /* Pods-WeekChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeekChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-WeekChallengeTests/Pods-WeekChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E601BE3C27DB208900BFF7BD /* HomeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfile.swift; sourceTree = "<group>"; };
 		E601BE3E27DB40C400BFF7BD /* SetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetVC.swift; sourceTree = "<group>"; };
+		E601BE4027E0100000BFF7BD /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		E601BE4227E0102000BFF7BD /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		E601BE4427E0103900BFF7BD /* LogOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutVC.swift; sourceTree = "<group>"; };
+		E601BE4627E0104400BFF7BD /* RemoveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveVC.swift; sourceTree = "<group>"; };
+		E601BE4927E02A1C00BFF7BD /* ChangeUserNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserNameVC.swift; sourceTree = "<group>"; };
 		E60DA3B427D05B13001DC914 /* PlanEnptyCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanEnptyCardCell.swift; sourceTree = "<group>"; };
 		E60DA3B527D05B13001DC914 /* PlanEnptyCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanEnptyCardCell.xib; sourceTree = "<group>"; };
 		E60DA3B927D0B20D001DC914 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		E60DA3BB27D1FFAF001DC914 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
-		E60DA3BF27D988C2001DC914 /* homeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeVC.swift; sourceTree = "<group>"; };
+		E60DA3BF27D988C2001DC914 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCalendarVC.swift; sourceTree = "<group>"; };
 		E64FDC5627BCD8030013372F /* PlanDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDate.swift; sourceTree = "<group>"; };
 		E6584F4C27B33DFD00B58FCB /* WeekChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +188,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E601BE4827E025CE00BFF7BD /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				E601BE4227E0102000BFF7BD /* AccountVC.swift */,
+				E601BE4927E02A1C00BFF7BD /* ChangeUserNameVC.swift */,
+				E66495A327BC97B8000110C9 /* ChangePWD.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		E6584F4327B33DFD00B58FCB = {
 			isa = PBXGroup;
 			children = (
@@ -243,7 +263,7 @@
 				E6C734EE27DB03E200A0CC4B /* List */,
 				E6C734F027DB041F00A0CC4B /* DashBoard */,
 				E6C734EF27DB03FE00A0CC4B /* Setting */,
-				E66495A527BCB021000110C9 /* CreatePlanVC.swift */,
+				E664959D27BC8ABC000110C9 /* SettingVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -343,6 +363,7 @@
 		E6853FA027B4F0DF0091B4A7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E66495A527BCB021000110C9 /* CreatePlanVC.swift */,
 				E65D5B8F27CF4E20009E16EE /* EnptyCell */,
 			);
 			path = Cell;
@@ -351,7 +372,7 @@
 		E6C734ED27DB03BA00A0CC4B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E60DA3BF27D988C2001DC914 /* homeVC.swift */,
+				E60DA3BF27D988C2001DC914 /* HomeVC.swift */,
 				E6C734F127DB044B00A0CC4B /* Home_Sub */,
 			);
 			path = Home;
@@ -370,8 +391,10 @@
 			isa = PBXGroup;
 			children = (
 				E601BE3E27DB40C400BFF7BD /* SetVC.swift */,
-				E664959D27BC8ABC000110C9 /* SettingVC.swift */,
-				E66495A327BC97B8000110C9 /* ChangePWD.swift */,
+				E601BE4027E0100000BFF7BD /* ProfileVC.swift */,
+				E601BE4827E025CE00BFF7BD /* Account */,
+				E601BE4427E0103900BFF7BD /* LogOutVC.swift */,
+				E601BE4627E0104400BFF7BD /* RemoveVC.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -652,6 +675,7 @@
 				E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */,
 				E601BE3F27DB40C400BFF7BD /* SetVC.swift in Sources */,
 				E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */,
+				E601BE4127E0100000BFF7BD /* ProfileVC.swift in Sources */,
 				E6A0086527C60CB600AB8D2D /* WriteVC.swift in Sources */,
 				E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
@@ -664,16 +688,20 @@
 				E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */,
 				E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
-				E60DA3C027D988C2001DC914 /* homeVC.swift in Sources */,
+				E601BE4727E0104400BFF7BD /* RemoveVC.swift in Sources */,
+				E60DA3C027D988C2001DC914 /* HomeVC.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,
+				E601BE4527E0103900BFF7BD /* LogOutVC.swift in Sources */,
 				E6C734F527DB046F00A0CC4B /* CompleteVC.swift in Sources */,
 				E65D5B9727D0455A009E16EE /* ListVC.swift in Sources */,
 				E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */,
 				E60DA3B627D05B13001DC914 /* PlanEnptyCardCell.swift in Sources */,
+				E601BE4A27E02A1C00BFF7BD /* ChangeUserNameVC.swift in Sources */,
 				E65D5B9427D03F73009E16EE /* PlanCardCell.swift in Sources */,
 				E664959E27BC8ABC000110C9 /* SettingVC.swift in Sources */,
 				E60DA3BC27D1FFAF001DC914 /* Connectivity.swift in Sources */,
 				E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */,
+				E601BE4327E0102000BFF7BD /* AccountVC.swift in Sources */,
 				E6A0086327C6090C00AB8D2D /* EnptyTableViewCell.swift in Sources */,
 				E667FCB827BA1841009AEFE0 /* CustomAlert.swift in Sources */,
 				E60DA3C227D9CA34001DC914 /* SelectCalendarVC.swift in Sources */,

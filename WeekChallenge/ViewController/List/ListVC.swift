@@ -26,6 +26,7 @@ class ListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Connectivity().Network(view: self)
+        
         cardSetup()
         loadData()
         initRefresh()

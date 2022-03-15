@@ -19,6 +19,7 @@ class HomeProfile: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Connectivity().Network(view: self)
         backView.layer.cornerRadius = 20
         backView.layer.masksToBounds = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))

@@ -1,5 +1,5 @@
 //
-//  homeVC.swift
+//  HomeVC.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/03/10.
@@ -10,8 +10,8 @@ import Firebase
 import FSCalendar
 import FirebaseStorage
 
-class homeVC: UIViewController, UIGestureRecognizerDelegate {
-
+class HomeVC: UIViewController, UIGestureRecognizerDelegate {
+    
     let db = Firestore.firestore()
     var dbID = [String]()
     var dbTitles = [String]()
@@ -35,9 +35,14 @@ class homeVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Connectivity().Network(view: self)
         setupView()
         loadData()
         initRefresh()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        setImg()
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -72,7 +77,7 @@ class homeVC: UIViewController, UIGestureRecognizerDelegate {
         calendar.layer.masksToBounds = true
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.scope = .week
-
+        
         self.listTable.layer.cornerRadius = 20
         
         let formatter = DateFormatter()
@@ -89,19 +94,16 @@ class homeVC: UIViewController, UIGestureRecognizerDelegate {
     
     func setImg() {
         guard let userID = Auth.auth().currentUser?.email else { return }
-        self.db.collection(userID).document("UserData").getDocument { (document, err) in
+        self.db.collection(userID).document("UserData").addSnapshotListener { (document, err) in
             if err == nil {
-                if document!["Profile"] as! String == "" {
-                    self.userImg.image = UIImage(named: "profileIcon")
-                } else {
-                    let img = document!["Profile"] as! String
-                    Storage.storage().reference(forURL: img).downloadURL { (url, error) in
-                        self.userImg.sd_setImage(with: url!, completed: nil)
-                    }
+                let img = document!["Profile"] as! String
+                Storage.storage().reference(forURL: img).downloadURL { (url, error) in
+                    self.userImg.sd_setImage(with: url!, completed: nil)
                 }
             }
         }
     }
+    
     func loadData() {
         var complete = [Int]()
         
@@ -179,35 +181,35 @@ class homeVC: UIViewController, UIGestureRecognizerDelegate {
     
     
     @objc func imgTap(sender: UIGestureRecognizer) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppProfile") as! HomeProfile
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeProfile") as! HomeProfile
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func addBtn(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppCreate") as! CreateVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCreate") as! CreateVC
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func runningBtn(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppRun") as! RunningVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeRun") as! RunningVC
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func completeBtn(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppCom") as! CompleteVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCom") as! CompleteVC
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
 }
 //MARK: UITableView
-extension homeVC: UITableViewDataSource, UITableViewDelegate {
+extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.dbTitles.count == 0 {
             return 1
@@ -239,12 +241,12 @@ extension homeVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-         return 5
-     }
-
+        return 5
+    }
+    
 }
 //MARK: FSCalendar
-extension homeVC: FSCalendarDelegate, FSCalendarDataSource {
+extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
     func swipe() {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeEvent(_:)))
         swipeUp.direction = .up

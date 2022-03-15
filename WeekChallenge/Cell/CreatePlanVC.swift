@@ -4,7 +4,8 @@
 //
 //  Created by shoh on 2022/02/16.
 //
-
+//빈화면일 때, 누르면 나타나 플랜 만들 수 있는 화면 (수정해야댐)
+//똑같이 커스텀 팝업 형식으로
 import UIKit
 import Firebase
 import SwiftOverlays

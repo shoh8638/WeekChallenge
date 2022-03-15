@@ -26,6 +26,7 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         Connectivity().Network(view: self)
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
         tap.delegate = self
         self.view.addGestureRecognizer(tap)
