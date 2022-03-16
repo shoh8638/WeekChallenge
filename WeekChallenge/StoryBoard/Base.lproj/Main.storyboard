@@ -2303,11 +2303,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuJ-ZQ-hdo">
-                                <rect key="frame" x="87" y="266" width="240" height="374"/>
+                                <rect key="frame" x="87" y="393" width="240" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그아웃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hb-9A-BCS">
+                                        <rect key="frame" x="10" y="10" width="59" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="4A4A4A"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2Hj-D3-4sX">
+                                        <rect key="frame" x="10" y="40.5" width="220" height="69.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000님 로그아웃 하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojr-SH-BwZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="220" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WNk-1Y-kXF">
+                                                <rect key="frame" x="0.0" y="35.5" width="220" height="34"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPy-qU-KLu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="105" height="34"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="취소">
+                                                            <color key="baseForegroundColor" name="FF1654"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="cancleBtn:" destination="E5S-I4-2eu" eventType="touchUpInside" id="bg3-DN-NAJ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKi-YO-I8F">
+                                                        <rect key="frame" x="115" y="0.0" width="105" height="34"/>
+                                                        <color key="tintColor" name="black"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="확인"/>
+                                                        <connections>
+                                                            <action selector="okBtn:" destination="E5S-I4-2eu" eventType="touchUpInside" id="h2h-ic-0dh"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2Hj-D3-4sX" secondAttribute="bottom" constant="10" id="5xl-UL-BJu"/>
+                                    <constraint firstItem="2Hj-D3-4sX" firstAttribute="leading" secondItem="KuJ-ZQ-hdo" secondAttribute="leading" constant="10" id="FQ6-qp-Ott"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Hj-D3-4sX" secondAttribute="trailing" constant="10" id="OPP-Bp-WM6"/>
                                     <constraint firstAttribute="width" constant="240" id="UgW-Jz-jFK"/>
-                                    <constraint firstAttribute="height" constant="374" id="geJ-Kz-Lky"/>
+                                    <constraint firstItem="5Hb-9A-BCS" firstAttribute="leading" secondItem="KuJ-ZQ-hdo" secondAttribute="leading" constant="10" id="aKx-Wb-gTw"/>
+                                    <constraint firstAttribute="height" constant="120" id="geJ-Kz-Lky"/>
+                                    <constraint firstItem="2Hj-D3-4sX" firstAttribute="top" secondItem="5Hb-9A-BCS" secondAttribute="bottom" constant="10" id="l2Q-AU-dWv"/>
+                                    <constraint firstItem="5Hb-9A-BCS" firstAttribute="top" secondItem="KuJ-ZQ-hdo" secondAttribute="top" constant="10" id="uid-ef-fFy"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -2322,15 +2371,19 @@
                             <outletCollection property="gestureRecognizers" destination="cut-Su-8Fe" appends="YES" id="EX4-7M-vPz"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="mainView" destination="KuJ-ZQ-hdo" id="NKm-Uf-Rx0"/>
+                        <outlet property="message" destination="ojr-SH-BwZ" id="lvW-IT-6WV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d23-V5-5WZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="cut-Su-8Fe">
                     <connections>
-                        <action selector="bakcGes:" destination="z0d-EH-jGa" id="z8n-Fp-nCn"/>
+                        <action selector="bakcGes:" destination="E5S-I4-2eu" id="9oU-Ju-aRN"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="7093" y="2167"/>
+            <point key="canvasLocation" x="7092.753623188406" y="2166.9642857142858"/>
         </scene>
         <!--RemoveVC-->
         <scene sceneID="CGS-y7-7Um">
@@ -2586,7 +2639,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Ocj-Qy-Dh3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2gt-I2-vN4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigation" automaticallyAdjustsScrollViewInsets="NO" id="2gt-I2-vN4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="R6T-Zi-nsL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1mN-Fm-y2D">

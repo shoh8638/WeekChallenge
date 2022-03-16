@@ -28,8 +28,8 @@ class SetVC: UIViewController, UIGestureRecognizerDelegate {
         Connectivity().Network(view: self)
         setup()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
+
+    override func viewWillDisappear(_ animated: Bool) {
         setImg()
     }
     

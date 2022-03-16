@@ -13,8 +13,6 @@ class LogOutVC: UIViewController {
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var message: UILabel!
-    @IBOutlet weak var cancelBtn: UIButton!
-    @IBOutlet weak var okBtn: UIButton!
     
     let db = Firestore.firestore()
     
@@ -46,10 +44,15 @@ class LogOutVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "logout" {
-            try? Auth.auth().signOut()
+    @IBAction func okBtn(_ sender: Any) {
+        
+        try? Auth.auth().signOut()
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
+            let loginView = LoginVC()
+            loginView.modalPresentationStyle = .fullScreen
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController?.present(loginView, animated: true)
             print("LogOut")
-        }
+        })
     }
 }
