@@ -41,7 +41,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         initRefresh()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         setImg()
     }
     
@@ -96,9 +96,18 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         guard let userID = Auth.auth().currentUser?.email else { return }
         self.db.collection(userID).document("UserData").addSnapshotListener { (document, err) in
             if err == nil {
-                let img = document!["Profile"] as! String
-                Storage.storage().reference(forURL: img).downloadURL { (url, error) in
-                    self.userImg.sd_setImage(with: url!, completed: nil)
+                if document!["Profile"] as! String != "" {
+                    let img = document!["Profile"] as! String
+                    Storage.storage().reference(forURL: img).downloadURL { (url, error) in
+                        if url != nil {
+                            self.userImg.sd_setImage(with: url!, completed: nil)
+                        } else {
+                            print("HomeVC url err: \(error!)")
+                        }
+                        
+                    }
+                } else {
+                    self.userImg.image = UIImage(named: "profileIcon")
                 }
             }
         }
@@ -121,7 +130,12 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
                 for document in querySnapshot!.documents {
                     if document.documentID == "UserData" {
                         let userName = document.data()["UserName"] as! String
-                        self.userName.text = "Hello, \(userName)님"
+                        if userName != "" {
+                            self.userName.text = "Hello, \(userName)님"
+                        } else {
+                            self.userName.text = ""
+                        }
+                        
                     } else if document.documentID != "UserData" {
                         self.dbID.append(document.documentID)
                         self.dbTitles.append(document.data()["Title"] as! String)
@@ -135,7 +149,9 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
                         self.eventDates.append(event)
                         
                         let dates = (document["Dates"] as! [String]).sorted(by: <)
+                        print(dates)
                         for number in 0...dates.count-1 {
+                            print(dates[number])
                             let dateFields = document[dates[number]] as! [String: String]
                             let text = dateFields["Text"]!
                             if text == "" {

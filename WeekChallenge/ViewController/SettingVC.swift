@@ -31,7 +31,12 @@ class SettingVC: UIViewController {
                     print("ETCVC Success")
                     let data = document!.data()
                     let username = data!["UserName"] as! String
-                    self.userIDText.text = username
+                    if username != "" {
+                        self.userIDText.text = username
+                    } else {
+                        self.userIDText.text = ""
+                    }
+                    
                 } else {
                     print("ETCVC err")
                 }

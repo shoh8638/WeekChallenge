@@ -38,7 +38,6 @@
 		E65D5B9527D03F73009E16EE /* PlanCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65D5B9327D03F73009E16EE /* PlanCardCell.xib */; };
 		E65D5B9727D0455A009E16EE /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5B9627D0455A009E16EE /* ListVC.swift */; };
 		E661441227B386C50000CEA7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E661441127B386C50000CEA7 /* AuthService.swift */; };
-		E664959E27BC8ABC000110C9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664959D27BC8ABC000110C9 /* SettingVC.swift */; };
 		E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A327BC97B8000110C9 /* ChangePWD.swift */; };
 		E66495A627BCB021000110C9 /* CreatePlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A527BCB021000110C9 /* CreatePlanVC.swift */; };
 		E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB527B9EF6C009AEFE0 /* Database.swift */; };
@@ -131,7 +130,6 @@
 		E65D5B9327D03F73009E16EE /* PlanCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanCardCell.xib; sourceTree = "<group>"; };
 		E65D5B9627D0455A009E16EE /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		E661441127B386C50000CEA7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		E664959D27BC8ABC000110C9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		E66495A327BC97B8000110C9 /* ChangePWD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePWD.swift; sourceTree = "<group>"; };
 		E66495A527BCB021000110C9 /* CreatePlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanVC.swift; sourceTree = "<group>"; };
 		E667FCB527B9EF6C009AEFE0 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				E6C734EE27DB03E200A0CC4B /* List */,
 				E6C734F027DB041F00A0CC4B /* DashBoard */,
 				E6C734EF27DB03FE00A0CC4B /* Setting */,
-				E664959D27BC8ABC000110C9 /* SettingVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -698,7 +695,6 @@
 				E60DA3B627D05B13001DC914 /* PlanEnptyCardCell.swift in Sources */,
 				E601BE4A27E02A1C00BFF7BD /* ChangeUserNameVC.swift in Sources */,
 				E65D5B9427D03F73009E16EE /* PlanCardCell.swift in Sources */,
-				E664959E27BC8ABC000110C9 /* SettingVC.swift in Sources */,
 				E60DA3BC27D1FFAF001DC914 /* Connectivity.swift in Sources */,
 				E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */,
 				E601BE4327E0102000BFF7BD /* AccountVC.swift in Sources */,

@@ -32,7 +32,12 @@ class LogOutVC: UIViewController {
         docRef.getDocument { document, err in
             let data = document!.data()
             let username = data!["UserName"] as! String
-            self.message.text = "\(username)님 로그아웃 하시겠습니까?"
+            if username != "" {
+                self.message.text = "\(username)님 로그아웃 하시겠습니까?"
+            } else {
+                self.message.text = ""
+            }
+            
         }
     }
     

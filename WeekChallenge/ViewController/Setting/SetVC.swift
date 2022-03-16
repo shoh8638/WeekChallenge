@@ -28,7 +28,7 @@ class SetVC: UIViewController, UIGestureRecognizerDelegate {
         Connectivity().Network(view: self)
         setup()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         setImg()
     }
@@ -62,15 +62,26 @@ class SetVC: UIViewController, UIGestureRecognizerDelegate {
                 print("ETCVC Success")
                 let data = document!.data()
                 let username = data!["UserName"] as! String
-                self.userName.text = username
+                if username != "" {
+                    self.userName.text = username
+                } else {
+                    self.userName.text = ""
+                }                
                 
-                
-                let img = document!["Profile"] as! String
-                Storage.storage().reference(forURL: img).downloadURL { (url, error) in
-                    self.userImg.sd_setImage(with: url!, completed: nil)
+                if document!["Profile"] as! String != "" {
+                    let img = document!["Profile"] as! String
+                    Storage.storage().reference(forURL: img).downloadURL { (url, error) in
+                        if url != nil {
+                            self.userImg.sd_setImage(with: url!, completed: nil)
+                        } else {
+                            print("HomeVC url err: \(error!)")
+                        }
+                    }
+                } else {
+                    
+                    self.userImg.image = UIImage(named: "profileIcon")
+                    print("ETCVC err")
                 }
-            } else {
-                print("ETCVC err")
             }
         }
     }
