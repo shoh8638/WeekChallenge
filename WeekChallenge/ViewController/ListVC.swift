@@ -8,7 +8,6 @@
 import UIKit
 import Firebase
 import LSHContributionView
-import VerticalCardSwiper
 import SwiftOverlays
 
 class ListVC: UIViewController {

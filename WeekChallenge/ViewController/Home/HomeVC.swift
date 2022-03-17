@@ -49,10 +49,10 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.endEditing(true)
         return true
     }
-    
+
     func setupView() {
         self.userView.layer.cornerRadius = 20
-        self.userView.layer.masksToBounds = true
+        applyShadow(view: self.userView, color: UIColor.black.cgColor, alpha: 0.14, x: 10, y: 0, blur: 7)
         
         self.addBtn.layer.cornerRadius = 15
         self.addBtn.layer.masksToBounds = true
@@ -75,11 +75,13 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         self.userImg.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
         
         calendar.layer.cornerRadius = 20
-        calendar.layer.masksToBounds = true
+        applyShadow(view: self.calendar, color: UIColor.black.cgColor, alpha: 0.14, x: 10, y: 0, blur: 7)
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.scope = .week
         
         self.listTable.layer.cornerRadius = 20
+        talbeApplyShadow(table: listTable, color: UIColor.black.cgColor, alpha: 0.14, x: 10, y: 0, blur: 7)
+    
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -93,6 +95,21 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         swipe()
     }
     
+    func applyShadow(view: UIView,color: CGColor, alpha: Float, x: Int, y: Int, blur: CGFloat) {
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = color
+        view.layer.shadowOpacity = alpha
+        view.layer.shadowOffset = CGSize(width: x, height: y)
+        view.layer.shadowRadius = blur / 2.0
+    }
+    
+    func talbeApplyShadow(table: UITableView,color: CGColor, alpha: Float, x: Int, y: Int, blur: CGFloat) {
+        table.layer.masksToBounds = false
+        table.layer.shadowColor = color
+        table.layer.shadowOpacity = alpha
+        table.layer.shadowOffset = CGSize(width: x, height: y)
+        table.layer.shadowRadius = blur / 2.0
+    }
     func setImg() {
         guard let userID = Auth.auth().currentUser?.email else { return }
         self.db.collection(userID).document("UserData").addSnapshotListener { (document, err) in
@@ -150,9 +167,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
                         self.eventDates.append(event)
                         
                         let dates = (document["Dates"] as! [String]).sorted(by: <)
-                        print(dates)
                         for number in 0...dates.count-1 {
-                            print(dates[number])
                             let dateFields = document[dates[number]] as! [String: String]
                             let text = dateFields["Text"]!
                             if text == "" {
@@ -243,6 +258,8 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else {
             let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+            cell.layer.cornerRadius = 20
+            cell.layer.masksToBounds = true
             cell.title.text = self.dbTitles[indexPath.row]
             cell.periodText.text = "\(self.firstDates[indexPath.row]) ~ \(self.lastDates[indexPath.row])"
             return cell
