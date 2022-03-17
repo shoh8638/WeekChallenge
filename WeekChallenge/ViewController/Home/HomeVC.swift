@@ -55,19 +55,18 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         applyShadow(view: self.userView, color: UIColor.black.cgColor, alpha: 0.14, x: 10, y: 0, blur: 7)
         
         self.addBtn.layer.cornerRadius = 15
-        self.addBtn.layer.masksToBounds = true
         self.addBtn.layer.borderWidth = 1
         self.addBtn.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
-        
+        buttonApplyShadow(btn: addBtn, color: UIColor.black.cgColor, alpha: 0.14, x: 8, y: 0, blur: 7)
         self.runningBtn.layer.cornerRadius = 15
-        self.runningBtn.layer.masksToBounds = true
         self.runningBtn.layer.borderWidth = 1
         self.runningBtn.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
+        buttonApplyShadow(btn: runningBtn, color: UIColor.black.cgColor, alpha: 0.14, x: 8, y: 0, blur: 7)
         
         self.completeBtn.layer.cornerRadius = 15
-        self.completeBtn.layer.masksToBounds = true
         self.completeBtn.layer.borderWidth = 1
         self.completeBtn.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
+        buttonApplyShadow(btn: completeBtn, color: UIColor.black.cgColor, alpha: 0.14, x: 8, y: 0, blur: 7)
         
         self.userImg.layer.cornerRadius = self.userImg.frame.height / 2
         self.userImg.layer.masksToBounds = true
@@ -110,6 +109,15 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         table.layer.shadowOffset = CGSize(width: x, height: y)
         table.layer.shadowRadius = blur / 2.0
     }
+    
+    func buttonApplyShadow(btn: UIButton,color: CGColor, alpha: Float, x: Int, y: Int, blur: CGFloat) {
+        btn.layer.masksToBounds = false
+        btn.layer.shadowColor = color
+        btn.layer.shadowOpacity = alpha
+        btn.layer.shadowOffset = CGSize(width: x, height: y)
+        btn.layer.shadowRadius = blur / 2.0
+    }
+    
     func setImg() {
         guard let userID = Auth.auth().currentUser?.email else { return }
         self.db.collection(userID).document("UserData").addSnapshotListener { (document, err) in
