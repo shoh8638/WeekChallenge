@@ -91,9 +91,6 @@ class ListVC: UIViewController {
     }
     
     @IBAction func settingButton(_ sender: Any) {
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSetting") as! SettingVC
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func refresh(_ sender: Any) {
@@ -127,10 +124,8 @@ extension ListVC: VerticalCardSwiperDatasource, VerticalCardSwiperDelegate{
         } else {
             let cell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "PlanCardCell", for: index) as! PlanCardCell
             cell.backView.layer.cornerRadius = 20
-            cell.backView.layer.shadowRadius = 20
-            cell.backView.layer.shadowColor = UIColor.black.cgColor
-            cell.backView.layer.shadowRadius = 8
-            cell.backView.layer.shadowOffset = CGSize(width: 0, height: 4)
+            cell.backView.layer.masksToBounds = true
+
             if index % 2 == 0 {
                 cell.backView.backgroundColor = UIColor(named: "cardColorOne")
             } else {
@@ -150,7 +145,7 @@ extension ListVC: VerticalCardSwiperDatasource, VerticalCardSwiperDelegate{
     func LSHViewChange(view: UIView, count: Array<Int>, index: Int) {
         if count != [] {
             let dataSquare = [count]
-            let contributeView = LSHContributionView(frame: CGRect(x: -17, y: 0, width: mainView.bounds.width, height: mainView.bounds.height))
+            let contributeView = LSHContributionView(frame: CGRect(x:-25, y: 0, width: mainView.bounds.width-10, height: mainView.bounds.height))
             if index % 2 == 0 {
                 contributeView.backgroundColor = UIColor(named: "cardColorOne")
             } else {

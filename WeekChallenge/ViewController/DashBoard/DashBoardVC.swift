@@ -30,11 +30,11 @@ class DashBoardVC: UIViewController {
         initRefresh()
         searchView.isHidden = true
     }
-
+    
     @IBAction func settingButton(_ sender: Any) {
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSetting") as! SettingVC
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(vc, animated: true, completion: nil)
+        //        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSetting") as! SettingVC
+        //        vc.modalPresentationStyle = .fullScreen
+        //        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func searchBtn(_ sender: Any) {
@@ -126,8 +126,12 @@ extension DashBoardVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
             cell.name.text = self.userTitles[indexPath.row]
             Storage.storage().reference(forURL: self.userImg[indexPath.row]).downloadURL { (url, error) in
-                cell.img.sd_setImage(with: url!, completed: nil)
-                    }
+                if url != nil {
+                    cell.img.sd_setImage(with: url!, completed: nil)
+                } else {
+                 print("DashBoardVC err: \(error!)")
+                }
+            }
             cell.title.text = "\(indexPath.row)"
             cell.text.text = self.userText[indexPath.row]
             return cell

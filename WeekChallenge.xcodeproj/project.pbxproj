@@ -50,6 +50,11 @@
 		E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */; };
 		E6C734F327DB046300A0CC4B /* RunningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734F227DB046300A0CC4B /* RunningVC.swift */; };
 		E6C734F527DB046F00A0CC4B /* CompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734F427DB046F00A0CC4B /* CompleteVC.swift */; };
+		E6E0A4F427E1B81E00718EA2 /* PlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */; };
+		E6E0A4F727E1C0DB00718EA2 /* TotalListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F627E1C0DB00718EA2 /* TotalListVC.swift */; };
+		E6E0A4F927E2C83E00718EA2 /* EXWriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F827E2C83E00718EA2 /* EXWriteVC.swift */; };
+		E6E0A4FB27E2C92D00718EA2 /* listCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4FA27E2C92D00718EA2 /* listCell.swift */; };
+		E6E0A4FD27E2CB9600718EA2 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4FC27E2CB9600718EA2 /* AnimationController.swift */; };
 		EE355B8C15BDE0BC84AB3B75 /* Pods_WeekChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +147,11 @@
 		E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVC.swift; sourceTree = "<group>"; };
 		E6C734F227DB046300A0CC4B /* RunningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVC.swift; sourceTree = "<group>"; };
 		E6C734F427DB046F00A0CC4B /* CompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteVC.swift; sourceTree = "<group>"; };
+		E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanVC.swift; sourceTree = "<group>"; };
+		E6E0A4F627E1C0DB00718EA2 /* TotalListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalListVC.swift; sourceTree = "<group>"; };
+		E6E0A4F827E2C83E00718EA2 /* EXWriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXWriteVC.swift; sourceTree = "<group>"; };
+		E6E0A4FA27E2C92D00718EA2 /* listCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listCell.swift; sourceTree = "<group>"; };
+		E6E0A4FC27E2CB9600718EA2 /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		F59B675783D8C837E3BDD0D3 /* Pods_WeekChallenge_WeekChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge_WeekChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -232,6 +242,7 @@
 				E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */,
 				E6584F5D27B33DFF00B58FCB /* Info.plist */,
 				E661443027B3A4590000CEA7 /* Resource */,
+				E6E0A4FC27E2CB9600718EA2 /* AnimationController.swift */,
 			);
 			path = WeekChallenge;
 			sourceTree = "<group>";
@@ -258,9 +269,10 @@
 			children = (
 				E66495A127BC8AF7000110C9 /* Login */,
 				E6C734ED27DB03BA00A0CC4B /* Home */,
-				E6C734EE27DB03E200A0CC4B /* List */,
+				E6C734EE27DB03E200A0CC4B /* Plan */,
 				E6C734F027DB041F00A0CC4B /* DashBoard */,
 				E6C734EF27DB03FE00A0CC4B /* Setting */,
+				E65D5B9627D0455A009E16EE /* ListVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -362,6 +374,7 @@
 			children = (
 				E66495A527BCB021000110C9 /* CreatePlanVC.swift */,
 				E65D5B8F27CF4E20009E16EE /* EnptyCell */,
+				E6E0A4FA27E2C92D00718EA2 /* listCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -375,19 +388,21 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		E6C734EE27DB03E200A0CC4B /* List */ = {
+		E6C734EE27DB03E200A0CC4B /* Plan */ = {
 			isa = PBXGroup;
 			children = (
-				E65D5B9627D0455A009E16EE /* ListVC.swift */,
+				E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */,
 				E6A0086427C60CB600AB8D2D /* WriteVC.swift */,
+				E6E0A4F827E2C83E00718EA2 /* EXWriteVC.swift */,
 			);
-			path = List;
+			path = Plan;
 			sourceTree = "<group>";
 		};
 		E6C734EF27DB03FE00A0CC4B /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				E601BE3E27DB40C400BFF7BD /* SetVC.swift */,
+				E6E0A4F527E1C0C600718EA2 /* 3Button */,
 				E601BE4027E0100000BFF7BD /* ProfileVC.swift */,
 				E601BE4827E025CE00BFF7BD /* Account */,
 				E601BE4427E0103900BFF7BD /* LogOutVC.swift */,
@@ -415,6 +430,14 @@
 				E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */,
 			);
 			path = Home_Sub;
+			sourceTree = "<group>";
+		};
+		E6E0A4F527E1C0C600718EA2 /* 3Button */ = {
+			isa = PBXGroup;
+			children = (
+				E6E0A4F627E1C0DB00718EA2 /* TotalListVC.swift */,
+			);
+			path = 3Button;
 			sourceTree = "<group>";
 		};
 		FC38C3071DF2CEFD7850E1DD /* Frameworks */ = {
@@ -670,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */,
+				E6E0A4F727E1C0DB00718EA2 /* TotalListVC.swift in Sources */,
 				E601BE3F27DB40C400BFF7BD /* SetVC.swift in Sources */,
 				E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */,
 				E601BE4127E0100000BFF7BD /* ProfileVC.swift in Sources */,
@@ -678,6 +702,7 @@
 				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
 				E6A0086927C8925000AB8D2D /* DashBoardVC.swift in Sources */,
 				E661441227B386C50000CEA7 /* AuthService.swift in Sources */,
+				E6E0A4F927E2C83E00718EA2 /* EXWriteVC.swift in Sources */,
 				E6C734F327DB046300A0CC4B /* RunningVC.swift in Sources */,
 				E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */,
 				E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */,
@@ -689,10 +714,13 @@
 				E60DA3C027D988C2001DC914 /* HomeVC.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,
 				E601BE4527E0103900BFF7BD /* LogOutVC.swift in Sources */,
+				E6E0A4FB27E2C92D00718EA2 /* listCell.swift in Sources */,
 				E6C734F527DB046F00A0CC4B /* CompleteVC.swift in Sources */,
 				E65D5B9727D0455A009E16EE /* ListVC.swift in Sources */,
+				E6E0A4F427E1B81E00718EA2 /* PlanVC.swift in Sources */,
 				E667FCB627B9EF6C009AEFE0 /* Database.swift in Sources */,
 				E60DA3B627D05B13001DC914 /* PlanEnptyCardCell.swift in Sources */,
+				E6E0A4FD27E2CB9600718EA2 /* AnimationController.swift in Sources */,
 				E601BE4A27E02A1C00BFF7BD /* ChangeUserNameVC.swift in Sources */,
 				E65D5B9427D03F73009E16EE /* PlanCardCell.swift in Sources */,
 				E60DA3BC27D1FFAF001DC914 /* Connectivity.swift in Sources */,

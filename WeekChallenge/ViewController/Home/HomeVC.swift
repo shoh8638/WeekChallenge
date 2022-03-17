@@ -53,6 +53,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     func setupView() {
         self.userView.layer.cornerRadius = 20
         self.userView.layer.masksToBounds = true
+        
         self.addBtn.layer.cornerRadius = 15
         self.addBtn.layer.masksToBounds = true
         self.addBtn.layer.borderWidth = 1
