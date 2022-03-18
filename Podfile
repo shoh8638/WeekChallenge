@@ -25,4 +25,5 @@ pod 'LSHContributionView'
 pod 'IQKeyboardManagerSwift'
 pod 'Alamofire', '~> 5.5'
 pod 'FSCalendar'
+pod 'TRMosaicLayout'
 end

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="U6b-Vx-4bR" customClass="HeaderView" customModule="WeekChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pn-q0-1Me">
+                    <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="avv-Sw-q7l">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="avv-Sw-q7l" secondAttribute="bottom" id="1ti-w5-i1b"/>
+                        <constraint firstAttribute="height" constant="50" id="61e-VD-dig"/>
+                        <constraint firstItem="avv-Sw-q7l" firstAttribute="top" secondItem="7pn-q0-1Me" secondAttribute="top" id="Efk-he-onG"/>
+                        <constraint firstItem="avv-Sw-q7l" firstAttribute="leading" secondItem="7pn-q0-1Me" secondAttribute="leading" id="isJ-mb-I2C"/>
+                        <constraint firstAttribute="trailing" secondItem="avv-Sw-q7l" secondAttribute="trailing" id="mVr-i7-TRY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="7pn-q0-1Me" secondAttribute="trailing" id="112-El-YPf"/>
+                <constraint firstAttribute="bottom" secondItem="7pn-q0-1Me" secondAttribute="bottom" id="A3h-R1-vXX"/>
+                <constraint firstItem="7pn-q0-1Me" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="N0k-7g-Hxf"/>
+                <constraint firstItem="7pn-q0-1Me" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="ui9-nI-MXB"/>
+            </constraints>
+            <connections>
+                <outlet property="searchBar" destination="avv-Sw-q7l" id="66o-aW-n1N"/>
+            </connections>
+            <point key="canvasLocation" x="165.94202898550725" y="153.34821428571428"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

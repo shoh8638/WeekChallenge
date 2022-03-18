@@ -447,6 +447,7 @@ PODS:
   - SwiftOverlays (5.0.1)
   - Tabman (2.11.1):
     - Pageboy (~> 3.6.0)
+  - TRMosaicLayout (1.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
@@ -459,6 +460,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - SwiftOverlays (~> 5.0.1)
   - Tabman
+  - TRMosaicLayout
 
 SPEC REPOS:
   trunk:
@@ -486,6 +488,7 @@ SPEC REPOS:
     - SDWebImage
     - SwiftOverlays
     - Tabman
+    - TRMosaicLayout
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -512,7 +515,8 @@ SPEC CHECKSUMS:
   SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
   SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
+  TRMosaicLayout: 1875505c48dd2877afd69a8bea7b4c1c63afa5b5
 
-PODFILE CHECKSUM: c0a65b8cd2763353d70aaa9c8f61046859ec9a80
+PODFILE CHECKSUM: 2f2ea6e121b7b05dd8911ffd88efafacf08c245e
 
 COCOAPODS: 1.11.2
