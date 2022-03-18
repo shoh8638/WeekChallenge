@@ -25,7 +25,6 @@ class PlanVC: UIViewController {
         super.viewDidLoad()
         Connectivity().Network(view: self)
         loadData()
-        initRefresh()
     }
     
     func loadData() {
@@ -64,21 +63,6 @@ class PlanVC: UIViewController {
             }
             self.listCollection.reloadData()
         }
-    }
-    
-    func initRefresh() {
-        let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
-        refresh.attributedTitle = NSAttributedString(string: "새로고침")
-        self.listCollection.refreshControl = refresh
-    }
-    
-    @objc func updateUI(refresh: UIRefreshControl) {
-        self.dbID.removeAll()
-        self.dbTitles.removeAll()
-        self.dbDate.removeAll()
-        loadData()
-        refresh.endRefreshing()
     }
 }
 
@@ -127,11 +111,16 @@ extension PlanVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("cellTouch")
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Ex")
-        
-        vc?.transitioningDelegate = self
-        vc?.modalPresentationStyle = .custom
-        self.present(vc!, animated: true)
+        if self.dbID != [String]() {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Ex") as! DetailListVC
+            vc.documentID = self.dbID[indexPath.row]
+            vc.mainTitle  = self.dbTitles[indexPath.row]
+            
+            vc.transitioningDelegate = self
+            vc.modalPresentationStyle = .custom
+            
+            self.present(vc, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

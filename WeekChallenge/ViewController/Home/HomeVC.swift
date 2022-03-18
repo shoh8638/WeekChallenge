@@ -262,7 +262,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         if self.dbTitles.count == 0 {
             let cell = listTable.dequeueReusableCell(withIdentifier: "homeEmptyCell", for: indexPath) as! homeEmptyCell
             cell.title.text = "아무것도 없어요"
-            cell.periodText.text = "아무것도 없어요"
+            cell.periodText.text = ""
             return cell
         } else {
             let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
@@ -276,7 +276,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.dbTitles.count == 0 {
-            return self.listTable.frame.height
+            return self.listTable.frame.height/2
         } else {
             return self.listTable.frame.height/3
         }

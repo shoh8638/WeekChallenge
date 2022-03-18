@@ -10,6 +10,9 @@ import Firebase
 import FirebaseStorage
 import SDWebImage
 
+//컨테이너뷰 2개 넣고 맨처음에는 컬렉션뷰
+//검색누르면 컬렉션뷰 히든 -> 검색view
+//취소 누르면 검색view 히든 -> 컬렉션뷰
 class DashBoardVC: UIViewController {
     
     let db = Firestore.firestore()
@@ -23,6 +26,9 @@ class DashBoardVC: UIViewController {
     @IBOutlet weak var searchText: UITextField!
     @IBOutlet weak var searchView: UIView!
     
+    @IBOutlet weak var stack: UIStackView!
+    @IBOutlet weak var testBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Connectivity().Network(view: self)
@@ -32,9 +38,6 @@ class DashBoardVC: UIViewController {
     }
     
     @IBAction func settingButton(_ sender: Any) {
-        //        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppSetting") as! SettingVC
-        //        vc.modalPresentationStyle = .fullScreen
-        //        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func searchBtn(_ sender: Any) {

@@ -9,7 +9,7 @@ import Firebase
 import FirebaseStorage
 import SDWebImage
 
-class SetVC: UIViewController, UIGestureRecognizerDelegate {
+class SettingVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var mainView: UIView!
@@ -94,7 +94,7 @@ class SetVC: UIViewController, UIGestureRecognizerDelegate {
     }
 }
 
-extension SetVC: UITableViewDataSource, UITableViewDelegate {
+extension SettingVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Setting"

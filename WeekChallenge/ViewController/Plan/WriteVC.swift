@@ -19,7 +19,6 @@ class WriteVC: UIViewController {
     var documentID: String?
     var titles: String?
     let picker = UIImagePickerController()
-    var current: String?
     var imgUrl: String?
     
     @IBOutlet weak var mainTitle: UILabel!
