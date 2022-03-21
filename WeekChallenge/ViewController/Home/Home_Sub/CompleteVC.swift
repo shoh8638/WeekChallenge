@@ -24,9 +24,12 @@ class CompleteVC: UIViewController, UIGestureRecognizerDelegate {
         
         backView.layer.cornerRadius = 20
         backView.layer.masksToBounds = true
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
         tap.delegate = self
         self.view.addGestureRecognizer(tap)
+        
+        completeTable.rowHeight = UITableView.automaticDimension
         loadData()
     }
     
@@ -60,7 +63,7 @@ class CompleteVC: UIViewController, UIGestureRecognizerDelegate {
                                 complete.append(3)
                             }
                         }
-                        if complete.contains(3) {
+                        if !complete.contains(0) {
                             self.titles.append(document["Title"] as! String)
                             self.firstPeriod.append(dates.first!)
                             self.lastPeriod.append(dates.last!)

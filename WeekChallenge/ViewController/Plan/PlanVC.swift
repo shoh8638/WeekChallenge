@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import LSHContributionView
 
+//period / subTitle autoLayout 수정 요
 class PlanVC: UIViewController {
     
     let db = Firestore.firestore()

@@ -10,6 +10,7 @@ import Firebase
 import FSCalendar
 import FirebaseStorage
 
+//진행중 / 완료 -> cell height 수정
 class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     let db = Firestore.firestore()
@@ -21,7 +22,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     var dbDate = [[Int]]()
     var runningCount = 0
     var completeCount = 0
-    
+
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var userName: UILabel!
@@ -36,6 +37,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         Connectivity().Network(view: self)
+        listTable.rowHeight = UITableView.automaticDimension
         setupView()
         loadData()
         initRefresh()
@@ -274,18 +276,13 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.dbTitles.count == 0 {
-            return self.listTable.frame.height/2
-        } else {
-            return self.listTable.frame.height/3
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5
-    }
-    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if self.dbTitles.count == 0 {
+//            return self.listTable.frame.height/2
+//        } else {
+//            return self.listTable.frame.height/3
+//        }
+//    }
 }
 //MARK: FSCalendar
 extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
@@ -302,9 +299,11 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
     @objc func swipeEvent(_ swipe: UISwipeGestureRecognizer) {
         if swipe.direction == .up {
             calendar.scope = .week
+            print(self.listTable.frame.height)
         }
         else if swipe.direction == .down {
             calendar.scope = .month
+            print(self.listTable.frame.height)
         }
     }
     

@@ -24,9 +24,12 @@ class RunningVC: UIViewController, UIGestureRecognizerDelegate {
         
         backView.layer.cornerRadius = 20
         backView.layer.masksToBounds = true
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
         tap.delegate = self
         self.view.addGestureRecognizer(tap)
+        
+        runningTable.rowHeight = UITableView.automaticDimension
         loadData()
     }
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
