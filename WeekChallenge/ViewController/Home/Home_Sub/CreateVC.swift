@@ -11,18 +11,20 @@ import SwiftOverlays
 import LSHContributionView
 
 class CreateVC: UIViewController, UIGestureRecognizerDelegate {
-
+    
+    var dateString: String = ""
+    
     @IBOutlet weak var backView: UIView!
     
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var LSHView: UIView!
     
     @IBOutlet weak var titleText: UITextField!
-    @IBOutlet weak var periodText: UILabel!
+    @IBOutlet weak var periodPicker: UIDatePicker!
     
     @IBOutlet weak var okBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Connectivity().Network(view: self)
@@ -44,7 +46,7 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func setUp() {
-
+        
         self.backView.layer.cornerRadius = 20
         self.backView.layer.masksToBounds = true
         self.backView.backgroundColor = UIColor(named: "white")
@@ -55,26 +57,39 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
         self.LSHView.layer.cornerRadius = 15
         self.LSHView.layer.masksToBounds = true
         
+        periodPicker.addTarget(self, action: #selector(datePicker), for: .valueChanged)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        let today = formatter.string(from: Date())
-        let lastDay = formatter.string(from: Calendar.current.date(byAdding: .day, value: 4, to: formatter.date(from: today)!)!)
-        self.periodText.text = "\(today) ~ \(lastDay)"
+        dateString = formatter.string(from: periodPicker.date)
         exampleView()
+    }
+    //date 선택한 날 기준으로 5일 하기
+    @objc func datePicker() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        dateString = formatter.string(from: periodPicker.date)
     }
     
     @IBAction func okBtn(_ sender: Any) {
+        let text = self.titleText.text
+        
         self.showTextOverlay("잠시만 기다려주세요!")
-        if self.titleText.text != "" {
-            Database().createDB(folderName: self.titleText.text!, date: PlanDate().fiveDate())
+        if text!.contains("+") {
+            let alert = UIAlertController(title: "알림", message: "+를 빼주세요!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
             self.removeAllOverlays()
-            self.dismiss(animated: true, completion: nil)
-        } else {
+        } else if text == "" {
             let alert = UIAlertController(title: "알림", message: "제목을 입력해주세요", preferredStyle: .alert)
             let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
             self.removeAllOverlays()
+        } else {
+            Database().createDB(folderName: self.titleText.text!, date: PlanDate().fiveDate(current: dateString))
+            self.removeAllOverlays()
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

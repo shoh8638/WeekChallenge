@@ -27,7 +27,6 @@ class DashBoardVC: UIViewController {
     @IBOutlet weak var searchView: UIView!
     
     @IBOutlet weak var stack: UIStackView!
-    @IBOutlet weak var testBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

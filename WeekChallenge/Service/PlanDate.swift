@@ -8,10 +8,10 @@
 import UIKit
 
 class PlanDate {
-    func fiveDate() -> [String: String] {
+    func fiveDate(current: String) -> [String: String] {
         let fomatter = DateFormatter()
         fomatter.dateFormat = "yyy-MM-dd"
-        let currentData = Date()
+        let currentData = fomatter.date(from: current)!
         var fiveDateFomtter: [String: String] = [:]
         
         for i in 0...4 {

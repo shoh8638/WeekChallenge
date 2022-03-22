@@ -25,6 +25,7 @@ class exDashVC: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var listTop: NSLayoutConstraint!
+    @IBOutlet weak var searchTap: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,12 @@ class exDashVC: UIViewController {
         searchField.delegate = self
         searchView.isHidden = true
         searchButton.isHidden = true
+        
+        
+        searchTap.layer.cornerRadius = searchTap.layer.frame.size.width / 2
+        searchTap.layer.masksToBounds = true
+        searchTap.layer.borderColor = UIColor.black.cgColor
+        searchTap.layer.borderWidth = 1
         
         loadData()
     }
@@ -71,7 +78,23 @@ class exDashVC: UIViewController {
         }
     }
     
-    @objc func searchTap(sender: UITapGestureRecognizer) {
+    //카드형식으로 나오게 하기
+    @IBAction func searchButton(_ sender: Any) {
+        if self.searchField.text != "" {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "exSearch") as! SearchVC
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overFullScreen
+            vc.searchText = self.searchField.text!
+            self.present(vc, animated: true, completion: nil)
+            self.searchField.text = ""
+            self.searchView.isHidden = true
+            self.searchView.alpha = 0
+            self.searchButton.isHidden = true
+            self.listTop.constant = -40
+            self.view.layoutIfNeeded()
+        }
+    }
+    @IBAction func mainSearch(_ sender: Any) {
         print("Tap")
         if searchView.isHidden == true {
             UIView.animate(withDuration: 0.5, animations: {
@@ -87,19 +110,6 @@ class exDashVC: UIViewController {
                 self.listTop.constant = -40
                 self.view.layoutIfNeeded()
             })
-        }
-    }
-    //카드형식으로 나오게 하기
-    @IBAction func searchButton(_ sender: Any) {
-        if self.searchField.text != "" {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "searchVC") as! SearchVC
-            vc.searchText = self.searchField.text!
-            self.present(vc, animated: true, completion: nil)
-            self.searchField.text = ""
-            self.searchView.isHidden = true
-            self.searchView.alpha = 0
-            self.listTop.constant = -40
-            self.view.layoutIfNeeded()
         }
     }
 }
@@ -129,30 +139,20 @@ extension exDashVC: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "enptyCell", for: indexPath) as! EnptyCollectionViewCell
             cell.vc = self
             return cell
-        } else {
-            if indexPath.row == 1 {
-                let tapA = UITapGestureRecognizer(target: self, action: #selector(searchTap(sender:)))
-                
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
-                cell.layer.cornerRadius = 20
-                applyShadow(cell: cell, color: UIColor.black.cgColor, alpha: 0.07, x: 10, y: 0, blur: 7)
-                cell.addGestureRecognizer(tapA)
-                return cell
-            } else {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
-                cell.layer.cornerRadius = 20
-                applyShadow(cell: cell, color: UIColor.black.cgColor, alpha: 0.07, x: 10, y: 0, blur: 7)
-                Storage.storage().reference(forURL: self.userImg[indexPath.row]).downloadURL { (url, error) in
-                    if url != nil {
-                        cell.contentView.layer.cornerRadius = 20
-                        cell.img.layer.cornerRadius = 20
-                        cell.img.sd_setImage(with: url!, completed: nil)
-                    } else {
-                        print("DashBoardVC err: \(error!)")
-                    }
+        }else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
+            cell.layer.cornerRadius = 20
+            applyShadow(cell: cell, color: UIColor.black.cgColor, alpha: 0.07, x: 10, y: 0, blur: 7)
+            Storage.storage().reference(forURL: self.userImg[indexPath.row]).downloadURL { (url, error) in
+                if url != nil {
+                    cell.contentView.layer.cornerRadius = 20
+                    cell.img.layer.cornerRadius = 20
+                    cell.img.sd_setImage(with: url!, completed: nil)
+                } else {
+                    print("DashBoardVC err: \(error!)")
                 }
-                return cell
             }
+            return cell
         }
     }
     
@@ -175,6 +175,6 @@ extension exDashVC: TRMosaicLayoutDelegate {
     }
     
     func heightForSmallMosaicCell() -> CGFloat {
-        return self.dashCollection.bounds.height / 3
+        return self.dashCollection.bounds.height / 4
     }
 }

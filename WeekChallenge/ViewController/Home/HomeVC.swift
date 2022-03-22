@@ -40,7 +40,6 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         listTable.rowHeight = UITableView.automaticDimension
         setupView()
         loadData()
-        initRefresh()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -275,15 +274,8 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if self.dbTitles.count == 0 {
-//            return self.listTable.frame.height/2
-//        } else {
-//            return self.listTable.frame.height/3
-//        }
-//    }
 }
+
 //MARK: FSCalendar
 extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
     func swipe() {
@@ -344,7 +336,7 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
         let dateFomatter = DateFormatter()
         dateFomatter.dateFormat = "yyyy-MM-dd"
         let selectDay = dateFomatter.string(from: date)
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AppSelect") as! SelectCalendarVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeSelect") as! SelectCalendarVC
         vc.date = selectDay
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen

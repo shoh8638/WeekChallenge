@@ -93,13 +93,21 @@ extension RunningVC: UITableViewDataSource, UITableViewDelegate {
         if self.titles.count == 0 {
             let cell = runningTable.dequeueReusableCell(withIdentifier: "homeEmptyCell", for: indexPath) as! homeEmptyCell
             cell.title.text = "아무것도 없어요"
-            cell.periodText.text = "아무것도 없어요"
+            cell.periodText.text = ""
             return cell
         } else {
             let cell = runningTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
             cell.title.text = self.titles[indexPath.row]
             cell.periodText.text = "\(self.firstPeriod[indexPath.row]) ~ \(self.lastPeriod[indexPath.row])"
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.titles.count == 0 {
+            return self.runningTable.frame.height
+        } else {
+            return self.runningTable.frame.height/3
         }
     }
 }

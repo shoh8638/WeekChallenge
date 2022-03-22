@@ -25,7 +25,7 @@ class CreatePlanVC: UIViewController {
 //MARK: Button
 extension CreatePlanVC {
     @IBAction func fiveDayPlan(_ sender: Any) {
-        CustomAlert().createPlan(vc: self, day: "5일", date: PlanDate().fiveDate())
+//        CustomAlert().createPlan(vc: self, day: "5일", date: PlanDate().fiveDate())
     }
 }
 

@@ -103,5 +103,13 @@ extension CompleteVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.titles.count == 0 {
+            return self.completeTable.frame.height
+        } else {
+            return self.completeTable.frame.height/3
+        }
+    }
 }
 

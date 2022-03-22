@@ -21,14 +21,14 @@ class SearchVC: UIViewController {
     
 
     @IBOutlet weak var searchCollection: UICollectionView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         Connectivity().Network(view: self)
         findData()
     }
     
-    @IBAction func dismissBtn(_ sender: Any) {
+    @IBAction func backTap(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -61,7 +61,7 @@ class SearchVC: UIViewController {
     }
 }
 
-extension SearchVC: UICollectionViewDataSource, UICollectionViewDelegate {
+extension SearchVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.userTitles.count == 0 {
             return 1
@@ -72,24 +72,35 @@ extension SearchVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if self.userTitles.count == 0 {
-            let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "enptyCell", for: indexPath) as! EnptyCollectionViewCell
-            cell.vc = self
+            let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "enptyCell", for: indexPath)
             return cell
         } else {
-            let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "searchCell", for: indexPath) as! searchCell
-            cell.name.text = self.dbTitles[indexPath.row]
+            let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "cellTwo", for: indexPath) as! searchCellTwo
+            cell.backView.layer.cornerRadius = 20
+            cell.backView.layer.masksToBounds = true
+            
+            cell.totalView.layer.cornerRadius = 20
+            cell.totalView.layer.masksToBounds = true
+            
+            applyShadow(cell: cell, color: UIColor.black.cgColor, alpha: 0.14, x: 10, y: 0, blur: 7)
             Storage.storage().reference(forURL: self.userImg[indexPath.row]).downloadURL { (url, error) in
                 cell.img.sd_setImage(with: url!, completed: nil)
             }
-            cell.title.text = self.userTitles[indexPath.row]
-            cell.text.text = self.userText[indexPath.row]
+            cell.mainTitle.text = self.userTitles[indexPath.row]
+            cell.mainText.text = self.userText[indexPath.row]
             return cell
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-        
+        return CGSize(width: self.searchCollection.bounds.width - 100, height: self.searchCollection.bounds.height-200)
+    }
+    
+    func applyShadow(cell: searchCellTwo,color: CGColor, alpha: Float, x: Int, y: Int, blur: CGFloat) {
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = color
+        cell.layer.shadowOpacity = alpha
+        cell.layer.shadowOffset = CGSize(width: x, height: y)
+        cell.layer.shadowRadius = blur / 2.0
     }
 }
 
@@ -103,3 +114,10 @@ class searchCell: UICollectionViewCell {
     @IBOutlet weak var text: UILabel!
 }
 
+class searchCellTwo: UICollectionViewCell {
+    @IBOutlet weak var totalView: UIView!
+    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var mainTitle: UILabel!
+    @IBOutlet weak var mainText: UILabel!
+}

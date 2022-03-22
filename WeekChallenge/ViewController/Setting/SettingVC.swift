@@ -8,7 +8,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 import SDWebImage
-
+//버튼 지우고, 프로필 및 유저네임 크기 늘리고 -> 버튼 1개 ( 리스트 관리) -> 설정 하단 탭에 추가
 class SettingVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var imgView: UIImageView!
