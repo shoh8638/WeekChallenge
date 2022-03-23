@@ -13,16 +13,11 @@ import FirebaseStorage
 //진행중 / 완료 -> cell height 수정
 class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
-    let db = Firestore.firestore()
-    var dbID = [String]()
-    var dbTitles = [String]()
-    var firstDates = [String]()
-    var lastDates = [String]()
-    var eventDates = [[String]]()
-    var dbDate = [[Int]]()
-    var runningCount = 0
-    var completeCount = 0
+    var homeM = HomeModel()
+    var homeVM = HomeViewwModel()
+    let applyLayout = ApplyService()
 
+    
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var userName: UILabel!
@@ -36,12 +31,12 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Connectivity().Network(view: self)
+        ConnectService().Network(view: self)
         listTable.rowHeight = UITableView.automaticDimension
         setupView()
         loadData()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         setImg()
     }
@@ -50,38 +45,17 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.endEditing(true)
         return true
     }
-
+    
     func setupView() {
-        self.userView.layer.cornerRadius = 20
-        applyShadow(view: self.userView, color: UIColor.black.cgColor, alpha: 0.14, x: 10, y: 0, blur: 7)
-        
-        self.addBtn.layer.cornerRadius = 15
-        self.addBtn.layer.borderWidth = 1
-        self.addBtn.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
-        buttonApplyShadow(btn: addBtn, color: UIColor.black.cgColor, alpha: 0.14, x: 8, y: 0, blur: 7)
-        self.runningBtn.layer.cornerRadius = 15
-        self.runningBtn.layer.borderWidth = 1
-        self.runningBtn.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
-        buttonApplyShadow(btn: runningBtn, color: UIColor.black.cgColor, alpha: 0.14, x: 8, y: 0, blur: 7)
-        
-        self.completeBtn.layer.cornerRadius = 15
-        self.completeBtn.layer.borderWidth = 1
-        self.completeBtn.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
-        buttonApplyShadow(btn: completeBtn, color: UIColor.black.cgColor, alpha: 0.14, x: 8, y: 0, blur: 7)
-        
-        self.userImg.layer.cornerRadius = self.userImg.frame.height / 2
-        self.userImg.layer.masksToBounds = true
-        self.userImg.layer.borderWidth = 1
-        self.userImg.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
-        
-        calendar.layer.cornerRadius = 20
-        applyShadow(view: self.calendar, color: UIColor.black.cgColor, alpha: 0.14, x: 10, y: 0, blur: 7)
+        applyLayout.viewApplyLayer(view: userView)
+        applyLayout.buttonApplyLayer(btn: addBtn)
+        applyLayout.buttonApplyLayer(btn: runningBtn)
+        applyLayout.buttonApplyLayer(btn: completeBtn)
+        applyLayout.imgApplyLayer(img: userImg)
+        applyLayout.viewApplyLayer(view: calendar)
+        applyLayout.tableApplyLayer(table: listTable)
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.scope = .week
-        
-        self.listTable.layer.cornerRadius = 20
-        talbeApplyShadow(table: listTable, color: UIColor.black.cgColor, alpha: 0.14, x: 10, y: 0, blur: 7)
-    
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -95,155 +69,39 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         swipe()
     }
     
-    func applyShadow(view: UIView,color: CGColor, alpha: Float, x: Int, y: Int, blur: CGFloat) {
-        view.layer.masksToBounds = false
-        view.layer.shadowColor = color
-        view.layer.shadowOpacity = alpha
-        view.layer.shadowOffset = CGSize(width: x, height: y)
-        view.layer.shadowRadius = blur / 2.0
-    }
-    
-    func talbeApplyShadow(table: UITableView,color: CGColor, alpha: Float, x: Int, y: Int, blur: CGFloat) {
-        table.layer.masksToBounds = false
-        table.layer.shadowColor = color
-        table.layer.shadowOpacity = alpha
-        table.layer.shadowOffset = CGSize(width: x, height: y)
-        table.layer.shadowRadius = blur / 2.0
-    }
-    
-    func buttonApplyShadow(btn: UIButton,color: CGColor, alpha: Float, x: Int, y: Int, blur: CGFloat) {
-        btn.layer.masksToBounds = false
-        btn.layer.shadowColor = color
-        btn.layer.shadowOpacity = alpha
-        btn.layer.shadowOffset = CGSize(width: x, height: y)
-        btn.layer.shadowRadius = blur / 2.0
-    }
-    
     func setImg() {
-        guard let userID = Auth.auth().currentUser?.email else { return }
-        self.db.collection(userID).document("UserData").addSnapshotListener { (document, err) in
-            if err == nil {
-                if document!["Profile"] as! String != "" {
-                    let img = document!["Profile"] as! String
-                    Storage.storage().reference(forURL: img).downloadURL { (url, error) in
-                        if url != nil {
-                            self.userImg.sd_setImage(with: url!, completed: nil)
-                        } else {
-                            print("HomeVC url err: \(error!)")
-                        }
-                        
-                    }
-                } else {
-                    self.userImg.image = UIImage(named: "profileIcon")
-                }
-            }
-        }
+        DataService().setImg(userImg: userImg)
     }
     
     func loadData() {
-        var complete = [Int]()
-        
-        guard let userID = Auth.auth().currentUser?.email else { return }
-        self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
-            self.dbTitles.removeAll()
-            self.firstDates.removeAll()
-            self.lastDates.removeAll()
-            self.eventDates.removeAll()
-            self.runningCount = 0
-            self.completeCount = 0
-            self.calendar.reloadData()
-            
-            if err == nil {
-                for document in querySnapshot!.documents {
-                    if document.documentID == "UserData" {
-                        let userName = document.data()["UserName"] as! String
-                        if userName != "" {
-                            self.userName.text = "Hello, \(userName)님"
-                        } else {
-                            self.userName.text = ""
-                        }
-                        
-                    } else if document.documentID != "UserData" {
-                        self.dbID.append(document.documentID)
-                        self.dbTitles.append(document.data()["Title"] as! String)
-                        
-                        let first = (document["Dates"] as! [String]).sorted(by: <).first!
-                        let last = (document["Dates"] as! [String]).sorted(by: <).last!
-                        let event = (document["Dates"] as! [String]).sorted(by: <)
-                        
-                        self.firstDates.append(first)
-                        self.lastDates.append(last)
-                        self.eventDates.append(event)
-                        
-                        let dates = (document["Dates"] as! [String]).sorted(by: <)
-                        for number in 0...dates.count-1 {
-                            let dateFields = document[dates[number]] as! [String: String]
-                            let text = dateFields["Text"]!
-                            if text == "" {
-                                complete.append(0)
-                            } else {
-                                complete.append(3)
-                            }
-                        }
-                        if complete.contains(0) {
-                            self.runningCount += 1
-                        } else {
-                            self.completeCount += 1
-                            let title = document.data()["Title"] as! String
-                            if let index = self.dbTitles.firstIndex(of: title) {
-                                self.dbTitles.remove(at: index)
-                            }
-                        }
-                        complete.removeAll()
-                    }
-                    self.runningBtn.setTitle("\(self.runningCount)", for: .normal)
-                    self.completeBtn.setTitle("\(self.completeCount)", for: .normal)
-                }
-            }
-            self.listTable.reloadData()
+        DataService().hLoadData(table: listTable, calendar: calendar, userLabel: userName, runningBtn: runningBtn, completeBtn: completeBtn) { model in
+            self.homeM = model
         }
     }
     
-    func initRefresh() {
-        let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
-        refresh.attributedTitle = NSAttributedString(string: "새로고침")
-        self.listTable.refreshControl = refresh
-    }
-    
-    @objc func updateUI(refresh: UIRefreshControl) {
-        self.dbTitles.removeAll()
-        self.firstDates.removeAll()
-        self.lastDates.removeAll()
-        self.eventDates.removeAll()
-        loadData()
-        refresh.endRefreshing()
-    }
-    
-    
     @objc func imgTap(sender: UIGestureRecognizer) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeProfile") as! HomeProfile
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeProfile") else { return }
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func addBtn(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCreate") as! CreateVC
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCreate")
+        vc!.modalTransitionStyle = .crossDissolve
+        vc!.modalPresentationStyle = .overFullScreen
+        self.present(vc!, animated: true, completion: nil)
     }
     
     @IBAction func runningBtn(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeRun") as! RunningVC
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeRun") else { return }
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func completeBtn(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCom") as! CompleteVC
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCom") else { return }
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
@@ -251,28 +109,18 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
 }
 //MARK: UITableView
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.dbTitles.count == 0 {
-            return 1
-        } else {
-            return self.dbTitles.count
-        }
+        return homeVM.numberOfItem(homeM: self.homeM)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.dbTitles.count == 0 {
-            let cell = listTable.dequeueReusableCell(withIdentifier: "homeEmptyCell", for: indexPath) as! homeEmptyCell
-            cell.title.text = "아무것도 없어요"
-            cell.periodText.text = ""
-            return cell
-        } else {
-            let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
-            cell.layer.cornerRadius = 20
-            cell.layer.masksToBounds = true
-            cell.title.text = self.dbTitles[indexPath.row]
-            cell.periodText.text = "\(self.firstDates[indexPath.row]) ~ \(self.lastDates[indexPath.row])"
-            return cell
-        }
+        let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = true
+        cell.title.text = homeVM.numberOfTitle(homeM: self.homeM, index: indexPath.row)
+        cell.periodText.text = homeVM.numberOfPeriod(homeM: self.homeM, index: indexPath.row)
+        return cell
     }
 }
 
@@ -318,9 +166,9 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
         let dateFomatter = DateFormatter()
         dateFomatter.dateFormat = "yyyy-MM-dd"
         let day = dateFomatter.string(from: date)
-        if self.firstDates.contains(day) {
+        if self.homeM.firstDates.contains(day) {
             return 1
-        } else if self.lastDates.contains(day) {
+        } else if self.homeM.lastDates.contains(day) {
             return 1
         } else {
             return 0
@@ -342,11 +190,6 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
-}
-
-class homeEmptyCell: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var periodText: UILabel!
 }
 
 class homeCell: UITableViewCell {

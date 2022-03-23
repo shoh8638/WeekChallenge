@@ -20,12 +20,12 @@ class AuthService {
                 print("LoginView Success")
                 self.userID = email
                 
-                let customAlert = CustomAlert()
+                let customAlert = AlertService()
                 customAlert.mainAlert(email: email, message: "로그인 완료", vc: vc)
             } else {
                 print("LoginView Failure")
                 
-                let customAelrt = CustomAlert()
+                let customAelrt = AlertService()
                 customAelrt.failAlert(message: "로그인 실패", vc: vc)
             }
         }
@@ -38,16 +38,16 @@ class AuthService {
                 vc.removeAllOverlays()
                 print("SignInView Success")
                 
-                let db = Database()
+                let db = firebaseService()
                 db.signInDB(id: email, email: email, pwd: pwd, username: username, img: img)
                 
-                let customAlert = CustomAlert()
+                let customAlert = AlertService()
                 customAlert.loginAlert(message: "회원가입 완료", vc: vc)
             } else {
                 vc.removeAllOverlays()
                 print("SignInView Failure")
                 
-                let customAelrt = CustomAlert()
+                let customAelrt = AlertService()
                 customAelrt.failAlert(message: "회원가입 실패", vc: vc)
             }
         }

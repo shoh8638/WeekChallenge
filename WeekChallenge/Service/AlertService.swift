@@ -1,5 +1,5 @@
 //
-//  CustomAlert.swift
+//  AlertService.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/02/14.
@@ -10,7 +10,7 @@ import SwiftOverlays
 import Firebase
 import Pageboy
 
-class CustomAlert {
+class AlertService {
     func loginAlert(message: String, vc: UIViewController) {
         let loginVC = vc.storyboard?.instantiateViewController(withIdentifier: "LoginView") as! LoginVC
         loginVC.modalPresentationStyle = .fullScreen
@@ -77,7 +77,7 @@ class CustomAlert {
         let action = UIAlertAction(title: "확인", style: .default) { _ in
             vc.showTextOverlay("잠시만 기다려주세요!")
             let titleText = (alert.textFields?[0].text)!
-            Database().createDB(folderName: titleText, date: date)
+            firebaseService().createDB(folderName: titleText, date: date)
             vc.removeAllOverlays()
             vc.dismiss(animated: true, completion: nil)
         }

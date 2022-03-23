@@ -30,7 +30,7 @@ class DashBoardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Connectivity().Network(view: self)
+        ConnectService().Network(view: self)
         loadData()
         initRefresh()
         searchView.isHidden = true

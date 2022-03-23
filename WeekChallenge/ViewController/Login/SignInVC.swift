@@ -24,7 +24,7 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Connectivity().Network(view: self)
+        ConnectService().Network(view: self)
         emailText.delegate = self
         pwdText.delegate = self
         signInBtn.isEnabled = false

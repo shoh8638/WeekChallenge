@@ -23,7 +23,7 @@ class ChangePWD: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Connectivity().Network(view: self)
+        ConnectService().Network(view: self)
         setUp()
     }
     
@@ -48,16 +48,16 @@ class ChangePWD: UIViewController, UIGestureRecognizerDelegate {
                     let path = self.db.collection(userID).document("UserData")
                     path.updateData(["password": self.changePWD.text!])
                     
-                    CustomAlert().checkAlert(message: "비밀번호 변경 성공", vc: self)
+                    AlertService().checkAlert(message: "비밀번호 변경 성공", vc: self)
                 } else {
                     print("ChangePWD Fail")
-                    CustomAlert().checkAlert(message: "비밀번호 변경 실패", vc: self)
+                    AlertService().checkAlert(message: "비밀번호 변경 실패", vc: self)
                 }
             }
         } else if self.complete == "false" {
-            CustomAlert().checkAlert(message: "현재 비밀번호가 일치하지 않습니다", vc: self)
+            AlertService().checkAlert(message: "현재 비밀번호가 일치하지 않습니다", vc: self)
         } else if changePWD.text! == reChangePWD.text! {
-            CustomAlert().checkAlert(message: "변경 할 비밀번호가 일치하지 않습니다", vc: self)
+            AlertService().checkAlert(message: "변경 할 비밀번호가 일치하지 않습니다", vc: self)
         }
     }
     

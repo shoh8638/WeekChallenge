@@ -28,7 +28,7 @@ class DetailListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Connectivity().Network(view: self)
+        ConnectService().Network(view: self)
         documentTitle.text = mainTitle!
         detailView.layer.cornerRadius = 20
         detailView.layer.masksToBounds = true

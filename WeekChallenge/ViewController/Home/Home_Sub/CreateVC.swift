@@ -27,11 +27,12 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Connectivity().Network(view: self)
+        ConnectService().Network(view: self)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
         tap.delegate = self
         self.view.addGestureRecognizer(tap)
+        
         setUp()
     }
     
@@ -41,26 +42,20 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func backTap(sender: UITapGestureRecognizer) {
-        print("tap")
         self.dismiss(animated: true, completion: nil)
     }
     
     func setUp() {
-        
-        self.backView.layer.cornerRadius = 20
-        self.backView.layer.masksToBounds = true
-        self.backView.backgroundColor = UIColor(named: "white")
-        
-        self.firstView.layer.cornerRadius = 15
-        self.firstView.layer.masksToBounds = true
-        
-        self.LSHView.layer.cornerRadius = 15
-        self.LSHView.layer.masksToBounds = true
+        ApplyService().onlyCornerApply(view: backView)
+        ApplyService().onlyCornerApply(view: firstView)
+        ApplyService().onlyCornerApply(view: firstView)
         
         periodPicker.addTarget(self, action: #selector(datePicker), for: .valueChanged)
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         dateString = formatter.string(from: periodPicker.date)
+        
         exampleView()
     }
     //date 선택한 날 기준으로 5일 하기
@@ -87,7 +82,7 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
             self.present(alert, animated: true, completion: nil)
             self.removeAllOverlays()
         } else {
-            Database().createDB(folderName: self.titleText.text!, date: PlanDate().fiveDate(current: dateString))
+            firebaseService().createDB(folderName: self.titleText.text!, date: PlanDate().fiveDate(current: dateString))
             self.removeAllOverlays()
             self.dismiss(animated: true, completion: nil)
         }

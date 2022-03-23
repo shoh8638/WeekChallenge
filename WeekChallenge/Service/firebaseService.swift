@@ -1,18 +1,17 @@
 //
-//  Database.swift
+//  firebaseService.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/02/14.
 //
 
 import UIKit
-import FirebaseFirestore
-import FirebaseAuth
+import Firebase
 
 typealias completionHandler = (Any)->()
 typealias dateHandler = ([[Int]])->()
 
-class Database {
+class firebaseService {
     let db = Firestore.firestore()
     
     func signInDB(id: String, email: String, pwd: String, username: String, img: String) {

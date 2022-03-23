@@ -6,30 +6,24 @@
 //
 
 import UIKit
-import Firebase
 
 class RunningVC: UIViewController, UIGestureRecognizerDelegate {
     
-    let db = Firestore.firestore()
-    var titles = [String]()
-    var firstPeriod = [String]()
-    var lastPeriod = [String]()
+    let lbVM =  ListBtnViewModel()
+    var lbM = ListBtnModel()
     
     @IBOutlet weak var runningTable: UITableView!
     @IBOutlet weak var backView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Connectivity().Network(view: self)
+        ConnectService().Network(view: self)
         
-        backView.layer.cornerRadius = 20
-        backView.layer.masksToBounds = true
-        
+        ApplyService().onlyCornerApply(view: backView)
         let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
         tap.delegate = self
         self.view.addGestureRecognizer(tap)
         
-        runningTable.rowHeight = UITableView.automaticDimension
         loadData()
     }
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -43,35 +37,8 @@ class RunningVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func loadData() {
-        var complete = [Int]()
-        
-        guard let userID = Auth.auth().currentUser?.email else { return }
-        self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
-            
-            if err == nil {
-                for document in querySnapshot!.documents {
-                    if document.documentID != "UserData" {
-                        let dates = (document["Dates"] as! [String]).sorted(by: <)
-                        
-                        for number in 0...dates.count-1 {
-                            let dateFields = document[dates[number]] as! [String: String]
-                            let text = dateFields["Text"]!
-                            if text == "" {
-                                complete.append(0)
-                            } else {
-                                complete.append(3)
-                            }
-                        }
-                        if complete.contains(0) {
-                            self.titles.append(document["Title"] as! String)
-                            self.firstPeriod.append(dates.first!)
-                            self.lastPeriod.append(dates.last!)
-                        }
-                        complete.removeAll()
-                    }
-                }
-            }
-            self.runningTable.reloadData()
+        DataService().rLoadData(table: runningTable) { model in
+            self.lbM = model
         }
     }
     
@@ -82,29 +49,18 @@ class RunningVC: UIViewController, UIGestureRecognizerDelegate {
 
 extension RunningVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.titles.count == 0 {
-            return 1
-        } else {
-            return self.titles.count
-        }
+        return lbVM.numberOfItem(lbMdel: self.lbM)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.titles.count == 0 {
-            let cell = runningTable.dequeueReusableCell(withIdentifier: "homeEmptyCell", for: indexPath) as! homeEmptyCell
-            cell.title.text = "아무것도 없어요"
-            cell.periodText.text = ""
-            return cell
-        } else {
-            let cell = runningTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
-            cell.title.text = self.titles[indexPath.row]
-            cell.periodText.text = "\(self.firstPeriod[indexPath.row]) ~ \(self.lastPeriod[indexPath.row])"
-            return cell
-        }
+        let cell = runningTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+        cell.title.text = lbVM.numberOfTitle(lbModel: lbM, index: indexPath.row)
+        cell.periodText.text = lbVM.numberOfPeriod(lbMdel: lbM, index: indexPath.row)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.titles.count == 0 {
+        if self.lbM.titles.count == 0 {
             return self.runningTable.frame.height
         } else {
             return self.runningTable.frame.height/3
