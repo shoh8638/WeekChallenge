@@ -22,20 +22,17 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
     let db = Firestore.firestore()
     var settingTitle = ["프로필 변경","계정 설정","로그아웃","계정삭제"]
     var settingImg = ["","","",""]
+    let sVM = SettingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
         setup()
+        loadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        setImg()
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        self.view.endEditing(true)
-        return true
+        loadData()
     }
     
     func setup() {
@@ -43,47 +40,13 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
         self.userImg.addGestureRecognizer(tap)
         self.userImg.isUserInteractionEnabled = true
         
-        imgView.layer.cornerRadius = imgView.frame.height / 2
-        imgView.layer.masksToBounds = true
-        imgView.layer.borderWidth = 1
-        imgView.layer.borderColor = CGColor(red: 74, green: 74, blue: 74, alpha: 1)
-        
-        mainView.layer.cornerRadius = 35
-        mainView.layer.masksToBounds = true
-        
-        setImg()
+        ApplyService().imgApplyLayer(img: imgView)
+        ApplyService().onlyCornerApply(view: mainView)
     }
     
-    func setImg() {
-        guard let userID = Auth.auth().currentUser?.email  else { return }
-        let docRef = db.collection(userID).document("UserData")
-        docRef.addSnapshotListener { document, err in
-            if err == nil {
-                print("ETCVC Success")
-                let data = document!.data()
-                let username = data!["UserName"] as! String
-                if username != "" {
-                    self.userName.text = username
-                } else {
-                    self.userName.text = ""
-                }                
-                
-                if document!["Profile"] as! String != "" {
-                    let img = document!["Profile"] as! String
-                    Storage.storage().reference(forURL: img).downloadURL { (url, error) in
-                        if url != nil {
-                            self.userImg.sd_setImage(with: url!, completed: nil)
-                        } else {
-                            print("HomeVC url err: \(error!)")
-                        }
-                    }
-                } else {
-                    
-                    self.userImg.image = UIImage(named: "profileIcon")
-                    print("ETCVC err")
-                }
-            }
-        }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     @objc func imgTap(sender: UIGestureRecognizer) {
@@ -92,60 +55,37 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
+    
+    func loadData() {
+        DataService().settingLoadData(userName: userName, userImg: userImg)
+    }
 }
 
 extension SettingVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Setting"
+        return sVM.headerTitle()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingTitle.count
+        return sVM.numberOfItem()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = settingTable.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! setTableCell
-        cell.title.text = settingTitle[indexPath.row]
+        cell.title.text = sVM.numberOfTitle(index: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetProfile") as! ProfileVC
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: true, completion: nil)
+            ConnectService().sendVC(main: self, name: "SetProfile")
         case 1:
-            let alert = UIAlertController(title: "알림", message: "둘 중 하나를 고르시오", preferredStyle: .actionSheet)
-            
-            let changeNick = UIAlertAction(title: "닉네임 변경", style: .default) { _ in
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetChName") as! ChangeUserNameVC
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-            
-            let changePass = UIAlertAction(title: "비밀번호 변경", style: .default) { _ in
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetChPWD") as! ChangePWD
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-            
-            alert.addAction(changeNick)
-            alert.addAction(changePass)
-            self.present(alert, animated: true, completion: nil)
+            AlertService().accountAlert(main: self)
         case 2:
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetLogOut") as! LogOutVC
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: true, completion: nil)
+            ConnectService().sendVC(main: self, name: "SetLogOut")
         case 3:
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetRemove") as! RemoveVC
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: true, completion: nil)
+            ConnectService().sendVC(main: self, name: "SetRemove")
         default:
             print("")
         }

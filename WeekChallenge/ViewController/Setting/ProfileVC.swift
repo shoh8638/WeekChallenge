@@ -25,21 +25,16 @@ class ProfileVC: UIViewController {
         picker.delegate = self
         setUp()
     }
-    
+    //CGColor(red: 223, green: 231, blue: 245, alpha: 1)
     @IBAction func bakcGes(_ sender: UIGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
     
     func setUp() {
-        self.imgView.layer.cornerRadius = imgView.frame.height / 2
-        self.imgView.layer.masksToBounds = true
-        self.imgView.layer.borderWidth = 1
-        self.imgView.layer.borderColor = CGColor(red: 223, green: 231, blue: 245, alpha: 1)
-        self.imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapImg(sender:))))
-        self.imgView.isUserInteractionEnabled = true
-        
-        self.mainView.layer.cornerRadius = 20
-        self.mainView.layer.masksToBounds = true
+        ApplyService().imgApplyLayer(img: imgView)
+        ApplyService().onlyCornerApply(view: mainView)
+        imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapImg(sender:))))
+        imgView.isUserInteractionEnabled = true
     }
     
     @IBAction func cancleBtn(_ sender: Any) {
@@ -70,6 +65,7 @@ class ProfileVC: UIViewController {
     }
 }
 
+//MARK: UIImagePicker Delegate
 extension ProfileVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @objc func tapImg(sender: UITapGestureRecognizer) {

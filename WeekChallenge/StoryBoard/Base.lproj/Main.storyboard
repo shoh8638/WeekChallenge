@@ -521,10 +521,10 @@
             </objects>
             <point key="canvasLocation" x="2877" y="110"/>
         </scene>
-        <!--Dash BoardVC-->
+        <!--TotalVC-->
         <scene sceneID="FK1-Lg-hkI">
             <objects>
-                <viewController storyboardIdentifier="AppBoard" id="GjI-Tt-BWS" customClass="DashBoardVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppBoard" id="GjI-Tt-BWS" customClass="TotalVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AEv-qm-XZZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -865,10 +865,10 @@
             </objects>
             <point key="canvasLocation" x="1838" y="1492"/>
         </scene>
-        <!--Ex DashVC-->
+        <!--TotalVC-->
         <scene sceneID="TU2-iu-NZY">
             <objects>
-                <viewController storyboardIdentifier="AppEx" id="sDn-oc-xUz" customClass="exDashVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppEx" id="sDn-oc-xUz" customClass="TotalVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CtU-j4-yg6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1054,16 +1054,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="314" height="121"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qze-MS-ANR">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qze-MS-ANR">
                                                             <rect key="frame" x="10" y="10" width="41.5" height="46"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8g-Ht-Waa">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8g-Ht-Waa">
                                                                     <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpK-F9-ehf">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpK-F9-ehf">
                                                                     <rect key="frame" x="0.0" y="25.5" width="41.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -1537,10 +1537,10 @@
             </objects>
             <point key="canvasLocation" x="4599" y="110"/>
         </scene>
-        <!--Detail ListVC-->
+        <!--Plan DetailVC-->
         <scene sceneID="W1G-Dg-rwG">
             <objects>
-                <viewController storyboardIdentifier="Ex" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3xG-zI-0rz" customClass="DetailListVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Ex" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3xG-zI-0rz" customClass="PlanDetailVC" customModule="WeekChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DQb-Jl-PD9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1593,7 +1593,7 @@
                                             <inset key="sectionInset" minX="46" minY="0.0" maxX="50" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="detailList" id="jud-RQ-Cti" customClass="detailList" customModule="WeekChallenge" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="detailList" id="jud-RQ-Cti" customClass="PlanDetailVCCell" customModule="WeekChallenge" customModuleProvider="target">
                                                 <rect key="frame" x="46" y="121" width="300" height="400"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1N0-3k-TpH">
@@ -2123,7 +2123,7 @@
                                     <inset key="sectionInset" minX="45" minY="0.0" maxX="50" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="list" id="8ja-z8-0A5" customClass="listCell" customModule="WeekChallenge" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="list" id="8ja-z8-0A5" customClass="PlanVCCell" customModule="WeekChallenge" customModuleProvider="target">
                                         <rect key="frame" x="45" y="75" width="265" height="368"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Pl9-AZ-LgI">
@@ -2752,7 +2752,7 @@
                                             <inset key="sectionInset" minX="45" minY="0.0" maxX="50" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellTwo" id="0me-7q-t9T" customClass="searchCellTwo" customModule="WeekChallenge" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellTwo" id="0me-7q-t9T" customClass="searchCell" customModule="WeekChallenge" customModuleProvider="target">
                                                 <rect key="frame" x="45" y="147" width="241" height="296"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="a2E-RG-HWH">

@@ -11,7 +11,7 @@ import Firebase
 typealias completionHandler = (Any)->()
 typealias dateHandler = ([[Int]])->()
 
-class firebaseService {
+class FirebaseService {
     let db = Firestore.firestore()
     
     func signInDB(id: String, email: String, pwd: String, username: String, img: String) {

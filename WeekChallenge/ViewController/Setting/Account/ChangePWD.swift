@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseFirestore
 import SwiftOverlays
 
 class ChangePWD: UIViewController, UIGestureRecognizerDelegate {
@@ -18,9 +16,6 @@ class ChangePWD: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var reChangePWD: UITextField!
     @IBOutlet weak var changePWDBtn: UIButton!
     
-    var complete: String?
-    let db = Firestore.firestore()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
@@ -28,8 +23,7 @@ class ChangePWD: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func setUp() {
-        self.backView.layer.cornerRadius = 20
-        self.backView.layer.masksToBounds = true
+        ApplyService().onlyCornerApply(view: backView)
     }
     
     @IBAction func bakcGes(_ sender: UIGestureRecognizer) {
@@ -38,26 +32,17 @@ class ChangePWD: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func changePWDBtn(_ sender: Any) {
         self.showTextOverlay("잠시만 기다려주세요")
-        checkPWD(currentPWD: currentPWD.text!)
-        
-        if self.complete == "true" || (changePWD.text! == reChangePWD.text!) {
-            Auth.auth().currentUser?.updatePassword(to: changePWD.text!) { error in
-                if error == nil {
-                    print("ChangePWD Success")
-                    guard let userID = Auth.auth().currentUser?.email else { return }
-                    let path = self.db.collection(userID).document("UserData")
-                    path.updateData(["password": self.changePWD.text!])
-                    
-                    AlertService().checkAlert(message: "비밀번호 변경 성공", vc: self)
-                } else {
-                    print("ChangePWD Fail")
-                    AlertService().checkAlert(message: "비밀번호 변경 실패", vc: self)
-                }
+        DataService().checkPWD(currentPWD: currentPWD.text!) { bool in
+            if bool == "false" {
+                AlertService().checkAlert(message: "현재 비밀번호가 일치하지 않습니다", vc: self)
+                self.removeAllOverlays()
+            } else if self.changePWD.text! != self.reChangePWD.text! {
+                AlertService().checkAlert(message: "변경 할 비밀번호가 일치하지 않습니다", vc: self)
+                self.removeAllOverlays()
+            } else {
+                DataService().changePWD(changePWD: self.changePWD.text!, vc: self)
+                self.removeAllOverlays()
             }
-        } else if self.complete == "false" {
-            AlertService().checkAlert(message: "현재 비밀번호가 일치하지 않습니다", vc: self)
-        } else if changePWD.text! == reChangePWD.text! {
-            AlertService().checkAlert(message: "변경 할 비밀번호가 일치하지 않습니다", vc: self)
         }
     }
     
@@ -65,21 +50,6 @@ class ChangePWD: UIViewController, UIGestureRecognizerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func checkPWD(currentPWD: String){
-        guard let userID = Auth.auth().currentUser?.email else { return }
-        Firestore.firestore().collection(userID).document("UserData").getDocument { (document, err) in
-            if let err = err {
-                print("checkPWD err: \(err)")
-            } else {
-                let pwd = document!["password"] as! String
-                if currentPWD == pwd {
-                    self.complete = "true"
-                } else {
-                    self.complete = "false"
-                }
-            }
-        }
-    }
 }
 
 extension ChangePWD: UITextFieldDelegate {

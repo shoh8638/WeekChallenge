@@ -6,16 +6,13 @@
 //
 
 import UIKit
-import Firebase
 import SwiftOverlays
 
-class ChangeUserNameVC: UIViewController, UIGestureRecognizerDelegate {
+class ChangeUserNameVC: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var reChangeNick: UITextField!
     @IBOutlet weak var chageNickBtn: UIButton!
-    
-    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +20,7 @@ class ChangeUserNameVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func setUp() {
-        self.mainView.layer.cornerRadius = 20
-        self.mainView.layer.masksToBounds = true
+        ApplyService().onlyCornerApply(view: mainView)
     }
     @IBAction func bakcGes(_ sender: UIGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
@@ -35,20 +31,13 @@ class ChangeUserNameVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func chageNickBtn(_ sender: Any) {
-        self.showTextOverlay("잠시만 기다려주세요")
-        if self.reChangeNick.text!.count > 1 {
-            guard let userID = Auth.auth().currentUser?.email else { return }
-            let path = self.db.collection(userID).document("UserData")
-
-            path.updateData(["UserName": self.reChangeNick.text!])
-            print("Change Nick")
+        showTextOverlay("잠시만 기다려주세요")
+        if reChangeNick.text!.count > 1 {
+            DataService().changeNick(reChangeNick: reChangeNick.text!)
             self.removeAllOverlays()
             self.dismiss(animated: true)
         } else {
-            let alert = UIAlertController(title: "알림", message: "비밀번호를 입력해주세요", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .default, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
+            AlertService().basicAlert(viewController: self, message: "비밀번호를 입력해주세요")
         }
     }
 }

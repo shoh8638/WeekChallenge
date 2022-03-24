@@ -5,7 +5,7 @@
 //  Created by shoh on 2022/03/04.
 //
 
-import Foundation
+import UIKit
 import Alamofire
 
 class ConnectService {
@@ -22,5 +22,12 @@ class ConnectService {
             alert.addAction(action)
             view.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func sendVC(main: UIViewController, name: String) {
+        guard let vc = main.storyboard?.instantiateViewController(withIdentifier: name) else { return }
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        main.present(vc, animated: true, completion: nil)
     }
 }

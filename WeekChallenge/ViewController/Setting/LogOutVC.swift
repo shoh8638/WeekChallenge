@@ -6,39 +6,22 @@
 //
 
 import UIKit
-import Firebase
-import SwiftOverlays
 
 class LogOutVC: UIViewController {
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var message: UILabel!
     
-    let db = Firestore.firestore()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
-        setUp() 
+        loadData()
     }
     
     
-    func setUp() {
-        self.mainView.layer.cornerRadius = 20
-        self.mainView.layer.masksToBounds = true
-        
-        guard let userID = Auth.auth().currentUser?.email  else { return }
-        let docRef = self.db.collection(userID).document("UserData")
-        docRef.getDocument { document, err in
-            let data = document!.data()
-            let username = data!["UserName"] as! String
-            if username != "" {
-                self.message.text = "\(username)님 로그아웃 하시겠습니까?"
-            } else {
-                self.message.text = ""
-            }
-            
-        }
+    func loadData() {
+        ApplyService().onlyCornerApply(view: mainView)
+        DataService().logoutLoadData(message: message)
     }
     
     @IBAction func bakcGes(_ sender: UIGestureRecognizer) {
@@ -50,14 +33,6 @@ class LogOutVC: UIViewController {
     }
     
     @IBAction func okBtn(_ sender: Any) {
-        
-        try? Auth.auth().signOut()
-        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
-            let loginView = LoginVC()
-            loginView.modalPresentationStyle = .fullScreen
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController?.present(loginView, animated: true)
-            print("LogOut")
-        })
+        DataService().logout(view: self.view)
     }
 }

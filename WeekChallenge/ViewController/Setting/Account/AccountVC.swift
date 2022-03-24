@@ -6,10 +6,8 @@
 //
 
 import UIKit
-import Firebase
 
-//닉네임, 비밀번호 변경
-class AccountVC: UIViewController, UIGestureRecognizerDelegate {
+class AccountVC: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var nickName: UIButton!
@@ -22,8 +20,7 @@ class AccountVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func setUp() {
-        self.mainView.layer.cornerRadius = 20
-        self.mainView.layer.masksToBounds = true
+        ApplyService().onlyCornerApply(view: mainView)
     }
     
     @IBAction func bakcGes(_ sender: UIGestureRecognizer) {
@@ -31,16 +28,10 @@ class AccountVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func nickName(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "") as! ChangeUserNameVC
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true, completion: nil)
+        ConnectService().sendVC(main: self, name: "SetChName")
     }
     
     @IBAction func pwd(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "") as! ChangePWD
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true, completion: nil)
+        ConnectService().sendVC(main: self, name: "SetChPWD")
     }
 }

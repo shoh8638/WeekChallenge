@@ -57,7 +57,7 @@ extension SelectCalendarVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
         cell.title.text = lbVM.numberOfTitle(lbModel: lbM, index: indexPath.row)
-        cell.periodText.text = lbVM.numberOfPeriod(lbMdel: lbM, index: indexPath.row)
+        cell.periodText.text = lbVM.numberOfPeriod(lbModel: lbM, index: indexPath.row)
         return cell
     }
     

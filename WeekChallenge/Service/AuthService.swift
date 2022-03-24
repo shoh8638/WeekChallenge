@@ -38,7 +38,7 @@ class AuthService {
                 vc.removeAllOverlays()
                 print("SignInView Success")
                 
-                let db = firebaseService()
+                let db = FirebaseService()
                 db.signInDB(id: email, email: email, pwd: pwd, username: username, img: img)
                 
                 let customAlert = AlertService()

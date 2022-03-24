@@ -77,11 +77,40 @@ class AlertService {
         let action = UIAlertAction(title: "확인", style: .default) { _ in
             vc.showTextOverlay("잠시만 기다려주세요!")
             let titleText = (alert.textFields?[0].text)!
-            firebaseService().createDB(folderName: titleText, date: date)
+            FirebaseService().createDB(folderName: titleText, date: date)
             vc.removeAllOverlays()
             vc.dismiss(animated: true, completion: nil)
         }
         alert.addAction(action)
         vc.present(alert, animated: true)
+    }
+    
+    func basicAlert(viewController: UIViewController, message: String) {
+        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+        alert.addAction(action)
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
+    func accountAlert(main: UIViewController) {
+        let alert = UIAlertController(title: "알림", message: "둘 중 하나를 고르시오", preferredStyle: .actionSheet)
+        
+        let changeNick = UIAlertAction(title: "닉네임 변경", style: .default) { _ in
+            let vc = main.storyboard?.instantiateViewController(withIdentifier: "SetChName") as! ChangeUserNameVC
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overFullScreen
+            main.present(vc, animated: true, completion: nil)
+        }
+        
+        let changePass = UIAlertAction(title: "비밀번호 변경", style: .default) { _ in
+            let vc = main.storyboard?.instantiateViewController(withIdentifier: "SetChPWD") as! ChangePWD
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overFullScreen
+            main.present(vc, animated: true, completion: nil)
+        }
+        
+        alert.addAction(changeNick)
+        alert.addAction(changePass)
+        main.present(alert, animated: true, completion: nil)
     }
 }

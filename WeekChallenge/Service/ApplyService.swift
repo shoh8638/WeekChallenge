@@ -35,11 +35,23 @@ class ApplyService {
         btn.layer.shadowRadius = 7 / 2.0
     }
     
+    func buttonCornerApply(btn: UIButton) {
+        btn.layer.cornerRadius = btn.layer.frame.size.width / 2
+        btn.layer.masksToBounds = true
+        btn.layer.borderColor = UIColor.black.cgColor
+        btn.layer.borderWidth = 1
+    }
+    
     func imgApplyLayer(img: UIImageView) {
         img.layer.cornerRadius = img.frame.height / 2
         img.layer.masksToBounds = true
         img.layer.borderWidth = 1
         img.layer.borderColor =  CGColor(red: 74, green: 74, blue: 74, alpha: 1)
+    }
+    
+    func imgOnlyCornerApply(view: UIView, img: UIImageView) {
+        view.layer.cornerRadius = 20
+        img.layer.cornerRadius = 20
     }
     
     func tableApplyLayer(table: UITableView) {
@@ -49,5 +61,43 @@ class ApplyService {
         table.layer.shadowOpacity = 0.14
         table.layer.shadowOffset = CGSize(width: 10, height: 0)
         table.layer.shadowRadius = 7 / 2.0
+    }
+    
+    func applyListShadow(cell: PlanVCCell) {
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.14
+        cell.layer.shadowOffset = CGSize(width: 10, height: 0)
+        cell.layer.shadowRadius = 7 / 2.0
+    }
+    
+    
+    func applyDetailListShadow(cell: PlanDetailVCCell) {
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.14
+        cell.layer.shadowOffset = CGSize(width: 10, height: 0)
+        cell.layer.shadowRadius = 7 / 2.0
+    }
+    
+    
+    func applyTotalCellShadow(cell: totalCell) {
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.14
+        cell.layer.shadowOffset = CGSize(width: 10, height: 0)
+        cell.layer.shadowRadius = 7 / 2.0
+    }
+    
+    func applySearchCellShadow(cell: searchCell) {
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.14
+        cell.layer.shadowOffset = CGSize(width: 10, height: 0)
+        cell.layer.shadowRadius = 7 / 2.0
     }
 }

@@ -145,11 +145,3 @@ extension DashBoardVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
         }
     }
 }
-
-class totalCell: UICollectionViewCell {
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var img: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var text: UILabel!
-}
-
