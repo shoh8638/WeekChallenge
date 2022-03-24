@@ -100,4 +100,13 @@ class ApplyService {
         cell.layer.shadowOffset = CGSize(width: 10, height: 0)
         cell.layer.shadowRadius = 7 / 2.0
     }
+    
+    func applyManageCellShadow(cell: ManageCell) {
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.14
+        cell.layer.shadowOffset = CGSize(width: 10, height: 0)
+        cell.layer.shadowRadius = 7 / 2.0
+    }
 }

@@ -60,6 +60,9 @@
 		E6D2C74E27EC31CE00CB9E0F /* TotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */; };
 		E6D2C75127EC335400CB9E0F /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75027EC335400CB9E0F /* SettingModel.swift */; };
 		E6D2C75427EC338200CB9E0F /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75327EC338200CB9E0F /* SettingViewModel.swift */; };
+		E6D2C75627EC463C00CB9E0F /* ManageListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75527EC463C00CB9E0F /* ManageListVC.swift */; };
+		E6D2C75827EC48EE00CB9E0F /* ManageListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75727EC48EE00CB9E0F /* ManageListModel.swift */; };
+		E6D2C75A27EC492900CB9E0F /* ManageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75927EC492900CB9E0F /* ManageListViewModel.swift */; };
 		E6E0A4F427E1B81E00718EA2 /* PlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */; };
 		E6E0A4F727E1C0DB00718EA2 /* TotalListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F627E1C0DB00718EA2 /* TotalListVC.swift */; };
 		E6E0A4F927E2C83E00718EA2 /* PlanDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F827E2C83E00718EA2 /* PlanDetailVC.swift */; };
@@ -169,6 +172,9 @@
 		E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCell.swift; sourceTree = "<group>"; };
 		E6D2C75027EC335400CB9E0F /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		E6D2C75327EC338200CB9E0F /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		E6D2C75527EC463C00CB9E0F /* ManageListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListVC.swift; sourceTree = "<group>"; };
+		E6D2C75727EC48EE00CB9E0F /* ManageListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListModel.swift; sourceTree = "<group>"; };
+		E6D2C75927EC492900CB9E0F /* ManageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListViewModel.swift; sourceTree = "<group>"; };
 		E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanVC.swift; sourceTree = "<group>"; };
 		E6E0A4F627E1C0DB00718EA2 /* TotalListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalListVC.swift; sourceTree = "<group>"; };
 		E6E0A4F827E2C83E00718EA2 /* PlanDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailVC.swift; sourceTree = "<group>"; };
@@ -266,7 +272,6 @@
 				E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */,
 				E6584F5D27B33DFF00B58FCB /* Info.plist */,
 				E661443027B3A4590000CEA7 /* Resource */,
-				E6E0A4FC27E2CB9600718EA2 /* AnimationController.swift */,
 			);
 			path = WeekChallenge;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				E667FCB527B9EF6C009AEFE0 /* FirebaseService.swift */,
 				E64FDC5627BCD8030013372F /* PlanDate.swift */,
 				E6D2C73327EBEC9700CB9E0F /* contributeView.swift */,
+				E6E0A4FC27E2CB9600718EA2 /* AnimationController.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -402,8 +408,8 @@
 		E6853FA027B4F0DF0091B4A7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C74A27EC314E00CB9E0F /* DashBoard */,
 				E6D2C74327EC280600CB9E0F /* Plan */,
+				E6D2C74A27EC314E00CB9E0F /* DashBoard */,
 				E65D5B8F27CF4E20009E16EE /* EnptyCell */,
 			);
 			path = Cell;
@@ -437,6 +443,7 @@
 				E601BE4827E025CE00BFF7BD /* Account */,
 				E601BE4427E0103900BFF7BD /* LogOutVC.swift */,
 				E601BE4627E0104400BFF7BD /* RemoveVC.swift */,
+				E6D2C75527EC463C00CB9E0F /* ManageListVC.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -526,8 +533,8 @@
 		E6D2C74A27EC314E00CB9E0F /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */,
 				E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */,
+				E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */,
 			);
 			path = DashBoard;
 			sourceTree = "<group>";
@@ -536,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				E6D2C75027EC335400CB9E0F /* SettingModel.swift */,
+				E6D2C75727EC48EE00CB9E0F /* ManageListModel.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -544,6 +552,7 @@
 			isa = PBXGroup;
 			children = (
 				E6D2C75327EC338200CB9E0F /* SettingViewModel.swift */,
+				E6D2C75927EC492900CB9E0F /* ManageListViewModel.swift */,
 			);
 			path = SettingVM;
 			sourceTree = "<group>";
@@ -835,6 +844,7 @@
 				E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */,
 				E6D2C74027EC084F00CB9E0F /* PlanDetailViewModel.swift in Sources */,
 				E6D2C73727EBFE5E00CB9E0F /* PlanModel.swift in Sources */,
+				E6D2C75627EC463C00CB9E0F /* ManageListVC.swift in Sources */,
 				E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */,
 				E6D2C72C27EAEB7500CB9E0F /* ListBtnModel.swift in Sources */,
 				E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */,
@@ -856,11 +866,13 @@
 				E667FCB627B9EF6C009AEFE0 /* FirebaseService.swift in Sources */,
 				E6D2C75427EC338200CB9E0F /* SettingViewModel.swift in Sources */,
 				E6E0A4FD27E2CB9600718EA2 /* AnimationController.swift in Sources */,
+				E6D2C75A27EC492900CB9E0F /* ManageListViewModel.swift in Sources */,
 				E6E0A50027E426C300718EA2 /* Dummy.swift in Sources */,
 				E601BE4A27E02A1C00BFF7BD /* ChangeUserNameVC.swift in Sources */,
 				E60DA3BC27D1FFAF001DC914 /* ConnectService.swift in Sources */,
 				E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */,
 				E601BE4327E0102000BFF7BD /* AccountVC.swift in Sources */,
+				E6D2C75827EC48EE00CB9E0F /* ManageListModel.swift in Sources */,
 				E6D2C72827EAAC6800CB9E0F /* HomeModel.swift in Sources */,
 				E667FCB827BA1841009AEFE0 /* AlertService.swift in Sources */,
 				E6D2C74227EC27C900CB9E0F /* PlanDeatilVCCell.swift in Sources */,

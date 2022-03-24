@@ -16,7 +16,7 @@ class DataService {
     var planM = PlanModel()
     var pDeatilM = PlanDetailModel()
     var dbM = DashBoardModel()
-    
+    var mlM = ManageListModel()
     let db = Firestore.firestore()
 }
 
@@ -385,6 +385,23 @@ extension DataService {
             }
         }
     }
+    
+    func manageLoadData(collection: UICollectionView, completion: @escaping (ManageListModel) -> ()) {
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        
+        self.db.collection(userID).getDocuments { (querySnapshot, err) in
+            for document in querySnapshot!.documents {
+                if document.documentID != "UserData" {
+                    self.mlM.dbID.append(document.documentID)
+                    self.mlM.titles.append(document.data()["Title"] as! String)
+                    self.mlM.firstDates.append((document["Dates"] as! [String]).sorted(by: <).first!)
+                    self.mlM.lastDates.append((document["Dates"] as! [String]).sorted(by: <).last!)
+                }
+            }
+            completion(self.mlM)
+            collection.reloadData()
+        }
+    }
 }
 
 //MARK: Img Setting
@@ -471,5 +488,15 @@ extension DataService {
             appDelegate.window?.rootViewController?.present(loginView, animated: true)
             print("LogOut")
         })
+    }
+    
+    func updatePlanName(dbID: String, newTitle: String) {
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        self.db.collection(userID).document(dbID).updateData(["Title": newTitle])
+    }
+    
+    func removePlan(dbID: String) {
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        self.db.collection(userID).document(dbID).delete()
     }
 }

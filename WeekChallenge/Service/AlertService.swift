@@ -113,4 +113,39 @@ class AlertService {
         alert.addAction(changePass)
         main.present(alert, animated: true, completion: nil)
     }
+    
+    func updatePlan(view: UIViewController, dbID: String) {
+        let alert = UIAlertController(title: "알림", message: "변경할 이름을 정해주세요", preferredStyle: .alert)
+        
+        alert.addTextField { text in
+            text.placeholder = "변경할 이름"
+        }
+        
+        let exitBtn = UIAlertAction(title: "취소", style: .destructive) { _ in
+            view.dismiss(animated: true)
+        }
+        let okBtn = UIAlertAction(title: "확인", style: .default) { _ in
+            let newTitle = (alert.textFields?[0].text)!
+            DataService().updatePlanName(dbID: dbID, newTitle: newTitle)
+            print("DB 플랜 업데이트")
+        }
+        alert.addAction(exitBtn)
+        alert.addAction(okBtn)
+        view.present(alert, animated: true)
+    }
+    
+    func deletePlan(view: UIViewController, message: String, dbID: String) {
+        let alert = UIAlertController(title: "알림", message: "\(message) 삭제 하시겠습니까?", preferredStyle: .alert)
+        
+        let exitBtn = UIAlertAction(title: "취소", style: .destructive) { _ in
+            view.dismiss(animated: true)
+        }
+        let okBtn = UIAlertAction(title: "확인", style: .default) { _ in
+            DataService().removePlan(dbID: dbID)
+            print("DB에서 해당 플랜 삭제")
+        }
+        alert.addAction(exitBtn)
+        alert.addAction(okBtn)
+        view.present(alert, animated: true)
+    }
 }
