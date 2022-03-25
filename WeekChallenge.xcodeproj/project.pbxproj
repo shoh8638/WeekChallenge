@@ -44,8 +44,6 @@
 		E6C734F527DB046F00A0CC4B /* CompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734F427DB046F00A0CC4B /* CompleteVC.swift */; };
 		E6D2C72227EA9FD400CB9E0F /* ApplyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72127EA9FD400CB9E0F /* ApplyService.swift */; };
 		E6D2C72427EAAAFE00CB9E0F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72327EAAAFE00CB9E0F /* DataService.swift */; };
-		E6D2C72627EAABD600CB9E0F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72527EAABD600CB9E0F /* HomeViewModel.swift */; };
-		E6D2C72827EAAC6800CB9E0F /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72727EAAC6800CB9E0F /* HomeModel.swift */; };
 		E6D2C72C27EAEB7500CB9E0F /* ListBtnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72B27EAEB7500CB9E0F /* ListBtnModel.swift */; };
 		E6D2C72E27EAEC9200CB9E0F /* ListBtnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72D27EAEC9200CB9E0F /* ListBtnViewModel.swift */; };
 		E6D2C73427EBEC9700CB9E0F /* contributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C73327EBEC9700CB9E0F /* contributeView.swift */; };
@@ -63,6 +61,13 @@
 		E6D2C75627EC463C00CB9E0F /* ManageListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75527EC463C00CB9E0F /* ManageListVC.swift */; };
 		E6D2C75827EC48EE00CB9E0F /* ManageListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75727EC48EE00CB9E0F /* ManageListModel.swift */; };
 		E6D2C75A27EC492900CB9E0F /* ManageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75927EC492900CB9E0F /* ManageListViewModel.swift */; };
+		E6D2C76227ED88AB00CB9E0F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76127ED88AB00CB9E0F /* DataModel.swift */; };
+		E6D2C76427ED88C300CB9E0F /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76327ED88C300CB9E0F /* DataViewModel.swift */; };
+		E6D2C76627ED8AA600CB9E0F /* CountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76527ED8AA600CB9E0F /* CountModel.swift */; };
+		E6D2C76827ED8AE500CB9E0F /* CountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76727ED8AE500CB9E0F /* CountViewModel.swift */; };
+		E6D2C76B27ED960900CB9E0F /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76A27ED960900CB9E0F /* HomeCell.swift */; };
+		E6D2C76D27ED987A00CB9E0F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76C27ED987A00CB9E0F /* UserModel.swift */; };
+		E6D2C76F27ED98C400CB9E0F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76E27ED98C400CB9E0F /* UserViewModel.swift */; };
 		E6E0A4F427E1B81E00718EA2 /* PlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */; };
 		E6E0A4F727E1C0DB00718EA2 /* TotalListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F627E1C0DB00718EA2 /* TotalListVC.swift */; };
 		E6E0A4F927E2C83E00718EA2 /* PlanDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F827E2C83E00718EA2 /* PlanDetailVC.swift */; };
@@ -156,8 +161,6 @@
 		E6C734F427DB046F00A0CC4B /* CompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteVC.swift; sourceTree = "<group>"; };
 		E6D2C72127EA9FD400CB9E0F /* ApplyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyService.swift; sourceTree = "<group>"; };
 		E6D2C72327EAAAFE00CB9E0F /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		E6D2C72527EAABD600CB9E0F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewModel.swift; path = WeekChallenge/ViewModel/HomeVM/HomeViewModel.swift; sourceTree = SOURCE_ROOT; };
-		E6D2C72727EAAC6800CB9E0F /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeModel.swift; path = WeekChallenge/Model/Home/HomeModel.swift; sourceTree = SOURCE_ROOT; };
 		E6D2C72B27EAEB7500CB9E0F /* ListBtnModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBtnModel.swift; sourceTree = "<group>"; };
 		E6D2C72D27EAEC9200CB9E0F /* ListBtnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBtnViewModel.swift; sourceTree = "<group>"; };
 		E6D2C73327EBEC9700CB9E0F /* contributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contributeView.swift; sourceTree = "<group>"; };
@@ -175,6 +178,13 @@
 		E6D2C75527EC463C00CB9E0F /* ManageListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListVC.swift; sourceTree = "<group>"; };
 		E6D2C75727EC48EE00CB9E0F /* ManageListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListModel.swift; sourceTree = "<group>"; };
 		E6D2C75927EC492900CB9E0F /* ManageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListViewModel.swift; sourceTree = "<group>"; };
+		E6D2C76127ED88AB00CB9E0F /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		E6D2C76327ED88C300CB9E0F /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
+		E6D2C76527ED8AA600CB9E0F /* CountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountModel.swift; sourceTree = "<group>"; };
+		E6D2C76727ED8AE500CB9E0F /* CountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewModel.swift; sourceTree = "<group>"; };
+		E6D2C76A27ED960900CB9E0F /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		E6D2C76C27ED987A00CB9E0F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E6D2C76E27ED98C400CB9E0F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanVC.swift; sourceTree = "<group>"; };
 		E6E0A4F627E1C0DB00718EA2 /* TotalListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalListVC.swift; sourceTree = "<group>"; };
 		E6E0A4F827E2C83E00718EA2 /* PlanDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailVC.swift; sourceTree = "<group>"; };
@@ -408,6 +418,7 @@
 		E6853FA027B4F0DF0091B4A7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E6D2C76927ED95FD00CB9E0F /* HomeCell */,
 				E6D2C74327EC280600CB9E0F /* Plan */,
 				E6D2C74A27EC314E00CB9E0F /* DashBoard */,
 				E65D5B8F27CF4E20009E16EE /* EnptyCell */,
@@ -472,7 +483,9 @@
 		E6D2C72927EAB0C200CB9E0F /* HomeVM */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C72527EAABD600CB9E0F /* HomeViewModel.swift */,
+				E6D2C76727ED8AE500CB9E0F /* CountViewModel.swift */,
+				E6D2C76327ED88C300CB9E0F /* DataViewModel.swift */,
+				E6D2C76E27ED98C400CB9E0F /* UserViewModel.swift */,
 				E6D2C72D27EAEC9200CB9E0F /* ListBtnViewModel.swift */,
 			);
 			path = HomeVM;
@@ -481,7 +494,9 @@
 		E6D2C72A27EAEB6300CB9E0F /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C72727EAAC6800CB9E0F /* HomeModel.swift */,
+				E6D2C76527ED8AA600CB9E0F /* CountModel.swift */,
+				E6D2C76127ED88AB00CB9E0F /* DataModel.swift */,
+				E6D2C76C27ED987A00CB9E0F /* UserModel.swift */,
 				E6D2C72B27EAEB7500CB9E0F /* ListBtnModel.swift */,
 			);
 			path = Home;
@@ -555,6 +570,14 @@
 				E6D2C75927EC492900CB9E0F /* ManageListViewModel.swift */,
 			);
 			path = SettingVM;
+			sourceTree = "<group>";
+		};
+		E6D2C76927ED95FD00CB9E0F /* HomeCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6D2C76A27ED960900CB9E0F /* HomeCell.swift */,
+			);
+			path = HomeCell;
 			sourceTree = "<group>";
 		};
 		E6E0A4F527E1C0C600718EA2 /* 3Button */ = {
@@ -828,6 +851,7 @@
 				E6D2C73A27EBFF1400CB9E0F /* PlanViewModel.swift in Sources */,
 				E6E0A4F727E1C0DB00718EA2 /* TotalListVC.swift in Sources */,
 				E601BE3F27DB40C400BFF7BD /* SettingVC.swift in Sources */,
+				E6D2C76B27ED960900CB9E0F /* HomeCell.swift in Sources */,
 				E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */,
 				E601BE4127E0100000BFF7BD /* ProfileVC.swift in Sources */,
 				E6E0A50227E43F0C00718EA2 /* TotalVC.swift in Sources */,
@@ -837,6 +861,7 @@
 				E6D2C74627EC297B00CB9E0F /* DashBoardModel.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
 				E6D2C72427EAAAFE00CB9E0F /* DataService.swift in Sources */,
+				E6D2C76227ED88AB00CB9E0F /* DataModel.swift in Sources */,
 				E661441227B386C50000CEA7 /* AuthService.swift in Sources */,
 				E6E0A4F927E2C83E00718EA2 /* PlanDetailVC.swift in Sources */,
 				E6C734F327DB046300A0CC4B /* RunningVC.swift in Sources */,
@@ -844,16 +869,17 @@
 				E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */,
 				E6D2C74027EC084F00CB9E0F /* PlanDetailViewModel.swift in Sources */,
 				E6D2C73727EBFE5E00CB9E0F /* PlanModel.swift in Sources */,
+				E6D2C76F27ED98C400CB9E0F /* UserViewModel.swift in Sources */,
 				E6D2C75627EC463C00CB9E0F /* ManageListVC.swift in Sources */,
 				E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */,
 				E6D2C72C27EAEB7500CB9E0F /* ListBtnModel.swift in Sources */,
 				E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */,
 				E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
+				E6D2C76827ED8AE500CB9E0F /* CountViewModel.swift in Sources */,
 				E6D2C73427EBEC9700CB9E0F /* contributeView.swift in Sources */,
 				E601BE4727E0104400BFF7BD /* RemoveVC.swift in Sources */,
 				E6D2C72227EA9FD400CB9E0F /* ApplyService.swift in Sources */,
-				E6D2C72627EAABD600CB9E0F /* HomeViewModel.swift in Sources */,
 				E60DA3C027D988C2001DC914 /* HomeVC.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,
 				E601BE4527E0103900BFF7BD /* LogOutVC.swift in Sources */,
@@ -862,20 +888,22 @@
 				E6D2C73E27EC081700CB9E0F /* PlanDeatilModel.swift in Sources */,
 				E6D2C74E27EC31CE00CB9E0F /* TotalCell.swift in Sources */,
 				E6E0A4F427E1B81E00718EA2 /* PlanVC.swift in Sources */,
+				E6D2C76427ED88C300CB9E0F /* DataViewModel.swift in Sources */,
 				E6D2C72E27EAEC9200CB9E0F /* ListBtnViewModel.swift in Sources */,
 				E667FCB627B9EF6C009AEFE0 /* FirebaseService.swift in Sources */,
 				E6D2C75427EC338200CB9E0F /* SettingViewModel.swift in Sources */,
 				E6E0A4FD27E2CB9600718EA2 /* AnimationController.swift in Sources */,
 				E6D2C75A27EC492900CB9E0F /* ManageListViewModel.swift in Sources */,
 				E6E0A50027E426C300718EA2 /* Dummy.swift in Sources */,
+				E6D2C76627ED8AA600CB9E0F /* CountModel.swift in Sources */,
 				E601BE4A27E02A1C00BFF7BD /* ChangeUserNameVC.swift in Sources */,
 				E60DA3BC27D1FFAF001DC914 /* ConnectService.swift in Sources */,
 				E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */,
 				E601BE4327E0102000BFF7BD /* AccountVC.swift in Sources */,
 				E6D2C75827EC48EE00CB9E0F /* ManageListModel.swift in Sources */,
-				E6D2C72827EAAC6800CB9E0F /* HomeModel.swift in Sources */,
 				E667FCB827BA1841009AEFE0 /* AlertService.swift in Sources */,
 				E6D2C74227EC27C900CB9E0F /* PlanDeatilVCCell.swift in Sources */,
+				E6D2C76D27ED987A00CB9E0F /* UserModel.swift in Sources */,
 				E60DA3C227D9CA34001DC914 /* SelectCalendarVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

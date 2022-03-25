@@ -7,11 +7,9 @@
 
 import UIKit
 import Firebase
-import FSCalendar
 import SDWebImage
 
 class DataService {
-    var homeM = HomeModel()
     var runM = ListBtnModel()
     var planM = PlanModel()
     var pDeatilM = PlanDetailModel()
@@ -20,70 +18,96 @@ class DataService {
     let db = Firestore.firestore()
 }
 
-//MARK: LoadData
+//MARK: MVVM Pattern 적용
 extension DataService {
-    func hLoadData(table: UITableView, calendar:FSCalendar, userLabel: UILabel, runningBtn: UIButton, completeBtn: UIButton, completion: @escaping (HomeModel) -> ()) {
-        var complete = [Int]()
+    //MARK: HomeVC
+    func userLodaData(completion: @escaping (UserModel) -> ()) {
         guard let userID = Auth.auth().currentUser?.email else {return}
-        
+
+        self.db.collection(userID).document("UserData").addSnapshotListener {(querySnapshot, err) in
+            guard let document = querySnapshot else { return }
+                  guard let data = document.data() else { return }
+            let userName = data["UserName"] as! String
+            let imgUrl = data["Profile"] as! String
+            completion(UserModel(userName: userName, imgUrl: imgUrl))
+        }
+    }
+    
+    func countLoadData(completion: @escaping (CountModel) -> ()) {
+        var complete = [Int]()
+
+        guard let userID = Auth.auth().currentUser?.email else {return}
+
         self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
-            self.homeM.dbID.removeAll()
-            self.homeM.dbTitles.removeAll()
-            self.homeM.firstDates.removeAll()
-            self.homeM.lastDates.removeAll()
-            self.homeM.eventDates.removeAll()
-            self.homeM.runningCount = 0
-            self.homeM.completeCount = 0
-            calendar.reloadData()
-            
-            if err == nil {
-                for document in querySnapshot!.documents {
-                    if document.documentID == "UserData" {
-                        let userName = document.data()["UserName"] as! String
-                        if userName != "" {
-                            userLabel.text = "Hello, \(userName)님"
+            complete.removeAll()
+            var runningCount = 0
+            var completeCount = 0
+            for document in querySnapshot!.documents {
+                if document.documentID != "UserData" {
+                    let dates = (document["Dates"] as! [String]).sorted(by: <)
+                    for number in 0...dates.count-1 {
+                        let dateFields = document[dates[number]] as! [String: String]
+                        let text = dateFields["Text"]!
+                        if text == "" {
+                            complete.append(0)
                         } else {
-                            userLabel.text = ""
+                            complete.append(3)
                         }
-                        
-                    } else if document.documentID != "UserData" {
-                        self.homeM.dbID.append(document.documentID)
-                        self.homeM.dbTitles.append(document.data()["Title"] as! String)
-                        
-                        self.homeM.firstDates.append((document["Dates"] as! [String]).sorted(by: <).first!)
-                        self.homeM.lastDates.append((document["Dates"] as! [String]).sorted(by: <).last!)
-                        self.homeM.eventDates.append((document["Dates"] as! [String]).sorted(by: <))
-                        
-                        let dates = (document["Dates"] as! [String]).sorted(by: <)
-                        for number in 0...dates.count-1 {
-                            let dateFields = document[dates[number]] as! [String: String]
-                            let text = dateFields["Text"]!
-                            if text == "" {
-                                complete.append(0)
-                            } else {
-                                complete.append(3)
-                            }
-                        }
-                        if complete.contains(0) {
-                            self.homeM.runningCount += 1
-                        } else {
-                            self.homeM.completeCount += 1
-                            let title = document.data()["Title"] as! String
-                            if let index = self.homeM.dbTitles.firstIndex(of: title) {
-                                self.homeM.dbTitles.remove(at: index)
-                            }
-                        }
-                        complete.removeAll()
                     }
-                    runningBtn.setTitle("\(self.homeM.runningCount)", for: .normal)
-                    completeBtn.setTitle("\(self.homeM.completeCount)", for: .normal)
+                    if complete.contains(0) {
+                        runningCount += 1
+                    } else {
+                        completeCount += 1
+                    }
+                    complete.removeAll()
                 }
             }
-            completion(self.homeM)
+            completion( CountModel(running: runningCount, complete: completeCount))
+        }
+    }
+    
+    func HomeLoadData(table: UITableView ,completion: @escaping ([DataModel?]) -> ()) {
+        var complete = [Int]()
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        var userDLM: DataModel?
+        var userArr = [userDLM]
+
+        self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
+            userArr.removeAll()
+            for document in querySnapshot!.documents {
+                if document.documentID != "UserData" {
+                    let title = document.data()["Title"] as! String
+                    let dates = (document["Dates"] as! [String]).sorted(by: <)
+                    let dbID = document.documentID
+                    let firstDate  = dates.first!
+                    let lastDate = dates.last
+                    
+                    for i in 0..<dates.count {
+                        let dateField = document[dates[i]] as! [String: String]
+                        let text = dateField["Text"]!
+                        if text == "" {
+                            complete.append(0)
+                        } else {
+                            complete.append(3)
+                        }
+                    }
+                    
+                    if complete != [3,3,3,3,3] {
+                        userDLM = DataModel(title: title, dates: dates, dbID: dbID, firstDate: firstDate, lastDate: lastDate!)
+                        userArr.append(userDLM!)
+                    }
+                    complete.removeAll()
+                }
+            }
+            completion(userArr)
             table.reloadData()
         }
     }
     
+    //MARK: PlanVC
+}
+//MARK: LoadData
+extension DataService {
     func rLoadData(table: UITableView, completion: @escaping (ListBtnModel) -> ()) {
         var complete = [Int]()
         guard let userID = Auth.auth().currentUser?.email else {return}

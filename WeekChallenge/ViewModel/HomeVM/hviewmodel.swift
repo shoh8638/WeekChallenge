@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  hviewmodel.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/03/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HomeViewwModel {
+struct hviewmodel {
     func numberOfItem(homeM: HomeModel) -> Int {
         return homeM.dbTitles.count == 0 ? 1 : homeM.dbTitles.count
     }

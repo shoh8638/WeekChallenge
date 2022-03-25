@@ -6,18 +6,15 @@
 //
 
 import UIKit
-import Firebase
 import FSCalendar
-import FirebaseStorage
 
-//진행중 / 완료 -> cell height 수정
 class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
-    var homeM = HomeModel()
-    var homeVM = HomeViewwModel()
     let applyLayout = ApplyService()
+    var userVM : UserViewModel!
+    var countVM: CountViewModel!
+    var dataVM: DataViewModel!
 
-    
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var userName: UILabel!
@@ -34,16 +31,14 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         ConnectService().Network(view: self)
         listTable.rowHeight = UITableView.automaticDimension
         setupView()
+        userLoadData()
+        swipe()
+        countLoadData()
         loadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        setImg()
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        self.view.endEditing(true)
-        return true
+        userLoadData()
     }
     
     func setupView() {
@@ -64,63 +59,83 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(imgTap(sender:)))
         self.userImg.addGestureRecognizer(tap)
         self.userImg.isUserInteractionEnabled = true
-        
-        setImg()
-        swipe()
     }
     
-    func setImg() {
-        DataService().setImg(userImg: userImg)
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func userLoadData() {
+        DataService().userLodaData { model in
+            self.userVM = UserViewModel(UserM: model)
+            self.userName.text = "Hello! \(self.userVM.loadUserName())"
+            self.userVM.loadUserImg(img: self.userImg)
+        }
+    }
+    
+    func countLoadData() {
+        DataService().countLoadData { model in
+            self.countVM = CountViewModel(countM: model)
+            self.runningBtn.setTitle(String(self.countVM.runningCount()), for: .normal)
+            self.completeBtn.setTitle(String(self.countVM.completeCount()), for: .normal)
+        }
     }
     
     func loadData() {
-        DataService().hLoadData(table: listTable, calendar: calendar, userLabel: userName, runningBtn: runningBtn, completeBtn: completeBtn) { model in
-            self.homeM = model
+        DataService().HomeLoadData(table: listTable) { model in
+            self.dataVM = DataViewModel(dataM: model)
         }
     }
     
     @objc func imgTap(sender: UIGestureRecognizer) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeProfile") else { return }
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true, completion: nil)
+        ConnectService().sendVC(main: self, name: "HomeProfile")
     }
     
     @IBAction func addBtn(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCreate")
-        vc!.modalTransitionStyle = .crossDissolve
-        vc!.modalPresentationStyle = .overFullScreen
-        self.present(vc!, animated: true, completion: nil)
+        ConnectService().sendVC(main: self, name: "HomeCreate")
     }
     
     @IBAction func runningBtn(_ sender: Any) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeRun") else { return }
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true, completion: nil)
+        ConnectService().sendVC(main: self, name: "HomeRun")
     }
     
     @IBAction func completeBtn(_ sender: Any) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCom") else { return }
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true, completion: nil)
+        ConnectService().sendVC(main: self, name: "HomeCom")
     }
 }
 //MARK: UITableView
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return homeVM.numberOfItem(homeM: self.homeM)
+        if dataVM != nil {
+            if  dataVM.numberOfRowsInSection() == 0 {
+                return 1
+            } else {
+                return dataVM.numberOfRowsInSection()
+            }
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
-        cell.layer.cornerRadius = 20
-        cell.layer.masksToBounds = true
-        cell.title.text = homeVM.numberOfTitle(homeM: self.homeM, index: indexPath.row)
-        cell.periodText.text = homeVM.numberOfPeriod(homeM: self.homeM, index: indexPath.row)
-        return cell
+        if dataVM != nil {
+            if dataVM.numberOfRowsInSection() == 0 {
+                let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+                cell.title.text = "플랜을 생성해주세요!"
+                cell.periodText.text = ""
+                return cell
+            } else {
+                let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+                let a = dataVM.numberOfCellIndex(index: indexPath.row)
+                cell.title.text = a.title
+                cell.periodText.text = "\(a.firstDate!) ~ \(a.lastDate!)"
+                return cell
+            }
+        } else {
+            return UITableViewCell()
+        }
     }
 }
 
@@ -139,11 +154,9 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
     @objc func swipeEvent(_ swipe: UISwipeGestureRecognizer) {
         if swipe.direction == .up {
             calendar.scope = .week
-            print(self.listTable.frame.height)
         }
         else if swipe.direction == .down {
             calendar.scope = .month
-            print(self.listTable.frame.height)
         }
     }
     
@@ -166,13 +179,14 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
         let dateFomatter = DateFormatter()
         dateFomatter.dateFormat = "yyyy-MM-dd"
         let day = dateFomatter.string(from: date)
-        if self.homeM.firstDates.contains(day) {
-            return 1
-        } else if self.homeM.lastDates.contains(day) {
-            return 1
-        } else {
-            return 0
+        if dataVM != nil {
+            if self.dataVM.numberOfEvent(index: self.dataVM.numberOfRowsInSection()).contains(day) {
+                return 1
+            } else {
+                return 0
+            }
         }
+        return 0
     }
     
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
@@ -190,9 +204,4 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
-}
-
-class homeCell: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var periodText: UILabel!
 }
