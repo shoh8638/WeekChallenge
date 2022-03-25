@@ -64,15 +64,13 @@ extension CompleteVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.completeVM != nil {
             if completeVM.numberOfRowInSection() == 0 {
-                let cell = completeTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
-                cell.title.text = "플랜을 생성해주세요!"
-                cell.periodText.text = ""
+                let cell = completeTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
+                cell.emptyUpdate(info: "플랜을 생성해주세요!")
                 return cell
             } else {
-                let cell = completeTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+                let cell = completeTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
                 let data = completeVM.numberOfCellIndex(index: indexPath.row)
-                cell.title.text = data.title!
-                cell.periodText.text = "\(data.firstDate!) ~ \(data.lastDate!)"
+                cell.rscUpdate(info: data)
                 return cell
             }
         } else {

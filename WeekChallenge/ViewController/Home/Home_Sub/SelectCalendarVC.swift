@@ -65,15 +65,13 @@ extension SelectCalendarVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.seletVM != nil {
             if seletVM.numberOfRowInSection() == 0 {
-                let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
-                cell.title.text = "플랜을 생성해주세요!"
-                cell.periodText.text = ""
+                let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
+                cell.emptyUpdate(info: "플랜을 생성해주세요!")
                 return cell
             } else {
-                let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+                let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
                 let data = seletVM.numberOfCellIndex(index: indexPath.row)
-                cell.title.text = data.title!
-                cell.periodText.text = "\(data.firstDate!) ~ \(data.lastDate!)"
+                cell.rscUpdate(info: data)
                 return cell
             }
         } else {
@@ -82,6 +80,6 @@ extension SelectCalendarVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        seletVM.heightOfCell(table: selectCalendar)
+        seletVM.selectHeightOfCell(table: selectCalendar)
     }
 }

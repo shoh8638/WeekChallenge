@@ -69,15 +69,13 @@ extension RunningVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.runVM != nil {
             if runVM.numberOfRowInSection() == 0 {
-                let cell = runningTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
-                cell.title.text = "플랜을 생성해주세요!"
-                cell.periodText.text = ""
+                let cell = runningTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
+                cell.emptyUpdate(info: "플랜을 생성해주세요!")
                 return cell
             } else {
-                let cell = runningTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+                let cell = runningTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
                 let data = runVM.numberOfCellIndex(index: indexPath.row)
-                cell.title.text = data.title!
-                cell.periodText.text = "\(data.firstDate!) ~ \(data.lastDate!)"
+                cell.rscUpdate(info: data)
                 return cell
             }
         } else {

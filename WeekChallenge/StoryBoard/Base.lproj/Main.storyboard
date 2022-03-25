@@ -46,19 +46,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0T1-Gj-GhZ">
-                                <rect key="frame" x="50" y="368" width="314" height="126"/>
+                                <rect key="frame" x="50" y="368" width="314" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Zd-Rw-J67">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoU-kG-5O7">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.6705882352941176" green="0.70588235294117641" blue="0.74117647058823533" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="bbb@bbb.co" borderStyle="roundedRect" placeholder="aaa@aaa.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ao3-NO-aIA">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="tintColor" name="black"/>
                                                 <color key="textColor" name="black"/>
@@ -68,16 +68,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ylm-bJ-bgo">
-                                        <rect key="frame" x="0.0" y="67" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="64" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvP-gR-IO2">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.6705882352941176" green="0.70588235294117641" blue="0.74117647058823533" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="qlqjs486" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YWw-yA-wFF">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="tintColor" name="black"/>
                                                 <color key="textColor" name="black"/>
@@ -285,7 +285,7 @@
                                         <color key="backgroundColor" red="0.87450980392156863" green="0.90588235294117647" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="175" id="EWg-cY-peH" customClass="homeCell" customModule="WeekChallenge" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="175" id="EWg-cY-peH" customClass="HomeCell" customModule="WeekChallenge" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.5" width="364" height="175"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EWg-cY-peH" id="wSa-JC-6eW">
@@ -378,20 +378,20 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q52-RY-Gco">
-                                <rect key="frame" x="50" y="482" width="314" height="193"/>
+                                <rect key="frame" x="50" y="482" width="314" height="184"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="miS-Ie-hBS">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용할 UserName 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMR-2D-wvy">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.6705882353" green="0.70588235290000001" blue="0.74117647060000003" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lyf-XF-dye">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="textColor" name="black"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -400,10 +400,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pgU-xK-MH2">
-                                        <rect key="frame" x="0.0" y="67" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="64" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용할 Email 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9O9-5y-L1O">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="tintColor" name="black"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
@@ -411,7 +411,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email: " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uU9-4e-hc4">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="textColor" name="black"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -420,16 +420,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ykr-6a-L4M">
-                                        <rect key="frame" x="0.0" y="134" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="128" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용할 Password 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNc-jp-zGk">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.6705882352941176" green="0.70588235294117641" blue="0.74117647058823533" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PWD: " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rR5-ua-MCQ">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="tintColor" name="black"/>
                                                 <color key="textColor" name="black"/>
@@ -441,7 +441,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gf7-7T-rqz">
-                                <rect key="frame" x="30" y="715" width="354" height="46"/>
+                                <rect key="frame" x="30" y="706" width="354" height="46"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dy-Aj-4B5">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="46"/>
@@ -1009,7 +1009,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="198"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="175" id="ZH8-oj-gGY" customClass="homeCell" customModule="WeekChallenge" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="175" id="ZH8-oj-gGY" customClass="HomeCell" customModule="WeekChallenge" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.5" width="314" height="175"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZH8-oj-gGY" id="Vr8-ol-xws">
@@ -1168,7 +1168,7 @@
                                                     <outlet property="title" destination="iKQ-ZU-YaL" id="NHS-Ra-3oO"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="175" id="lQi-vc-Qr7" customClass="homeCell" customModule="WeekChallenge" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="175" id="lQi-vc-Qr7" customClass="HomeCell" customModule="WeekChallenge" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="165.5" width="314" height="175"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lQi-vc-Qr7" id="aWO-GW-yle">
@@ -1291,7 +1291,7 @@
                                                     <outlet property="title" destination="VMh-NQ-B4Z" id="Dyx-ze-FKJ"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="175" id="ygQ-yM-o9x" customClass="homeCell" customModule="WeekChallenge" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="175" id="ygQ-yM-o9x" customClass="HomeCell" customModule="WeekChallenge" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="165.5" width="314" height="175"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ygQ-yM-o9x" id="dwO-Eb-v6k">

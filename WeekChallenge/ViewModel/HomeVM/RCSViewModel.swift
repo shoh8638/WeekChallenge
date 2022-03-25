@@ -22,4 +22,8 @@ struct RCSViewModel {
     func heightOfCell(table: UITableView) -> CGFloat{
         return rcsM.count == 0 ? table.frame.height : table.frame.height / 3
     }
+    
+    func selectHeightOfCell(table: UITableView) -> CGFloat {
+        return rcsM.count == 1 ? table.frame.height : table.frame.height / 3
+    }
 }
