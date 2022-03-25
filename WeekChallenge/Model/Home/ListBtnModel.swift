@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
-struct ListBtnModel {
-    var titles = [String]()
-    var firstPeriod = [String]()
-    var lastPeriod = [String]()
-}
+//
+//struct ListBtnModel {
+//    var titles = [String]()
+//    var firstPeriod = [String]()
+//    var lastPeriod = [String]()
+//}

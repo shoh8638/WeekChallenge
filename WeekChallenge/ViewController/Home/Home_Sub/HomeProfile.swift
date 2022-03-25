@@ -10,6 +10,7 @@ import UIKit
 class HomeProfile: UIViewController, UIGestureRecognizerDelegate {
     
     let applyView = ApplyService()
+    var userVM : UserViewModel!
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var userImg: UIImageView!
@@ -36,6 +37,9 @@ class HomeProfile: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func loadData() {
-        DataService().setImg(userImg: userImg)
+        DataService().userLodaData { model in
+            self.userVM = UserViewModel(UserM: model)
+            self.userVM.loadUserImg(img: self.userImg)
+        }
     }
 }

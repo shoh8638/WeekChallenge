@@ -9,7 +9,7 @@ import UIKit
 
 class RunningVC: UIViewController, UIGestureRecognizerDelegate {
 
-    var runVM: RunViewModel!
+    var runVM: RCSViewModel!
     
     @IBOutlet weak var runningTable: UITableView!
     @IBOutlet weak var backView: UIView!
@@ -24,7 +24,7 @@ class RunningVC: UIViewController, UIGestureRecognizerDelegate {
     
     func loadData() {
         DataService().runLoadData(table: runningTable) { model in
-            self.runVM = RunViewModel(runM: model)
+            self.runVM = RCSViewModel(rcsM: model)
         }
     }
     

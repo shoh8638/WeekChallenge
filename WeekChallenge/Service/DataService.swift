@@ -10,7 +10,6 @@ import Firebase
 import SDWebImage
 
 class DataService {
-    var runM = ListBtnModel()
     var planM = PlanModel()
     var pDeatilM = PlanDetailModel()
     var dbM = DashBoardModel()
@@ -106,12 +105,12 @@ extension DataService {
         }
     }
     
-    func runLoadData(table: UITableView, completion: @escaping ([RunModel?]) -> ()) {
+    func runLoadData(table: UITableView, completion: @escaping ([RSCModel?]) -> ()) {
         var complete = [Int]()
         
         guard let userID = Auth.auth().currentUser?.email else {return}
         
-        var runM: RunModel?
+        var runM: RSCModel?
         var runVM = [runM]
         
         self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
@@ -134,7 +133,7 @@ extension DataService {
                             let title = document["Title"] as! String
                             let firstDate = dates.first!
                             let lastDate = dates.last!
-                            runM = RunModel(title: title, firstDate: firstDate, lastDate: lastDate)
+                            runM = RSCModel(title: title, firstDate: firstDate, lastDate: lastDate)
                             runVM.append(runM!)
                         }
                         complete.removeAll()
@@ -145,49 +144,17 @@ extension DataService {
             table.reloadData()
         }
     }
-    //MARK: PlanVC
-}
-//MARK: LoadData
-extension DataService {
-    func rLoadData(table: UITableView, completion: @escaping (ListBtnModel) -> ()) {
-        var complete = [Int]()
-        guard let userID = Auth.auth().currentUser?.email else {return}
-        
-        self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
-            
-            if err == nil {
-                for document in querySnapshot!.documents {
-                    if document.documentID != "UserData" {
-                        let dates = (document["Dates"] as! [String]).sorted(by: <)
-                        
-                        for number in 0...dates.count-1 {
-                            let dateFields = document[dates[number]] as! [String: String]
-                            let text = dateFields["Text"]!
-                            if text == "" {
-                                complete.append(0)
-                            } else {
-                                complete.append(3)
-                            }
-                        }
-                        if complete.contains(0) {
-                            self.runM.titles.append(document["Title"] as! String)
-                            self.runM.firstPeriod.append(dates.first!)
-                            self.runM.lastPeriod.append(dates.last!)
-                        }
-                        complete.removeAll()
-                    }
-                }
-            }
-            completion(self.runM)
-            table.reloadData()
-        }
-    }
     
-    func cLoadData(table: UITableView, completion: @escaping (ListBtnModel) -> ()) {
+    func completeLoadData(table: UITableView, completion: @escaping ([RSCModel?]) -> ()) {
         var complete = [Int]()
+        
         guard let userID = Auth.auth().currentUser?.email else {return}
         
+        var completeM: RSCModel?
+        var completeVM = [completeM]
+        
         self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
+            completeVM.removeAll()
             
             if err == nil {
                 for document in querySnapshot!.documents {
@@ -204,24 +171,31 @@ extension DataService {
                             }
                         }
                         if !complete.contains(0) {
-                            self.runM.titles.append(document["Title"] as! String)
-                            self.runM.firstPeriod.append(dates.first!)
-                            self.runM.lastPeriod.append(dates.last!)
+                        let title = document["Title"] as! String
+                           let firstDate = dates.first!
+                            let lastDate = dates.last!
+                            completeM = RSCModel(title: title, firstDate: firstDate, lastDate: lastDate)
+                            completeVM.append(completeM)
                         }
                         complete.removeAll()
                     }
                 }
             }
-            completion(self.runM)
+            completion(completeVM)
             table.reloadData()
         }
     }
     
-    func sLoadData(table: UITableView, date: String, completion: @escaping (ListBtnModel) -> ()) {
+    
+    func selecetLoadData(table: UITableView, date: String, completion: @escaping ([RSCModel?]) -> ()) {
         var complete = [Int]()
+        
         guard let userID = Auth.auth().currentUser?.email else {return}
+        var selectM: RSCModel?
+        var selectVM = [selectM]
         
         self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
+            selectVM.removeAll()
             
             if err == nil {
                 for document in querySnapshot!.documents {
@@ -239,33 +213,28 @@ extension DataService {
                         }
                         
                         if dates.contains(date) {
-                            self.runM.titles.append(document["Title"] as! String)
-                            self.runM.firstPeriod.append(dates.first!)
-                            self.runM.lastPeriod.append(dates.last!)
-                        }
-                        
-                        if !complete.contains(0) {
-                            if let index = self.runM.titles.firstIndex(of: document["Title"] as! String){
-                                self.runM.titles.remove(at: index)
-                            }
-                            
-                            if let index = self.runM.firstPeriod.firstIndex(of: dates.first!) {
-                                self.runM.firstPeriod.remove(at: index)
-                            }
-                            
-                            if let index = self.runM.lastPeriod.firstIndex(of: dates.last!) {
-                                
-                                self.runM.lastPeriod.remove(at: index)
+                            if complete.contains(0) {
+                                let title = document["Title"] as! String
+                                let firstDate = dates.first!
+                                let lastDate = dates.last!
+                                selectM = RSCModel(title: title, firstDate: firstDate, lastDate: lastDate)
+                                selectVM.append(selectM)
                             }
                         }
                         complete.removeAll()
                     }
                 }
             }
-            completion(self.runM)
+            completion(selectVM)
             table.reloadData()
         }
     }
+    //MARK: PlanVC
+}
+//MARK: LoadData
+extension DataService {
+    
+  
     
     func settingLoadData(userName: UILabel, userImg: UIImageView) {
         guard let userID = Auth.auth().currentUser?.email else {return}

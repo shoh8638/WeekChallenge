@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RunModel {
+struct RSCModel {
     let title: String?
     let firstDate: String?
     let lastDate: String?

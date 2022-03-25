@@ -10,8 +10,8 @@ import UIKit
 class SelectCalendarVC: UIViewController, UIGestureRecognizerDelegate {
     
     var date: String?
-    let lbVM =  ListBtnViewModel()
-    var lbM = ListBtnModel()
+    
+    var seletVM: RCSViewModel!
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var selectCalendar: UITableView!
@@ -39,8 +39,8 @@ class SelectCalendarVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func loadData() {
-        DataService().sLoadData(table: selectCalendar, date: self.date!) { model in
-            self.lbM = model
+        DataService().selecetLoadData(table: selectCalendar, date: self.date!) { model in
+            self.seletVM = RCSViewModel(rcsM: model)
         }
     }
     
@@ -51,21 +51,37 @@ class SelectCalendarVC: UIViewController, UIGestureRecognizerDelegate {
 //MARK: UITableView
 extension SelectCalendarVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lbVM.numberOfItem(lbMdel: self.lbM)
+        if self.seletVM != nil {
+            if seletVM.numberOfRowInSection() == 0 {
+                return 1
+            } else {
+                return self.seletVM.numberOfRowInSection()
+            }
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
-        cell.title.text = lbVM.numberOfTitle(lbModel: lbM, index: indexPath.row)
-        cell.periodText.text = lbVM.numberOfPeriod(lbModel: lbM, index: indexPath.row)
-        return cell
+        if self.seletVM != nil {
+            if seletVM.numberOfRowInSection() == 0 {
+                let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+                cell.title.text = "플랜을 생성해주세요!"
+                cell.periodText.text = ""
+                return cell
+            } else {
+                let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+                let data = seletVM.numberOfCellIndex(index: indexPath.row)
+                cell.title.text = data.title!
+                cell.periodText.text = "\(data.firstDate!) ~ \(data.lastDate!)"
+                return cell
+            }
+        } else {
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.lbM.titles.count == 0 {
-            return self.selectCalendar.frame.height
-        } else {
-            return self.selectCalendar.frame.height/3
-        }
+        seletVM.heightOfCell(table: selectCalendar)
     }
 }

@@ -9,8 +9,7 @@ import UIKit
 
 class CompleteVC: UIViewController, UIGestureRecognizerDelegate {
     
-    let lbVM =  ListBtnViewModel()
-    var lbM = ListBtnModel()
+    var completeVM: RCSViewModel!
     
     @IBOutlet weak var completeTable: UITableView!
     @IBOutlet weak var backView: UIView!
@@ -39,8 +38,8 @@ class CompleteVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func loadData() {
-        DataService().cLoadData(table: completeTable) { model in
-            self.lbM = model
+        DataService().completeLoadData(table: completeTable) { model in
+            self.completeVM = RCSViewModel(rcsM: model)
         }
     }
     
@@ -51,22 +50,38 @@ class CompleteVC: UIViewController, UIGestureRecognizerDelegate {
 
 extension CompleteVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lbVM.numberOfItem(lbMdel: self.lbM)
+        if self.completeVM != nil {
+            if completeVM.numberOfRowInSection() == 0 {
+                return 1
+            } else {
+                return self.completeVM.numberOfRowInSection()
+            }
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = completeTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
-        cell.title.text = lbVM.numberOfTitle(lbModel: lbM, index: indexPath.row)
-        cell.periodText.text = lbVM.numberOfPeriod(lbModel: lbM, index: indexPath.row)
-        return cell
+        if self.completeVM != nil {
+            if completeVM.numberOfRowInSection() == 0 {
+                let cell = completeTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+                cell.title.text = "플랜을 생성해주세요!"
+                cell.periodText.text = ""
+                return cell
+            } else {
+                let cell = completeTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
+                let data = completeVM.numberOfCellIndex(index: indexPath.row)
+                cell.title.text = data.title!
+                cell.periodText.text = "\(data.firstDate!) ~ \(data.lastDate!)"
+                return cell
+            }
+        } else {
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.lbM.titles.count == 0 {
-            return self.completeTable.frame.height
-        } else {
-            return self.completeTable.frame.height/3
-        }
+        completeVM.heightOfCell(table: completeTable)
     }
 }
 

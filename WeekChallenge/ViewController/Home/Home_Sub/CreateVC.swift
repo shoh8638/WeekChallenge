@@ -15,13 +15,10 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
     var dateString: String = ""
     
     @IBOutlet weak var backView: UIView!
-    
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var LSHView: UIView!
-    
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var periodPicker: UIDatePicker!
-    
     @IBOutlet weak var okBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     
