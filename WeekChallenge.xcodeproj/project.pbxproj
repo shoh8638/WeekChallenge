@@ -68,6 +68,8 @@
 		E6D2C76B27ED960900CB9E0F /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76A27ED960900CB9E0F /* HomeCell.swift */; };
 		E6D2C76D27ED987A00CB9E0F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76C27ED987A00CB9E0F /* UserModel.swift */; };
 		E6D2C76F27ED98C400CB9E0F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76E27ED98C400CB9E0F /* UserViewModel.swift */; };
+		E6D2C77127EDA40900CB9E0F /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C77027EDA40900CB9E0F /* RunViewModel.swift */; };
+		E6D2C77327EDAACF00CB9E0F /* RunModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C77227EDAACF00CB9E0F /* RunModel.swift */; };
 		E6E0A4F427E1B81E00718EA2 /* PlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */; };
 		E6E0A4F727E1C0DB00718EA2 /* TotalListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F627E1C0DB00718EA2 /* TotalListVC.swift */; };
 		E6E0A4F927E2C83E00718EA2 /* PlanDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F827E2C83E00718EA2 /* PlanDetailVC.swift */; };
@@ -185,6 +187,8 @@
 		E6D2C76A27ED960900CB9E0F /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		E6D2C76C27ED987A00CB9E0F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E6D2C76E27ED98C400CB9E0F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		E6D2C77027EDA40900CB9E0F /* RunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
+		E6D2C77227EDAACF00CB9E0F /* RunModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunModel.swift; sourceTree = "<group>"; };
 		E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanVC.swift; sourceTree = "<group>"; };
 		E6E0A4F627E1C0DB00718EA2 /* TotalListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalListVC.swift; sourceTree = "<group>"; };
 		E6E0A4F827E2C83E00718EA2 /* PlanDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailVC.swift; sourceTree = "<group>"; };
@@ -487,6 +491,7 @@
 				E6D2C76327ED88C300CB9E0F /* DataViewModel.swift */,
 				E6D2C76E27ED98C400CB9E0F /* UserViewModel.swift */,
 				E6D2C72D27EAEC9200CB9E0F /* ListBtnViewModel.swift */,
+				E6D2C77027EDA40900CB9E0F /* RunViewModel.swift */,
 			);
 			path = HomeVM;
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				E6D2C76127ED88AB00CB9E0F /* DataModel.swift */,
 				E6D2C76C27ED987A00CB9E0F /* UserModel.swift */,
 				E6D2C72B27EAEB7500CB9E0F /* ListBtnModel.swift */,
+				E6D2C77227EDAACF00CB9E0F /* RunModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -856,6 +862,7 @@
 				E601BE4127E0100000BFF7BD /* ProfileVC.swift in Sources */,
 				E6E0A50227E43F0C00718EA2 /* TotalVC.swift in Sources */,
 				E6D2C74927EC299B00CB9E0F /* DashBoardViewModel.swift in Sources */,
+				E6D2C77327EDAACF00CB9E0F /* RunModel.swift in Sources */,
 				E6A0086527C60CB600AB8D2D /* WriteVC.swift in Sources */,
 				E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */,
 				E6D2C74627EC297B00CB9E0F /* DashBoardModel.swift in Sources */,
@@ -896,6 +903,7 @@
 				E6D2C75A27EC492900CB9E0F /* ManageListViewModel.swift in Sources */,
 				E6E0A50027E426C300718EA2 /* Dummy.swift in Sources */,
 				E6D2C76627ED8AA600CB9E0F /* CountModel.swift in Sources */,
+				E6D2C77127EDA40900CB9E0F /* RunViewModel.swift in Sources */,
 				E601BE4A27E02A1C00BFF7BD /* ChangeUserNameVC.swift in Sources */,
 				E60DA3BC27D1FFAF001DC914 /* ConnectService.swift in Sources */,
 				E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */,

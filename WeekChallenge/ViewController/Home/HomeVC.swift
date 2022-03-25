@@ -128,9 +128,11 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
                 return cell
             } else {
                 let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! homeCell
-                let a = dataVM.numberOfCellIndex(index: indexPath.row)
-                cell.title.text = a.title
-                cell.periodText.text = "\(a.firstDate!) ~ \(a.lastDate!)"
+                cell.layer.cornerRadius = 20
+                cell.layer.masksToBounds = true
+                let data = dataVM.numberOfCellIndex(index: indexPath.row)
+                cell.title.text = data.title
+                cell.periodText.text = "\(data.firstDate!) ~ \(data.lastDate!)"
                 return cell
             }
         } else {

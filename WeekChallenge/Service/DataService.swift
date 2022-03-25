@@ -68,7 +68,9 @@ extension DataService {
     
     func HomeLoadData(table: UITableView ,completion: @escaping ([DataModel?]) -> ()) {
         var complete = [Int]()
+        
         guard let userID = Auth.auth().currentUser?.email else {return}
+        
         var userDLM: DataModel?
         var userArr = [userDLM]
 
@@ -104,6 +106,45 @@ extension DataService {
         }
     }
     
+    func runLoadData(table: UITableView, completion: @escaping ([RunModel?]) -> ()) {
+        var complete = [Int]()
+        
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        
+        var runM: RunModel?
+        var runVM = [runM]
+        
+        self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
+            runVM.removeAll()
+            if err == nil {
+                for document in querySnapshot!.documents {
+                    if document.documentID != "UserData" {
+                        let dates = (document["Dates"] as! [String]).sorted(by: <)
+                        
+                        for number in 0...dates.count-1 {
+                            let dateFields = document[dates[number]] as! [String: String]
+                            let text = dateFields["Text"]!
+                            if text == "" {
+                                complete.append(0)
+                            } else {
+                                complete.append(3)
+                            }
+                        }
+                        if complete.contains(0) {
+                            let title = document["Title"] as! String
+                            let firstDate = dates.first!
+                            let lastDate = dates.last!
+                            runM = RunModel(title: title, firstDate: firstDate, lastDate: lastDate)
+                            runVM.append(runM!)
+                        }
+                        complete.removeAll()
+                    }
+                }
+            }
+            completion(runVM)
+            table.reloadData()
+        }
+    }
     //MARK: PlanVC
 }
 //MARK: LoadData
