@@ -21,4 +21,16 @@ class PlanVCCell: UICollectionViewCell {
         ApplyService().onlyCornerApply(view: secondView)
         ApplyService().applyListShadow(cell: self)
     }
+    
+    func update(info: PlanModel) {
+        title.text = info.title!
+        subTitle.text = info.title!
+        period.text = "\(info.firstDate!) ~ \(info.lastDate!)"
+    }
+    
+    func emptyUpdate() {
+        title.text = "플랜을 생성해주세요!"
+        subTitle.text = ""
+        period.text = ""
+    }
 }

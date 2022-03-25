@@ -20,4 +20,14 @@ class PlanDetailVCCell: UICollectionViewCell {
         ApplyService().onlyCornerApply(view: totalView)
         ApplyService().applyDetailListShadow(cell: self)
     }
+    
+    func update(info: PDetailModel) {
+        mainTitle.text = info.title
+        mainText.text = info.text
+    }
+    
+    func emptyUpdate() {
+        mainTitle.text = "작성한 글이 없습니다."
+        mainText.text = ""
+    }
 }

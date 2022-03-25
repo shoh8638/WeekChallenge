@@ -25,4 +25,12 @@ struct DataViewModel {
         }
         return dates
     }
+    
+    func numberOfDBID(index: Int) -> String {
+        return dataM[index]!.dbID!
+    }
+    
+    func numberOfTitle(index: Int) -> String {
+        return dataM[index]!.title!
+    }
 }

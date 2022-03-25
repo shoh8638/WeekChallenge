@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		51B20CBFD7AA20B6D8518597 /* Pods_WeekChallenge_WeekChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59B675783D8C837E3BDD0D3 /* Pods_WeekChallenge_WeekChallengeUITests.framework */; };
+		849E908727EDF80500D870D7 /* PlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E908627EDF80500D870D7 /* PlanModel.swift */; };
+		849E908927EDF83800D870D7 /* PlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E908827EDF83800D870D7 /* PlanViewModel.swift */; };
+		849E908B27EDFA8300D870D7 /* PDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E908A27EDFA8300D870D7 /* PDetailModel.swift */; };
+		849E908D27EDFAC200D870D7 /* PDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E908C27EDFAC200D870D7 /* PDetailViewModel.swift */; };
 		BC272F67B33BC0A411DA9079 /* Pods_WeekChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078F2084C898E852ACD84817 /* Pods_WeekChallengeTests.framework */; };
 		E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE3C27DB208900BFF7BD /* HomeProfile.swift */; };
 		E601BE3F27DB40C400BFF7BD /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE3E27DB40C400BFF7BD /* SettingVC.swift */; };
@@ -45,10 +49,6 @@
 		E6D2C72227EA9FD400CB9E0F /* ApplyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72127EA9FD400CB9E0F /* ApplyService.swift */; };
 		E6D2C72427EAAAFE00CB9E0F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72327EAAAFE00CB9E0F /* DataService.swift */; };
 		E6D2C73427EBEC9700CB9E0F /* contributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C73327EBEC9700CB9E0F /* contributeView.swift */; };
-		E6D2C73727EBFE5E00CB9E0F /* PlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C73627EBFE5E00CB9E0F /* PlanModel.swift */; };
-		E6D2C73A27EBFF1400CB9E0F /* PlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C73927EBFF1400CB9E0F /* PlanViewModel.swift */; };
-		E6D2C73E27EC081700CB9E0F /* PlanDeatilModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C73D27EC081700CB9E0F /* PlanDeatilModel.swift */; };
-		E6D2C74027EC084F00CB9E0F /* PlanDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C73F27EC084F00CB9E0F /* PlanDetailViewModel.swift */; };
 		E6D2C74227EC27C900CB9E0F /* PlanDeatilVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74127EC27C900CB9E0F /* PlanDeatilVCCell.swift */; };
 		E6D2C74627EC297B00CB9E0F /* DashBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74527EC297B00CB9E0F /* DashBoardModel.swift */; };
 		E6D2C74927EC299B00CB9E0F /* DashBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74827EC299B00CB9E0F /* DashBoardViewModel.swift */; };
@@ -120,6 +120,10 @@
 		845E681227B3E89300EC0EBF /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		845E681327B3E89300EC0EBF /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		845E681427B3E89300EC0EBF /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		849E908627EDF80500D870D7 /* PlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanModel.swift; sourceTree = "<group>"; };
+		849E908827EDF83800D870D7 /* PlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewModel.swift; sourceTree = "<group>"; };
+		849E908A27EDFA8300D870D7 /* PDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDetailModel.swift; sourceTree = "<group>"; };
+		849E908C27EDFAC200D870D7 /* PDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDetailViewModel.swift; sourceTree = "<group>"; };
 		C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC1139D3E189C2F9B204B04B /* Pods-WeekChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeekChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-WeekChallengeTests/Pods-WeekChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E601BE3C27DB208900BFF7BD /* HomeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfile.swift; sourceTree = "<group>"; };
@@ -162,10 +166,6 @@
 		E6D2C72127EA9FD400CB9E0F /* ApplyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyService.swift; sourceTree = "<group>"; };
 		E6D2C72327EAAAFE00CB9E0F /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E6D2C73327EBEC9700CB9E0F /* contributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contributeView.swift; sourceTree = "<group>"; };
-		E6D2C73627EBFE5E00CB9E0F /* PlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanModel.swift; sourceTree = "<group>"; };
-		E6D2C73927EBFF1400CB9E0F /* PlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewModel.swift; sourceTree = "<group>"; };
-		E6D2C73D27EC081700CB9E0F /* PlanDeatilModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDeatilModel.swift; sourceTree = "<group>"; };
-		E6D2C73F27EC084F00CB9E0F /* PlanDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailViewModel.swift; sourceTree = "<group>"; };
 		E6D2C74127EC27C900CB9E0F /* PlanDeatilVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDeatilVCCell.swift; sourceTree = "<group>"; };
 		E6D2C74527EC297B00CB9E0F /* DashBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardModel.swift; sourceTree = "<group>"; };
 		E6D2C74827EC299B00CB9E0F /* DashBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewModel.swift; sourceTree = "<group>"; };
@@ -505,8 +505,8 @@
 		E6D2C73527EBFE5200CB9E0F /* Plan */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C73627EBFE5E00CB9E0F /* PlanModel.swift */,
-				E6D2C73D27EC081700CB9E0F /* PlanDeatilModel.swift */,
+				849E908627EDF80500D870D7 /* PlanModel.swift */,
+				849E908A27EDFA8300D870D7 /* PDetailModel.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -514,8 +514,8 @@
 		E6D2C73827EBFF0500CB9E0F /* PlanVM */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C73927EBFF1400CB9E0F /* PlanViewModel.swift */,
-				E6D2C73F27EC084F00CB9E0F /* PlanDetailViewModel.swift */,
+				849E908827EDF83800D870D7 /* PlanViewModel.swift */,
+				849E908C27EDFAC200D870D7 /* PDetailViewModel.swift */,
 			);
 			path = PlanVM;
 			sourceTree = "<group>";
@@ -848,28 +848,28 @@
 			files = (
 				E6D2C75127EC335400CB9E0F /* SettingModel.swift in Sources */,
 				E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */,
-				E6D2C73A27EBFF1400CB9E0F /* PlanViewModel.swift in Sources */,
 				E6E0A4F727E1C0DB00718EA2 /* TotalListVC.swift in Sources */,
 				E601BE3F27DB40C400BFF7BD /* SettingVC.swift in Sources */,
 				E6D2C76B27ED960900CB9E0F /* HomeCell.swift in Sources */,
 				E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */,
 				E601BE4127E0100000BFF7BD /* ProfileVC.swift in Sources */,
+				849E908D27EDFAC200D870D7 /* PDetailViewModel.swift in Sources */,
 				E6E0A50227E43F0C00718EA2 /* TotalVC.swift in Sources */,
 				E6D2C74927EC299B00CB9E0F /* DashBoardViewModel.swift in Sources */,
 				E6D2C77327EDAACF00CB9E0F /* RSCModel.swift in Sources */,
 				E6A0086527C60CB600AB8D2D /* WriteVC.swift in Sources */,
 				E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */,
+				849E908927EDF83800D870D7 /* PlanViewModel.swift in Sources */,
 				E6D2C74627EC297B00CB9E0F /* DashBoardModel.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
 				E6D2C72427EAAAFE00CB9E0F /* DataService.swift in Sources */,
+				849E908727EDF80500D870D7 /* PlanModel.swift in Sources */,
 				E6D2C76227ED88AB00CB9E0F /* DataModel.swift in Sources */,
 				E661441227B386C50000CEA7 /* AuthService.swift in Sources */,
 				E6E0A4F927E2C83E00718EA2 /* PlanDetailVC.swift in Sources */,
 				E6C734F327DB046300A0CC4B /* RunningVC.swift in Sources */,
 				E6D2C74C27EC315A00CB9E0F /* SearchCell.swift in Sources */,
 				E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */,
-				E6D2C74027EC084F00CB9E0F /* PlanDetailViewModel.swift in Sources */,
-				E6D2C73727EBFE5E00CB9E0F /* PlanModel.swift in Sources */,
 				E6D2C76F27ED98C400CB9E0F /* UserViewModel.swift in Sources */,
 				E6D2C75627EC463C00CB9E0F /* ManageListVC.swift in Sources */,
 				E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */,
@@ -885,7 +885,6 @@
 				E601BE4527E0103900BFF7BD /* LogOutVC.swift in Sources */,
 				E6E0A4FB27E2C92D00718EA2 /* PlanVCCell.swift in Sources */,
 				E6C734F527DB046F00A0CC4B /* CompleteVC.swift in Sources */,
-				E6D2C73E27EC081700CB9E0F /* PlanDeatilModel.swift in Sources */,
 				E6D2C74E27EC31CE00CB9E0F /* TotalCell.swift in Sources */,
 				E6E0A4F427E1B81E00718EA2 /* PlanVC.swift in Sources */,
 				E6D2C76427ED88C300CB9E0F /* DataViewModel.swift in Sources */,
@@ -895,6 +894,7 @@
 				E6D2C75A27EC492900CB9E0F /* ManageListViewModel.swift in Sources */,
 				E6E0A50027E426C300718EA2 /* Dummy.swift in Sources */,
 				E6D2C76627ED8AA600CB9E0F /* CountModel.swift in Sources */,
+				849E908B27EDFA8300D870D7 /* PDetailModel.swift in Sources */,
 				E6D2C77127EDA40900CB9E0F /* RCSViewModel.swift in Sources */,
 				E601BE4A27E02A1C00BFF7BD /* ChangeUserNameVC.swift in Sources */,
 				E60DA3BC27D1FFAF001DC914 /* ConnectService.swift in Sources */,

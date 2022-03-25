@@ -14,7 +14,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     var userVM : UserViewModel!
     var countVM: CountViewModel!
     var dataVM: DataViewModel!
-
+    
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var userName: UILabel!
@@ -120,19 +120,15 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if dataVM != nil {
-            if dataVM.numberOfRowsInSection() == 0 {
-                let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
-                cell.emptyUpdate(info: "플랜을 생성해주세요!")
-                return cell
-            } else {
-                let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
-                let data = dataVM.numberOfCellIndex(index: indexPath.row)
-                cell.dataUpdate(info: data)
-                return cell
-            }
+        if dataVM.numberOfRowsInSection() == 0 {
+            let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
+            cell.emptyUpdate(info: "플랜을 생성해주세요!")
+            return cell
         } else {
-            return UITableViewCell()
+            let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
+            let data = dataVM.numberOfCellIndex(index: indexPath.row)
+            cell.dataUpdate(info: data)
+            return cell
         }
     }
 }

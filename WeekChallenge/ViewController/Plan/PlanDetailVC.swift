@@ -8,20 +8,12 @@
 import UIKit
 import Firebase
 import SwiftOverlays
-import SDWebImage
 
 class PlanDetailVC: UIViewController {
     
-    let db = Firestore.firestore()
-    let storage = Storage.storage()
-    var pDetailM = PlanDetailModel()
-    let pDetailVM = PlanDetailViewModel()
     var documentID: String?
     var mainTitle: String?
-    
-    var subTitles = [String]()
-    var subImg = [String]()
-    var subText = [String]()
+    var pdVM: PDetailViewModel!
     
     @IBOutlet weak var DetatilCollection: UICollectionView!
     @IBOutlet weak var documentTitle: UILabel!
@@ -47,8 +39,8 @@ class PlanDetailVC: UIViewController {
     }
     
     func loadData() {
-        DataService().pDLoadData(collection: DetatilCollection, documentID: documentID!) { model in
-            self.pDetailM = model
+        DataService().planDetailLoadData(collection: DetatilCollection, documentID: self.documentID!) { model in
+            self.pdVM = PDetailViewModel(pDeatilM: model)
         }
     }
 }
@@ -56,15 +48,28 @@ class PlanDetailVC: UIViewController {
 
 extension PlanDetailVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pDetailVM.numberOfItem(pDeatilM: pDetailM)
+        if self.pdVM != nil {
+            if pdVM.numberOfRowsInSection() == 0 {
+                return 1
+            } else {
+                return pdVM.numberOfRowsInSection()
+            }
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = DetatilCollection.dequeueReusableCell(withReuseIdentifier: "detailList", for: indexPath) as! PlanDetailVCCell
-        
-        DataService().pDSetImg(img: cell.imageView, imgUrl: pDetailVM.numberOfImg(pDeatilM: pDetailM, index: indexPath.row))
-        cell.mainTitle.text = pDetailVM.numberOfTitle(pDeatilM: pDetailM, index: indexPath.row)
-        cell.mainText.text = pDetailVM.numberOfSubTitle(pDeatilM: pDetailM, index: indexPath.row)
-        return cell
+        if pdVM.numberOfRowsInSection() == 0 {
+            let cell = DetatilCollection.dequeueReusableCell(withReuseIdentifier: "detailList", for: indexPath) as! PlanDetailVCCell
+            cell.emptyUpdate()
+            return cell
+        } else {
+            let cell = DetatilCollection.dequeueReusableCell(withReuseIdentifier: "detailList", for: indexPath) as! PlanDetailVCCell
+            let data = pdVM.numberOfCellIndex(index: indexPath.row)
+            cell.update(info: data)
+            pdVM.loadUserImg(index: indexPath.row, img: cell.imageView)
+            return cell
+        }
     }
 }

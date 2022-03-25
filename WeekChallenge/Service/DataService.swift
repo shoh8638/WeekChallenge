@@ -10,8 +10,6 @@ import Firebase
 import SDWebImage
 
 class DataService {
-    var planM = PlanModel()
-    var pDeatilM = PlanDetailModel()
     var dbM = DashBoardModel()
     var mlM = ManageListModel()
     let db = Firestore.firestore()
@@ -230,6 +228,69 @@ extension DataService {
         }
     }
     //MARK: PlanVC
+    func PlanLoadData(collection: UICollectionView ,completion: @escaping ([PlanModel?]) -> ()) {
+        var complete = [Int]()
+        
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        
+        var planM: PlanModel?
+        var planVM = [planM]
+
+        self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
+            planVM.removeAll()
+            for document in querySnapshot!.documents {
+                if document.documentID != "UserData" {
+                    let title = document.data()["Title"] as! String
+                    let dates = (document["Dates"] as! [String]).sorted(by: <)
+                    let dbID = document.documentID
+                    let firstDate  = dates.first!
+                    let lastDate = dates.last
+                    
+                    for i in 0..<dates.count {
+                        let dateField = document[dates[i]] as! [String: String]
+                        let text = dateField["Text"]!
+                        if text == "" {
+                            complete.append(0)
+                        } else {
+                            complete.append(3)
+                        }
+                    }
+                    
+                    if complete != [3,3,3,3,3] {
+                        planM = PlanModel(title: title, dates: dates, dbID: dbID, firstDate: firstDate, lastDate: lastDate!, complete: complete)
+                        planVM.append(planM!)
+                    }
+                    complete.removeAll()
+                }
+            }
+            completion(planVM)
+            collection.reloadData()
+        }
+    }
+    
+    func planDetailLoadData(collection: UICollectionView, documentID: String, completion: @escaping ([PDetailModel?]) -> ()) {
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        var pdM: PDetailModel?
+        var pdVM = [pdM]
+        self.db.collection(userID).document(documentID).addSnapshotListener { (document, err) in
+            pdVM.removeAll()
+            if err == nil {
+                let dates = (document!["Dates"] as! [String]).sorted(by: <)
+                for number in 0...dates.count-1 {
+                    let dateFields = document![dates[number]] as! [String: String]
+                    let title = dateFields["Title"]!
+                    let img = dateFields["Image"]!
+                    let text = dateFields["Text"]!
+                    if title != "" {
+                        pdM = PDetailModel(title: title, img: img, text: text)
+                        pdVM.append(pdM)
+                    }
+                }
+            }
+            completion(pdVM)
+            collection.reloadData()
+        }
+    }
 }
 //MARK: LoadData
 extension DataService {
@@ -266,71 +327,7 @@ extension DataService {
         }
     }
     
-    func pLoadData(collection: UICollectionView, completion: @escaping (PlanModel) -> ()) {
-        var complete = [Int]()
-        guard let userID = Auth.auth().currentUser?.email else {return}
-        
-        self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
-            self.planM.dbID.removeAll()
-            self.planM.dbTitles.removeAll()
-            self.planM.dbDate.removeAll()
-            self.planM.firstDates.removeAll()
-            self.planM.lastDates.removeAll()
-            if err == nil {
-                for document in querySnapshot!.documents {
-                    if document.documentID != "UserData" {
-                        self.planM.dbID.append(document.documentID)
-                        self.planM.dbTitles.append(document.data()["Title"] as! String)
-                        
-                        self.planM.firstDates.append((document["Dates"] as! [String]).sorted(by: <).first!)
-                        self.planM.lastDates.append((document["Dates"] as! [String]).sorted(by: <).last!)
-                        
-                        let dates = (document["Dates"] as! [String]).sorted(by: <)
-                        for number in 0...dates.count-1 {
-                            let dateFields = document[dates[number]] as! [String: String]
-                            let text = dateFields["Text"]!
-                            if text == "" {
-                                complete.append(0)
-                            } else {
-                                complete.append(3)
-                            }
-                        }
-                        self.planM.dbDate.append(complete)
-                        complete.removeAll()
-                    }
-                }
-            }
-            completion(self.planM)
-            collection.reloadData()
-        }
-    }
     
-    func pDLoadData(collection: UICollectionView, documentID: String, completion: @escaping (PlanDetailModel) -> ()) {
-        guard let userID = Auth.auth().currentUser?.email else {return}
-        
-        self.db.collection(userID).document(documentID).addSnapshotListener { (document, err) in
-            self.pDeatilM.subTitles.removeAll()
-            self.pDeatilM.subImg.removeAll()
-            self.pDeatilM.subText.removeAll()
-            
-            if err == nil {
-                let dates = (document!["Dates"] as! [String]).sorted(by: <)
-                for number in 0...dates.count-1 {
-                    let dateFields = document![dates[number]] as! [String: String]
-                    let title = dateFields["Title"]!
-                    let img = dateFields["Image"]!
-                    let text = dateFields["Text"]!
-                    if title != "" {
-                        self.pDeatilM.subTitles.append(title)
-                        self.pDeatilM.subImg.append(img)
-                        self.pDeatilM.subText.append(text)
-                    }
-                }
-            }
-            completion(self.pDeatilM)
-            collection.reloadData()
-        }
-    }
     
     func boardLoadData(collection: UICollectionView, completion: @escaping (DashBoardModel) -> ()) {
         guard let userID = Auth.auth().currentUser?.email else {return}

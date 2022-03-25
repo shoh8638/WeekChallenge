@@ -8,9 +8,8 @@
 import UIKit
 
 class PlanVC: UIViewController {
-
-    var planM = PlanModel()
-    var planVM = PlanViewModel()
+    
+    var pVM: PlanViewModel!
     
     @IBOutlet weak var listCollection: UICollectionView!
     
@@ -21,8 +20,8 @@ class PlanVC: UIViewController {
     }
     
     func loadData() {
-        DataService().pLoadData(collection: listCollection) { model in
-            self.planM = model
+        DataService().PlanLoadData(collection: listCollection) { model in
+            self.pVM = PlanViewModel(planM: model)
         }
     }
 }
@@ -30,25 +29,36 @@ class PlanVC: UIViewController {
 //MARK: CollectionViewDataSource
 extension PlanVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return planVM.numberOfItem(planM: planM)
+        if pVM != nil {
+            if pVM.numberOfRowsInSection() == 0 {
+                return 1
+            } else {
+                return pVM.numberOfRowsInSection()
+            }
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = listCollection.dequeueReusableCell(withReuseIdentifier: "list", for: indexPath) as! PlanVCCell
-        
-        cell.title.text = planVM.numberOfTitle(planM: planM, index: indexPath.row)
-        cell.subTitle.text = planVM.numberOfSubTitle(planM: planM, index: indexPath.row)
-        cell.period.text = planVM.numberOfPeriod(planM: planM, index: indexPath.row)
-        contributeView().LSHViewChange(view: cell.LSHView, count: planVM.numberOfDate(planM: planM, index: indexPath.row))
-        return cell
+        if pVM.numberOfRowsInSection() == 0 {
+            let cell = listCollection.dequeueReusableCell(withReuseIdentifier: "list", for: indexPath) as! PlanVCCell
+            cell.emptyUpdate()
+            return cell
+        } else {
+            let cell = listCollection.dequeueReusableCell(withReuseIdentifier: "list", for: indexPath) as! PlanVCCell
+            let data = pVM.numberOfCellIndex(index: indexPath.row)
+            cell.update(info: data)
+            contributeView().LSHViewChange(view: cell.LSHView, count: pVM.numberOfLSHView(index: indexPath.row))
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("PlanVC cell Select")
-        if self.planM.dbID != [String]() {
+        if pVM != nil {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Ex") as! PlanDetailVC
-            vc.documentID = self.planM.dbID[indexPath.row]
-            vc.mainTitle  = self.planM.dbTitles[indexPath.row]
+            vc.documentID = pVM.numberOfDBID(index: indexPath.row)
+            vc.mainTitle  = pVM.numberOfTitle(index: indexPath.row)
             
             vc.transitioningDelegate = self
             vc.modalPresentationStyle = .custom
