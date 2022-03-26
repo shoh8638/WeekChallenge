@@ -15,6 +15,8 @@ class totalCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        ApplyService().onlyCornerApply(view: self.contentView)
+        ApplyService().imgOnlyCornerApply(img: img)
         ApplyService().applyTotalCellShadow(cell: self)
     }
 }

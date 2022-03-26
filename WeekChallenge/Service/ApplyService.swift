@@ -49,9 +49,9 @@ class ApplyService {
         img.layer.borderColor =  CGColor(red: 74, green: 74, blue: 74, alpha: 1)
     }
     
-    func imgOnlyCornerApply(view: UIView, img: UIImageView) {
-        view.layer.cornerRadius = 20
+    func imgOnlyCornerApply(img: UIImageView) {
         img.layer.cornerRadius = 20
+        img.layer.masksToBounds = true
     }
     
     func tableApplyLayer(table: UITableView) {
@@ -108,5 +108,10 @@ class ApplyService {
         cell.layer.shadowOpacity = 0.14
         cell.layer.shadowOffset = CGSize(width: 10, height: 0)
         cell.layer.shadowRadius = 7 / 2.0
+    }
+    
+    func applyHomeCellShadow(cell: HomeCell) {
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = true
     }
 }

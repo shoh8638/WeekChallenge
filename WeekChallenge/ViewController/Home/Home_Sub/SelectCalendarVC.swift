@@ -66,7 +66,7 @@ extension SelectCalendarVC: UITableViewDataSource, UITableViewDelegate {
         if self.seletVM != nil {
             if seletVM.numberOfRowInSection() == 0 {
                 let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
-                cell.emptyUpdate(info: "플랜을 생성해주세요!")
+                cell.emptyUpdate(info: "진행중인 플랜이 없습니다.")
                 return cell
             } else {
                 let cell = selectCalendar.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell

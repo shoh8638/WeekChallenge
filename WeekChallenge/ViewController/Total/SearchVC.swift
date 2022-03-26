@@ -6,20 +6,11 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseStorage
-import SDWebImage
 
 class SearchVC: UIViewController {
     
     var searchText: String?
-    var dbTitles = [String]()
-    var userTitles = [String]()
-    var userImg = [String]()
-    var userText = [String]()
-    let db = Firestore.firestore()
-    var dbM = DashBoardModel()
-    var dbVM = DashBoardViewModel()
+    var totalVM: TotalViewModel!
     
     @IBOutlet weak var searchCollection: UICollectionView!
     
@@ -35,24 +26,38 @@ class SearchVC: UIViewController {
     
     func loadData() {
         DataService().searchLoadData(searchText: searchText!, collection: searchCollection) { model in
-            self.dbM = model
+            self.totalVM = TotalViewModel(totalM: model)
         }
     }
 }
 
 extension SearchVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dbVM.numberOfItem(dbM: dbM)
+        if totalVM != nil {
+            if self.totalVM.numberOfRowsInSection() == 0 {
+                return 1
+            } else {
+                return self.totalVM.numberOfRowsInSection()
+            }
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "cellTwo", for: indexPath) as! searchCell
-        DataService().pDSetImg(img: cell.img, imgUrl: dbVM.numberOfImg(dbM: dbM, index: indexPath.row))
-        cell.mainTitle.text = dbVM.numberOfTitle(dbM: dbM, index: indexPath.row)
-        cell.mainText.text =  dbVM.numberOfText(dbM: dbM, index: indexPath.row)
-        return cell
+        if totalVM.numberOfRowsInSection() == 0 {
+            let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "cellTwo", for: indexPath) as! searchCell
+            cell.emptyCell()
+            return cell
+        } else {
+            let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "cellTwo", for: indexPath) as! searchCell
+            let data = self.totalVM.numberOfCellIndex(index: indexPath.row)
+            cell.update(info: data, index: indexPath.row)
+            return cell
+        }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.searchCollection.bounds.width - 100, height: self.searchCollection.bounds.height-200)
+        return totalVM.heightOfCell(collection: searchCollection)
     }    
 }

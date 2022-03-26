@@ -29,7 +29,6 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
-        listTable.rowHeight = UITableView.automaticDimension
         setupView()
         userLoadData()
         swipe()
@@ -122,7 +121,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if dataVM.numberOfRowsInSection() == 0 {
             let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
-            cell.emptyUpdate(info: "플랜을 생성해주세요!")
+            cell.emptyUpdate(info: "진행중인 플랜이 없습니다.")
             return cell
         } else {
             let cell = listTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
@@ -130,6 +129,9 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             cell.dataUpdate(info: data)
             return cell
         }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        dataVM.heightOfCell(table: listTable)
     }
 }
 

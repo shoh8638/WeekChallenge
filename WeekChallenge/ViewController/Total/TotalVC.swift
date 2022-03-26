@@ -11,8 +11,7 @@ import TRMosaicLayout
 class TotalVC: UIViewController {
     
     let mosaicLayout = TRMosaicLayout()
-    var dbM = DashBoardModel()
-    var dbVM = DashBoardViewModel()
+    var totlaVM: TotalViewModel!
     
     @IBOutlet weak var dashCollection: UICollectionView!
     @IBOutlet weak var searchView: UIView!
@@ -37,8 +36,8 @@ class TotalVC: UIViewController {
     }
     
     func loadData() {
-        DataService().boardLoadData(collection: dashCollection) { model in
-            self.dbM = model
+        DataService().TotalImgLoadData(collection: dashCollection) { model in
+            self.totlaVM = TotalViewModel(totalM: model)
         }
     }
     
@@ -92,14 +91,27 @@ extension TotalVC: UITextFieldDelegate {
 //TODO: 각 셀 터치 시, 디테일 화면 생성
 extension TotalVC: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dbVM.numberOfItem(dbM: dbM)
+        if totlaVM != nil {
+            if self.totlaVM.numberOfRowsInSection() == 0 {
+                return 1
+            } else {
+                return self.totlaVM.numberOfRowsInSection()
+            }
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
-        cell.layer.cornerRadius = 20
-        DataService().boardSetImg(img: cell.img, view: cell.contentView, imgUrl: dbVM.numberOfImg(dbM: dbM, index: indexPath.row))
-        return cell
+        if totlaVM.numberOfRowsInSection() == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
+            cell.layer.cornerRadius = 20
+            totlaVM.loadUserImg(index: indexPath.row, img: cell.img)
+            return cell
+        }
     }
 }
 

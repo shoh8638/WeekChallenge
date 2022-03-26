@@ -67,8 +67,7 @@ extension PlanDetailVC: UICollectionViewDataSource, UICollectionViewDelegate {
         } else {
             let cell = DetatilCollection.dequeueReusableCell(withReuseIdentifier: "detailList", for: indexPath) as! PlanDetailVCCell
             let data = pdVM.numberOfCellIndex(index: indexPath.row)
-            cell.update(info: data)
-            pdVM.loadUserImg(index: indexPath.row, img: cell.imageView)
+            cell.update(info: data, index: indexPath.row)
             return cell
         }
     }

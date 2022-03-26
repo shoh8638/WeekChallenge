@@ -70,7 +70,7 @@ extension RunningVC: UITableViewDataSource, UITableViewDelegate {
         if self.runVM != nil {
             if runVM.numberOfRowInSection() == 0 {
                 let cell = runningTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
-                cell.emptyUpdate(info: "플랜을 생성해주세요!")
+                cell.emptyUpdate(info: "진행중인 플랜이 없습니다.")
                 return cell
             } else {
                 let cell = runningTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell

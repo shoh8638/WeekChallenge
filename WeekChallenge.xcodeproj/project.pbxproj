@@ -12,6 +12,8 @@
 		849E908927EDF83800D870D7 /* PlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E908827EDF83800D870D7 /* PlanViewModel.swift */; };
 		849E908B27EDFA8300D870D7 /* PDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E908A27EDFA8300D870D7 /* PDetailModel.swift */; };
 		849E908D27EDFAC200D870D7 /* PDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E908C27EDFAC200D870D7 /* PDetailViewModel.swift */; };
+		84B88BF927EF45660075A697 /* TotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B88BF827EF45660075A697 /* TotalModel.swift */; };
+		84B88BFB27EF46B20075A697 /* TotalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B88BFA27EF46B20075A697 /* TotalViewModel.swift */; };
 		BC272F67B33BC0A411DA9079 /* Pods_WeekChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078F2084C898E852ACD84817 /* Pods_WeekChallengeTests.framework */; };
 		E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE3C27DB208900BFF7BD /* HomeProfile.swift */; };
 		E601BE3F27DB40C400BFF7BD /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601BE3E27DB40C400BFF7BD /* SettingVC.swift */; };
@@ -35,7 +37,6 @@
 		E6584F7327B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F7227B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift */; };
 		E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8A27B341A400B58FCB /* LoginVC.swift */; };
 		E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8E27B3434F00B58FCB /* SignInVC.swift */; };
-		E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5B9027CF4E35009E16EE /* EnptyCollectionViewCell.swift */; };
 		E661441227B386C50000CEA7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E661441127B386C50000CEA7 /* AuthService.swift */; };
 		E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A327BC97B8000110C9 /* ChangePWD.swift */; };
 		E667FCB627B9EF6C009AEFE0 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB527B9EF6C009AEFE0 /* FirebaseService.swift */; };
@@ -50,8 +51,6 @@
 		E6D2C72427EAAAFE00CB9E0F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72327EAAAFE00CB9E0F /* DataService.swift */; };
 		E6D2C73427EBEC9700CB9E0F /* contributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C73327EBEC9700CB9E0F /* contributeView.swift */; };
 		E6D2C74227EC27C900CB9E0F /* PlanDeatilVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74127EC27C900CB9E0F /* PlanDeatilVCCell.swift */; };
-		E6D2C74627EC297B00CB9E0F /* DashBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74527EC297B00CB9E0F /* DashBoardModel.swift */; };
-		E6D2C74927EC299B00CB9E0F /* DashBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74827EC299B00CB9E0F /* DashBoardViewModel.swift */; };
 		E6D2C74C27EC315A00CB9E0F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */; };
 		E6D2C74E27EC31CE00CB9E0F /* TotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */; };
 		E6D2C75127EC335400CB9E0F /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75027EC335400CB9E0F /* SettingModel.swift */; };
@@ -124,6 +123,8 @@
 		849E908827EDF83800D870D7 /* PlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewModel.swift; sourceTree = "<group>"; };
 		849E908A27EDFA8300D870D7 /* PDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDetailModel.swift; sourceTree = "<group>"; };
 		849E908C27EDFAC200D870D7 /* PDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDetailViewModel.swift; sourceTree = "<group>"; };
+		84B88BF827EF45660075A697 /* TotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalModel.swift; sourceTree = "<group>"; };
+		84B88BFA27EF46B20075A697 /* TotalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewModel.swift; sourceTree = "<group>"; };
 		C1A38C0569EB00E26AE27D4C /* Pods_WeekChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeekChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC1139D3E189C2F9B204B04B /* Pods-WeekChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeekChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-WeekChallengeTests/Pods-WeekChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E601BE3C27DB208900BFF7BD /* HomeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfile.swift; sourceTree = "<group>"; };
@@ -152,7 +153,6 @@
 		E6584F7227B33E0000B58FCB /* WeekChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E6584F8A27B341A400B58FCB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E6584F8E27B3434F00B58FCB /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
-		E65D5B9027CF4E35009E16EE /* EnptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		E661441127B386C50000CEA7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E66495A327BC97B8000110C9 /* ChangePWD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePWD.swift; sourceTree = "<group>"; };
 		E667FCB527B9EF6C009AEFE0 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -167,8 +167,6 @@
 		E6D2C72327EAAAFE00CB9E0F /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E6D2C73327EBEC9700CB9E0F /* contributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contributeView.swift; sourceTree = "<group>"; };
 		E6D2C74127EC27C900CB9E0F /* PlanDeatilVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDeatilVCCell.swift; sourceTree = "<group>"; };
-		E6D2C74527EC297B00CB9E0F /* DashBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardModel.swift; sourceTree = "<group>"; };
-		E6D2C74827EC299B00CB9E0F /* DashBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewModel.swift; sourceTree = "<group>"; };
 		E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCell.swift; sourceTree = "<group>"; };
 		E6D2C75027EC335400CB9E0F /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
@@ -310,7 +308,7 @@
 				E66495A127BC8AF7000110C9 /* Login */,
 				E6C734ED27DB03BA00A0CC4B /* Home */,
 				E6C734EE27DB03E200A0CC4B /* Plan */,
-				E6C734F027DB041F00A0CC4B /* DashBoard */,
+				E6C734F027DB041F00A0CC4B /* Total */,
 				E6C734EF27DB03FE00A0CC4B /* Setting */,
 			);
 			path = ViewController;
@@ -321,7 +319,7 @@
 			children = (
 				E6D2C72927EAB0C200CB9E0F /* HomeVM */,
 				E6D2C73827EBFF0500CB9E0F /* PlanVM */,
-				E6D2C74727EC298600CB9E0F /* DashBoardVM */,
+				E6D2C74727EC298600CB9E0F /* TotalVM */,
 				E6D2C75227EC336C00CB9E0F /* SettingVM */,
 			);
 			path = ViewModel;
@@ -330,10 +328,10 @@
 		E6584F8927B3419400B58FCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C72A27EAEB6300CB9E0F /* Home */,
-				E6D2C73527EBFE5200CB9E0F /* Plan */,
-				E6D2C74427EC296900CB9E0F /* DashBoard */,
-				E6D2C74F27EC334400CB9E0F /* Setting */,
+				E6D2C72A27EAEB6300CB9E0F /* HomeM */,
+				E6D2C73527EBFE5200CB9E0F /* PlanM */,
+				E6D2C74427EC296900CB9E0F /* TotalM */,
+				E6D2C74F27EC334400CB9E0F /* SettingM */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,14 +350,6 @@
 				E6E0A4FC27E2CB9600718EA2 /* AnimationController.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		E65D5B8F27CF4E20009E16EE /* EnptyCell */ = {
-			isa = PBXGroup;
-			children = (
-				E65D5B9027CF4E35009E16EE /* EnptyCollectionViewCell.swift */,
-			);
-			path = EnptyCell;
 			sourceTree = "<group>";
 		};
 		E661443027B3A4590000CEA7 /* Resource */ = {
@@ -419,9 +409,8 @@
 			isa = PBXGroup;
 			children = (
 				E6D2C76927ED95FD00CB9E0F /* HomeCell */,
-				E6D2C74327EC280600CB9E0F /* Plan */,
-				E6D2C74A27EC314E00CB9E0F /* DashBoard */,
-				E65D5B8F27CF4E20009E16EE /* EnptyCell */,
+				E6D2C74327EC280600CB9E0F /* PlanCell */,
+				E6D2C74A27EC314E00CB9E0F /* TotalCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -459,13 +448,13 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		E6C734F027DB041F00A0CC4B /* DashBoard */ = {
+		E6C734F027DB041F00A0CC4B /* Total */ = {
 			isa = PBXGroup;
 			children = (
 				E6E0A50127E43F0C00718EA2 /* TotalVC.swift */,
 				E60DA3B927D0B20D001DC914 /* SearchVC.swift */,
 			);
-			path = DashBoard;
+			path = Total;
 			sourceTree = "<group>";
 		};
 		E6C734F127DB044B00A0CC4B /* Home_Sub */ = {
@@ -491,7 +480,7 @@
 			path = HomeVM;
 			sourceTree = "<group>";
 		};
-		E6D2C72A27EAEB6300CB9E0F /* Home */ = {
+		E6D2C72A27EAEB6300CB9E0F /* HomeM */ = {
 			isa = PBXGroup;
 			children = (
 				E6D2C76527ED8AA600CB9E0F /* CountModel.swift */,
@@ -499,16 +488,16 @@
 				E6D2C76C27ED987A00CB9E0F /* UserModel.swift */,
 				E6D2C77227EDAACF00CB9E0F /* RSCModel.swift */,
 			);
-			path = Home;
+			path = HomeM;
 			sourceTree = "<group>";
 		};
-		E6D2C73527EBFE5200CB9E0F /* Plan */ = {
+		E6D2C73527EBFE5200CB9E0F /* PlanM */ = {
 			isa = PBXGroup;
 			children = (
 				849E908627EDF80500D870D7 /* PlanModel.swift */,
 				849E908A27EDFA8300D870D7 /* PDetailModel.swift */,
 			);
-			path = Plan;
+			path = PlanM;
 			sourceTree = "<group>";
 		};
 		E6D2C73827EBFF0500CB9E0F /* PlanVM */ = {
@@ -520,47 +509,47 @@
 			path = PlanVM;
 			sourceTree = "<group>";
 		};
-		E6D2C74327EC280600CB9E0F /* Plan */ = {
+		E6D2C74327EC280600CB9E0F /* PlanCell */ = {
 			isa = PBXGroup;
 			children = (
 				E6E0A4FA27E2C92D00718EA2 /* PlanVCCell.swift */,
 				E6D2C74127EC27C900CB9E0F /* PlanDeatilVCCell.swift */,
 			);
-			path = Plan;
+			path = PlanCell;
 			sourceTree = "<group>";
 		};
-		E6D2C74427EC296900CB9E0F /* DashBoard */ = {
+		E6D2C74427EC296900CB9E0F /* TotalM */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C74527EC297B00CB9E0F /* DashBoardModel.swift */,
+				84B88BF827EF45660075A697 /* TotalModel.swift */,
 			);
-			path = DashBoard;
+			path = TotalM;
 			sourceTree = "<group>";
 		};
-		E6D2C74727EC298600CB9E0F /* DashBoardVM */ = {
+		E6D2C74727EC298600CB9E0F /* TotalVM */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C74827EC299B00CB9E0F /* DashBoardViewModel.swift */,
+				84B88BFA27EF46B20075A697 /* TotalViewModel.swift */,
 			);
-			path = DashBoardVM;
+			path = TotalVM;
 			sourceTree = "<group>";
 		};
-		E6D2C74A27EC314E00CB9E0F /* DashBoard */ = {
+		E6D2C74A27EC314E00CB9E0F /* TotalCell */ = {
 			isa = PBXGroup;
 			children = (
 				E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */,
 				E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */,
 			);
-			path = DashBoard;
+			path = TotalCell;
 			sourceTree = "<group>";
 		};
-		E6D2C74F27EC334400CB9E0F /* Setting */ = {
+		E6D2C74F27EC334400CB9E0F /* SettingM */ = {
 			isa = PBXGroup;
 			children = (
 				E6D2C75027EC335400CB9E0F /* SettingModel.swift */,
 				E6D2C75727EC48EE00CB9E0F /* ManageListModel.swift */,
 			);
-			path = Setting;
+			path = SettingM;
 			sourceTree = "<group>";
 		};
 		E6D2C75227EC336C00CB9E0F /* SettingVM */ = {
@@ -850,17 +839,16 @@
 				E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */,
 				E6E0A4F727E1C0DB00718EA2 /* TotalListVC.swift in Sources */,
 				E601BE3F27DB40C400BFF7BD /* SettingVC.swift in Sources */,
+				84B88BFB27EF46B20075A697 /* TotalViewModel.swift in Sources */,
 				E6D2C76B27ED960900CB9E0F /* HomeCell.swift in Sources */,
+				84B88BF927EF45660075A697 /* TotalModel.swift in Sources */,
 				E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */,
 				E601BE4127E0100000BFF7BD /* ProfileVC.swift in Sources */,
 				849E908D27EDFAC200D870D7 /* PDetailViewModel.swift in Sources */,
 				E6E0A50227E43F0C00718EA2 /* TotalVC.swift in Sources */,
-				E6D2C74927EC299B00CB9E0F /* DashBoardViewModel.swift in Sources */,
 				E6D2C77327EDAACF00CB9E0F /* RSCModel.swift in Sources */,
 				E6A0086527C60CB600AB8D2D /* WriteVC.swift in Sources */,
-				E65D5B9127CF4E35009E16EE /* EnptyCollectionViewCell.swift in Sources */,
 				849E908927EDF83800D870D7 /* PlanViewModel.swift in Sources */,
-				E6D2C74627EC297B00CB9E0F /* DashBoardModel.swift in Sources */,
 				E6584F8B27B341A400B58FCB /* LoginVC.swift in Sources */,
 				E6D2C72427EAAAFE00CB9E0F /* DataService.swift in Sources */,
 				849E908727EDF80500D870D7 /* PlanModel.swift in Sources */,

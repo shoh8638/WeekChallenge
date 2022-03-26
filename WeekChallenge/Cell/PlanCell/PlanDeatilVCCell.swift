@@ -21,9 +21,10 @@ class PlanDetailVCCell: UICollectionViewCell {
         ApplyService().applyDetailListShadow(cell: self)
     }
     
-    func update(info: PDetailModel) {
+    func update(info: PDetailModel, index: Int) {
         mainTitle.text = info.title
         mainText.text = info.text
+        PDetailViewModel(pDeatilM: [info]).loadUserImg(index: index, img: imageView)
     }
     
     func emptyUpdate() {

@@ -47,15 +47,16 @@ extension PlanVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         } else {
             let cell = listCollection.dequeueReusableCell(withReuseIdentifier: "list", for: indexPath) as! PlanVCCell
             let data = pVM.numberOfCellIndex(index: indexPath.row)
-            cell.update(info: data)
-            contributeView().LSHViewChange(view: cell.LSHView, count: pVM.numberOfLSHView(index: indexPath.row))
+            cell.update(info: data, index: indexPath.row)
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("PlanVC cell Select")
-        if pVM != nil {
+        if pVM.planM.isEmpty {
+            AlertService().basicAlert(viewController: self, message: "플랜을 생성해주세요!")
+        } else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Ex") as! PlanDetailVC
             vc.documentID = pVM.numberOfDBID(index: indexPath.row)
             vc.mainTitle  = pVM.numberOfTitle(index: indexPath.row)

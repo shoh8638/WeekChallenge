@@ -22,10 +22,11 @@ class PlanVCCell: UICollectionViewCell {
         ApplyService().applyListShadow(cell: self)
     }
     
-    func update(info: PlanModel) {
+    func update(info: PlanModel, index: Int) {
         title.text = info.title!
         subTitle.text = info.title!
         period.text = "\(info.firstDate!) ~ \(info.lastDate!)"
+        contributeView().LSHViewChange(view: LSHView, count: info.complete!)
     }
     
     func emptyUpdate() {

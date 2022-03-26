@@ -11,6 +11,11 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var periodText: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        ApplyService().applyHomeCellShadow(cell: self)
+    }
+    
     func rscUpdate(info: RSCModel) {
         title.text = info.title
         periodText.text = "\(info.firstDate!) ~ \(info.lastDate!)"

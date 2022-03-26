@@ -10,7 +10,6 @@ import Firebase
 import SDWebImage
 
 class DataService {
-    var dbM = DashBoardModel()
     var mlM = ManageListModel()
     let db = Firestore.firestore()
 }
@@ -291,6 +290,64 @@ extension DataService {
             collection.reloadData()
         }
     }
+    
+    //DashBoard
+    func TotalImgLoadData(collection: UICollectionView, completion: @escaping ([TotalModel?]) -> ()) {
+        var dbM: TotalModel?
+        var dbVM = [dbM]
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        self.db.collection(userID).addSnapshotListener{ (querySnapshot, err) in
+            dbVM.removeAll()
+            for document in querySnapshot!.documents {
+                if document.documentID != "UserData" {
+                    let dbID = document.documentID
+                    let title = document.data()["Title"] as! String
+                    
+                    let dates = (document["Dates"] as! [String]).sorted(by: <)
+                    for i in 0...dates.count-1 {
+                        let dateFields = document[dates[i]] as! [String: String]
+                        let userTitle = dateFields["Title"]!
+                        let userImg = dateFields["Image"]!
+                        let userText = dateFields["Text"]!
+                        if userTitle != "" && userImg != "" && userText != "" {
+                            dbM = TotalModel(dbID: dbID, title: title, userTitle: userTitle, userImg: userImg, userText: userText)
+                            dbVM.append(dbM!)
+                        }
+                    }
+                }
+            }
+            completion(dbVM)
+            collection.reloadData()
+        }
+    }
+    
+    func searchLoadData(searchText: String, collection: UICollectionView, completion: @escaping ([TotalModel?]) -> ()) {
+
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        var dbM: TotalModel?
+        var dbVM = [dbM]
+        self.db.collection(userID).getDocuments { (querySnapshot, err) in
+            dbVM.removeAll()
+            for document in querySnapshot!.documents {
+                if document.documentID != "UserData" {
+                    let dbID = document.documentID
+                    let dates = (document["Dates"] as! [String]).sorted(by: <)
+                    for i in 0...dates.count-1 {
+                        let dateFields = document[dates[i]] as! [String: String]
+                        let title = dateFields["Title"]!
+                        let img = dateFields["Image"]!
+                        let text = dateFields["Text"]!
+                        if text.contains(searchText) {
+                            dbM = TotalModel(dbID: dbID, title: "", userTitle: title, userImg: img, userText: text)
+                            dbVM.append(dbM)
+                        }
+                    }
+                }
+            }
+            completion(dbVM)
+            collection.reloadData()
+        }
+    }
 }
 //MARK: LoadData
 extension DataService {
@@ -324,82 +381,6 @@ extension DataService {
                     print("ETCVC err")
                 }
             }
-        }
-    }
-    
-    
-    
-    func boardLoadData(collection: UICollectionView, completion: @escaping (DashBoardModel) -> ()) {
-        guard let userID = Auth.auth().currentUser?.email else {return}
-        
-        self.db.collection(userID).addSnapshotListener{ (querySnapshot, err) in
-            self.dbM.dbID.removeAll()
-            self.dbM.dbTitles.removeAll()
-            self.dbM.userTitles.removeAll()
-            self.dbM.userImg.removeAll()
-            self.dbM.userText.removeAll()
-            for document in querySnapshot!.documents {
-                if document.documentID != "UserData" {
-                    self.dbM.dbID.append(document.documentID)
-                    self.dbM.dbTitles.append(document.data()["Title"] as! String)
-                    
-                    let dates = (document["Dates"] as! [String]).sorted(by: <)
-                    for i in 0...dates.count-1 {
-                        let dateFields = document[dates[i]] as! [String: String]
-                        let title = dateFields["Title"]!
-                        let img = dateFields["Image"]!
-                        let text = dateFields["Text"]!
-                        if title != "" && img != "" && text != "" {
-                            self.dbM.userTitles.append(title)
-                            self.dbM.userImg.append(img)
-                            self.dbM.userText.append(text)
-                        }
-                    }
-                }
-            }
-            completion(self.dbM)
-            collection.reloadData()
-        }
-    }
-    
-    func boardSetImg(img: UIImageView, view: UIView, imgUrl: String) {
-        if imgUrl != "" {
-            Storage.storage().reference(forURL: imgUrl).downloadURL { (url, error) in
-                if url != nil {
-                    ApplyService().imgOnlyCornerApply(view: view, img: img)
-                    img.sd_setImage(with: url!, completed: nil)
-                } else {
-                    print("DashBoardVC err: \(error!)")
-                }
-            }
-        }
-    }
-    
-    func searchLoadData(searchText: String, collection: UICollectionView, completion: @escaping (DashBoardModel) -> ()) {
-        guard let userID = Auth.auth().currentUser?.email else {return}
-        
-        self.db.collection(userID).getDocuments { (querySnapshot, err) in
-            for document in querySnapshot!.documents {
-                if document.documentID != "UserData" {
-                    let dates = (document["Dates"] as! [String]).sorted(by: <)
-                    for i in 0...dates.count-1 {
-                        let dateFields = document[dates[i]] as! [String: String]
-                        let title = dateFields["Title"]!
-                        let img = dateFields["Image"]!
-                        let text = dateFields["Text"]!
-                        if text.contains(searchText) {
-                            self.dbM.userTitles.append(title)
-                            self.dbM.userImg.append(img)
-                            self.dbM.userText.append(text)
-                            
-                            let range = document.documentID.firstIndex(of: "+") ?? document.documentID.endIndex
-                            self.dbM.dbTitles.append(String(document.documentID[..<range]))
-                        }
-                    }
-                }
-            }
-            completion(self.dbM)
-            collection.reloadData()
         }
     }
     

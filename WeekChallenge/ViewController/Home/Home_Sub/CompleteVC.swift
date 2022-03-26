@@ -65,7 +65,7 @@ extension CompleteVC: UITableViewDataSource, UITableViewDelegate {
         if self.completeVM != nil {
             if completeVM.numberOfRowInSection() == 0 {
                 let cell = completeTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
-                cell.emptyUpdate(info: "플랜을 생성해주세요!")
+                cell.emptyUpdate(info: "완료된 플랜이 없습니다.")
                 return cell
             } else {
                 let cell = completeTable.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell

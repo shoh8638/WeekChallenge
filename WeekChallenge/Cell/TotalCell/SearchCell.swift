@@ -19,4 +19,16 @@ class searchCell: UICollectionViewCell {
         ApplyService().onlyCornerApply(view: totalView)
         ApplyService().applySearchCellShadow(cell: self)
     }
+    
+    func update(info: TotalModel, index: Int) {
+        mainTitle.text = info.userTitle
+        mainText.text = info.userText
+        TotalViewModel(totalM: [info]).loadUserImg(index: index, img: img)
+    }
+    //초기화 이미지 정해두기
+    func emptyCell() {
+        mainText.text = "검색 결과가 없습니다."
+        mainTitle.text = ""
+    }
 }
+
