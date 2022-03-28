@@ -13,7 +13,7 @@ class PlanVCCell: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var period: UILabel!
-    @IBOutlet weak var LSHView: UIView!
+    @IBOutlet weak var changeView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +26,7 @@ class PlanVCCell: UICollectionViewCell {
         title.text = info.title!
         subTitle.text = info.title!
         period.text = "\(info.firstDate!) ~ \(info.lastDate!)"
-        contributeView().LSHViewChange(view: LSHView, count: info.complete!)
+        contributeView().LSHViewChange(view: changeView, count: info.complete!)
     }
     
     func emptyUpdate() {

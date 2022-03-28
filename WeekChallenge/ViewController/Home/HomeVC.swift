@@ -51,6 +51,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.scope = .week
         
+        listTable.rowHeight = UITableView.automaticDimension
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         self.currentDate.text = formatter.string(from: Date())
@@ -130,9 +131,9 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        dataVM.heightOfCell(table: listTable)
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        dataVM.heightOfCell(table: listTable)
+//    }
 }
 
 //MARK: FSCalendar

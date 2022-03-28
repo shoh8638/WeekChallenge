@@ -17,16 +17,13 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var settingTable: UITableView!
     
-    @IBOutlet weak var imgfirst: UIImageView!
-    
     let db = Firestore.firestore()
-    var settingTitle = ["프로필 변경","계정 설정","로그아웃","계정삭제"]
-    var settingImg = ["","","",""]
     let sVM = SettingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
+        settingTable.rowHeight = UITableView.automaticDimension
         setup()
         loadData()
     }
@@ -81,10 +78,12 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
         case 0:
             ConnectService().sendVC(main: self, name: "SetProfile")
         case 1:
-            AlertService().accountAlert(main: self)
+            ConnectService().sendVC(main: self, name: "SetProfile")
         case 2:
-            ConnectService().sendVC(main: self, name: "SetLogOut")
+            AlertService().accountAlert(main: self)
         case 3:
+            ConnectService().sendVC(main: self, name: "SetLogOut")
+        case 4:
             ConnectService().sendVC(main: self, name: "SetRemove")
         default:
             print("")

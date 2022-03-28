@@ -362,7 +362,7 @@ extension DataService {
                 let data = document!.data()
                 let username = data!["UserName"] as! String
                 if username != "" {
-                    userName.text = username
+                    userName.text = "Hello! \(username)"
                 } else {
                     userName.text = ""
                 }

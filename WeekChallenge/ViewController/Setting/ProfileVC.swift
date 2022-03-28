@@ -25,7 +25,7 @@ class ProfileVC: UIViewController {
         picker.delegate = self
         setUp()
     }
-    //CGColor(red: 223, green: 231, blue: 245, alpha: 1)
+
     @IBAction func bakcGes(_ sender: UIGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }

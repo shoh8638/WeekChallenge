@@ -38,7 +38,7 @@ struct DataViewModel {
         if dataM.count == 0 {
             return table.frame.height
         } else {
-            return table.frame.height / 3
+            return table.frame.height / 4
         }
     }
 }
