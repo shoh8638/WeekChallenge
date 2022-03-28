@@ -309,4 +309,127 @@ class Dummy: NSObject {
      }
  }
 
+ 
+ //
+ //  SettingVC.swift
+ //  WeekChallenge
+ //
+ //  Created by shoh on 2022/03/11.
+
+ import UIKit
+ import Firebase
+ import FirebaseStorage
+ import SDWebImage
+
+ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
+     
+     @IBOutlet weak var imgView: UIImageView!
+     @IBOutlet weak var mainView: UIView!
+     @IBOutlet weak var userImg: UIImageView!
+     @IBOutlet weak var userName: UILabel!
+     @IBOutlet weak var settingTable: UITableView!
+     
+     @IBOutlet weak var imageWidth: NSLayoutConstraint!
+     @IBOutlet weak var imageHeight: NSLayoutConstraint!
+     
+     let db = Firestore.firestore()
+     let sVM = SettingViewModel()
+     
+     override func viewDidLoad() {
+         super.viewDidLoad()
+         ConnectService().Network(view: self)
+         settingTable.rowHeight = UITableView.automaticDimension
+         setup()
+         loadData()
+     }
+     
+     override func viewWillDisappear(_ animated: Bool) {
+         loadData()
+     }
+     
+     func setup() {
+         let tap = UITapGestureRecognizer(target: self, action: #selector(imgTap(sender:)))
+         self.userImg.addGestureRecognizer(tap)
+         self.userImg.isUserInteractionEnabled = true
+         
+         ApplyService().imgApplyLayer(img: imgView)
+         ApplyService().onlyCornerApply(view: mainView)
+     }
+     
+     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+         self.view.endEditing(true)
+         return true
+     }
+     
+     @objc func imgTap(sender: UIGestureRecognizer) {
+         let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeProfile") as! HomeProfile
+         vc.modalTransitionStyle = .crossDissolve
+         vc.modalPresentationStyle = .overFullScreen
+         self.present(vc, animated: true, completion: nil)
+     }
+     
+     func loadData() {
+         DataService().settingLoadData(userName: userName, userImg: userImg)
+     }
+ }
+
+ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
+     
+     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+         return sVM.headerTitle()
+     }
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return sVM.numberOfItem()
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = settingTable.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! setTableCell
+         cell.title.text = sVM.numberOfTitle(index: indexPath.row)
+         return cell
+     }
+     
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         switch indexPath.row {
+         case 0:
+             ConnectService().sendVC(main: self, name: "SetProfile")
+         case 1:
+             ConnectService().sendVC(main: self, name: "SetProfile")
+         case 2:
+             AlertService().accountAlert(main: self)
+         case 3:
+             ConnectService().sendVC(main: self, name: "SetLogOut")
+         case 4:
+             ConnectService().sendVC(main: self, name: "SetRemove")
+         default:
+             print("")
+         }
+     }
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         return UIScreen.main.bounds.height / 4
+     }
+ }
+
+ class setTableCell: UITableViewCell {
+     @IBOutlet weak var iconImg: UIImageView!
+     @IBOutlet weak var title: UILabel!
+     @IBOutlet weak var arrowBtn: UIButton!
+ }
+
+ class setCollectionCell: UICollectionViewCell {
+     @IBOutlet weak var settingTitle: UILabel!
+     @IBOutlet weak var nameView: UIView!
+     
+  func update(info: SetModel) {
+         //img.image = info.image
+         contentView.layer.cornerRadius = 20
+         settingTitle.text = info.title
+         self.layer.cornerRadius = 20
+         nameView.layer.cornerRadius = 20
+         self.layer.masksToBounds = false
+         self.layer.shadowColor = UIColor.black.cgColor
+         self.layer.shadowOpacity = 0.14
+         self.layer.shadowOffset = CGSize(width: 10, height: 0)
+         self.layer.shadowRadius = 7 / 2.0
+     }
+ }
  */

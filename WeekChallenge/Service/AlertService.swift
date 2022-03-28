@@ -109,8 +109,11 @@ class AlertService {
             main.present(vc, animated: true, completion: nil)
         }
         
+        let cancel = UIAlertAction(title: "취소", style: .destructive)
+        
         alert.addAction(changeNick)
         alert.addAction(changePass)
+        alert.addAction(cancel)
         main.present(alert, animated: true, completion: nil)
     }
     
