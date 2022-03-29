@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingVC: UIViewController {
+class SettingVC: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var settingCollection: UICollectionView!
     @IBOutlet weak var mainView: UIView!
@@ -22,6 +22,7 @@ class SettingVC: UIViewController {
         ApplyService().onlyCornerApply(view: mainView)
         ApplyService().imgApplyLayer(img: userImg)
         loadData()
+        setUp()
     }
     
     func loadData() {
@@ -31,6 +32,18 @@ class SettingVC: UIViewController {
             self.userVM.loadUserImg(img: self.userImg)
         }
     }
+    
+    func setUp() {
+        let tap = UIGestureRecognizer(target: self, action: #selector(xButtonTap(sender:)))
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
+        self.view.isUserInteractionEnabled = true
+    }
+    
+    @objc func xButtonTap(sender: UIGestureRecognizer) {
+        print("Tap")
+    }
+    
 }
 
 //MARK: UICollectionView
@@ -52,7 +65,8 @@ extension SettingVC: UICollectionViewDataSource, UICollectionViewDelegate, UICol
         case 0:
             ConnectService().sendVC(main: self, name: "SetProfile")
         case 1:
-            ConnectService().sendVC(main: self, name: "SetProfile")
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetList")
+            self.present(vc!, animated: true)
         case 2:
             AlertService().accountAlert(main: self)
         case 3:
@@ -63,7 +77,6 @@ extension SettingVC: UICollectionViewDataSource, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print(settingCollection.frame.width / 2)
         return CGSize(width: (settingCollection.frame.width / 2) - 22, height: (settingCollection.frame.height / 2 - 12))
     }
 }

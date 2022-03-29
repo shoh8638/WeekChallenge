@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import SwiftOverlays
+import SDWebImage
 
 class PlanDetailVC: UIViewController {
     
@@ -67,7 +68,17 @@ extension PlanDetailVC: UICollectionViewDataSource, UICollectionViewDelegate {
         } else {
             let cell = DetatilCollection.dequeueReusableCell(withReuseIdentifier: "detailList", for: indexPath) as! PlanDetailVCCell
             let data = pdVM.numberOfCellIndex(index: indexPath.row)
-            cell.update(info: data, index: indexPath.row)
+            cell.update(info: data, url: pdVM.numberOfImg(index: indexPath.row))
+            
+            
+            
+//            Storage.storage().reference(forURL: pdVM.numberOfImg(index: indexPath.row)).downloadURL { (url, error) in
+//                if url != nil {
+//                    cell.imageView.sd_setImage(with: url!, completed: nil)
+//                } else {
+//                    print("PDetailViewModel url err: \(error!)")
+//                }
+//            }
             return cell
         }
     }

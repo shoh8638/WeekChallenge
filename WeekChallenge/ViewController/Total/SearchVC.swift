@@ -52,7 +52,7 @@ extension SearchVC: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         } else {
             let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "cellTwo", for: indexPath) as! searchCell
             let data = self.totalVM.numberOfCellIndex(index: indexPath.row)
-            cell.update(info: data, index: indexPath.row)
+            cell.update(info: data, url: totalVM.nuberOfImg(index: indexPath.row))
             return cell
         }
     }

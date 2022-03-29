@@ -109,7 +109,7 @@ extension TotalVC: UICollectionViewDataSource, UICollectionViewDelegate{
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
             cell.layer.cornerRadius = 20
-            totlaVM.loadUserImg(index: indexPath.row, img: cell.img)
+            totlaVM.totalUseImg(index: indexPath.row, img: cell.img)
             return cell
         }
     }

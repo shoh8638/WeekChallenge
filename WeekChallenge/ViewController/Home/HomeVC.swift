@@ -131,9 +131,6 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        dataVM.heightOfCell(table: listTable)
-//    }
 }
 
 //MARK: FSCalendar

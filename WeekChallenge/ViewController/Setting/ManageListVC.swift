@@ -9,24 +9,21 @@ import UIKit
 
 class ManageListVC: UIViewController, UIGestureRecognizerDelegate {
 
-    var mlM = ManageListModel()
-    var mlVM = ManageListViewModel()
+    var manageVM: ManageViewModel!
     
-    @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var xButton: UIImageView!
+//    @IBOutlet weak var mainView: UIView!
+//    @IBOutlet weak var xButton: UIImageView!
     @IBOutlet weak var manageCollection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
     }
     
     func setUp() {
-        ApplyService().onlyCornerApply(view: mainView)
-        ApplyService().imgApplyLayer(img: xButton)
-        
         let tap = UIGestureRecognizer(target: self, action: #selector(xButtonTap(sender:)))
         tap.delegate = self
-        xButton.addGestureRecognizer(tap)
+        self.view.addGestureRecognizer(tap)
     }
     
     @objc func xButtonTap(sender: UIGestureRecognizer) {
@@ -35,22 +32,21 @@ class ManageListVC: UIViewController, UIGestureRecognizerDelegate {
     
     func loadData() {
         DataService().manageLoadData(collection: manageCollection) { model in
-            self.mlM = model
+            self.manageVM = ManageViewModel(manageM: model)
         }
     }
 }
 
 //MARK: CollectionView DataSource
-extension ManageListVC: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ManageListVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mlVM.numberOfItems(mlM: mlM)
+        return manageVM.numberOfRowsInSection()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = manageCollection.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManageCell
-        cell.mainTitle.text = mlVM.numberOfTitles(mlM: mlM, index: indexPath.row)
-        cell.subTitle.text = mlVM.numberOfTitles(mlM: mlM, index: indexPath.row)
-        cell.period.text = mlVM.numberOfDates(mlM: mlM, index: indexPath.row)
+        let data = manageVM.numberOfCellIndex(index: indexPath.row)
+        cell.update(info: data)
         
         cell.updateBtn.tag = indexPath.row
         cell.removeBtn.tag = indexPath.row
@@ -62,22 +58,23 @@ extension ManageListVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     @objc func changeBtn(sender: UIButton) {
-        AlertService().updatePlan(view: self, dbID: mlVM.numberOfID(mlM: mlM, index: sender.tag))
+        AlertService().updatePlan(view: self, dbID: manageVM.numberOfDBID(index: sender.tag))
     }
     
     @objc func removeBtn(sender: UIButton) {
-        AlertService().deletePlan(view: self, message: mlVM.numberOfTitles(mlM: mlM, index: sender.tag), dbID: mlVM.numberOfID(mlM: mlM, index: sender.tag))
+        AlertService().deletePlan(view: self, message: manageVM.numberOfTitle(index: sender.tag), dbID: manageVM.numberOfDBID(index: sender.tag))
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.height/2)
+        return CGSize(width: UIScreen.main.bounds.width/2-20, height: UIScreen.main.bounds.height/4)
     }
 }
 
 class ManageCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var totalView: UIView!
-    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var mainSubView: UIView!
     @IBOutlet weak var mainTitle: UILabel!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var period: UILabel!
@@ -86,9 +83,16 @@ class ManageCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ApplyService().onlyCornerApply(view: backView)
         ApplyService().onlyCornerApply(view: totalView)
+        ApplyService().onlyCornerApply(view: mainView)
+        ApplyService().onlyCornerApply(view: mainSubView)
         ApplyService().applyManageCellShadow(cell: self)
+    }
+    
+    func update(info: ManageModel) {
+        mainTitle.text = info.title
+        subTitle.text = info.title
+        period.text = "\(info.firstDate!) ~ \(info.lastDate!)"
     }
 }
 

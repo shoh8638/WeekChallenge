@@ -20,10 +20,13 @@ struct PDetailViewModel {
         return pDeatilM[index]!
     }
     
-    func loadUserImg(index: Int, img: UIImageView){
-        let imgUrl = pDeatilM[index]!.img
+    func numberOfImg(index: Int) -> String {
+        return pDeatilM[index]!.img
+    }
+    
+    func loadUserImg(url: String, img: UIImageView){
         
-        Storage.storage().reference(forURL: imgUrl).downloadURL { (url, error) in
+        Storage.storage().reference(forURL: url).downloadURL { (url, error) in
             if url != nil {
                img.sd_setImage(with: url!, completed: nil)
             } else {

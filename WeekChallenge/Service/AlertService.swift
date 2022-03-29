@@ -124,9 +124,7 @@ class AlertService {
             text.placeholder = "변경할 이름"
         }
         
-        let exitBtn = UIAlertAction(title: "취소", style: .destructive) { _ in
-            view.dismiss(animated: true)
-        }
+        let exitBtn = UIAlertAction(title: "취소", style: .destructive)
         let okBtn = UIAlertAction(title: "확인", style: .default) { _ in
             let newTitle = (alert.textFields?[0].text)!
             DataService().updatePlanName(dbID: dbID, newTitle: newTitle)
@@ -140,9 +138,7 @@ class AlertService {
     func deletePlan(view: UIViewController, message: String, dbID: String) {
         let alert = UIAlertController(title: "알림", message: "\(message) 삭제 하시겠습니까?", preferredStyle: .alert)
         
-        let exitBtn = UIAlertAction(title: "취소", style: .destructive) { _ in
-            view.dismiss(animated: true)
-        }
+        let exitBtn = UIAlertAction(title: "취소", style: .destructive)
         let okBtn = UIAlertAction(title: "확인", style: .default) { _ in
             DataService().removePlan(dbID: dbID)
             print("DB에서 해당 플랜 삭제")

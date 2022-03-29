@@ -20,7 +20,21 @@ struct TotalViewModel {
         return totalM[index]!
     }
     
-    func loadUserImg(index: Int, img: UIImageView){
+    func nuberOfImg(index: Int) -> String {
+        return totalM[index]!.userImg
+    }
+    
+    func loadUserImg(url: String, img: UIImageView){
+        
+        Storage.storage().reference(forURL: url).downloadURL { (url, error) in
+            if url != nil {
+               img.sd_setImage(with: url!, completed: nil)
+            } else {
+                print("PDetailViewModel url err: \(error!)")
+            }
+        }
+    }
+    func totalUseImg(index: Int, img: UIImageView) {
         let imgUrl = totalM[index]!.userImg
         
         Storage.storage().reference(forURL: imgUrl).downloadURL { (url, error) in
@@ -31,7 +45,6 @@ struct TotalViewModel {
             }
         }
     }
-    
     func heightOfCell(collection: UICollectionView) -> CGSize {
         return CGSize(width: collection.bounds.width - 100, height: collection.bounds.height - 200)
     }

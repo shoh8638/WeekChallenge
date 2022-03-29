@@ -10,7 +10,7 @@ import Foundation
 struct PlanViewModel {
     let planM: [PlanModel?]
     
-    func numberOfRowsInSection() -> Int{
+    func numberOfRowsInSection() -> Int {
         return planM.count
     }
     

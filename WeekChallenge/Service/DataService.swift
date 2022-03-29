@@ -10,19 +10,15 @@ import Firebase
 import SDWebImage
 
 class DataService {
-    var mlM = ManageListModel()
     let db = Firestore.firestore()
-}
-
-//MARK: MVVM Pattern 적용
-extension DataService {
+    
     //MARK: HomeVC
     func userLodaData(completion: @escaping (UserModel) -> ()) {
         guard let userID = Auth.auth().currentUser?.email else {return}
-
+        
         self.db.collection(userID).document("UserData").addSnapshotListener {(querySnapshot, err) in
             guard let document = querySnapshot else { return }
-                  guard let data = document.data() else { return }
+            guard let data = document.data() else { return }
             let userName = data["UserName"] as! String
             let imgUrl = data["Profile"] as! String
             completion(UserModel(userName: userName, imgUrl: imgUrl))
@@ -31,9 +27,9 @@ extension DataService {
     
     func countLoadData(completion: @escaping (CountModel) -> ()) {
         var complete = [Int]()
-
+        
         guard let userID = Auth.auth().currentUser?.email else {return}
-
+        
         self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
             complete.removeAll()
             var runningCount = 0
@@ -69,7 +65,7 @@ extension DataService {
         
         var userDLM: DataModel?
         var userArr = [userDLM]
-
+        
         self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
             userArr.removeAll()
             for document in querySnapshot!.documents {
@@ -168,8 +164,8 @@ extension DataService {
                             }
                         }
                         if !complete.contains(0) {
-                        let title = document["Title"] as! String
-                           let firstDate = dates.first!
+                            let title = document["Title"] as! String
+                            let firstDate = dates.first!
                             let lastDate = dates.last!
                             completeM = RSCModel(title: title, firstDate: firstDate, lastDate: lastDate)
                             completeVM.append(completeM)
@@ -234,7 +230,7 @@ extension DataService {
         
         var planM: PlanModel?
         var planVM = [planM]
-
+        
         self.db.collection(userID).addSnapshotListener {(querySnapshot, err) in
             planVM.removeAll()
             for document in querySnapshot!.documents {
@@ -322,7 +318,7 @@ extension DataService {
     }
     
     func searchLoadData(searchText: String, collection: UICollectionView, completion: @escaping ([TotalModel?]) -> ()) {
-
+        
         guard let userID = Auth.auth().currentUser?.email else {return}
         var dbM: TotalModel?
         var dbVM = [dbM]
@@ -348,11 +344,32 @@ extension DataService {
             collection.reloadData()
         }
     }
+    
+    func manageLoadData(collection: UICollectionView, completion: @escaping ([ManageModel?]) -> ()) {
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        var manageM: ManageModel?
+        var manageVM = [manageM]
+        self.db.collection(userID).getDocuments { (querySnapshot, err) in
+            manageVM.removeAll()
+            for document in querySnapshot!.documents {
+                if document.documentID != "UserData" {
+                    let dbID = document.documentID
+                    let title = document.data()["Title"] as! String
+                    let firstDate = (document["Dates"] as! [String]).sorted(by: <).first!
+                    let lastDate = (document["Dates"] as! [String]).sorted(by: <).last!
+                    manageM = ManageModel(title: title, dbID: dbID, firstDate: firstDate, lastDate: lastDate)
+                    manageVM.append(manageM!)
+                }
+            }
+            completion(manageVM)
+            collection.reloadData()
+        }
+    }
 }
 //MARK: LoadData
 extension DataService {
     
-  
+    
     
     func settingLoadData(userName: UILabel, userImg: UIImageView) {
         guard let userID = Auth.auth().currentUser?.email else {return}
@@ -395,23 +412,6 @@ extension DataService {
             } else {
                 message.text = ""
             }
-        }
-    }
-    
-    func manageLoadData(collection: UICollectionView, completion: @escaping (ManageListModel) -> ()) {
-        guard let userID = Auth.auth().currentUser?.email else {return}
-        
-        self.db.collection(userID).getDocuments { (querySnapshot, err) in
-            for document in querySnapshot!.documents {
-                if document.documentID != "UserData" {
-                    self.mlM.dbID.append(document.documentID)
-                    self.mlM.titles.append(document.data()["Title"] as! String)
-                    self.mlM.firstDates.append((document["Dates"] as! [String]).sorted(by: <).first!)
-                    self.mlM.lastDates.append((document["Dates"] as! [String]).sorted(by: <).last!)
-                }
-            }
-            completion(self.mlM)
-            collection.reloadData()
         }
     }
 }

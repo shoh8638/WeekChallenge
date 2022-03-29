@@ -20,10 +20,10 @@ class searchCell: UICollectionViewCell {
         ApplyService().applySearchCellShadow(cell: self)
     }
     
-    func update(info: TotalModel, index: Int) {
+    func update(info: TotalModel, url: String) {
         mainTitle.text = info.userTitle
         mainText.text = info.userText
-        TotalViewModel(totalM: [info]).loadUserImg(index: index, img: img)
+        TotalViewModel(totalM: [info]).loadUserImg(url: url, img: img)
     }
     //초기화 이미지 정해두기
     func emptyCell() {

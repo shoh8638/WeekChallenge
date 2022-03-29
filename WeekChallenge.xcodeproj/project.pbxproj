@@ -53,8 +53,8 @@
 		E6D2C74C27EC315A00CB9E0F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */; };
 		E6D2C74E27EC31CE00CB9E0F /* TotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */; };
 		E6D2C75627EC463C00CB9E0F /* ManageListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75527EC463C00CB9E0F /* ManageListVC.swift */; };
-		E6D2C75827EC48EE00CB9E0F /* ManageListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75727EC48EE00CB9E0F /* ManageListModel.swift */; };
-		E6D2C75A27EC492900CB9E0F /* ManageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75927EC492900CB9E0F /* ManageListViewModel.swift */; };
+		E6D2C75827EC48EE00CB9E0F /* ManageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75727EC48EE00CB9E0F /* ManageModel.swift */; };
+		E6D2C75A27EC492900CB9E0F /* ManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C75927EC492900CB9E0F /* ManageViewModel.swift */; };
 		E6D2C76227ED88AB00CB9E0F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76127ED88AB00CB9E0F /* DataModel.swift */; };
 		E6D2C76427ED88C300CB9E0F /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76327ED88C300CB9E0F /* DataViewModel.swift */; };
 		E6D2C76627ED8AA600CB9E0F /* CountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C76527ED8AA600CB9E0F /* CountModel.swift */; };
@@ -169,8 +169,8 @@
 		E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCell.swift; sourceTree = "<group>"; };
 		E6D2C75527EC463C00CB9E0F /* ManageListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListVC.swift; sourceTree = "<group>"; };
-		E6D2C75727EC48EE00CB9E0F /* ManageListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListModel.swift; sourceTree = "<group>"; };
-		E6D2C75927EC492900CB9E0F /* ManageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListViewModel.swift; sourceTree = "<group>"; };
+		E6D2C75727EC48EE00CB9E0F /* ManageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageModel.swift; sourceTree = "<group>"; };
+		E6D2C75927EC492900CB9E0F /* ManageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViewModel.swift; sourceTree = "<group>"; };
 		E6D2C76127ED88AB00CB9E0F /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		E6D2C76327ED88C300CB9E0F /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		E6D2C76527ED8AA600CB9E0F /* CountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountModel.swift; sourceTree = "<group>"; };
@@ -542,7 +542,7 @@
 		E6D2C74F27EC334400CB9E0F /* SettingM */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C75727EC48EE00CB9E0F /* ManageListModel.swift */,
+				E6D2C75727EC48EE00CB9E0F /* ManageModel.swift */,
 				E6D2C77827F1897800CB9E0F /* SettingModel.swift */,
 			);
 			path = SettingM;
@@ -551,7 +551,7 @@
 		E6D2C75227EC336C00CB9E0F /* SettingVM */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C75927EC492900CB9E0F /* ManageListViewModel.swift */,
+				E6D2C75927EC492900CB9E0F /* ManageViewModel.swift */,
 				E6D2C77A27F1899900CB9E0F /* SettingViewModel.swift */,
 			);
 			path = SettingVM;
@@ -887,7 +887,7 @@
 				E6D2C76427ED88C300CB9E0F /* DataViewModel.swift in Sources */,
 				E667FCB627B9EF6C009AEFE0 /* FirebaseService.swift in Sources */,
 				E6E0A4FD27E2CB9600718EA2 /* AnimationController.swift in Sources */,
-				E6D2C75A27EC492900CB9E0F /* ManageListViewModel.swift in Sources */,
+				E6D2C75A27EC492900CB9E0F /* ManageViewModel.swift in Sources */,
 				E6E0A50027E426C300718EA2 /* Dummy.swift in Sources */,
 				E6D2C76627ED8AA600CB9E0F /* CountModel.swift in Sources */,
 				849E908B27EDFA8300D870D7 /* PDetailModel.swift in Sources */,
@@ -896,7 +896,7 @@
 				E60DA3BC27D1FFAF001DC914 /* ConnectService.swift in Sources */,
 				E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */,
 				E601BE4327E0102000BFF7BD /* AccountVC.swift in Sources */,
-				E6D2C75827EC48EE00CB9E0F /* ManageListModel.swift in Sources */,
+				E6D2C75827EC48EE00CB9E0F /* ManageModel.swift in Sources */,
 				E667FCB827BA1841009AEFE0 /* AlertService.swift in Sources */,
 				E6D2C74227EC27C900CB9E0F /* PlanDeatilVCCell.swift in Sources */,
 				E6D2C76D27ED987A00CB9E0F /* UserModel.swift in Sources */,
