@@ -10,9 +10,7 @@ import UIKit
 class ManageListVC: UIViewController, UIGestureRecognizerDelegate {
 
     var manageVM: ManageViewModel!
-    
-//    @IBOutlet weak var mainView: UIView!
-//    @IBOutlet weak var xButton: UIImageView!
+
     @IBOutlet weak var manageCollection: UICollectionView!
     
     override func viewDidLoad() {
@@ -40,21 +38,35 @@ class ManageListVC: UIViewController, UIGestureRecognizerDelegate {
 //MARK: CollectionView DataSource
 extension ManageListVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return manageVM.numberOfRowsInSection()
+        if manageVM != nil {
+            if manageVM.numberOfRowsInSection() == 0 {
+                return 1
+            } else {
+                return manageVM.numberOfRowsInSection()
+            }
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = manageCollection.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManageCell
-        let data = manageVM.numberOfCellIndex(index: indexPath.row)
-        cell.update(info: data)
-        
-        cell.updateBtn.tag = indexPath.row
-        cell.removeBtn.tag = indexPath.row
-        
-        cell.updateBtn.addTarget(self, action: #selector(changeBtn), for: .touchUpInside)
-        cell.removeBtn.addTarget(self, action: #selector(removeBtn), for: .touchUpInside)
-        
-        return cell
+        if manageVM.numberOfRowsInSection() == 0 {
+            let cell = manageCollection.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManageCell
+            cell.emptyCell()
+            return cell
+        } else {
+            let cell = manageCollection.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManageCell
+            let data = manageVM.numberOfCellIndex(index: indexPath.row)
+            cell.update(info: data)
+            
+            cell.updateBtn.tag = indexPath.row
+            cell.removeBtn.tag = indexPath.row
+            
+            cell.updateBtn.addTarget(self, action: #selector(changeBtn), for: .touchUpInside)
+            cell.removeBtn.addTarget(self, action: #selector(removeBtn), for: .touchUpInside)
+            
+            return cell
+        }
     }
     
     @objc func changeBtn(sender: UIButton) {
@@ -93,6 +105,12 @@ class ManageCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         mainTitle.text = info.title
         subTitle.text = info.title
         period.text = "\(info.firstDate!) ~ \(info.lastDate!)"
+    }
+    
+    func emptyCell() {
+        mainTitle.text = "플랜이 없습니다"
+        subTitle.text = ""
+        period.text = ""
     }
 }
 

@@ -24,6 +24,10 @@ class PlanVC: UIViewController {
             self.pVM = PlanViewModel(planM: model)
         }
     }
+    
+    @IBAction func btn(_ sender: Any) {
+        listCollection.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: true)
+    }
 }
 
 //MARK: CollectionViewDataSource
