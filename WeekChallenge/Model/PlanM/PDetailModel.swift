@@ -11,10 +11,12 @@ struct PDetailModel {
     let title: String
     let img: String
     let text: String
+    let planDate: [String]
     
-    init(title: String, img: String, text: String) {
+    init(title: String, img: String, text: String, planDate: [String]) {
         self.title = title
         self.img = img
         self.text = text
+        self.planDate = planDate
     }
 }

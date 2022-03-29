@@ -19,6 +19,7 @@ class PlanDetailVC: UIViewController {
     @IBOutlet weak var DetatilCollection: UICollectionView!
     @IBOutlet weak var documentTitle: UILabel!
     @IBOutlet weak var detailView: UIView!
+    @IBOutlet weak var addBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class PlanDetailVC: UIViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "writeVC") as! WriteVC
         vc.documentID = self.documentID!
         vc.titles = self.mainTitle!
+        vc.userDates = pdVM.planDate(index: self.addBtn.tag)
         self.present(vc, animated: true)
     }
     
@@ -66,19 +68,10 @@ extension PlanDetailVC: UICollectionViewDataSource, UICollectionViewDelegate {
             cell.emptyUpdate()
             return cell
         } else {
+            self.addBtn.tag = indexPath.row
             let cell = DetatilCollection.dequeueReusableCell(withReuseIdentifier: "detailList", for: indexPath) as! PlanDetailVCCell
             let data = pdVM.numberOfCellIndex(index: indexPath.row)
             cell.update(info: data, url: pdVM.numberOfImg(index: indexPath.row))
-            
-            
-            
-//            Storage.storage().reference(forURL: pdVM.numberOfImg(index: indexPath.row)).downloadURL { (url, error) in
-//                if url != nil {
-//                    cell.imageView.sd_setImage(with: url!, completed: nil)
-//                } else {
-//                    print("PDetailViewModel url err: \(error!)")
-//                }
-//            }
             return cell
         }
     }

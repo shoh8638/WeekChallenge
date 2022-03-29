@@ -20,13 +20,15 @@ class WriteVC: UIViewController {
     var titles: String?
     let picker = UIImagePickerController()
     var imgUrl: String?
+    var dateString: String = ""
+    var userDates: [String]?
     
     @IBOutlet weak var mainTitle: UILabel!
-    @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var newTitle: UITextField!
     @IBOutlet weak var mainText: UITextField!
     @IBOutlet weak var imgView: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,18 +40,29 @@ class WriteVC: UIViewController {
     }
     
     func setText() {
-        let fomatter = DateFormatter()
-        fomatter.dateFormat = "yyyy-MM-dd"
-        let current = String(fomatter.string(from: Date()))
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        dateString = formatter.string(from: datePicker.date)
+        
+        datePicker.addTarget(self, action: #selector(pickerDate), for: .valueChanged)
         
         self.mainTitle.text = titles!
-        self.currentDate.text = current
     }
     
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    @objc func pickerDate() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        dateString = formatter.string(from: datePicker.date)
+    }
     
     @IBAction func saveDB(_ sender: Any) {
         self.showTextOverlay("please Wait....")
-        if self.newTitle.text != nil && self.mainText.text != nil && self.imageView.image != nil {
+        if self.newTitle.text != nil && self.mainText.text != nil && self.imageView.image != nil && self.userDates!.contains(self.dateString) {
             let fomatter = DateFormatter()
             fomatter.dateFormat = "yyyy-MM-dd"
             let current = String(fomatter.string(from: Date()))

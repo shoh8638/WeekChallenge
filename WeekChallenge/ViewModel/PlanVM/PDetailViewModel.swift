@@ -24,6 +24,10 @@ struct PDetailViewModel {
         return pDeatilM[index]!.img
     }
     
+    func planDate(index: Int) -> [String] {
+        return pDeatilM[index]!.planDate
+    }
+    
     func loadUserImg(url: String, img: UIImageView){
         
         Storage.storage().reference(forURL: url).downloadURL { (url, error) in

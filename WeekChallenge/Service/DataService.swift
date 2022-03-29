@@ -277,7 +277,7 @@ class DataService {
                     let img = dateFields["Image"]!
                     let text = dateFields["Text"]!
                     if title != "" {
-                        pdM = PDetailModel(title: title, img: img, text: text)
+                        pdM = PDetailModel(title: title, img: img, text: text, planDate: dates)
                         pdVM.append(pdM)
                     }
                 }
