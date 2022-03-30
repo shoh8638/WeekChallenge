@@ -17,16 +17,16 @@ class PlanVCCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ApplyService().onlyCornerApply(view: backView)
-        ApplyService().onlyCornerApply(view: secondView)
-        ApplyService().applyListShadow(cell: self)
+        LayoutService().onlyCornerApply(view: backView)
+        LayoutService().onlyCornerApply(view: secondView)
+        LayoutService().applyListShadow(cell: self)
     }
     
     func update(info: PlanModel, index: Int) {
         title.text = info.title!
         subTitle.text = info.title!
         period.text = "\(info.firstDate!) ~ \(info.lastDate!)"
-        contributeView().LSHViewChange(view: changeView, count: info.complete!)
+        ContributeView().LSHViewChange(view: changeView, count: info.complete!)
     }
     
     func emptyUpdate() {

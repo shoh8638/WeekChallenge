@@ -95,10 +95,10 @@ class ManageCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ApplyService().onlyCornerApply(view: totalView)
-        ApplyService().onlyCornerApply(view: mainView)
-        ApplyService().onlyCornerApply(view: mainSubView)
-        ApplyService().applyManageCellShadow(cell: self)
+        LayoutService().onlyCornerApply(view: totalView)
+        LayoutService().onlyCornerApply(view: mainView)
+        LayoutService().onlyCornerApply(view: mainSubView)
+        LayoutService().applyManageCellShadow(cell: self)
     }
     
     func update(info: ManageModel) {

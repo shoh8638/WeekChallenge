@@ -7,8 +7,6 @@
 
 import UIKit
 import SwiftOverlays
-import Firebase
-import Pageboy
 
 class AlertService {
     func loginAlert(message: String, vc: UIViewController) {
@@ -77,7 +75,7 @@ class AlertService {
         let action = UIAlertAction(title: "확인", style: .default) { _ in
             vc.showTextOverlay("잠시만 기다려주세요!")
             let titleText = (alert.textFields?[0].text)!
-            FirebaseService().createDB(folderName: titleText, date: date)
+            DataService().createDB(folderName: titleText, date: date)
             vc.removeAllOverlays()
             vc.dismiss(animated: true, completion: nil)
         }

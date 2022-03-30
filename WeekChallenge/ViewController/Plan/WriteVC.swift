@@ -22,36 +22,28 @@ class WriteVC: UIViewController {
     var imgUrl: String?
     var dateString: String = ""
     var userDates: [String]?
+    var uploadImg: UIImage?
     
-    @IBOutlet weak var mainTitle: UILabel!
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var newTitle: UITextField!
     @IBOutlet weak var mainText: UITextField!
-    @IBOutlet weak var imgView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
+        LayoutService().onlyCornerApply(view: mainView)
+        LayoutService().imgOnlyCornerApply(img: imageView)
         super.viewDidLoad()
         ConnectService().Network(view: self)
-        
         setText()
-        self.imgView.isHidden = true
-        picker.delegate = self
     }
     
     func setText() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         dateString = formatter.string(from: datePicker.date)
-        
+        picker.delegate = self
         datePicker.addTarget(self, action: #selector(pickerDate), for: .valueChanged)
-        
-        self.mainTitle.text = titles!
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        self.view.endEditing(true)
-        return true
     }
     
     @objc func pickerDate() {
@@ -62,28 +54,45 @@ class WriteVC: UIViewController {
     
     @IBAction func saveDB(_ sender: Any) {
         self.showTextOverlay("please Wait....")
-        if self.newTitle.text != nil && self.mainText.text != nil && self.imageView.image != nil && self.userDates!.contains(self.dateString) {
-            let fomatter = DateFormatter()
-            fomatter.dateFormat = "yyyy-MM-dd"
-            let current = String(fomatter.string(from: Date()))
-            
-            guard let userID = Auth.auth().currentUser?.email  else { return }
-            let path = self.db.collection(userID).document(self.documentID!)
-            var map = [String: String]()
-            map["Title"] = self.newTitle.text
-            map["Text"] = self.mainText.text
-            map["Image"] = "gs://week-challenge-67756.appspot.com/\(userID)/\(self.documentID!)/\(current)"
-            path.updateData([current: map]) { err in
-                if err == nil {
-                    print("성공")
-                    self.dismiss(animated: true, completion: nil)
-                }
-                self.removeAllOverlays()
-            }
-        } else {
+        if self.newTitle.text == "" {
             self.removeAllOverlays()
             print("save 실패")
             self.dismiss(animated: true, completion: nil)
+        }
+        
+        else if self.mainText.text == "" {
+            self.removeAllOverlays()
+            print("save 실패")
+            
+        }
+        
+        else if !self.userDates!.contains(self.dateString) {
+            self.removeAllOverlays()
+            print("save 실패")
+        }
+        else {
+            guard let userID = Auth.auth().currentUser?.email  else { return }
+            
+            var data = Data()
+            data = self.uploadImg!.jpegData(compressionQuality: 0.8)!
+     
+            let filePath = "\(userID)/\(self.documentID!)/\(self.dateString)"
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/png"
+            
+        let path = self.db.collection(userID).document(self.documentID!)
+        var map = [String: String]()
+        map["Title"] = self.newTitle.text
+        map["Text"] = self.mainText.text
+            map["Image"] = "gs://week-challenge-67756.appspot.com/\(userID)/\(self.documentID!)/\(self.dateString)"
+            path.updateData([self.dateString: map]) { err in
+            if err == nil {
+                print("성공")
+                self.storage.reference().child(filePath).putData(data,metadata: metaData)
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.removeAllOverlays()
+        }
         }
     }
     
@@ -92,18 +101,7 @@ class WriteVC: UIViewController {
     }
     
     func uploadImg(img: UIImage) {
-        let fomatter = DateFormatter()
-        fomatter.dateFormat = "yyyy-MM-dd"
-        let current = String(fomatter.string(from: Date()))
-        
-        var data = Data()
-        data = img.jpegData(compressionQuality: 0.8)!
-        guard let userID = Auth.auth().currentUser?.email  else { return }
-        let filePath = "\(userID)/\(self.documentID!)/\(current)"
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/png"
-        
-        storage.reference().child(filePath).putData(data,metadata: metaData)
+
     }
 }
 
@@ -117,12 +115,17 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
         let library = UIAlertAction(title: "갤러리", style: .default) { success in
             self.openLibrary()
         }
+        
         let cameara = UIAlertAction(title: "카메라", style: .default) { success in
             self.openCamera()
         }
         
+        let cancel = UIAlertAction(title: "취소", style: .destructive)
+        
         addPhoto.addAction(library)
         addPhoto.addAction(cameara)
+        addPhoto.addAction(cancel)
+        
         self.present(addPhoto, animated: true, completion: nil)
     }
     
@@ -141,8 +144,7 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
             print("사진 가져오기 완료")
             self.imageView.image = image
             print("사진 저장 완료")
-            uploadImg(img: image)
-            self.imgView.isHidden = false
+            self.uploadImg = image
             self.dismiss(animated: true, completion: nil)
         } else {
             print("사진 가져오기 실패")

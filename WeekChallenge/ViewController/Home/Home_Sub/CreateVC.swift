@@ -33,9 +33,9 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
         tap.delegate = self
         self.view.addGestureRecognizer(tap)
         
-        ApplyService().onlyCornerApply(view: backView)
-        ApplyService().onlyCornerApply(view: firstView)
-        ApplyService().onlyCornerApply(view: firstView)
+        LayoutService().onlyCornerApply(view: backView)
+        LayoutService().onlyCornerApply(view: firstView)
+        LayoutService().onlyCornerApply(view: firstView)
         
         periodPicker.addTarget(self, action: #selector(datePicker), for: .valueChanged)
         
@@ -43,7 +43,7 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
         formatter.dateFormat = "yyyy-MM-dd"
         dateString = formatter.string(from: periodPicker.date)
         
-        contributeView().exampleView(view: LSHView)
+        ContributeView().exampleView(view: LSHView)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -72,7 +72,7 @@ class CreateVC: UIViewController, UIGestureRecognizerDelegate {
             AlertService().basicAlert(viewController: self, message: "제목을 입력해주세요")
             self.removeAllOverlays()
         } else {
-            FirebaseService().createDB(folderName: self.titleText.text!, date: PlanDate().fiveDate(current: dateString))
+            DataService().createDB(folderName: self.titleText.text!, date: DataService().planFive(current: dateString))
             self.removeAllOverlays()
             self.dismiss(animated: true, completion: nil)
         }

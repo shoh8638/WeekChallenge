@@ -1,5 +1,5 @@
 //
-//  ApplyService.swift
+//  LayoutService.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/03/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ApplyService {
+class LayoutService {
     
     func onlyCornerApply(view: UIView) {
         view.layer.cornerRadius = 20

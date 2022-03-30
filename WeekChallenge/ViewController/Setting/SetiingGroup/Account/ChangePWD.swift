@@ -23,7 +23,7 @@ class ChangePWD: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func setUp() {
-        ApplyService().onlyCornerApply(view: backView)
+        LayoutService().onlyCornerApply(view: backView)
     }
     
     @IBAction func bakcGes(_ sender: UIGestureRecognizer) {

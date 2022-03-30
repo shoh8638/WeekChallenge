@@ -17,7 +17,7 @@ class RunningVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
-        ApplyService().onlyCornerApply(view: backView)
+        LayoutService().onlyCornerApply(view: backView)
         getstureTap()
         loadData()
     }

@@ -17,10 +17,12 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
-        emailText.delegate = self
-        pwdText.delegate = self
-        loginBtn.isEnabled = false
-        loginBtn.backgroundColor = .lightGray
+        if emailText != nil {
+            emailText.delegate = self
+            pwdText.delegate = self
+            loginBtn.isEnabled = false
+            loginBtn.backgroundColor = .lightGray
+        }
     }
 }
 

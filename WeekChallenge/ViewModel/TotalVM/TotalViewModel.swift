@@ -20,7 +20,7 @@ struct TotalViewModel {
         return totalM[index]!
     }
     
-    func nuberOfImg(index: Int) -> String {
+    func numberOfImg(index: Int) -> String {
         return totalM[index]!.userImg
     }
     
@@ -34,6 +34,7 @@ struct TotalViewModel {
             }
         }
     }
+    
     func totalUseImg(index: Int, img: UIImageView) {
         let imgUrl = totalM[index]!.userImg
         

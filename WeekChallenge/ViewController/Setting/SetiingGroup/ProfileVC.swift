@@ -31,8 +31,8 @@ class ProfileVC: UIViewController {
     }
     
     func setUp() {
-        ApplyService().imgApplyLayer(img: imgView)
-        ApplyService().onlyCornerApply(view: mainView)
+        LayoutService().imgApplyLayer(img: imgView)
+        LayoutService().onlyCornerApply(view: mainView)
         imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapImg(sender:))))
         imgView.isUserInteractionEnabled = true
     }

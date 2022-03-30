@@ -21,10 +21,6 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>카메라 권한 허용</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>갤러리 권한 허용</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
 </dict>

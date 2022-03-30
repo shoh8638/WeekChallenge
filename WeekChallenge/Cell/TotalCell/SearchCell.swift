@@ -15,9 +15,9 @@ class searchCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ApplyService().onlyCornerApply(view: backView)
-        ApplyService().onlyCornerApply(view: totalView)
-        ApplyService().applySearchCellShadow(cell: self)
+        LayoutService().onlyCornerApply(view: backView)
+        LayoutService().onlyCornerApply(view: totalView)
+        LayoutService().applySearchCellShadow(cell: self)
     }
     
     func update(info: TotalModel, url: String) {

@@ -18,7 +18,7 @@ class CompleteVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         ConnectService().Network(view: self)
         
-        ApplyService().onlyCornerApply(view: backView)
+        LayoutService().onlyCornerApply(view: backView)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
         tap.delegate = self

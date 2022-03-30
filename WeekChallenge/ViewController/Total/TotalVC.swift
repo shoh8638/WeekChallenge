@@ -11,7 +11,7 @@ import TRMosaicLayout
 class TotalVC: UIViewController {
     
     let mosaicLayout = TRMosaicLayout()
-    var totlaVM: TotalViewModel!
+    var totalVM: TotalViewModel!
     
     @IBOutlet weak var dashCollection: UICollectionView!
     @IBOutlet weak var searchView: UIView!
@@ -31,13 +31,13 @@ class TotalVC: UIViewController {
         searchView.isHidden = true
         searchButton.isHidden = true
         
-        ApplyService().buttonCornerApply(btn: searchTap)
+        LayoutService().buttonCornerApply(btn: searchTap)
         loadData()
     }
     
     func loadData() {
         DataService().TotalImgLoadData(collection: dashCollection) { model in
-            self.totlaVM = TotalViewModel(totalM: model)
+            self.totalVM = TotalViewModel(totalM: model)
         }
     }
     
@@ -64,6 +64,7 @@ class TotalVC: UIViewController {
                 self.searchView.alpha = 1
                 self.listTop.constant = 5
                 self.view.layoutIfNeeded()
+                self.dashCollection.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             })
         } else if searchView.isHidden == false {
             UIView.animate(withDuration: 0.5, animations: {
@@ -91,11 +92,11 @@ extension TotalVC: UITextFieldDelegate {
 //TODO: 각 셀 터치 시, 디테일 화면 생성
 extension TotalVC: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if totlaVM != nil {
-            if self.totlaVM.numberOfRowsInSection() == 0 {
+        if totalVM != nil {
+            if self.totalVM.numberOfRowsInSection() == 0 {
                 return 1
             } else {
-                return self.totlaVM.numberOfRowsInSection()
+                return self.totalVM.numberOfRowsInSection()
             }
         } else {
             return 0
@@ -103,13 +104,13 @@ extension TotalVC: UICollectionViewDataSource, UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if totlaVM.numberOfRowsInSection() == 0 {
+        if totalVM.numberOfRowsInSection() == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
             cell.layer.cornerRadius = 20
-            totlaVM.totalUseImg(index: indexPath.row, img: cell.img)
+            totalVM.totalUseImg(index: indexPath.row, img: cell.img)
             return cell
         }
     }

@@ -25,7 +25,6 @@
 		E60DA3BC27D1FFAF001DC914 /* ConnectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3BB27D1FFAF001DC914 /* ConnectService.swift */; };
 		E60DA3C027D988C2001DC914 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3BF27D988C2001DC914 /* HomeVC.swift */; };
 		E60DA3C227D9CA34001DC914 /* SelectCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */; };
-		E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FDC5627BCD8030013372F /* PlanDate.swift */; };
 		E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */; };
 		E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */; };
 		E6584F5727B33DFD00B58FCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6584F5527B33DFD00B58FCB /* Main.storyboard */; };
@@ -38,7 +37,6 @@
 		E6584F8F27B3434F00B58FCB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F8E27B3434F00B58FCB /* SignInVC.swift */; };
 		E661441227B386C50000CEA7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E661441127B386C50000CEA7 /* AuthService.swift */; };
 		E66495A427BC97B8000110C9 /* ChangePWD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66495A327BC97B8000110C9 /* ChangePWD.swift */; };
-		E667FCB627B9EF6C009AEFE0 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB527B9EF6C009AEFE0 /* FirebaseService.swift */; };
 		E667FCB827BA1841009AEFE0 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667FCB727BA1841009AEFE0 /* AlertService.swift */; };
 		E6853F9D27B49B2A0091B4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */; };
 		E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853F9E27B4A26E0091B4A7 /* MainVC.swift */; };
@@ -46,9 +44,9 @@
 		E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */; };
 		E6C734F327DB046300A0CC4B /* RunningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734F227DB046300A0CC4B /* RunningVC.swift */; };
 		E6C734F527DB046F00A0CC4B /* CompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734F427DB046F00A0CC4B /* CompleteVC.swift */; };
-		E6D2C72227EA9FD400CB9E0F /* ApplyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72127EA9FD400CB9E0F /* ApplyService.swift */; };
+		E6D2C72227EA9FD400CB9E0F /* LayoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72127EA9FD400CB9E0F /* LayoutService.swift */; };
 		E6D2C72427EAAAFE00CB9E0F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C72327EAAAFE00CB9E0F /* DataService.swift */; };
-		E6D2C73427EBEC9700CB9E0F /* contributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C73327EBEC9700CB9E0F /* contributeView.swift */; };
+		E6D2C73427EBEC9700CB9E0F /* ContributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C73327EBEC9700CB9E0F /* ContributeView.swift */; };
 		E6D2C74227EC27C900CB9E0F /* PlanDeatilVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74127EC27C900CB9E0F /* PlanDeatilVCCell.swift */; };
 		E6D2C74C27EC315A00CB9E0F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */; };
 		E6D2C74E27EC31CE00CB9E0F /* TotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */; };
@@ -137,7 +135,6 @@
 		E60DA3BB27D1FFAF001DC914 /* ConnectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectService.swift; sourceTree = "<group>"; };
 		E60DA3BF27D988C2001DC914 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCalendarVC.swift; sourceTree = "<group>"; };
-		E64FDC5627BCD8030013372F /* PlanDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDate.swift; sourceTree = "<group>"; };
 		E6584F4C27B33DFD00B58FCB /* WeekChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,7 +151,6 @@
 		E6584F8E27B3434F00B58FCB /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		E661441127B386C50000CEA7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E66495A327BC97B8000110C9 /* ChangePWD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePWD.swift; sourceTree = "<group>"; };
-		E667FCB527B9EF6C009AEFE0 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		E667FCB727BA1841009AEFE0 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6853F9E27B4A26E0091B4A7 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -162,9 +158,9 @@
 		E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVC.swift; sourceTree = "<group>"; };
 		E6C734F227DB046300A0CC4B /* RunningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVC.swift; sourceTree = "<group>"; };
 		E6C734F427DB046F00A0CC4B /* CompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteVC.swift; sourceTree = "<group>"; };
-		E6D2C72127EA9FD400CB9E0F /* ApplyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyService.swift; sourceTree = "<group>"; };
+		E6D2C72127EA9FD400CB9E0F /* LayoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutService.swift; sourceTree = "<group>"; };
 		E6D2C72327EAAAFE00CB9E0F /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		E6D2C73327EBEC9700CB9E0F /* contributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contributeView.swift; sourceTree = "<group>"; };
+		E6D2C73327EBEC9700CB9E0F /* ContributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributeView.swift; sourceTree = "<group>"; };
 		E6D2C74127EC27C900CB9E0F /* PlanDeatilVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDeatilVCCell.swift; sourceTree = "<group>"; };
 		E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCell.swift; sourceTree = "<group>"; };
@@ -340,14 +336,12 @@
 			isa = PBXGroup;
 			children = (
 				E667FCB727BA1841009AEFE0 /* AlertService.swift */,
-				E6D2C72127EA9FD400CB9E0F /* ApplyService.swift */,
+				E6E0A4FC27E2CB9600718EA2 /* AnimationController.swift */,
 				E661441127B386C50000CEA7 /* AuthService.swift */,
 				E60DA3BB27D1FFAF001DC914 /* ConnectService.swift */,
+				E6D2C73327EBEC9700CB9E0F /* ContributeView.swift */,
 				E6D2C72327EAAAFE00CB9E0F /* DataService.swift */,
-				E667FCB527B9EF6C009AEFE0 /* FirebaseService.swift */,
-				E64FDC5627BCD8030013372F /* PlanDate.swift */,
-				E6D2C73327EBEC9700CB9E0F /* contributeView.swift */,
-				E6E0A4FC27E2CB9600718EA2 /* AnimationController.swift */,
+				E6D2C72127EA9FD400CB9E0F /* LayoutService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -864,7 +858,6 @@
 				E6E0A4F927E2C83E00718EA2 /* PlanDetailVC.swift in Sources */,
 				E6C734F327DB046300A0CC4B /* RunningVC.swift in Sources */,
 				E6D2C74C27EC315A00CB9E0F /* SearchCell.swift in Sources */,
-				E64FDC5727BCD8030013372F /* PlanDate.swift in Sources */,
 				E6D2C76F27ED98C400CB9E0F /* UserViewModel.swift in Sources */,
 				E6D2C75627EC463C00CB9E0F /* ManageListVC.swift in Sources */,
 				E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */,
@@ -872,9 +865,9 @@
 				E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
 				E6D2C76827ED8AE500CB9E0F /* CountViewModel.swift in Sources */,
-				E6D2C73427EBEC9700CB9E0F /* contributeView.swift in Sources */,
+				E6D2C73427EBEC9700CB9E0F /* ContributeView.swift in Sources */,
 				E601BE4727E0104400BFF7BD /* RemoveVC.swift in Sources */,
-				E6D2C72227EA9FD400CB9E0F /* ApplyService.swift in Sources */,
+				E6D2C72227EA9FD400CB9E0F /* LayoutService.swift in Sources */,
 				E60DA3C027D988C2001DC914 /* HomeVC.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,
 				E601BE4527E0103900BFF7BD /* LogOutVC.swift in Sources */,
@@ -885,7 +878,6 @@
 				E6D2C74E27EC31CE00CB9E0F /* TotalCell.swift in Sources */,
 				E6E0A4F427E1B81E00718EA2 /* PlanVC.swift in Sources */,
 				E6D2C76427ED88C300CB9E0F /* DataViewModel.swift in Sources */,
-				E667FCB627B9EF6C009AEFE0 /* FirebaseService.swift in Sources */,
 				E6E0A4FD27E2CB9600718EA2 /* AnimationController.swift in Sources */,
 				E6D2C75A27EC492900CB9E0F /* ManageViewModel.swift in Sources */,
 				E6E0A50027E426C300718EA2 /* Dummy.swift in Sources */,
@@ -1084,8 +1076,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeekChallenge/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "5일플래너";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Test";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Test";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "갤러리 권한 허용";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1116,8 +1108,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeekChallenge/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "5일플래너";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Test";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Test";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 권한 허용";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "갤러리 권한 허용";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

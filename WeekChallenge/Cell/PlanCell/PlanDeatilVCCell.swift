@@ -16,9 +16,9 @@ class PlanDetailVCCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ApplyService().onlyCornerApply(view: backView)
-        ApplyService().onlyCornerApply(view: totalView)
-        ApplyService().applyDetailListShadow(cell: self)
+        LayoutService().onlyCornerApply(view: backView)
+        LayoutService().onlyCornerApply(view: totalView)
+        LayoutService().applyDetailListShadow(cell: self)
     }
     
     func update(info: PDetailModel, url: String) {

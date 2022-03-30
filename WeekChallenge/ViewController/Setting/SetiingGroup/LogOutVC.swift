@@ -20,7 +20,7 @@ class LogOutVC: UIViewController {
     
     
     func loadData() {
-        ApplyService().onlyCornerApply(view: mainView)
+        LayoutService().onlyCornerApply(view: mainView)
         DataService().logoutLoadData(message: message)
     }
     

@@ -10,7 +10,7 @@ import FSCalendar
 
 class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
-    let applyLayout = ApplyService()
+    let applyLayout = LayoutService()
     var userVM : UserViewModel!
     var countVM: CountViewModel!
     var dataVM: DataViewModel!

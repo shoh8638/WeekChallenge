@@ -20,7 +20,7 @@ class ChangeUserNameVC: UIViewController {
     }
     
     func setUp() {
-        ApplyService().onlyCornerApply(view: mainView)
+        LayoutService().onlyCornerApply(view: mainView)
     }
     @IBAction func bakcGes(_ sender: UIGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)

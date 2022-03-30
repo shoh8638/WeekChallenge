@@ -25,7 +25,7 @@ class PlanDetailVC: UIViewController {
         super.viewDidLoad()
         ConnectService().Network(view: self)
         documentTitle.text = mainTitle!
-        ApplyService().onlyCornerApply(view: detailView)
+        LayoutService().onlyCornerApply(view: detailView)
         loadData()
     }
     
@@ -38,6 +38,7 @@ class PlanDetailVC: UIViewController {
         vc.documentID = self.documentID!
         vc.titles = self.mainTitle!
         vc.userDates = pdVM.planDate(index: self.addBtn.tag)
+        vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
     }
     

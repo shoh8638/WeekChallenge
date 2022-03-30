@@ -13,7 +13,7 @@ class HomeCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ApplyService().applyHomeCellShadow(cell: self)
+        LayoutService().applyHomeCellShadow(cell: self)
     }
     
     func rscUpdate(info: RSCModel) {

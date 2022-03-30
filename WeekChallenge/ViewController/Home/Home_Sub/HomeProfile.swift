@@ -9,7 +9,7 @@ import UIKit
 
 class HomeProfile: UIViewController, UIGestureRecognizerDelegate {
     
-    let applyView = ApplyService()
+    let applyView = LayoutService()
     var userVM : UserViewModel!
     
     @IBOutlet weak var backView: UIView!

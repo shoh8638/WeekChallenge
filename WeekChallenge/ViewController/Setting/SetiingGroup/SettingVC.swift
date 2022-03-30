@@ -19,8 +19,8 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ApplyService().onlyCornerApply(view: mainView)
-        ApplyService().imgApplyLayer(img: userImg)
+        LayoutService().onlyCornerApply(view: mainView)
+        LayoutService().imgApplyLayer(img: userImg)
         loadData()
         setUp()
     }

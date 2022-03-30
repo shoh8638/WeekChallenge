@@ -1,5 +1,5 @@
 //
-//  contributeView.swift
+//  ContributeView.swift
 //  WeekChallenge
 //
 //  Created by shoh on 2022/03/24.
@@ -8,7 +8,7 @@
 import UIKit
 import LSHContributionView
 
-class contributeView {
+class ContributeView {
     func exampleView(view: UIView) {
         let dataSquare = [[0,0,0,0,0]]
         let contributeView = LSHContributionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
