@@ -17,11 +17,21 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
+        autoLogin()
         if emailText != nil {
             emailText.delegate = self
             pwdText.delegate = self
             loginBtn.isEnabled = false
             loginBtn.backgroundColor = .lightGray
+        }
+    }
+    
+    func autoLogin() {
+        if Auth.auth().currentUser?.email != nil {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainView")
+            vc?.modalPresentationStyle = .fullScreen
+            vc?.modalTransitionStyle = .flipHorizontal
+            self.present(vc!, animated: true)
         }
     }
 }
