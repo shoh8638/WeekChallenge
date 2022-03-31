@@ -8,19 +8,29 @@
 import UIKit
 
 class SettingVC: UIViewController, UIGestureRecognizerDelegate {
-
-    @IBOutlet weak var settingCollection: UICollectionView!
+    
+    @IBOutlet weak var settingTable: UITableView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
+    @IBOutlet weak var imgW: NSLayoutConstraint!
+    @IBOutlet weak var imgH: NSLayoutConstraint!
     let settingVM = SettingViewModel()
     var userVM : UserViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let a = UIScreen.main.bounds.width / 2.5
+        let b = UIScreen.main.bounds.height / 4
+        imgW.constant = a
+        imgH.constant = b
+        print(a)
+        print(b)
         LayoutService().onlyCornerApply(view: mainView)
-        LayoutService().imgApplyLayer(img: userImg)
+//        LayoutService().imgApplyLayer(img: userImg)
+        userImg.layer.cornerRadius = 20
+        userImg.layer.masksToBounds = true
         loadData()
         setUp()
     }
@@ -46,21 +56,21 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
     
 }
 
-//MARK: UICollectionView
-extension SettingVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//MARK: UITableView
+extension SettingVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingVM.numberOfList
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let cell = settingCollection.dequeueReusableCell(withReuseIdentifier: "settingCell", for: indexPath) as! SettingCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = settingTable.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! SettingCell
         let data = settingVM.numberOfcell(index: indexPath.row)
         cell.update(info: data)
         return cell
     }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
             ConnectService().sendVC(main: self, name: "SetProfile")
@@ -75,8 +85,5 @@ extension SettingVC: UICollectionViewDataSource, UICollectionViewDelegate, UICol
             print("")
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (settingCollection.frame.width / 2) - 22, height: (settingCollection.frame.height / 2 - 12))
-    }
 }
+

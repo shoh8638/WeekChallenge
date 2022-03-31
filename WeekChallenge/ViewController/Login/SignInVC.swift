@@ -21,9 +21,11 @@ class SignInVC: UIViewController {
     @IBOutlet weak var pwdText: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var userImg: UIImageView!
+    @IBOutlet weak var imgHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imgHeight.constant  = UIScreen.main.bounds.height / 6
         ConnectService().Network(view: self)
         emailText.delegate = self
         pwdText.delegate = self

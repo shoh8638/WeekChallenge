@@ -13,10 +13,12 @@ class RunningVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var runningTable: UITableView!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var viewW: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
+        viewW.constant = UIScreen.main.bounds.width - 30
         LayoutService().onlyCornerApply(view: backView)
         getstureTap()
         loadData()

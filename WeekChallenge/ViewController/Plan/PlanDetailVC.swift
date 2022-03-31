@@ -76,4 +76,5 @@ extension PlanDetailVC: UICollectionViewDataSource, UICollectionViewDelegate {
             return cell
         }
     }
+    //셀 사이즈 관련 정의
 }

@@ -16,10 +16,11 @@ class SelectCalendarVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var selectCalendar: UITableView!
     
+    @IBOutlet weak var viewW: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         ConnectService().Network(view: self)
-        
+        viewW.constant = UIScreen.main.bounds.width - 30
         let tap = UITapGestureRecognizer(target: self, action: #selector(backTap(sender:)))
         tap.delegate = self
         self.view.addGestureRecognizer(tap)

@@ -73,7 +73,7 @@ extension PlanVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.height/2)
+        return CGSize(width: UIScreen.main.bounds.width - 75, height: UIScreen.main.bounds.height/2)
     }
 }
 
