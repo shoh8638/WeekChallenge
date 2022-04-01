@@ -50,7 +50,7 @@ class PlanDetailVC: UIViewController {
 }
 
 
-extension PlanDetailVC: UICollectionViewDataSource, UICollectionViewDelegate {
+extension PlanDetailVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.pdVM != nil {
             if pdVM.numberOfRowsInSection() == 0 {
@@ -76,5 +76,7 @@ extension PlanDetailVC: UICollectionViewDataSource, UICollectionViewDelegate {
             return cell
         }
     }
-    //셀 사이즈 관련 정의
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.height / 2)
+    }
 }

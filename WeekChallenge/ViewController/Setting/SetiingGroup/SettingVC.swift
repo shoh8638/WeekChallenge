@@ -14,23 +14,13 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
-    @IBOutlet weak var imgW: NSLayoutConstraint!
-    @IBOutlet weak var imgH: NSLayoutConstraint!
     let settingVM = SettingViewModel()
     var userVM : UserViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let a = UIScreen.main.bounds.width / 2.5
-        let b = UIScreen.main.bounds.height / 4
-        imgW.constant = a
-        imgH.constant = b
-        print(a)
-        print(b)
         LayoutService().onlyCornerApply(view: mainView)
-//        LayoutService().imgApplyLayer(img: userImg)
-        userImg.layer.cornerRadius = 20
-        userImg.layer.masksToBounds = true
+        LayoutService().imgApplyLayer(img: userImg)
         loadData()
         setUp()
     }
@@ -58,6 +48,10 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
 
 //MARK: UITableView
 extension SettingVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Setting"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingVM.numberOfList
     }
@@ -84,6 +78,10 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
         default:
             print("")
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return settingTable.bounds.height / 4 - 10
     }
 }
 
