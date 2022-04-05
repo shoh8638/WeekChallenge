@@ -66,6 +66,7 @@
 		E6D2C77927F1897800CB9E0F /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C77827F1897800CB9E0F /* SettingModel.swift */; };
 		E6D2C77B27F1899900CB9E0F /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C77A27F1899900CB9E0F /* SettingViewModel.swift */; };
 		E6D2C77E27F189D300CB9E0F /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C77D27F189D300CB9E0F /* SettingCell.swift */; };
+		E6D2C7D927F6C94600CB9E0F /* TotalDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2C7D827F6C94500CB9E0F /* TotalDetailVC.swift */; };
 		E6E0A4F427E1B81E00718EA2 /* PlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */; };
 		E6E0A4F927E2C83E00718EA2 /* PlanDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4F827E2C83E00718EA2 /* PlanDetailVC.swift */; };
 		E6E0A4FB27E2C92D00718EA2 /* PlanVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E0A4FA27E2C92D00718EA2 /* PlanVCCell.swift */; };
@@ -180,6 +181,7 @@
 		E6D2C77827F1897800CB9E0F /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		E6D2C77A27F1899900CB9E0F /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		E6D2C77D27F189D300CB9E0F /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		E6D2C7D827F6C94500CB9E0F /* TotalDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDetailVC.swift; sourceTree = "<group>"; };
 		E6E0A4F327E1B81E00718EA2 /* PlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanVC.swift; sourceTree = "<group>"; };
 		E6E0A4F827E2C83E00718EA2 /* PlanDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailVC.swift; sourceTree = "<group>"; };
 		E6E0A4FA27E2C92D00718EA2 /* PlanVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanVCCell.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 			children = (
 				E6E0A50127E43F0C00718EA2 /* TotalVC.swift */,
 				E60DA3B927D0B20D001DC914 /* SearchVC.swift */,
+				E6D2C7D827F6C94500CB9E0F /* TotalDetailVC.swift */,
 			);
 			path = Total;
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */,
+				E6D2C7D927F6C94600CB9E0F /* TotalDetailVC.swift in Sources */,
 				84B88BFB27EF46B20075A697 /* TotalViewModel.swift in Sources */,
 				E6D2C76B27ED960900CB9E0F /* HomeCell.swift in Sources */,
 				84B88BF927EF45660075A697 /* TotalModel.swift in Sources */,

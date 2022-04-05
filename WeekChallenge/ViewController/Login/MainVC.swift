@@ -54,13 +54,13 @@ extension MainVC: PageboyViewControllerDataSource, TMBarDataSource {
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         switch index {
         case 0:
-            return TMBarItem(title: "홈", image: UIImage(named: "home2.png")!)
+            return TMBarItem(title: "홈", image: UIImage(named: "홈")!)
         case 1:
-            return TMBarItem(title: "리스트", image: UIImage(named: "icons8Reserve150.png")!)
+            return TMBarItem(title: "리스트", image: UIImage(named: "리스트")!)
         case 2:
-            return TMBarItem(title: "게시글", image: UIImage(named: "fourSquareGridIcon.png")!)
+            return TMBarItem(title: "게시물", image: UIImage(named: "게시물")!)
         case 3:
-            return TMBarItem(title: "설정", image: UIImage(named: "settingsMenuItem.png")!)
+            return TMBarItem(title: "설정", image: UIImage(named: "설정")!)
         default:
             return TMBarItem(title: "")
         }
