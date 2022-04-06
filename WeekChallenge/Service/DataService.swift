@@ -353,13 +353,32 @@ class DataService {
                         let userImg = dateFields["Image"]!
                         let userText = dateFields["Text"]!
                         if userTitle != "" && userImg != "" && userText != "" {
-                            dbM = TotalModel(dbID: dbID, title: title, userTitle: userTitle, userImg: userImg, userText: userText)
+                            dbM = TotalModel(dbID: dbID, title: title, userTitle: userTitle, userImg: userImg, userText: userText, textDate: dates[i])
                             dbVM.append(dbM!)
                         }
                     }
                 }
             }
             completion(dbVM)
+            collection.reloadData()
+        }
+    }
+    
+    func totalDetailLoadData(collection: UICollectionView, documentID: String, text: String, date: String, completion: @escaping (TotalDeatilModel?) -> ()) {
+        guard let userID = Auth.auth().currentUser?.email else {return}
+        var tDM: TotalDeatilModel?
+        self.db.collection(userID).document(documentID).addSnapshotListener { (document, err) in
+            if err == nil {
+                
+                let dateFields = document![date] as! [String: String]
+
+                    let title = dateFields["Title"]!
+                    let img = dateFields["Image"]!
+                    let text = dateFields["Text"]!
+                    tDM = TotalDeatilModel(userTitle: title, userImg: img, userText: text)
+                
+            }
+            completion(tDM)
             collection.reloadData()
         }
     }
@@ -381,7 +400,7 @@ class DataService {
                         let img = dateFields["Image"]!
                         let text = dateFields["Text"]!
                         if text.contains(searchText) {
-                            dbM = TotalModel(dbID: dbID, title: "", userTitle: title, userImg: img, userText: text)
+                            dbM = TotalModel(dbID: dbID, title: "", userTitle: title, userImg: img, userText: text, textDate: "")
                             dbVM.append(dbM)
                         }
                     }

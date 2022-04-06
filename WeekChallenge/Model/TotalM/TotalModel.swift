@@ -15,51 +15,14 @@ struct TotalModel {
     let userTitle: String
     let userImg: String
     let userText: String
+    let textDate: String
     
-    init(dbID: String, title: String, userTitle: String, userImg: String, userText: String) {
+    init(dbID: String, title: String, userTitle: String, userImg: String, userText: String, textDate: String) {
         self.dbID = dbID
         self.title = title
         self.userTitle = userTitle
         self.userImg = userImg
         self.userText = userText
-    }
-}
-
-struct TotalDeatilModel {
-    let userTitle: String
-    let userImg: String
-    let userText: String
-    
-    init(userTitle: String, userImg: String, userText: String) {
-        self.userTitle = userTitle
-        self.userImg = userImg
-        self.userText = userText
-    }
-}
-
-struct TotalDetailViewModel {
-    let tDetailM: [TotalDeatilModel?]
-    
-    func numbeOfIndex() ->  Int {
-        return tDetailM.count
-    }
-    
-    func numberOfCellIndex(index: Int) -> TotalDeatilModel {
-        return tDetailM[index]!
-    }
-    
-    func numberOfImg(index: Int) -> String {
-        return tDetailM[index]!.userImg
-    }
-    
-    func loadUserImg(url: String, img: UIImageView){
-        
-        Storage.storage().reference(forURL: url).downloadURL { (url, error) in
-            if url != nil {
-               img.sd_setImage(with: url!, completed: nil)
-            } else {
-                print("PDetailViewModel url err: \(error!)")
-            }
-        }
+        self.textDate = textDate
     }
 }

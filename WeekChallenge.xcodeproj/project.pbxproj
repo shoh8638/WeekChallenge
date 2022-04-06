@@ -41,6 +41,9 @@
 		E6853F9D27B49B2A0091B4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */; };
 		E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6853F9E27B4A26E0091B4A7 /* MainVC.swift */; };
 		E6A0086527C60CB600AB8D2D /* WriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0086427C60CB600AB8D2D /* WriteVC.swift */; };
+		E6B9BAE127FD62C900D1B94A /* TotalDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9BAE027FD62C900D1B94A /* TotalDetailModel.swift */; };
+		E6B9BAE327FD62F300D1B94A /* TotalDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9BAE227FD62F300D1B94A /* TotalDetailViewModel.swift */; };
+		E6B9BAE527FD631000D1B94A /* TotalDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9BAE427FD631000D1B94A /* TotalDetailCell.swift */; };
 		E6C734EC27DACE7F00A0CC4B /* CreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */; };
 		E6C734F327DB046300A0CC4B /* RunningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734F227DB046300A0CC4B /* RunningVC.swift */; };
 		E6C734F527DB046F00A0CC4B /* CompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C734F427DB046F00A0CC4B /* CompleteVC.swift */; };
@@ -156,6 +159,9 @@
 		E6853F9C27B49B2A0091B4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6853F9E27B4A26E0091B4A7 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E6A0086427C60CB600AB8D2D /* WriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteVC.swift; sourceTree = "<group>"; };
+		E6B9BAE027FD62C900D1B94A /* TotalDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDetailModel.swift; sourceTree = "<group>"; };
+		E6B9BAE227FD62F300D1B94A /* TotalDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDetailViewModel.swift; sourceTree = "<group>"; };
+		E6B9BAE427FD631000D1B94A /* TotalDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDetailCell.swift; sourceTree = "<group>"; };
 		E6C734EB27DACE7F00A0CC4B /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVC.swift; sourceTree = "<group>"; };
 		E6C734F227DB046300A0CC4B /* RunningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVC.swift; sourceTree = "<group>"; };
 		E6C734F427DB046F00A0CC4B /* CompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteVC.swift; sourceTree = "<group>"; };
@@ -444,8 +450,8 @@
 			isa = PBXGroup;
 			children = (
 				E6E0A50127E43F0C00718EA2 /* TotalVC.swift */,
-				E60DA3B927D0B20D001DC914 /* SearchVC.swift */,
 				E6D2C7D827F6C94500CB9E0F /* TotalDetailVC.swift */,
+				E60DA3B927D0B20D001DC914 /* SearchVC.swift */,
 			);
 			path = Total;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				84B88BF827EF45660075A697 /* TotalModel.swift */,
+				E6B9BAE027FD62C900D1B94A /* TotalDetailModel.swift */,
 			);
 			path = TotalM;
 			sourceTree = "<group>";
@@ -523,6 +530,7 @@
 			isa = PBXGroup;
 			children = (
 				84B88BFA27EF46B20075A697 /* TotalViewModel.swift */,
+				E6B9BAE227FD62F300D1B94A /* TotalDetailViewModel.swift */,
 			);
 			path = TotalVM;
 			sourceTree = "<group>";
@@ -531,6 +539,7 @@
 			isa = PBXGroup;
 			children = (
 				E6D2C74D27EC31CE00CB9E0F /* TotalCell.swift */,
+				E6B9BAE427FD631000D1B94A /* TotalDetailCell.swift */,
 				E6D2C74B27EC315A00CB9E0F /* SearchCell.swift */,
 			);
 			path = TotalCell;
@@ -841,6 +850,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60DA3BA27D0B20D001DC914 /* SearchVC.swift in Sources */,
+				E6B9BAE127FD62C900D1B94A /* TotalDetailModel.swift in Sources */,
 				E6D2C7D927F6C94600CB9E0F /* TotalDetailVC.swift in Sources */,
 				84B88BFB27EF46B20075A697 /* TotalViewModel.swift in Sources */,
 				E6D2C76B27ED960900CB9E0F /* HomeCell.swift in Sources */,
@@ -869,10 +879,12 @@
 				E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
 				E6D2C76827ED8AE500CB9E0F /* CountViewModel.swift in Sources */,
+				E6B9BAE327FD62F300D1B94A /* TotalDetailViewModel.swift in Sources */,
 				E6D2C73427EBEC9700CB9E0F /* ContributeView.swift in Sources */,
 				E601BE4727E0104400BFF7BD /* RemoveVC.swift in Sources */,
 				E6D2C72227EA9FD400CB9E0F /* LayoutService.swift in Sources */,
 				E60DA3C027D988C2001DC914 /* HomeVC.swift in Sources */,
+				E6B9BAE527FD631000D1B94A /* TotalDetailCell.swift in Sources */,
 				E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */,
 				E601BE4527E0103900BFF7BD /* LogOutVC.swift in Sources */,
 				E6E0A4FB27E2C92D00718EA2 /* PlanVCCell.swift in Sources */,

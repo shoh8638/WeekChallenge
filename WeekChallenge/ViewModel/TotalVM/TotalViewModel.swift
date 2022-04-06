@@ -24,6 +24,18 @@ struct TotalViewModel {
         return totalM[index]!.userImg
     }
     
+    func numberOfDate(index: Int) -> String {
+        return totalM[index]!.textDate
+    }
+    
+    func numberOfDocumentID(index: Int) -> String {
+        return totalM[index]!.dbID
+    }
+    
+    func numberOfTitle(index: Int) -> String {
+        return totalM[index]!.userTitle
+    }
+    
     func loadUserImg(url: String, img: UIImageView){
         
         Storage.storage().reference(forURL: url).downloadURL { (url, error) in
@@ -46,6 +58,7 @@ struct TotalViewModel {
             }
         }
     }
+    
     func heightOfCell(collection: UICollectionView) -> CGSize {
         return CGSize(width: collection.bounds.width - 100, height: collection.bounds.height - 200)
     }

@@ -8,7 +8,7 @@
 import UIKit
 import TRMosaicLayout
 
-class TotalVC: UIViewController {
+class TotalVC: UIViewController, UIViewControllerTransitioningDelegate {
     
     let mosaicLayout = TRMosaicLayout()
     var totalVM: TotalViewModel!
@@ -114,6 +114,18 @@ extension TotalVC: UICollectionViewDataSource, UICollectionViewDelegate{
             return cell
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "totalDetail") as! TotalDetailVC
+        vc.documnetID = totalVM.numberOfDocumentID(index: indexPath.row)
+        vc.userText = totalVM.numberOfTitle(index: indexPath.row)
+        vc.date = totalVM.numberOfDate(index: indexPath.row)
+        
+        vc.modalPresentationStyle = .overFullScreen
+        
+        self.present(vc, animated: true)
+    }
+
 }
 
 //MARK: CollectionView Layout

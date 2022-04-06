@@ -114,4 +114,13 @@ class LayoutService {
         cell.layer.cornerRadius = 20
         cell.layer.masksToBounds = true
     }
+    
+    func applytdCellShadow(cell: TotalDetailCell) {
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.14
+        cell.layer.shadowOffset = CGSize(width: 10, height: 0)
+        cell.layer.shadowRadius = 7 / 2.0
+    }
 }
