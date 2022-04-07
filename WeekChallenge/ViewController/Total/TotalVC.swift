@@ -116,16 +116,17 @@ extension TotalVC: UICollectionViewDataSource, UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "totalDetail") as! TotalDetailVC
-        vc.documnetID = totalVM.numberOfDocumentID(index: indexPath.row)
-        vc.userText = totalVM.numberOfTitle(index: indexPath.row)
-        vc.date = totalVM.numberOfDate(index: indexPath.row)
-        
-        vc.modalPresentationStyle = .overFullScreen
-        
-        self.present(vc, animated: true)
+        if totalVM.numberOfRowsInSection() != 0 {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "totalDetail") as! TotalDetailVC
+            vc.documnetID = totalVM.numberOfDocumentID(index: indexPath.row)
+            vc.userText = totalVM.numberOfTitle(index: indexPath.row)
+            vc.date = totalVM.numberOfDate(index: indexPath.row)
+            
+            vc.modalPresentationStyle = .overFullScreen
+            
+            self.present(vc, animated: true)
+        }
     }
-
 }
 
 //MARK: CollectionView Layout

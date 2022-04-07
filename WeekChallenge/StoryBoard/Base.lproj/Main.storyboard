@@ -968,7 +968,7 @@
                                     <constraint firstAttribute="height" constant="60" id="TY7-Cj-neU"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="icons8Search101"/>
+                                <buttonConfiguration key="configuration" style="plain" image="icons8Search101" title=""/>
                                 <connections>
                                     <action selector="mainSearch:" destination="sDn-oc-xUz" eventType="touchUpInside" id="cKm-RB-qZG"/>
                                 </connections>
@@ -1730,21 +1730,22 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5if-Np-oIl">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="5if-Np-oIl">
                                                             <rect key="frame" x="40" y="10" width="334" height="102"/>
                                                             <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rss-qC-EGE">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="102"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="NTx-u0-Xre"/>
+                                                                        <constraint firstAttribute="height" constant="30" id="g0B-ot-sVi"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWp-Jl-fH5">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="277.5" height="102"/>
+                                                                    <rect key="frame" x="130" y="0.0" width="204" height="102"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2KH-db-OcU">
-                                                                    <rect key="frame" x="287.5" y="0.0" width="46.5" height="102"/>
-                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.right" catalog="system"/>
-                                                                </button>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -1757,6 +1758,7 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
+                                                    <outlet property="settingImg" destination="rss-qC-EGE" id="AHH-an-nrd"/>
                                                     <outlet property="settingTitle" destination="kWp-Jl-fH5" id="XHg-fx-JJQ"/>
                                                 </connections>
                                             </tableViewCell>
@@ -2035,13 +2037,14 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbc-b9-pYO">
-                                <rect key="frame" x="344" y="722" width="60" height="60"/>
+                                <rect key="frame" x="304" y="682" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="LCO-ZL-CqL"/>
-                                    <constraint firstAttribute="height" constant="60" id="lSW-5l-o37"/>
+                                    <constraint firstAttribute="width" constant="100" id="LCO-ZL-CqL"/>
+                                    <constraint firstAttribute="height" constant="100" id="lSW-5l-o37"/>
                                 </constraints>
+                                <color key="tintColor" name="black"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.left" catalog="system"/>
                                 <connections>
                                     <action selector="btn:" destination="Uag-pA-dD0" eventType="touchUpInside" id="KZm-Hb-hpM"/>
                                 </connections>
@@ -2980,7 +2983,7 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
-        <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
         <image name="icons8Reserve150" width="27" height="28"/>
         <image name="icons8Search101" width="26" height="27"/>
         <image name="profileIcon" width="25" height="27"/>

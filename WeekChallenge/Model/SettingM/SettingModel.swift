@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct SettingModel {
     let title: String
+    
+    var img: UIImage? {
+        return UIImage(named: "\(title).jpg")
+    }
     
     init(title: String) {
         self.title = title

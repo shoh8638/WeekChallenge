@@ -25,6 +25,10 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
         setUp()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        loadData()
+    }
+    
     func loadData() {
         DataService().userLodaData { model in
             self.userVM = UserViewModel(UserM: model)
