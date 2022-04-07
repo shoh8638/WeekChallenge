@@ -415,15 +415,13 @@ class DataService {
         guard let userID = Auth.auth().currentUser?.email else {return}
         var manageM: ManageModel?
         var manageVM = [manageM]
-        self.db.collection(userID).getDocuments { (querySnapshot, err) in
+        self.db.collection(userID).addSnapshotListener { (querySnapshot, err) in
             manageVM.removeAll()
             for document in querySnapshot!.documents {
                 if document.documentID != "UserData" {
                     let dbID = document.documentID
                     let title = document.data()["Title"] as! String
-                    let firstDate = (document["Dates"] as! [String]).sorted(by: <).first!
-                    let lastDate = (document["Dates"] as! [String]).sorted(by: <).last!
-                    manageM = ManageModel(title: title, dbID: dbID, firstDate: firstDate, lastDate: lastDate)
+                    manageM = ManageModel(title: title, dbID: dbID)
                     manageVM.append(manageM!)
                 }
             }

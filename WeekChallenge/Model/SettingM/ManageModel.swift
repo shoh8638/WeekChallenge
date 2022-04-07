@@ -10,14 +10,11 @@ import Foundation
 struct ManageModel {
     let title: String?
     let dbID: String?
-    let firstDate: String?
-    let lastDate: String?
 
-    init(title: String, dbID: String, firstDate: String, lastDate: String) {
+    init(title: String, dbID: String) {
         self.title = title
         self.dbID = dbID
-        self.firstDate = firstDate
-        self.lastDate = lastDate
+
     }
 }
 

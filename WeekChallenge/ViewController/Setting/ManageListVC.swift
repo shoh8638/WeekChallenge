@@ -78,6 +78,8 @@ extension ManageListVC: UICollectionViewDataSource, UICollectionViewDelegate, UI
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print(UIScreen.main.bounds.width/2-20)
+        print(UIScreen.main.bounds.height/4)
         return CGSize(width: UIScreen.main.bounds.width/2-20, height: UIScreen.main.bounds.height/4)
     }
 }
@@ -86,10 +88,7 @@ class ManageCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var mainSubView: UIView!
     @IBOutlet weak var mainTitle: UILabel!
-    @IBOutlet weak var subTitle: UILabel!
-    @IBOutlet weak var period: UILabel!
     @IBOutlet weak var updateBtn: UIButton!
     @IBOutlet weak var removeBtn: UIButton!
     
@@ -97,20 +96,15 @@ class ManageCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         super.awakeFromNib()
         LayoutService().onlyCornerApply(view: totalView)
         LayoutService().onlyCornerApply(view: mainView)
-        LayoutService().onlyCornerApply(view: mainSubView)
         LayoutService().applyManageCellShadow(cell: self)
     }
     
     func update(info: ManageModel) {
         mainTitle.text = info.title
-        subTitle.text = info.title
-        period.text = "\(info.firstDate!) ~ \(info.lastDate!)"
     }
     
     func emptyCell() {
         mainTitle.text = "플랜이 없습니다"
-        subTitle.text = ""
-        period.text = ""
     }
 }
 
