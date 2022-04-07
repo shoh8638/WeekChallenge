@@ -8,10 +8,10 @@
 import UIKit
 
 class PlanVC: UIViewController {
-    
     var pVM: PlanViewModel!
     
     @IBOutlet weak var listCollection: UICollectionView!
+    @IBOutlet weak var btn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,14 @@ class PlanVC: UIViewController {
     }
     
     func loadData() {
+        LayoutService().btnShadowApplt(btn: btn)
         DataService().PlanLoadData(collection: listCollection) { model in
             self.pVM = PlanViewModel(planM: model)
+            if self.pVM.numberOfRowsInSection() == 0 {
+                self.btn.isHidden = true
+            } else {
+                self.btn.isHidden = false
+            }
         }
     }
     
@@ -64,7 +70,7 @@ extension PlanVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Ex") as! PlanDetailVC
             vc.documentID = pVM.numberOfDBID(index: indexPath.row)
             vc.mainTitle  = pVM.numberOfTitle(index: indexPath.row)
-            
+            vc.dates = pVM.numberOfTotalDate(index: indexPath.row)
             vc.transitioningDelegate = self
             vc.modalPresentationStyle = .custom
             

@@ -31,9 +31,9 @@ class WriteVC: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         LayoutService().onlyCornerApply(view: mainView)
         LayoutService().imgOnlyCornerApply(img: imageView)
-        super.viewDidLoad()
         ConnectService().Network(view: self)
         setText()
     }

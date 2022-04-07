@@ -42,6 +42,13 @@ class LayoutService {
         btn.layer.borderWidth = 1
     }
     
+    func btnShadowApplt(btn: UIButton) {
+        btn.layer.shadowColor = UIColor.black.cgColor
+        btn.layer.masksToBounds = false
+        btn.layer.shadowOpacity = 0.14
+        btn.layer.shadowOffset = CGSize(width: 8, height: 0)
+        btn.layer.shadowRadius = 7 / 2.0
+    }
     func imgApplyLayer(img: UIImageView) {
         img.layer.cornerRadius = img.frame.height / 2
         img.layer.masksToBounds = true

@@ -789,7 +789,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGD-Mh-B6U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2999" y="1492"/>
+            <point key="canvasLocation" x="3045" y="1492"/>
         </scene>
         <!--ListVC-->
         <scene sceneID="7ah-Fd-nne">
@@ -890,6 +890,13 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <containerView key="backgroundView" opaque="NO" contentMode="scaleToFill" id="JZr-gm-ZjE">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="674"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <connections>
+                                        <segue destination="x9y-Pa-FeG" kind="embed" id="w0o-Su-ldL"/>
+                                    </connections>
+                                </containerView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="total" id="icX-sY-TYL" customClass="totalCell" customModule="WeekChallenge" customModuleProvider="target">
                                         <rect key="frame" x="19.5" y="0.0" width="375" height="260"/>
@@ -990,6 +997,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="eFy-CV-LP4"/>
                     <connections>
+                        <outlet property="cc" destination="JZr-gm-ZjE" id="7cj-ew-S4a"/>
                         <outlet property="dashCollection" destination="kcT-Q3-gAe" id="C68-Us-vvZ"/>
                         <outlet property="listTop" destination="7Me-Cc-BAt" id="0H2-9B-d24"/>
                         <outlet property="searchButton" destination="ar2-f8-3PI" id="3By-fS-js5"/>
@@ -1723,7 +1731,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="536.5"/>
                                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="settingCell" rowHeight="122" id="QQP-Ep-Rin" customClass="SettingCell" customModule="WeekChallenge" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingCell" rowHeight="122" id="QQP-Ep-Rin" customClass="SettingCell" customModule="WeekChallenge" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.5" width="414" height="122"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QQP-Ep-Rin" id="EGQ-rJ-HC4">
@@ -2037,14 +2045,16 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbc-b9-pYO">
-                                <rect key="frame" x="304" y="682" width="100" height="100"/>
+                                <rect key="frame" x="314" y="732" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="LCO-ZL-CqL"/>
-                                    <constraint firstAttribute="height" constant="100" id="lSW-5l-o37"/>
+                                    <constraint firstAttribute="width" constant="50" id="LCO-ZL-CqL"/>
+                                    <constraint firstAttribute="height" constant="50" id="lSW-5l-o37"/>
                                 </constraints>
                                 <color key="tintColor" name="black"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.left" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40" scale="default"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="btn:" destination="Uag-pA-dD0" eventType="touchUpInside" id="KZm-Hb-hpM"/>
                                 </connections>
@@ -2057,12 +2067,13 @@
                             <constraint firstItem="6S1-5W-sAv" firstAttribute="bottom" secondItem="27n-pk-2BL" secondAttribute="bottom" constant="75" id="4eJ-X7-F0S"/>
                             <constraint firstItem="27n-pk-2BL" firstAttribute="top" secondItem="6S1-5W-sAv" secondAttribute="top" constant="5" id="MLC-JJ-fc8"/>
                             <constraint firstItem="27n-pk-2BL" firstAttribute="leading" secondItem="6S1-5W-sAv" secondAttribute="leading" constant="10" id="ggh-y0-SaG"/>
-                            <constraint firstItem="6S1-5W-sAv" firstAttribute="trailing" secondItem="Kbc-b9-pYO" secondAttribute="trailing" constant="10" id="nxp-T3-EY9"/>
+                            <constraint firstItem="6S1-5W-sAv" firstAttribute="trailing" secondItem="Kbc-b9-pYO" secondAttribute="trailing" constant="50" id="nxp-T3-EY9"/>
                             <constraint firstItem="6S1-5W-sAv" firstAttribute="trailing" secondItem="27n-pk-2BL" secondAttribute="trailing" constant="10" id="vLa-Ni-oKG"/>
                             <constraint firstItem="6S1-5W-sAv" firstAttribute="bottom" secondItem="Kbc-b9-pYO" secondAttribute="bottom" constant="80" id="yu3-NE-jbg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btn" destination="Kbc-b9-pYO" id="jPr-xG-0Lc"/>
                         <outlet property="listCollection" destination="27n-pk-2BL" id="6Md-XM-mGZ"/>
                     </connections>
                 </viewController>
@@ -2979,6 +2990,33 @@
                 <tapGestureRecognizer id="W8d-Ch-Jpz"/>
             </objects>
             <point key="canvasLocation" x="6250.7246376811599" y="816.96428571428567"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Mf7-vV-0vz">
+            <objects>
+                <viewController id="x9y-Pa-FeG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eQP-93-j8P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="674"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 게시글이 없어요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFf-sP-AjV">
+                                <rect key="frame" x="50" y="324.5" width="314" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RFf-sP-AjV" secondAttribute="trailing" constant="50" id="6Mf-QI-pdD"/>
+                            <constraint firstItem="RFf-sP-AjV" firstAttribute="centerY" secondItem="eQP-93-j8P" secondAttribute="centerY" id="932-BT-Ieo"/>
+                            <constraint firstItem="RFf-sP-AjV" firstAttribute="leading" secondItem="eQP-93-j8P" secondAttribute="leading" constant="50" id="tfT-Em-4Sy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ald-xN-60V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3043" y="2152"/>
         </scene>
     </scenes>
     <resources>

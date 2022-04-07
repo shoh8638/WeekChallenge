@@ -29,4 +29,8 @@ struct PlanViewModel {
     func numberOfLSHView(index: Int) -> [Int] {
         return planM[index]!.complete!
     }
+    
+    func numberOfTotalDate(index: Int) -> [String] {
+        return planM[index]!.totalDates!
+    }
 }

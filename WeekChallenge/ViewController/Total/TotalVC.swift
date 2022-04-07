@@ -19,6 +19,8 @@ class TotalVC: UIViewController, UIViewControllerTransitioningDelegate {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var listTop: NSLayoutConstraint!
     @IBOutlet weak var searchTap: UIButton!
+    @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var cc: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,13 @@ class TotalVC: UIViewController, UIViewControllerTransitioningDelegate {
     func loadData() {
         DataService().TotalImgLoadData(collection: dashCollection) { model in
             self.totalVM = TotalViewModel(totalM: model)
+            if self.totalVM.numberOfRowsInSection() == 0 {
+                self.searchTap.isHidden = true
+                self.cc.isHidden = false
+            } else {
+                self.searchTap.isHidden = false
+                self.cc.isHidden = true
+            }
         }
     }
     
@@ -93,25 +102,20 @@ extension TotalVC: UITextFieldDelegate {
 extension TotalVC: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if totalVM != nil {
-            if self.totalVM.numberOfRowsInSection() == 0 {
-                return 1
-            } else {
-                return self.totalVM.numberOfRowsInSection()
-            }
+            return self.totalVM.numberOfRowsInSection()
         } else {
             return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if totalVM.numberOfRowsInSection() == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
-            return cell
-        } else {
+        if totalVM.numberOfRowsInSection() != 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "total", for: indexPath) as! totalCell
             cell.layer.cornerRadius = 20
             totalVM.totalUseImg(index: indexPath.row, img: cell.img)
             return cell
+        } else {
+            return UICollectionViewCell()
         }
     }
     

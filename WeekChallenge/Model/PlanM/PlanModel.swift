@@ -14,13 +14,15 @@ struct PlanModel {
     let firstDate: String?
     let lastDate: String?
     let complete: [Int]?
-
-    init(title: String, dates: [String], dbID: String, firstDate: String, lastDate: String, complete: [Int]) {
+    let totalDates: [String]?
+    
+    init(title: String, dates: [String], dbID: String, firstDate: String, lastDate: String, complete: [Int], totalDates: [String]) {
         self.title = title
         self.dates = dates
         self.dbID = dbID
         self.firstDate = firstDate
         self.lastDate = lastDate
         self.complete = complete
+        self.totalDates = totalDates
     }
 }

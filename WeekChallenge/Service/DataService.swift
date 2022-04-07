@@ -299,7 +299,7 @@ class DataService {
                     }
                     
                     if complete != [3,3,3,3,3] {
-                        planM = PlanModel(title: title, dates: dates, dbID: dbID, firstDate: firstDate, lastDate: lastDate!, complete: complete)
+                        planM = PlanModel(title: title, dates: dates, dbID: dbID, firstDate: firstDate, lastDate: lastDate!, complete: complete, totalDates: dates)
                         planVM.append(planM!)
                     }
                     complete.removeAll()
@@ -317,15 +317,17 @@ class DataService {
         self.db.collection(userID).document(documentID).addSnapshotListener { (document, err) in
             pdVM.removeAll()
             if err == nil {
-                let dates = (document!["Dates"] as! [String]).sorted(by: <)
-                for number in 0...dates.count-1 {
-                    let dateFields = document![dates[number]] as! [String: String]
-                    let title = dateFields["Title"]!
-                    let img = dateFields["Image"]!
-                    let text = dateFields["Text"]!
-                    if title != "" {
-                        pdM = PDetailModel(title: title, img: img, text: text, planDate: dates)
-                        pdVM.append(pdM)
+                if let _ = document?.data() {
+                    let dates = (document!["Dates"] as! [String]).sorted(by: <)
+                    for number in 0...dates.count-1 {
+                        let dateFields = document![dates[number]] as! [String: String]
+                        let title = dateFields["Title"]!
+                        let img = dateFields["Image"]!
+                        let text = dateFields["Text"]!
+                        if title != "" {
+                            pdM = PDetailModel(title: title, img: img, text: text, planDate: dates)
+                            pdVM.append(pdM)
+                        }
                     }
                 }
             }

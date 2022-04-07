@@ -26,6 +26,7 @@ class PlanVCCell: UICollectionViewCell {
         title.text = info.title!
         subTitle.text = info.title!
         period.text = "\(info.firstDate!) ~ \(info.lastDate!)"
+        changeView.isHidden = false
         ContributeView().LSHViewChange(view: changeView, count: info.complete!)
     }
     
@@ -33,5 +34,6 @@ class PlanVCCell: UICollectionViewCell {
         title.text = "플랜을 생성해주세요!"
         subTitle.text = ""
         period.text = ""
+        changeView.isHidden = true
     }
 }

@@ -14,6 +14,7 @@ class PlanDetailVC: UIViewController {
     
     var documentID: String?
     var mainTitle: String?
+    var dates: [String]?
     var pdVM: PDetailViewModel!
     
     @IBOutlet weak var DetatilCollection: UICollectionView!
@@ -37,7 +38,7 @@ class PlanDetailVC: UIViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "writeVC") as! WriteVC
         vc.documentID = self.documentID!
         vc.titles = self.mainTitle!
-        vc.userDates = pdVM.planDate(index: self.addBtn.tag)
+        vc.userDates = self.dates!
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
     }
