@@ -34,7 +34,7 @@ class CompleteVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func backTap(sender: UITapGestureRecognizer) {
-        print("tap")
+        print("CompleteVC_backTap")
         self.dismiss(animated: true, completion: nil)
     }
     

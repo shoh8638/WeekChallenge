@@ -49,7 +49,7 @@ extension RunningVC {
     }
     
     @objc func backTap(sender: UITapGestureRecognizer) {
-        print("tap")
+        print("RunningVC_backTap")
         self.dismiss(animated: true, completion: nil)
     }
 }

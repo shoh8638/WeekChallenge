@@ -19,7 +19,6 @@ class TotalVC: UIViewController, UIViewControllerTransitioningDelegate {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var listTop: NSLayoutConstraint!
     @IBOutlet weak var searchTap: UIButton!
-    @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var cc: UIView!
     
     override func viewDidLoad() {
@@ -28,7 +27,7 @@ class TotalVC: UIViewController, UIViewControllerTransitioningDelegate {
         self.listTop.constant = -40
         self.dashCollection?.collectionViewLayout = mosaicLayout
         mosaicLayout.delegate = self
-        
+        dashCollection.clipsToBounds = true
         searchField.delegate = self
         searchView.isHidden = true
         searchButton.isHidden = true
@@ -73,6 +72,7 @@ class TotalVC: UIViewController, UIViewControllerTransitioningDelegate {
                 self.searchView.alpha = 1
                 self.listTop.constant = 5
                 self.view.layoutIfNeeded()
+                self.dashCollection.clipsToBounds = true
                 self.dashCollection.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             })
         } else if searchView.isHidden == false {
@@ -82,6 +82,7 @@ class TotalVC: UIViewController, UIViewControllerTransitioningDelegate {
                 self.listTop.constant = -40
                 self.view.layoutIfNeeded()
             })
+            self.dashCollection.clipsToBounds = true
         }
     }
 }

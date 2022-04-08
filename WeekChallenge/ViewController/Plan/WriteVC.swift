@@ -19,7 +19,6 @@ class WriteVC: UIViewController {
     var documentID: String?
     var titles: String?
     let picker = UIImagePickerController()
-    var imgUrl: String?
     var dateString: String = ""
     var userDates: [String]?
     var uploadImg: UIImage?
@@ -56,21 +55,17 @@ class WriteVC: UIViewController {
         self.showTextOverlay("please Wait....")
         if self.newTitle.text == "" {
             self.removeAllOverlays()
-            print("save 실패")
-            self.dismiss(animated: true, completion: nil)
-        }
-        
-        else if self.mainText.text == "" {
+            AlertService().basicAlert(viewController: self, message: "제목을 입력해주세요!")
+        } else if self.mainText.text == "" {
             self.removeAllOverlays()
-            print("save 실패")
-            
-        }
-        
-        else if !self.userDates!.contains(self.dateString) {
+            AlertService().basicAlert(viewController: self, message: "내용을 입력해주세요!")
+        } else if !self.userDates!.contains(self.dateString) {
             self.removeAllOverlays()
-            print("save 실패")
-        }
-        else {
+            AlertService().basicAlert(viewController: self, message: "일정과 일치하지 않는 날짜입니다!")
+        } else if self.uploadImg == nil {
+            self.removeAllOverlays()
+            AlertService().basicAlert(viewController: self, message: "사진 첨부해주세요!")
+        }  else {
             guard let userID = Auth.auth().currentUser?.email  else { return }
             
             var data = Data()
@@ -98,10 +93,6 @@ class WriteVC: UIViewController {
     
     @IBAction func dismissBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func uploadImg(img: UIImage) {
-
     }
 }
 
