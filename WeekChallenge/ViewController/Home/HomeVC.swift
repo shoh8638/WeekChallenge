@@ -25,6 +25,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var listTable: UITableView!
+    @IBOutlet weak var table: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     func setupView() {
         applyLayout.viewApplyLayer(view: userView)
+        applyLayout.viewApplyLayer(view: table)
         applyLayout.buttonApplyLayer(btn: addBtn)
         applyLayout.buttonApplyLayer(btn: runningBtn)
         applyLayout.buttonApplyLayer(btn: completeBtn)
@@ -50,8 +52,8 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         applyLayout.tableApplyLayer(table: listTable)
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.scope = .week
+        listTable.clipsToBounds = true
         
-        listTable.rowHeight = UITableView.automaticDimension
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         self.currentDate.text = formatter.string(from: Date())
@@ -133,7 +135,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return listTable.bounds.height / 2
+        return listTable.bounds.height / 4
     }
 }
 
@@ -152,9 +154,11 @@ extension HomeVC: FSCalendarDelegate, FSCalendarDataSource {
     @objc func swipeEvent(_ swipe: UISwipeGestureRecognizer) {
         if swipe.direction == .up {
             calendar.scope = .week
+            listTable.clipsToBounds = true
         }
         else if swipe.direction == .down {
             calendar.scope = .month
+            listTable.clipsToBounds = true
         }
     }
     

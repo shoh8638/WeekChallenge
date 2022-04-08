@@ -361,6 +361,7 @@
                         <outlet property="currentDate" destination="FoT-JW-WbO" id="rHg-93-lTL"/>
                         <outlet property="listTable" destination="mcr-wa-GBP" id="Mb9-xM-b1e"/>
                         <outlet property="runningBtn" destination="qGN-Zw-QhR" id="OOV-Zl-zeT"/>
+                        <outlet property="table" destination="SQA-D1-ZLq" id="MCD-Eh-4Bx"/>
                         <outlet property="userImg" destination="OrG-5H-NG5" id="HSa-wy-PfM"/>
                         <outlet property="userName" destination="cum-KZ-g78" id="SJY-b6-w8Q"/>
                         <outlet property="userView" destination="PBZ-f9-7s5" id="QL1-mm-O4s"/>
@@ -3006,6 +3007,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="RHK-xY-yJ8"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="RFf-sP-AjV" secondAttribute="trailing" constant="50" id="6Mf-QI-pdD"/>

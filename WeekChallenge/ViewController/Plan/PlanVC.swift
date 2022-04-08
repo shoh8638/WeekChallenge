@@ -23,7 +23,7 @@ class PlanVC: UIViewController {
         LayoutService().btnShadowApplt(btn: btn)
         DataService().PlanLoadData(collection: listCollection) { model in
             self.pVM = PlanViewModel(planM: model)
-            if self.pVM.numberOfRowsInSection() == 0 {
+            if self.pVM.numberOfRowsInSection() < 2 {
                 self.btn.isHidden = true
             } else {
                 self.btn.isHidden = false

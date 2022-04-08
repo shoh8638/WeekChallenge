@@ -42,12 +42,19 @@ class SettingVC: UIViewController, UIGestureRecognizerDelegate {
         tap.delegate = self
         self.view.addGestureRecognizer(tap)
         self.view.isUserInteractionEnabled = true
+        
+        let imgTap = UITapGestureRecognizer(target: self, action: #selector(imgTap(sender:)))
+        self.userImg.addGestureRecognizer(imgTap)
+        self.userImg.isUserInteractionEnabled = true
     }
     
     @objc func xButtonTap(sender: UIGestureRecognizer) {
         print("Tap")
     }
     
+    @objc func imgTap(sender: UIGestureRecognizer) {
+        ConnectService().sendVC(main: self, name: "HomeProfile")
+    }
 }
 
 //MARK: UITableView
