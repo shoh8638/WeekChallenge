@@ -76,6 +76,7 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        settingTable.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
             ConnectService().sendVC(main: self, name: "SetProfile")

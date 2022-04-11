@@ -8,7 +8,6 @@
 import UIKit
 import FirebaseAuth
 import FirebaseStorage
-import SwiftOverlays
 
 class SignInVC: UIViewController {
     

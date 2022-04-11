@@ -78,8 +78,6 @@ extension ManageListVC: UICollectionViewDataSource, UICollectionViewDelegate, UI
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print(UIScreen.main.bounds.width/2-20)
-        print(UIScreen.main.bounds.height/4)
         return CGSize(width: UIScreen.main.bounds.width/2-20, height: UIScreen.main.bounds.height/4)
     }
 }
