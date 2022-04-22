@@ -27,26 +27,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5일플래너" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cp-Ck-4U0">
-                                <rect key="frame" x="50" y="499.5" width="314" height="20.5"/>
+                                <rect key="frame" x="50" y="505.5" width="314" height="20.5"/>
                                 <color key="backgroundColor" name="white"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0T1-Gj-GhZ">
-                                <rect key="frame" x="50" y="565" width="314" height="126"/>
+                                <rect key="frame" x="50" y="571" width="314" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Zd-Rw-J67">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoU-kG-5O7">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.6705882352941176" green="0.70588235294117641" blue="0.74117647058823533" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="bbb@bbb.co" borderStyle="roundedRect" placeholder="aaa@aaa.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ao3-NO-aIA">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="tintColor" name="black"/>
                                                 <color key="textColor" name="black"/>
@@ -56,16 +56,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ylm-bJ-bgo">
-                                        <rect key="frame" x="0.0" y="67" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="64" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvP-gR-IO2">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.6705882352941176" green="0.70588235294117641" blue="0.74117647058823533" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="qlqjs486" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YWw-yA-wFF">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="tintColor" name="black"/>
                                                 <color key="textColor" name="black"/>
@@ -110,7 +110,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="evr-GV-7iy">
-                                <rect key="frame" x="172" y="332" width="70" height="70"/>
+                                <rect key="frame" x="172" y="338" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="2Eq-oK-f0R"/>
                                     <constraint firstAttribute="height" constant="70" id="a9D-PO-uVX"/>
@@ -380,20 +380,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q52-RY-Gco">
-                                <rect key="frame" x="50" y="498" width="314" height="193"/>
+                                <rect key="frame" x="50" y="507" width="314" height="184"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="miS-Ie-hBS">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용할 UserName 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMR-2D-wvy">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.6705882353" green="0.70588235290000001" blue="0.74117647060000003" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lyf-XF-dye">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="textColor" name="black"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -402,10 +402,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pgU-xK-MH2">
-                                        <rect key="frame" x="0.0" y="67" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="64" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용할 Email 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9O9-5y-L1O">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="tintColor" name="black"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
@@ -413,7 +413,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email: " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uU9-4e-hc4">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="textColor" name="black"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -422,16 +422,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ykr-6a-L4M">
-                                        <rect key="frame" x="0.0" y="134" width="314" height="59"/>
+                                        <rect key="frame" x="0.0" y="128" width="314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용할 Password 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNc-jp-zGk">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="14"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.6705882352941176" green="0.70588235294117641" blue="0.74117647058823533" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PWD: " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rR5-ua-MCQ">
-                                                <rect key="frame" x="0.0" y="25" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="22" width="314" height="34"/>
                                                 <color key="backgroundColor" name="white"/>
                                                 <color key="tintColor" name="black"/>
                                                 <color key="textColor" name="black"/>

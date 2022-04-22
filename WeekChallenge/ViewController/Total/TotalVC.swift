@@ -67,22 +67,22 @@ class TotalVC: UIViewController, UIViewControllerTransitioningDelegate {
     @IBAction func mainSearch(_ sender: Any) {
         print("Tap")
         if searchView.isHidden == true {
+            self.dashCollection.clipsToBounds = true
             UIView.animate(withDuration: 0.5, animations: {
                 self.searchView.isHidden = false
                 self.searchView.alpha = 1
                 self.listTop.constant = 5
                 self.view.layoutIfNeeded()
-                self.dashCollection.clipsToBounds = true
                 self.dashCollection.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             })
         } else if searchView.isHidden == false {
+            self.dashCollection.clipsToBounds = true
             UIView.animate(withDuration: 0.5, animations: {
                 self.searchView.isHidden = true
                 self.searchView.alpha = 0
                 self.listTop.constant = -40
                 self.view.layoutIfNeeded()
             })
-            self.dashCollection.clipsToBounds = true
         }
     }
 }
