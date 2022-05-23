@@ -54,7 +54,7 @@ class InitNoticeVC: UIViewController {
             case .orderedSame:
                 result = false
             case .orderedAscending:
-                result = false
+                result = true
             case .orderedDescending:
                 result = true
             default:
