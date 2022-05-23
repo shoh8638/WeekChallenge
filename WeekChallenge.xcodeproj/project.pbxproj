@@ -25,6 +25,8 @@
 		E60DA3BC27D1FFAF001DC914 /* ConnectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3BB27D1FFAF001DC914 /* ConnectService.swift */; };
 		E60DA3C027D988C2001DC914 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3BF27D988C2001DC914 /* HomeVC.swift */; };
 		E60DA3C227D9CA34001DC914 /* SelectCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */; };
+		E613A7FA283B143100775DA7 /* InitNoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E613A7F9283B143100775DA7 /* InitNoticeVC.swift */; };
+		E613A7FC283B163900775DA7 /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E613A7FB283B163900775DA7 /* Notice.storyboard */; };
 		E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */; };
 		E6584F5227B33DFD00B58FCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */; };
 		E6584F5727B33DFD00B58FCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6584F5527B33DFD00B58FCB /* Main.storyboard */; };
@@ -139,6 +141,8 @@
 		E60DA3BB27D1FFAF001DC914 /* ConnectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectService.swift; sourceTree = "<group>"; };
 		E60DA3BF27D988C2001DC914 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E60DA3C127D9CA34001DC914 /* SelectCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCalendarVC.swift; sourceTree = "<group>"; };
+		E613A7F9283B143100775DA7 /* InitNoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitNoticeVC.swift; sourceTree = "<group>"; };
+		E613A7FB283B163900775DA7 /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
 		E6584F4C27B33DFD00B58FCB /* WeekChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6584F4F27B33DFD00B58FCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6584F5127B33DFD00B58FCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +252,14 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		E613A7F8283B140800775DA7 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				E613A7F9283B143100775DA7 /* InitNoticeVC.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
 		E6584F4327B33DFD00B58FCB = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +323,7 @@
 				E6E0A4FE27E426B500718EA2 /* Dummy */,
 				E66495A127BC8AF7000110C9 /* Login */,
 				E6C734ED27DB03BA00A0CC4B /* Home */,
+				E613A7F8283B140800775DA7 /* Notice */,
 				E6C734EE27DB03E200A0CC4B /* Plan */,
 				E6C734F027DB041F00A0CC4B /* Total */,
 				E6C734EF27DB03FE00A0CC4B /* Setting */,
@@ -391,8 +404,9 @@
 		E664959F27BC8AC0000110C9 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
-				E6584F5527B33DFD00B58FCB /* Main.storyboard */,
 				E6584F5A27B33DFF00B58FCB /* LaunchScreen.storyboard */,
+				E6584F5527B33DFD00B58FCB /* Main.storyboard */,
+				E613A7FB283B163900775DA7 /* Notice.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -720,6 +734,7 @@
 			files = (
 				E6584F5C27B33DFF00B58FCB /* LaunchScreen.storyboard in Resources */,
 				E6853F9D27B49B2A0091B4A7 /* GoogleService-Info.plist in Resources */,
+				E613A7FC283B163900775DA7 /* Notice.storyboard in Resources */,
 				E6584F5927B33DFF00B58FCB /* Assets.xcassets in Resources */,
 				E6584F5727B33DFD00B58FCB /* Main.storyboard in Resources */,
 			);
@@ -878,6 +893,7 @@
 				E6853F9F27B4A26E0091B4A7 /* MainVC.swift in Sources */,
 				E601BE3D27DB208900BFF7BD /* HomeProfile.swift in Sources */,
 				E6584F5027B33DFD00B58FCB /* AppDelegate.swift in Sources */,
+				E613A7FA283B143100775DA7 /* InitNoticeVC.swift in Sources */,
 				E6D2C76827ED8AE500CB9E0F /* CountViewModel.swift in Sources */,
 				E6B9BAE327FD62F300D1B94A /* TotalDetailViewModel.swift in Sources */,
 				E6D2C73427EBEC9700CB9E0F /* ContributeView.swift in Sources */,

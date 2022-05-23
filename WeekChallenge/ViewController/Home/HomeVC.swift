@@ -14,6 +14,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     var userVM : UserViewModel!
     var countVM: CountViewModel!
     var dataVM: DataViewModel!
+    let initNotic = InitNoticeVC()
     
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var currentDate: UILabel!
@@ -39,6 +40,14 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         userLoadData()
+    }
+    
+    func checkNoti() {
+        if initNotic.isShowable() {
+            let vc = UIStoryboard(name: "Notice", bundle: nil).instantiateViewController(withIdentifier: "initNoti")
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+        }
     }
     
     func setupView() {
@@ -87,6 +96,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     func loadData() {
         DataService().HomeLoadData(table: listTable) { model in
             self.dataVM = DataViewModel(dataM: model)
+            self.checkNoti()
         }
     }
     
