@@ -17,17 +17,13 @@ class PlanVC: UIViewController {
         super.viewDidLoad()
         ConnectService().Network(view: self)
         loadData()
+        btn.isHidden = true
     }
     
     func loadData() {
         LayoutService().btnShadowApplt(btn: btn)
         DataService().PlanLoadData(collection: listCollection) { model in
             self.pVM = PlanViewModel(planM: model)
-            if self.pVM.numberOfRowsInSection() < 2 {
-                self.btn.isHidden = true
-            } else {
-                self.btn.isHidden = false
-            }
         }
     }
     
@@ -80,6 +76,18 @@ extension PlanVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width - 75, height: UIScreen.main.bounds.height/2)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.pVM.numberOfRowsInSection() > 1 {
+            if scrollView.contentOffset.x < 0 {
+                self.btn.isHidden = false
+            } else if scrollView.contentOffset.x == 0 {
+                self.btn.isHidden = true
+            } else {
+                self.btn.isHidden = false
+            }
+        }
     }
 }
 
