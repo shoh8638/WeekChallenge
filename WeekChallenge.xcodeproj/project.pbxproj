@@ -454,8 +454,8 @@
 		E6C734EF27DB03FE00A0CC4B /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				E6D2C77627F16A6D00CB9E0F /* SettingVC.swift */,
 				E6D2C77F27F18ABF00CB9E0F /* SetiingGroup */,
-				E6D2C75527EC463C00CB9E0F /* ManageListVC.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -596,11 +596,11 @@
 		E6D2C77F27F18ABF00CB9E0F /* SetiingGroup */ = {
 			isa = PBXGroup;
 			children = (
-				E6D2C77627F16A6D00CB9E0F /* SettingVC.swift */,
 				E601BE4027E0100000BFF7BD /* ProfileVC.swift */,
 				E601BE4827E025CE00BFF7BD /* Account */,
 				E601BE4427E0103900BFF7BD /* LogOutVC.swift */,
 				E601BE4627E0104400BFF7BD /* RemoveVC.swift */,
+				E6D2C75527EC463C00CB9E0F /* ManageListVC.swift */,
 			);
 			path = SetiingGroup;
 			sourceTree = "<group>";

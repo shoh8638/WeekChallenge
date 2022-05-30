@@ -1603,21 +1603,23 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTn-7V-RWX">
                                                     <rect key="frame" x="8" y="8" width="165" height="223"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4M-Yz-4EC">
-                                                            <rect key="frame" x="10" y="10" width="145" height="31"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxl-8A-RlM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="72.5" height="31"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzI-OU-8v4">
-                                                                    <rect key="frame" x="72.5" y="0.0" width="72.5" height="31"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxl-8A-RlM">
+                                                            <rect key="frame" x="78" y="5" width="40" height="31"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="GcN-bd-dIP"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzI-OU-8v4">
+                                                            <rect key="frame" x="120" y="5" width="40" height="31"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="5n2-gC-iof"/>
+                                                            </constraints>
+                                                            <color key="tintColor" name="black"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="xmark.octagon" catalog="system"/>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jw4-Nh-Uzp">
                                                             <rect key="frame" x="10" y="101" width="145" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1628,11 +1630,13 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="Jw4-Nh-Uzp" firstAttribute="leading" secondItem="VTn-7V-RWX" secondAttribute="leading" constant="10" id="6B0-8e-h4N"/>
-                                                        <constraint firstItem="X4M-Yz-4EC" firstAttribute="leading" secondItem="VTn-7V-RWX" secondAttribute="leading" constant="10" id="8ne-zT-eHv"/>
-                                                        <constraint firstAttribute="trailing" secondItem="X4M-Yz-4EC" secondAttribute="trailing" constant="10" id="HBf-do-zAh"/>
+                                                        <constraint firstItem="JzI-OU-8v4" firstAttribute="leading" secondItem="nxl-8A-RlM" secondAttribute="trailing" constant="2" id="92m-om-6Ih"/>
+                                                        <constraint firstItem="Jw4-Nh-Uzp" firstAttribute="top" secondItem="nxl-8A-RlM" secondAttribute="bottom" constant="65" id="BeQ-LI-u2C"/>
+                                                        <constraint firstItem="nxl-8A-RlM" firstAttribute="top" secondItem="VTn-7V-RWX" secondAttribute="top" constant="5" id="KSc-Ut-ULn"/>
+                                                        <constraint firstItem="JzI-OU-8v4" firstAttribute="top" secondItem="VTn-7V-RWX" secondAttribute="top" constant="5" id="W8U-87-t5Z"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Jw4-Nh-Uzp" secondAttribute="bottom" constant="101.5" id="eAJ-ze-gpg"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JzI-OU-8v4" secondAttribute="trailing" constant="5" id="gGA-Yf-W7e"/>
                                                         <constraint firstAttribute="trailing" secondItem="Jw4-Nh-Uzp" secondAttribute="trailing" constant="10" id="oTL-gm-Kkd"/>
-                                                        <constraint firstItem="X4M-Yz-4EC" firstAttribute="top" secondItem="VTn-7V-RWX" secondAttribute="top" constant="10" id="skR-4m-Lgr"/>
-                                                        <constraint firstItem="Jw4-Nh-Uzp" firstAttribute="top" secondItem="X4M-Yz-4EC" secondAttribute="bottom" constant="60" id="zOu-ft-Rqu"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -2763,8 +2767,10 @@
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
         <image name="icons8Reserve150" width="27" height="28"/>
         <image name="icons8Search101" width="26" height="27"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="profileIcon" width="25" height="27"/>
         <image name="settingsMenuItem" width="27" height="28"/>
+        <image name="xmark.octagon" catalog="system" width="128" height="112"/>
         <namedColor name="4A4A4A">
             <color red="0.28999999165534973" green="0.28999999165534973" blue="0.28999999165534973" alpha="0.23999999463558197" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

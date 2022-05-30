@@ -31,6 +31,17 @@ class ManageListVC: UIViewController, UIGestureRecognizerDelegate {
     func loadData() {
         DataService().manageLoadData(collection: manageCollection) { model in
             self.manageVM = ManageViewModel(manageM: model)
+            self.emptyPlan()
+        }
+    }
+    
+    func emptyPlan() {
+        if self.manageVM.numberOfRowsInSection() == 0 {
+            let alert = UIAlertController(title: "알림", message: "플랜이 없습니다!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+                self.dismiss(animated: true)
+            }))
+            self.present(alert, animated: true)
         }
     }
 }
